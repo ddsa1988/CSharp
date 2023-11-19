@@ -28,8 +28,8 @@ public class Invoice {
     }
 
     public override string ToString() {
-        return "Basic payment: " + BasicPayment.ToString("F2", cultureInfo)
-               + "\nTax: " + Tax.ToString("F2", cultureInfo)
-               + "\nTotal payment: " + TotalPayment.ToString("F2", cultureInfo);
+        return "Basic payment: $" + BasicPayment.ToString("F2", cultureInfo) + 
+               "\nTax: $" + Tax.ToString("F2", cultureInfo) + 
+               "\nTotal payment: $" + TotalPayment.ToString("F2", cultureInfo);
     }
 }
