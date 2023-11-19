@@ -19,7 +19,7 @@ public class Installment {
     }
 
     public override string ToString() {
-        return "Due date: " + DueDate.ToString(cultureInfo) +
+        return "Due date: " + DueDate.ToShortDateString() +
                "\nAmount: $" + Amount.ToString("F2", cultureInfo);
     }
 }
