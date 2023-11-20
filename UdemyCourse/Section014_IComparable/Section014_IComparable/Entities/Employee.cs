@@ -9,11 +9,22 @@ public class Employee : IComparable {
     public string Name { get; set; } = "";
 
     public Employee(string txtEmployee) {
+        SetEmployee(txtEmployee);
+    }
+
+    private void SetEmployee(string txtEmployee) {
         if (!txtEmployee.Contains(',')) return;
-        
+
         string[] data = txtEmployee.Split(",");
-        Name = data[0];
-        Salary = double.Parse(data[1], cultureInfo);
+
+        if (string.IsNullOrEmpty(data[0]) || string.IsNullOrWhiteSpace(data[0])) return;
+
+        try {
+            Salary = double.Parse(data[1], cultureInfo);
+            Name = data[0];
+        } catch (Exception e) {
+            Console.WriteLine(e.Message);
+        }
     }
 
     public double Salary {

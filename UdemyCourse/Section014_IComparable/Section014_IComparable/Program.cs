@@ -13,17 +13,24 @@ public class Program {
             using (StreamReader sr = File.OpenText(sourcePath)) {
                 while (!sr.EndOfStream) {
                     string? line = sr.ReadLine();
-
-                    if (string.IsNullOrEmpty(line) || string.IsNullOrWhiteSpace(line)) continue;
                     
                     Employee employee = new Employee(line);
+
+                    if (string.IsNullOrEmpty(employee.Name) || string.IsNullOrWhiteSpace(employee.Name)) continue;
+
                     employees.Add(employee);
                 }
             }
         } catch (Exception e) {
             Console.WriteLine(e.Message);
         }
-        
+
+        foreach (Employee employee in employees) {
+            Console.WriteLine(employee);
+        }
+
+        Console.WriteLine();
+
         employees.Sort();
         
         foreach (Employee emp in employees) {
