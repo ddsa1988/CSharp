@@ -25,6 +25,8 @@ public class Program {
             Console.WriteLine(e.Message);
         }
 
+        Console.WriteLine("Normal order:" +
+                          "");
         foreach (Employee employee in employees) {
             Console.WriteLine(employee);
         }
@@ -32,6 +34,28 @@ public class Program {
         Console.WriteLine();
 
         employees.Sort();
+
+        Console.WriteLine("Sorted by name ascending:");
+        
+        foreach (Employee employee in employees) {
+            Console.WriteLine(employee);
+        }
+        
+        Console.WriteLine();
+
+        employees.Sort(new Employee.SortBySalaryAscending());
+        
+        Console.WriteLine("Sorted by salary ascending:");
+        
+        foreach (Employee employee in employees) {
+            Console.WriteLine(employee);
+        }
+        
+        Console.WriteLine();
+
+        employees.Sort(new Employee.SortBySalaryDescending());
+        
+        Console.WriteLine("Sorted by salary descending:");
         
         foreach (Employee emp in employees) {
             Console.WriteLine(emp);

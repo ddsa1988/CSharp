@@ -2,7 +2,7 @@ using System.Globalization;
 
 namespace Section014_IComparable.Entities; 
 
-public class Employee : IComparable {
+public class Employee : IComparable<Employee> {
 
     private CultureInfo cultureInfo = CultureInfo.InvariantCulture;
     private double salary;
@@ -23,7 +23,7 @@ public class Employee : IComparable {
             Salary = double.Parse(data[1], cultureInfo);
             Name = data[0];
         } catch (Exception e) {
-            Console.WriteLine(e.Message);
+            // Console.WriteLine(e.Message);
         }
     }
 
@@ -32,19 +32,30 @@ public class Employee : IComparable {
         set { salary = value > 0 ? value : 0; }
     }
 
+    public int CompareTo(Employee? other) {
+        return string.CompareOrdinal(Name, other?.Name);
+    }
+
     public override string ToString() {
         return "Name: " + Name +
                " - Salary: $" + Salary.ToString("F2", cultureInfo);
     }
-
-    public int CompareTo(object? obj) {
-
-        if (obj is not Employee) {
-            throw new ArgumentException("Comparing error: argument is not a Employee");
+    
+    public class SortBySalaryAscending : IComparer<Employee> {
+        public int Compare(Employee? x, Employee? y) {
+            if (ReferenceEquals(x, y)) return 0;
+            if (ReferenceEquals(null, y)) return 1;
+            if (ReferenceEquals(null, x)) return -1;
+            return x.Salary.CompareTo(y.Salary);
         }
-        
-        Employee? other = obj as Employee;
-        
-        return Salary.CompareTo(other?.Salary);
+    }
+    
+    public class SortBySalaryDescending : IComparer<Employee> {
+        public int Compare(Employee? x, Employee? y) {
+            if (ReferenceEquals(x, y)) return 0;
+            if (ReferenceEquals(null, y)) return 1;
+            if (ReferenceEquals(null, x)) return -1;
+            return y.Salary.CompareTo(x.Salary);
+        }
     }
 }
