@@ -28,10 +28,10 @@ public class Client {
 
         Client? other = obj as Client;
 
-        return Id.Equals(other?.Id);
+        return Email.Equals(other?.Email);
     }
 
     public override int GetHashCode() {
-        return Id.GetHashCode();
+        return Email.GetHashCode();
     }
 }
