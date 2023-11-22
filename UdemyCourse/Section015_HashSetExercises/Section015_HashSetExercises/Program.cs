@@ -3,7 +3,7 @@
 public class Program {
     public static void Main(string[] args) {
 
-        const int choice = 0;
+        const int choice = 1;
 
         switch (choice) {
             case 0:
