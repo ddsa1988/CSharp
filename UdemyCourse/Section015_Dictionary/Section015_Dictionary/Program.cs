@@ -6,25 +6,34 @@ public class Program {
         char separator = Path.AltDirectorySeparatorChar;
         string sourcePath = @$"..{separator}..{separator}..{separator}/Files{separator}Votes.txt";
 
-        if (File.Exists(sourcePath)) {
+        if (!File.Exists(sourcePath)) return;
+        
+        Dictionary<string, int> candidates = new Dictionary<string, int>();
 
-            Dictionary<string, int> candidates = new Dictionary<string, int>();
+        try {
+            using StreamReader sr = new StreamReader(sourcePath);
 
-            candidates.Add("diego", 1000);
-            PrintCollection(candidates);
+            while (!sr.EndOfStream) {
+                string line = sr.ReadLine();
+                    
+                if(!IsDataValid(line)) continue;
 
-            try {
-                using StreamReader sr = new StreamReader(sourcePath);
+                string[] lineArr = line.Split(',');
+                string name = lineArr[0];
+                int votes = int.Parse(lineArr[1]);
 
-                while (!sr.EndOfStream) {
-                    string line = sr.ReadLine();
-                    Console.WriteLine(line);
+                if (!candidates.TryAdd(name, votes)) {
+                    candidates[name] += votes;
                 }
-
-
-            } catch (Exception e) {
-                Console.WriteLine(e.Message);
             }
+        } catch (Exception e) {
+            Console.WriteLine(e.Message);
+        }
+
+        // PrintCollection(candidates);
+            
+        foreach (KeyValuePair<string, int> item in candidates) {
+            Console.WriteLine(item.Key + ": " + item.Value);
         }
     }
 
@@ -40,14 +49,18 @@ public class Program {
         if(string.IsNullOrEmpty(text) || string.IsNullOrWhiteSpace(text)) return false;
 
         if (!text.Contains(',')) return false;
+        
+        string[] textParts = text.Split(",");
 
+        if (textParts.Length != 2) return false;
+        
         try {
-            string[] textParts = text.Split(",");
+            string name = textParts[0];
+            int votes = int.Parse(textParts[1]);
 
-            return true;
-
+            return !string.IsNullOrEmpty(name) && !string.IsNullOrWhiteSpace(name) && votes >= 0;
         } catch (Exception e) {
-            Console.WriteLine(e.Message);
+            // Console.WriteLine(e.Message);
             return false;
         }
     }
