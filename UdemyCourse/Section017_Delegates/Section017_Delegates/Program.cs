@@ -4,26 +4,21 @@ namespace Section017_Delegates;
 
 public class Program {
     
-    public delegate double BinaryOperation(double x, double y);
-    public delegate void ShowOperation(double x, double y);
-    
     public static void Main(string[] arg) {
 
-        {
-            BinaryOperation op = CalculatorService.Max;
-            Console.WriteLine(op(2,5));
+        const int choice = 2;
 
-            op = CalculatorService.Sum;
-            Console.WriteLine(op(2,5));
-        }
-
-        Console.WriteLine();
-
-        {
-            ShowOperation op = CalculatorService.ShowMax;
-            op += CalculatorService.ShowSum;
-
-            op(10, 20);
+        switch (choice) {
+            case 1:
+                Console.WriteLine("Delegates:\n");
+                Exemple001.CallMain();
+                break;
+            case 2:
+                Console.WriteLine("Delegate predicate:\n");
+                Exemple002.CallMain();
+                break;
+            default:
+                break;
         }
     }
 }
