@@ -15,7 +15,7 @@ public class Exemple002 {
         PrintCollection(products);
         Console.WriteLine();
 
-        // products.RemoveAll(product => product.Price < 100F);
+        //products.RemoveAll(product => product.Price < 100F);
         Predicate<Product> predicate = ProductTest;
         products.RemoveAll(predicate);
         PrintCollection(products);

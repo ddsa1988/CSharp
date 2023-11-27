@@ -4,7 +4,7 @@ public class Program {
     
     public static void Main(string[] arg) {
 
-        const int choice = 2;
+        const int choice = 4;
 
         switch (choice) {
             case 1:
