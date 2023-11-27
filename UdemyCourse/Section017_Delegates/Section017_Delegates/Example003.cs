@@ -2,7 +2,7 @@ using Section017_Delegates.Services;
 
 namespace Section017_Delegates;
 
-public class Exemple003 {
+public class Example003 {
     public static void CallMain() {
         List<Product> products = new List<Product>();
 
@@ -15,13 +15,13 @@ public class Exemple003 {
         Console.WriteLine();
 
         //products.ForEach(product => product.Price += product.Price * (10F / 100F));
-        Action<Product> action = AddPercentange;
+        Action<Product> action = AddPercentage;
         products.ForEach(action);
         PrintCollection(products);
     }
 
-    private static void AddPercentange(Product product) {
-        float percent = 10F / 100F;
+    private static void AddPercentage(Product product) {
+        const float percent = 10F / 100F;
         product.Price += product.Price * percent;
     }
 

@@ -9,19 +9,19 @@ public class Program {
         switch (choice) {
             case 1:
                 Console.WriteLine("Delegates:\n");
-                Exemple001.CallMain();
+                Example001.CallMain();
                 break;
             case 2:
                 Console.WriteLine("Delegate Predicate:\n");
-                Exemple002.CallMain();
+                Example002.CallMain();
                 break;
             case 3:
                 Console.WriteLine("Delegate Action:\n");
-                Exemple003.CallMain();
+                Example003.CallMain();
                 break;
             case 4:
                 Console.WriteLine("Delegate Func:\n");
-                Exemple004.CallMain();
+                Example004.CallMain();
                 break;
         }
     }

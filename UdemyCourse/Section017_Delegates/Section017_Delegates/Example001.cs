@@ -2,7 +2,7 @@ using Section017_Delegates.Services;
 
 namespace Section017_Delegates;
 
-public class Exemple001 {
+public class Example001 {
     public delegate double BinaryOperation(double x, double y);
 
     public delegate void ShowOperation(double x, double y);

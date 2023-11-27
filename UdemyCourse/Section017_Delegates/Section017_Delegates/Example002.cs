@@ -2,7 +2,7 @@ using Section017_Delegates.Services;
 
 namespace Section017_Delegates;
 
-public class Exemple002 {
+public class Example002 {
     public static void CallMain() {
 
         List<Product> products = new List<Product>();
