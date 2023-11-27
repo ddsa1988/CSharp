@@ -15,10 +15,16 @@ public class Exemple002 {
         PrintCollection(products);
         Console.WriteLine();
 
-        products.RemoveAll(p => p.Price < 100F);
+        // products.RemoveAll(product => product.Price < 100F);
+        Predicate<Product> predicate = ProductTest;
+        products.RemoveAll(predicate);
         PrintCollection(products);
     }
 
+    private static bool ProductTest(Product product) {
+        return product.Price < 100F;
+    }
+    
     private static void PrintCollection<T>(IEnumerable<T> collection) {
         foreach (T item in collection) {
             Console.WriteLine(item);

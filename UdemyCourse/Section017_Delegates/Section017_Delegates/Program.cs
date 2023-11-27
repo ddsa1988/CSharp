@@ -1,6 +1,4 @@
-﻿using Section017_Delegates.Services;
-
-namespace Section017_Delegates;
+﻿namespace Section017_Delegates;
 
 public class Program {
     
@@ -14,10 +12,16 @@ public class Program {
                 Exemple001.CallMain();
                 break;
             case 2:
-                Console.WriteLine("Delegate predicate:\n");
+                Console.WriteLine("Delegate Predicate:\n");
                 Exemple002.CallMain();
                 break;
-            default:
+            case 3:
+                Console.WriteLine("Delegate Action:\n");
+                Exemple003.CallMain();
+                break;
+            case 4:
+                Console.WriteLine("Delegate Func:\n");
+                Exemple004.CallMain();
                 break;
         }
     }
