@@ -2,11 +2,11 @@ using System.Globalization;
 
 namespace Section017_Linq.Entities;
 
-public class Product {
+public class ProductType01 {
     private string name = "";
     private float price;
 
-    public Product(string name, float price) {
+    public ProductType01(string name, float price) {
         Name = name;
         Price = price;
     }

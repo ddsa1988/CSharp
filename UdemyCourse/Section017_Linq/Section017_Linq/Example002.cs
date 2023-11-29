@@ -4,11 +4,11 @@ namespace Section017_Linq;
 
 public class Example002 {
     public static void CallMain() {
-        List<Product> list = new List<Product>();
-        list.Add(new Product("Tv", 900.00F));
-        list.Add(new Product("Mouse", 50.00F));
-        list.Add(new Product("Tablet", 350.50F));
-        list.Add(new Product("HD Case", 80.90F));
+        List<ProductType01> list = new List<ProductType01>();
+        list.Add(new ProductType01("Tv", 900.00F));
+        list.Add(new ProductType01("Mouse", 50.00F));
+        list.Add(new ProductType01("Tablet", 350.50F));
+        list.Add(new ProductType01("HD Case", 80.90F));
 
         PrintCollection(list);
 
