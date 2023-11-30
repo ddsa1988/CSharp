@@ -1,1 +1,2 @@
-Note taking console app
+1,TextNote1
+2,TextNote2

@@ -12,13 +12,13 @@ public class Program {
         string text = File.ReadAllText(sourcePath);
         Console.WriteLine(text + "\n");
 
-        Note n1 = new Note("test1");
-        Note n2 = new Note("test2");
-        Note n3 = new Note("test3");
+        NoteBook noteBook = new NoteBook();
+        noteBook.AddNote("Test1");
+        noteBook.AddNote("Test2");
+        noteBook.AddNote("Test3");
+        noteBook.AddNote("Test4");
 
-        Console.WriteLine(n1);
-        Console.WriteLine(n2);
-        Console.WriteLine(n3);
+        Console.WriteLine(noteBook);
 
     }
 }
