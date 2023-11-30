@@ -1,2 +1,2 @@
-1,TextNote1
-2,TextNote2
+TextNote1
+TextNote2
