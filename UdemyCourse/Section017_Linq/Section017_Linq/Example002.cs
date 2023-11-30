@@ -13,7 +13,7 @@ public class Example002 {
         PrintCollection(list);
 
         IEnumerable<float> result = list.Where(p => p.Name[0] == 'T').Select(p => p.Price);
-        float sum = result.Aggregate(0F, (acc, next) => acc + next);
+        float sum = list.Where(p => p.Name[0] == 'T').Sum(p => p.Price);
         
         PrintCollection(result);
         Console.WriteLine(sum);
