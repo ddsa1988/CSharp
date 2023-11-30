@@ -20,7 +20,7 @@ public class Exercise001 {
 
             string[] dataArray = data.Split(',');
             string name = dataArray[0].Trim();
-            float price = float.Parse(dataArray[1]);
+            float price = float.Parse(dataArray[1], CultureInfo.InvariantCulture);
 
             Product product = new Product(name, price);
             products.Add(product);
