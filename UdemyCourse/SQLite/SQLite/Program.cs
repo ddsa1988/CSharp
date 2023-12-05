@@ -16,5 +16,11 @@ public class Program {
         db.AddClient("Amanda");
 
         db.GetClients();
+        db.GetClient(1);
+        db.GetClient(2);
+        //db.UpdateClient(1, "Diego Alexandre");
+        db.GetClients();
+        //db.DeleteClient(1);
+        //db.GetClients();
     }
 }

@@ -35,7 +35,6 @@ public class ManageDb {
         File.Delete(SourcePath);
 
         FileInfo fileInfo = new FileInfo(SourcePath);
-        fileInfo.AppendText();
 
         using StreamWriter sw = File.AppendText(SourcePath);
         sw.WriteLine(sb.ToString());

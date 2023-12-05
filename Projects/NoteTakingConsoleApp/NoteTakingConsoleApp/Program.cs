@@ -10,5 +10,7 @@ public class Program {
 
         Notebook notebook = new Notebook(sourcePath);
         Console.WriteLine(notebook);
+
+        notebook.RemoveNote(2);
     }
 }
