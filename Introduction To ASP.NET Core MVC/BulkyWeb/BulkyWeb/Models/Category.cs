@@ -12,4 +12,8 @@ public class Category {
         Name = name;
         DisplayOrder = displayOrder;
     }
+
+    public override string ToString() {
+        return $"Id = {Id} Name = {Name} Display order = {DisplayOrder}";
+    }
 }
