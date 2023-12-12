@@ -14,4 +14,8 @@ public class CategoryController : Controller {
         List<Category> categories = db.Categories.ToList();
         return View(categories);
     }
+
+    public IActionResult Create() {
+        return View();
+    }
 }
