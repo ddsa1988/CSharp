@@ -11,7 +11,7 @@ public class CategoryController : Controller {
     }
 
     public IActionResult Index() {
-        List<Category> categories = db.Categories.ToList();
+        List<Category> categories = db.Categories.OrderBy(category => category.DisplayOrder).ToList();
         return View(categories);
     }
 
