@@ -42,12 +42,15 @@ public class CategoryController : Controller {
         if (category == null) {
             return NotFound();
         }
-        
+
         return View(category);
     }
 
-    // [HttpPost]
-    // public IActionResult Edit() {
-    //     return RedirectToAction("Create");
-    // }
+    [HttpPost]
+    public IActionResult Edit(Category category) {
+        if (!ModelState.IsValid) return View();
+
+        db.Categories.Update(category);
+        return RedirectToAction("Index");
+    }
 }
