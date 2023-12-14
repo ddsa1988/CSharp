@@ -15,6 +15,7 @@ public class CategoryController : Controller {
         return View(categories);
     }
 
+    [HttpGet]
     public IActionResult Create() {
         return View();
     }
@@ -27,4 +28,26 @@ public class CategoryController : Controller {
         db.SaveChanges();
         return RedirectToAction("Index");
     }
+
+    [HttpGet]
+    public IActionResult Edit(int? id) {
+        if (id == null || id == 0) {
+            return NotFound();
+        }
+
+        Category? category = db.Categories.Find(id);
+        // Category? category = db.Categories.FirstOrDefault(cat => cat.Id == id);
+        // Category? category = db.Categories.Where(cat => cat.Id == id).FirstOrDefault();
+
+        if (category == null) {
+            return NotFound();
+        }
+        
+        return View(category);
+    }
+
+    // [HttpPost]
+    // public IActionResult Edit() {
+    //     return RedirectToAction("Create");
+    // }
 }
