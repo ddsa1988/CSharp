@@ -5,6 +5,7 @@
       <map>
         <entry key="Common:0f62aace-711c-46ec-b01a-b9ecbcd88b04:dbContext" value="BulkyWeb.Models.AppDbContext" />
         <entry key="Common:buildConfiguration" value="Debug" />
+        <entry key="Common:effc1d20-d747-41bb-960a-8e4b5f14e347:dbContext" value="BulkyWebRazor.Models.AppDbContext" />
         <entry key="Common:enableDiagnosticLogging" value="false" />
         <entry key="Common:noBuild" value="false" />
         <entry key="Common:outputFolder" value="Migrations" />
