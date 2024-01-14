@@ -15,11 +15,15 @@ public class HomeController : Controller {
 
     [HttpPost]
     public ViewResult RsvpForm(GuestResponse guestResponse) {
-        Console.WriteLine(guestResponse.Name);
-        Console.WriteLine(guestResponse.Email);
-        Console.WriteLine(guestResponse.Phone);
-        Console.WriteLine(guestResponse.WillAttend);
+        Repository.AddResponse(guestResponse);
         
-        return View();
+        return View("Thanks", guestResponse);
+    }
+
+    [HttpGet]
+    public ViewResult ListResponses() {
+        IEnumerable<GuestResponse> responses = Repository.Responses.Where(response => response?.WillAttend == true);
+        
+        return View(responses);
     }
 }
