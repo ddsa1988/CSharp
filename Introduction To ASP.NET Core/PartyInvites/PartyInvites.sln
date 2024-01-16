@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PartyInvites", "PartyInvites.csproj", "{B19F1A0F-E70C-45CD-B7C9-701FC5ECFB36}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PartyInvites", "PartyInvites.csproj", "{71B5D513-C7B6-4754-9458-0A431249F8D6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -14,9 +14,9 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B19F1A0F-E70C-45CD-B7C9-701FC5ECFB36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B19F1A0F-E70C-45CD-B7C9-701FC5ECFB36}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B19F1A0F-E70C-45CD-B7C9-701FC5ECFB36}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B19F1A0F-E70C-45CD-B7C9-701FC5ECFB36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71B5D513-C7B6-4754-9458-0A431249F8D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71B5D513-C7B6-4754-9458-0A431249F8D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71B5D513-C7B6-4754-9458-0A431249F8D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71B5D513-C7B6-4754-9458-0A431249F8D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

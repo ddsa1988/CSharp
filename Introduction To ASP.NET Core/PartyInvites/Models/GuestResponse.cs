@@ -7,9 +7,6 @@ public class GuestResponse {
     public bool? WillAttend { get; set; }
 
     public override string ToString() {
-        return "Name: " + Name +
-               ", Email: " + Email +
-               ", Phone:" + Phone +
-               ", Will attend: " + WillAttend;
+        return $"Name: {Name} Email: {Email} Phone: {Phone} Will attend: {WillAttend}";
     }
 }

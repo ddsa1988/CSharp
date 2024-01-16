@@ -14,16 +14,16 @@ public class HomeController : Controller {
     }
 
     [HttpPost]
-    public ViewResult RsvpForm(GuestResponse guestResponse) {
-        Repository.AddResponse(guestResponse);
-        
-        return View("Thanks", guestResponse);
+    public ViewResult RsvpForm(GuestResponse response) {
+        Repository.AddResponse(response);
+
+        return View("Thanks", response);
     }
 
     [HttpGet]
     public ViewResult ListResponses() {
         IEnumerable<GuestResponse> responses = Repository.Responses.Where(response => response?.WillAttend == true);
-        
+
         return View(responses);
     }
 }

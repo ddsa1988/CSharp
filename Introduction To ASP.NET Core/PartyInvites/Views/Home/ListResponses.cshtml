@@ -9,15 +9,17 @@
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width"/>
-    <title>Responses</title>
+    <title>List Responses</title>
 </head>
 <body>
 <div>
     <h2>Here is the list of people attending the party</h2>
+</div>
+<div>
     <table>
         <thead>
         <tr>
-            <th>Name</th> <th>Email</th> <th>Phone</th>
+            <th>Name</th><th>Email</th><th>Phone</th>
         </tr>
         </thead>
         <tbody>
@@ -31,9 +33,8 @@
         </tbody>
     </table>
 </div>
-<br/>
 <div>
-    <a asp-action="Index">Index</a>
+    <a asp-controller="Home" asp-action="Index">Index</a>
 </div>
 </body>
 </html>

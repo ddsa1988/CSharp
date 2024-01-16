@@ -1,4 +1,4 @@
-@model GuestResponse
+@model GuestResponse;
 
 @{
     Layout = null;
@@ -29,6 +29,7 @@
         <div>
             <label asp-for="WillAttend">Will attend?</label>
             <select asp-for="WillAttend">
+                Will attend?
                 <option value="">Choose an option</option>
                 <option value="true">Yes, I'll be there</option>
                 <option value="false">No, I can't come</option>
@@ -37,7 +38,6 @@
         <button type="submit">Submit RSVP</button>
     </form>
 </div>
-<br/>
 <div>
     <a asp-controller="Home" asp-action="Index">Return</a>
 </div>
