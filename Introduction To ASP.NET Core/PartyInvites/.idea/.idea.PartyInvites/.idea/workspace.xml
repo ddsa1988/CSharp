@@ -8,37 +8,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b51cbb5e-3cab-4716-a253-6c7064d8fb2a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.PartyInvites/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.PartyInvites/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PartyInvites/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/HomeController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Models/GuestResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/GuestResponse.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/Repository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Repository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PartyInvites.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/PartyInvites.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PartyInvites.sln" beforeDir="false" afterPath="$PROJECT_DIR$/PartyInvites.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/Home/Index.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/Home/ListResponses.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Home/ListResponses.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Views/Home/RsvpForm.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Home/RsvpForm.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/Home/RsvpForm.cshtml.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/Home/Thanks.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Home/Thanks.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/Home/Thanks.cshtml.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/Shared/Error.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/Shared/_Layout.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/Shared/_Layout.cshtml.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/Shared/_ValidationScriptsPartial.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/_ViewStart.cshtml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 5
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2b0qzl4ID9unB08mmOdl8RNy2qB" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -51,6 +44,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
+    "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -93,6 +87,7 @@
       <option name="presentableId" value="Default" />
       <updated>1705362609070</updated>
       <workItem from="1705362611626" duration="5877000" />
+      <workItem from="1705456155795" duration="1965000" />
     </task>
     <servers />
   </component>
