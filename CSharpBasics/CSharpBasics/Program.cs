@@ -1,7 +1,16 @@
-﻿namespace CSharpBasics;
+﻿using CSharpBasics.Chapter01;
+
+namespace CSharpBasics;
 
 public class Program {
     public static void Main(string[] args) {
-        Console.WriteLine("CSharp basics");
+        
+        const int choice = 0;
+
+        switch (choice) {
+            case 0:
+                ReferenceTypes.MyMain();
+                break;
+        }
     }
 }
