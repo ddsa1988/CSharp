@@ -1,7 +1,8 @@
 namespace CSharpBasics.Chapter01;
 
 public class ValueTypes {
-    /*Value types are: numeric, char, bool, struct and enum types.
+    /*
+     Value types are: numeric, char, bool, struct and enum types.
      Assigning a value type always copy the instance.
      Value types are storage in the stack.
     */

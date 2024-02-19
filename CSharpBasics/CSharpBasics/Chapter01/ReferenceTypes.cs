@@ -3,7 +3,8 @@ using System.Threading.Channels;
 namespace CSharpBasics.Chapter01;
 
 public class ReferenceTypes {
-    /*Reference types are: class, array, string, delegate and interface types.
+    /*
+     Reference types are: class, array, string, delegate and interface types.
      Assigning a reference type copy the reference not the object instance.
      The reference to the object instance is storage in the stack and the object instance is storage in the heap.
      The garbage collector destroy the object instance if no reference to it's instance is found.

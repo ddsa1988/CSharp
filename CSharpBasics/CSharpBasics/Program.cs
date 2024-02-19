@@ -9,7 +9,7 @@ public class Program {
 
         switch (choice) {
             case 0:
-                ReferenceTypes.MyMain();
+                NumericTypes.MyMain();
                 break;
         }
     }
