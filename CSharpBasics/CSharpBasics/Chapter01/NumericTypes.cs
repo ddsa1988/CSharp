@@ -23,5 +23,32 @@ public class NumericTypes {
             Console.WriteLine(f);
             Console.WriteLine(d);
         }
+
+        {
+            const int i1 = 10;
+            const float f1 = i1; //Implicity conversion from int to float
+
+            const float f2 = 10.75F;
+            const int i2 = (int)f2; //Explicity conversion from float to int
+
+            Console.WriteLine(i1);
+            Console.WriteLine(f1);
+            Console.WriteLine(f2);
+            Console.WriteLine(i2);
+        }
+
+        {
+            const decimal m = 1.0M / 6.0M;
+            const double d = 1.0 / 6.0;
+            /*
+             Decimal works in base 10 and can precisely represent numbers expressible in base 2, 5 and 10. 
+             
+             Float and double internally works in base 2. For this reason, only numbers expressible 
+             in base 2 are represented precisely.
+            */
+
+            Console.WriteLine(m);
+            Console.WriteLine(d);
+        }
     }
 }
