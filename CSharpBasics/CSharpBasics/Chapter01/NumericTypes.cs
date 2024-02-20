@@ -26,10 +26,10 @@ public class NumericTypes {
 
         {
             const int i1 = 10;
-            const float f1 = i1; //Implicity conversion from int to float
+            const float f1 = i1; //Implicit conversion from int to float
 
             const float f2 = 10.75F;
-            const int i2 = (int)f2; //Explicity conversion from float to int
+            const int i2 = (int)f2; //Explicit conversion from float to int
 
             Console.WriteLine(i1);
             Console.WriteLine(f1);
