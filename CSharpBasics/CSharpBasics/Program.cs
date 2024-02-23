@@ -8,7 +8,7 @@ public class Program {
 
         switch (choice) {
             case 0:
-                Arrays.MyMain();
+                VariablesAndParameters.MyMain();
                 break;
         }
     }
