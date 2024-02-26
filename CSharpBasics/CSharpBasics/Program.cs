@@ -8,7 +8,7 @@ public class Program {
 
         switch (choice) {
             case 0:
-                ExpressionsAndOperators.MyMain();
+                Statements.MyMain();
                 break;
         }
     }
