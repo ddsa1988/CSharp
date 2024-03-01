@@ -1,9 +1,13 @@
 ﻿namespace GuessGame;
 
-using MyRandom = GuessGame.Entities.RandomNumber;
-
 public class Program {
     public static void Main(string[] args) {
-        Console.WriteLine(MyRandom.GetNumber(-5, -10));
+        int number = MyRandom.GetNumber(0, 11);
+        
+        Console.WriteLine("Type something:");
+        string? result = Console.ReadLine();
+
+        Console.WriteLine(number);
+        Console.WriteLine(result);
     }
 }
