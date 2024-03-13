@@ -11,7 +11,7 @@ public class Program {
         bool isGameOver = false;
 
         while (!isGameOver) {
-            Console.WriteLine($"You have {chances} chances to guess the correct number.");
+            Console.WriteLine($"You have {chances} chances to guess the correct number from {minNumber} to {maxNumber}.");
 
             Console.Write("Type your guess: ");
             string? input = Console.ReadLine();
