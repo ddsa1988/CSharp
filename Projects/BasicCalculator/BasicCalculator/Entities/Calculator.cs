@@ -24,7 +24,7 @@ public static class Calculator {
     private static double Div(double a, double b) {
         if (b != 0) return a / b;
 
-        Console.WriteLine("Impossible divide bt zero.");
+        Console.WriteLine("Impossible divide by zero.");
         return double.MinValue;
     }
 }
