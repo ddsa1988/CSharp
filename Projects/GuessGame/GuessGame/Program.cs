@@ -1,6 +1,4 @@
-﻿using GuessGame.Entities;
-
-namespace GuessGame;
+﻿namespace GuessGame;
 
 public class Program {
     public static void Main(string[] args) {
@@ -16,7 +14,7 @@ public class Program {
             Console.Write("Type your guess: ");
             string? input = Console.ReadLine();
 
-            if (!ValidateNumber.IsNumberValid(input, minNumber, maxNumber, out int guess)) continue;
+            if (!Validate.IsNumberValid(input, minNumber, maxNumber, out int guess)) continue;
 
             if (guess < randomNumber) {
                 Console.WriteLine("Your guess was too low!");

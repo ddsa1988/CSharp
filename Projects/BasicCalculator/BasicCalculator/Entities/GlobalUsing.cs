@@ -1,0 +1,1 @@
+global using Calc = BasicCalculator.Entities.Calculator;
