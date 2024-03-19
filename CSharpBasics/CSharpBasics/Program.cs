@@ -6,7 +6,7 @@ public class Program {
 
         switch (choice) {
             case 0:
-                Classes.MyMain();
+                Inheritance.MyMain();
                 break;
         }
     }
