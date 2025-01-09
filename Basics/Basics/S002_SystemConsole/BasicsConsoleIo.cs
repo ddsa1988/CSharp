@@ -1,4 +1,4 @@
-namespace Basics.S002_SystemConsoleClass;
+namespace Basics.S002_SystemConsole;
 
 public static class BasicsConsoleIo {
     public static void UserMain() {

@@ -1,10 +1,10 @@
-﻿using Basics.S002_SystemConsoleClass;
+﻿using Basics.S003_SystemDateTime;
 
 namespace Basics;
 
 public static class Program {
     public static void Main(string[] args) {
-        BasicsConsoleIo.UserMain();
+        BasicDateTime.UserMain();
     }
 }
 
