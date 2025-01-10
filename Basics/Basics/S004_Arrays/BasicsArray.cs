@@ -10,12 +10,7 @@ public static class BasicsArray {
 
         for (int i = 0; i < size; i++) numbers[i] = random.Next(size);
 
-        PrintCollection(numbers);
-        Console.WriteLine();
-        PrintCollection(names);
-    }
-
-    private static void PrintCollection<T>(IEnumerable<T> collection) {
-        foreach (T value in collection) Console.Write(value + " ");
+        Console.WriteLine($"[{string.Join(", ", numbers)}]");
+        Console.WriteLine($"[{string.Join(", ", names)}]");
     }
 }

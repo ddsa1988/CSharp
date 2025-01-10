@@ -4,21 +4,12 @@ public static class SystemArray {
     public static void UserMain() {
         string[] names = ["Diego", "Rodrigo", "Amora", "Amanda"];
 
-        Console.WriteLine("Original array: ");
-        PrintCollection(names);
-        Console.WriteLine('\n');
+        Console.WriteLine($"Original array: [{string.Join(", ", names)}]");
 
         Array.Reverse(names);
-        Console.WriteLine("Reversed array: ");
-        PrintCollection(names);
-        Console.WriteLine('\n');
+        Console.WriteLine($"Reversed array: [{string.Join(", ", names)}]");
 
         Array.Sort(names);
-        Console.WriteLine("Sorted array: ");
-        PrintCollection(names);
-    }
-
-    private static void PrintCollection<T>(IEnumerable<T> collection) {
-        foreach (T value in collection) Console.Write(value + " ");
+        Console.WriteLine($"Sorted array: [{string.Join(", ", names)}]");
     }
 }
