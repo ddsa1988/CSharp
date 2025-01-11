@@ -1,9 +1,9 @@
-﻿using Basics.S005_Methods;
+﻿using Basics.S006_Enums;
 
 namespace Basics;
 
 public static class Program {
     public static void Main(string[] args) {
-        MethodParameterParams.UserMain();
+        DeclaringEnumVariables.UserMain();
     }
 }
