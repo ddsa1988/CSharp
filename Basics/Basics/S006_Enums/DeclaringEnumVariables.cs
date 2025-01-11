@@ -2,7 +2,7 @@
 
 public static class DeclaringEnumVariables {
     public static void UserMain() {
-        EmployeeEnum e = EmployeeEnum.Manager;
+        var e = EmployeeEnum.Manager;
         Console.WriteLine(AskForBonus(e) + "\n");
 
         e = EmployeeEnum.Grunt;
@@ -27,34 +27,27 @@ public static class DeclaringEnumVariables {
         return msg;
     }
 
-    //private static string AskForBonus(EmployeeEnum employee) {
-    //    string msg = "";
-
-    //    switch (employee) {
-    //        case EmployeeEnum.Manager:
-    //            msg = "Manager asked for bonus.";
-    //            break;
-    //        case EmployeeEnum.Grunt:
-    //            msg = "Grunt asked for bonus.";
-    //            break;
-    //        case EmployeeEnum.Contractor:
-    //            msg = "Contractor asked for bonus.";
-    //            break;
-    //        case EmployeeEnum.VicePresident:
-    //            msg = "Vice president asked for bonus.";
-    //            break;
-    //        default:
-    //            msg = "";
-    //            break;
-    //    }
-
-    //    return msg;
-    //}
-
-    private enum EmployeeEnum {
-        Manager,
-        Grunt,
-        Contractor,
-        VicePresident
-    }
+    // private static string AskForBonus(EmployeeEnum employee) {
+    //     string msg = "";
+    //
+    //     switch (employee) {
+    //         case EmployeeEnum.Manager:
+    //             msg = "Manager asked for bonus.";
+    //             break;
+    //         case EmployeeEnum.Grunt:
+    //             msg = "Grunt asked for bonus.";
+    //             break;
+    //         case EmployeeEnum.Contractor:
+    //             msg = "Contractor asked for bonus.";
+    //             break;
+    //         case EmployeeEnum.VicePresident:
+    //             msg = "Vice president asked for bonus.";
+    //             break;
+    //         default:
+    //             msg = "";
+    //             break;
+    //     }
+    //
+    //     return msg;
+    // }
 }

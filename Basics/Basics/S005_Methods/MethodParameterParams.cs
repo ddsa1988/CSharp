@@ -9,7 +9,7 @@ public static class MethodParameterParams {
         Console.WriteLine(Add("This is a message.", numbers));
     }
 
-    private static int Add(params int[] numbers) {
+    private static int Add(params int[]? numbers) {
         int sum = 0;
 
         if (numbers == null || numbers.Length == 0) return sum;
@@ -19,7 +19,7 @@ public static class MethodParameterParams {
         return sum;
     }
 
-    private static int Add(string msg, params int[] numbers) {
+    private static int Add(string? msg, params int[]? numbers) {
         int sum = 0;
 
         Console.WriteLine(msg);
