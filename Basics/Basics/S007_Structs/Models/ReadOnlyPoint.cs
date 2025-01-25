@@ -1,4 +1,4 @@
-﻿namespace Basics.S007_Structs;
+﻿namespace Basics.S007_Structs.Models;
 
 public struct ReadOnlyPoint {
     public int X { get; }

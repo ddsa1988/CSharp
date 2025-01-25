@@ -1,9 +1,9 @@
-﻿using Basics.S007_Structs;
+﻿using Basics.S008_ValueAndReferenceTypes;
 
 namespace Basics;
 
 public static class Program {
     public static void Main(string[] args) {
-        BasicStructs.UserMain();
+        ReferenceTypeDemo2.UserMain();
     }
 }
