@@ -1,9 +1,9 @@
-﻿using Basics.S008_ValueAndReferenceTypes;
+﻿using Basics.S010_Tuples;
 
 namespace Basics;
 
 public static class Program {
     public static void Main(string[] args) {
-        ReferenceTypeDemo2.UserMain();
+        TupleDeconstructing.UserMain();
     }
 }
