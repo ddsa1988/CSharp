@@ -5,6 +5,16 @@ public class Car {
     public string? PetName { get; set; }
     public int CurrentSpeed { get; set; }
 
+    // Default custom constructors
+    public Car() : this("string.Empty") { }
+
+    public Car(string petName) {
+        PetName = petName;
+    }
+
+    public Car(string petName, int currentSpeed) : this(petName) {
+        CurrentSpeed = currentSpeed;
+    }
 
     // The 'behaviors' of the Car
     public void PrintState() {
