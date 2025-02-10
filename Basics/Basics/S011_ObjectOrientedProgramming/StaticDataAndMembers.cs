@@ -1,4 +1,7 @@
-﻿namespace Basics.S011_ObjectOrientedProgramming;
+﻿using Basics.S011_ObjectOrientedProgramming.Models;
+
+namespace Basics.S011_ObjectOrientedProgramming;
+
 public static class StaticDataAndMembers {
     public static void UserMain() {
         Console.WriteLine($"Interest rate: {SavingAccount.InterestRate}");

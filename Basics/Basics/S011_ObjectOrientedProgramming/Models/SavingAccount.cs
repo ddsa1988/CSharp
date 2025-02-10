@@ -1,11 +1,8 @@
-﻿namespace Basics.S011_ObjectOrientedProgramming;
+﻿namespace Basics.S011_ObjectOrientedProgramming.Models;
 
 public class SavingAccount {
     // Static point of  data
-    private static double interestRate;
-
-    // Instance-level data
-    public double Balance { get; private set; }
+    private static double _interestRate;
 
     // Static constructor
     static SavingAccount() {
@@ -17,9 +14,12 @@ public class SavingAccount {
         SetInitialBalance(initialBalance);
     }
 
+    // Instance-level data
+    public double Balance { get; private set; }
+
     public static double InterestRate {
-        get => interestRate;
-        set => interestRate = value > 0 ? value : 0;
+        get => _interestRate;
+        set => _interestRate = value > 0 ? value : 0;
     }
 
     public void Deposit(double amount) {
@@ -33,9 +33,7 @@ public class SavingAccount {
 
         double remainingBalance = Balance - amount;
 
-        if (remainingBalance < 0) {
-            throw new InvalidOperationException($"Insufficient balance.");
-        }
+        if (remainingBalance < 0) throw new InvalidOperationException("Insufficient balance.");
 
         Balance = remainingBalance;
     }
