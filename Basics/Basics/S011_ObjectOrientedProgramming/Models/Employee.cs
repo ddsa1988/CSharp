@@ -8,7 +8,6 @@ public class Employee {
     private int _id;
     private string _name;
     private float _pay;
-    private EmployeePayTypeEnum _payType;
 
     // Constructors
     public Employee(string name, int id, float pay, EmployeePayTypeEnum payType) {
@@ -33,6 +32,7 @@ public class Employee {
         get => _age;
         set {
             ArgumentOutOfRangeException.ThrowIfLessThan(value, 0, nameof(value));
+            _age = value;
         }
     }
 
@@ -52,10 +52,7 @@ public class Employee {
         }
     }
 
-    public EmployeePayTypeEnum PayType {
-        get => _payType;
-        set => _payType = value;
-    }
+    public EmployeePayTypeEnum PayType { get; set; }
 
     // Pattern matching with property patterns
     public void GiveBonus(float amount) {
