@@ -1,6 +1,4 @@
-using System.Diagnostics;
 using System.Globalization;
-using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using GetStartedApp.Models;
@@ -12,7 +10,7 @@ public partial class MainWindow : Window {
         InitializeComponent();
     }
 
-    public void Button_Click(object? sender, RoutedEventArgs e) {
+    public void Btn_Calculate(object? sender, RoutedEventArgs e) {
         bool isDataValid = float.TryParse(Celsius.Text, out float celsius);
 
         if (!isDataValid) {
@@ -23,7 +21,21 @@ public partial class MainWindow : Window {
         }
 
         float fahrenheit = ConvertTemperature.CelsiusToFahrenheit(celsius);
-        
+
+        Fahrenheit.Text = fahrenheit.ToString(CultureInfo.InvariantCulture);
+    }
+
+    private void Btn_GridLines(object? sender, RoutedEventArgs e) {
+        Grid.ShowGridLines = !Grid.ShowGridLines;
+    }
+
+    private void Celsius_TextChanged(object? sender, TextChangedEventArgs e) {
+        bool isDataValid = float.TryParse(Celsius.Text, out float celsius);
+
+        if (!isDataValid) return;
+
+        float fahrenheit = ConvertTemperature.CelsiusToFahrenheit(celsius);
+
         Fahrenheit.Text = fahrenheit.ToString(CultureInfo.InvariantCulture);
     }
 }
