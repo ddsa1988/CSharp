@@ -4,7 +4,7 @@ using CommunityToolkit.Mvvm.Input;
 
 namespace SimpleToDoList.ViewModels;
 
-public partial class MainWindowViewModel : ViewModelBase {
+public partial class MainViewModel : ViewModelBase {
     public ObservableCollection<ToDoItemViewModel> ToDoItems { get; } = new ObservableCollection<ToDoItemViewModel>();
 
     [ObservableProperty] [NotifyCanExecuteChangedFor(nameof(AddItemCommand))]

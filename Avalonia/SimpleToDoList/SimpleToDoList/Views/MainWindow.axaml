@@ -5,32 +5,45 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="300" d:DesignHeight="500" Padding="4"
         x:Class="SimpleToDoList.Views.MainWindow"
-        x:DataType="vm:MainWindowViewModel"
+        x:DataType="vm:MainViewModel"
         Icon="/Assets/avalonia-logo.ico"
         Title="SimpleToDoList">
 
-	<Grid RowDefinitions="Auto, *, Auto" x:Name="Root">
+    <Grid RowDefinitions="Auto, *, Auto" x:Name="Root">
 
-		<TextBlock Grid.Row="0" Text="My ToDo List"></TextBlock>
+        <TextBlock Grid.Row="0" Classes="h1" Text="My ToDo List"></TextBlock>
 
-		<ScrollViewer Grid.Row="1">
-			<ItemsControl ItemsSource="{Binding ToDoItems}"></ItemsControl>
-		</ScrollViewer>
+        <ScrollViewer Grid.Row="1">
+            <ItemsControl ItemsSource="{Binding ToDoItems}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate DataType="vm:ToDoItemViewModel">
+                        <Grid ColumnDefinitions="*, Auto">
+                            <CheckBox Content="{Binding Content}"
+                                      IsChecked="{Binding IsChecked}" />
+                            <Button Grid.Column="1" Command="{Binding #Root.((vm:MainViewModel)DataContext).RemoveItemCommand}"
+                                    CommandParameter="{Binding .}">
+                                Delete
+                            </Button>
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
 
-		<TextBox Grid.Row="2"
-				 Text="{Binding NewItemContent}"
-				 Watermark="Add new item">
-			
-			<TextBox.InnerRightContent>
-				<Button Command="{Binding AddItemCommand}">Add</Button>
-			</TextBox.InnerRightContent>
+        <TextBox Grid.Row="2"
+                 Text="{Binding NewItemContent}"
+                 Watermark="Add new item">
 
-			<TextBox.KeyBindings>
-				<KeyBinding Command="{Binding AddItemCommand}" Gesture="Enter"></KeyBinding>
-			</TextBox.KeyBindings>
+            <TextBox.InnerRightContent>
+                <Button Command="{Binding AddItemCommand}">Add</Button>
+            </TextBox.InnerRightContent>
 
-		</TextBox>
+            <TextBox.KeyBindings>
+                <KeyBinding Command="{Binding AddItemCommand}" Gesture="Enter"></KeyBinding>
+            </TextBox.KeyBindings>
 
-	</Grid>
+        </TextBox>
+
+    </Grid>
 
 </Window>
