@@ -22,7 +22,9 @@
                                       IsChecked="{Binding IsChecked}" />
                             <Button Grid.Column="1" Command="{Binding #Root.((vm:MainViewModel)DataContext).RemoveItemCommand}"
                                     CommandParameter="{Binding .}">
-                                Delete
+								<PathIcon Data="{DynamicResource DeleteIconData}"
+                                          Height="15"
+                                          Foreground="Red"/>
                             </Button>
                         </Grid>
                     </DataTemplate>
@@ -35,7 +37,10 @@
                  Watermark="Add new item">
 
             <TextBox.InnerRightContent>
-                <Button Command="{Binding AddItemCommand}">Add</Button>
+                <Button Command="{Binding AddItemCommand}">
+					<PathIcon Data="{DynamicResource AcceptIconData}"
+                              Foreground="Green" />
+				</Button>
             </TextBox.InnerRightContent>
 
             <TextBox.KeyBindings>
