@@ -1,8 +1,10 @@
-﻿@{
+﻿@model S002_PartyInvites.Models.GuestResponse
+
+@{
     Layout = null;
 }
 
-<DOCTYPE html/>
+<!DOCTYPE html>
 
 <html lang="en">
     <head>
@@ -11,8 +13,28 @@
         <title>RsvpForm</title>
     </head>
     <body>
+    <form asp-action="RsvpForm" method="post">
         <div>
-            <p>This is the rsvp form.</p>
+            <label asp-for="Name">Name:</label>
+            <input asp-for="Name"/>
         </div>
+        <div>
+            <label asp-for="Email">Email:</label>
+            <input asp-for="Email"/>
+        </div>
+        <div>
+            <label asp-for="Phone">Phone:</label>
+            <input asp-for="Phone"/>
+        </div>
+        <div>
+            <label asp-for="WillAttend">Will attend:</label>
+            <select asp-for="WillAttend">
+                <option value="">Choose an option</option>
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+            </select>
+        </div>
+        <button type="submit">Submit RSVP</button>
+    </form>
     </body>
 </html>
