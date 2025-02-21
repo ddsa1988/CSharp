@@ -1,4 +1,4 @@
-﻿namespace S002_PartyInvites.Models;
+﻿namespace PartyInvites.Models;
 
 public class GuestResponse {
     public string? Name { get; set; }

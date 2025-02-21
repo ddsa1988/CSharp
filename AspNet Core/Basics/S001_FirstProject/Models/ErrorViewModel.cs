@@ -1,4 +1,4 @@
-namespace S001_FirstProject.Models;
+namespace FirstProject.Models;
 
 public class ErrorViewModel {
     public string? RequestId { get; set; }

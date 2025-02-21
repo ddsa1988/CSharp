@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace S001_FirstProject.Controllers;
+namespace FirstProject.Controllers;
 
 public class HomeController : Controller {
     public ViewResult Index() {
