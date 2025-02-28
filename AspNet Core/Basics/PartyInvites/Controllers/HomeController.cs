@@ -12,9 +12,17 @@ public class HomeController : Controller {
     public ViewResult RsvpForm() {
         return View();
     }
-    
+
     [HttpPost]
     public ViewResult RsvpForm(GuestResponse guestResponse) {
-        return View();
+        if (!ModelState.IsValid) return View();
+
+        Repository.AddResponse(guestResponse);
+
+        return View("Thanks", guestResponse);
+    }
+
+    public ViewResult ListResponses() {
+        return View(Repository.Responses.Where(r => r.WillAttend == true));
     }
 }
