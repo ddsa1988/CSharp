@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirstProject", "FirstProjec
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PartyInvites", "PartyInvites\PartyInvites.csproj", "{52ACF3AD-7A33-4FEA-872F-E49B4303A419}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebTemplate", "WebTemplate\WebTemplate.csproj", "{311939DA-79E2-4824-945E-9A084F4A0C51}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{52ACF3AD-7A33-4FEA-872F-E49B4303A419}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52ACF3AD-7A33-4FEA-872F-E49B4303A419}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52ACF3AD-7A33-4FEA-872F-E49B4303A419}.Release|Any CPU.Build.0 = Release|Any CPU
+		{311939DA-79E2-4824-945E-9A084F4A0C51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{311939DA-79E2-4824-945E-9A084F4A0C51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{311939DA-79E2-4824-945E-9A084F4A0C51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{311939DA-79E2-4824-945E-9A084F4A0C51}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
