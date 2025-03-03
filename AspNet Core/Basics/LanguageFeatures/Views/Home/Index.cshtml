@@ -1,0 +1,23 @@
+﻿@model IEnumerable<string>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Language Features</title>
+    </head>
+    <body>
+        <ul>
+            @foreach (string str in Model)
+            {
+                <li>@str</li>
+            }
+        </ul>
+    </body>
+</html>
