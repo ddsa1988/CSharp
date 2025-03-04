@@ -1,13 +1,13 @@
 ﻿namespace LanguageFeatures.Models;
 
 public class Product {
-    public string Name { get; set; }
+    public string Name { get; set; } = string.Empty;
     public double? Price { get; set; }
 
-    public static Product[] GetProducts() {
-        Product kayak = new Product() { Name = "Kayak", Price = 275 };
-        Product lifeJacket = new Product() { Name = "Lifejacket", Price = 48.95 };
+    public static Product?[] GetProducts() {
+        var kayak = new Product() { Name = "Kayak", Price = 275 };
+        var lifeJacket = new Product() { Name = "Life jacket", Price = 48.95 };
 
-        return new Product[] { kayak, lifeJacket, null };
+        return [kayak, lifeJacket, null];
     }
 }
