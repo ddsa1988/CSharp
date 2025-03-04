@@ -2,14 +2,14 @@
 
 public static class MyExtensionMethods {
     public static double TotalPrice(this ShoppingCart cartParam) {
-        double totalPrice = 0;
+        double total = 0;
 
-        if (cartParam == null) return totalPrice;
+        if (cartParam.Products == null) return total;
 
         foreach (Product? prod in cartParam.Products) {
-            totalPrice += prod?.Price ?? 0;
+            total += prod?.Price ?? 0;
         }
 
-        return totalPrice;
+        return total;
     }
 }
