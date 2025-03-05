@@ -5,6 +5,6 @@ namespace WebMatchGame.Controllers;
 
 public class HomeController : Controller {
     public ViewResult Index() {
-        return View("Index",Emoji.GetEmojis());
+        return View("Index", SetUpGame.GetRandomEmojis());
     }
 }
