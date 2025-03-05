@@ -1,3 +1,5 @@
+@model List<string>
+
 @{
     Layout = null;
 }
@@ -9,8 +11,20 @@
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <title>Web Match Game</title>
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="~/css/style.css"/>
     </head>
     <body>
-        <h1>Web Match Game</h1>
+        <div class="container">
+            <div class="row">
+                @foreach (string emoji in @Model) {
+                    <div class="col-3">
+                        <button type="button" class="btn bnt-outline-dark">
+                            <h1>@emoji</h1>
+                        </button>
+                    </div>
+                }
+            </div>
+        </div>
     </body>
 </html>
