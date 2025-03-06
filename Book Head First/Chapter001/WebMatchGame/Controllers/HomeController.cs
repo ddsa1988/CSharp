@@ -7,11 +7,13 @@ public class HomeController : Controller {
 
     [HttpGet]
     public ViewResult Index() {
-        return View("Index", Game.Emojis);
+        return View("Index", Game.ShuffledEmojis);
     }
 
     [HttpPost]
     public ViewResult Index(string emoji) {
-        return View("Index", Game.Emojis);
+        Game.ButtonClicked(emoji);
+
+        return View("Index", Game.ShuffledEmojis);
     }
 }
