@@ -1,0 +1,25 @@
+﻿@page "/"
+@using BlazorMatchGame.Models
+
+<link rel="stylesheet" href="./style.css"/>
+
+<PageTitle>Home</PageTitle>
+
+<div class="container">
+    <div class="row">
+        @foreach (string emoji in Game.ShuffledEmojis) {
+            <div class="col-3">
+                <button @onclick="@(() => Game.ButtonClick("Test"))" type="button" class="btn btn-outline-dark">
+                    <h1>@emoji</h1>
+                </button>
+            </div>
+        }
+    </div>
+</div>
+
+@code{
+
+    protected override void OnInitialized() {
+        Game.InitGame();
+    }
+}

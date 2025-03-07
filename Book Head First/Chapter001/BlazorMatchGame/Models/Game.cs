@@ -1,20 +1,18 @@
-﻿namespace WebMatchGame.Models;
+namespace BlazorMatchGame.Models;
 
 public static class Game {
-    private static string _lastEmoji = string.Empty;
+    private static string _lastEmoji = string.Empty;    
     public static List<string> ShuffledEmojis { get; private set; }
 
     static Game() {
-        SetUpGame();
+        InitGame();
     }
 
-    private static void SetUpGame() {
-        var random = new Random();
-
-        ShuffledEmojis = Emoji.GetEmojis().OrderBy(item => random.Next()).ToList();
+    public static void InitGame() {
+        ShuffledEmojis = Emoji.GetEmojis().OrderBy(item => new Random().Next()).ToList();
     }
 
-    public static void ButtonClicked(string emoji) {
+    public static void ButtonClick(string emoji) {
         if (_lastEmoji == string.Empty) {
             _lastEmoji = emoji;
             return;
@@ -23,10 +21,10 @@ public static class Game {
         if (_lastEmoji == emoji) {
             _lastEmoji = string.Empty;
             ShuffledEmojis = ShuffledEmojis.Select(item => item.Replace(emoji, string.Empty)).ToList();
-
+            
             return;
         }
-
+        
         _lastEmoji = string.Empty;
     }
 }

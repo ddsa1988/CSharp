@@ -1,7 +1,7 @@
-namespace WebMatchGame.Models;
+namespace BlazorMatchGame.Models;
 
 public static class Emoji {
-    public static List<string> GetEmojis() {
+    public static IEnumerable<string> GetEmojis() {
         return [
             "🐶", "🐶",
             "🐺", "🐺",
