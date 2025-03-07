@@ -1,4 +1,5 @@
 ﻿@page "/"
+@rendermode InteractiveServer
 @using BlazorMatchGame.Models
 
 <link rel="stylesheet" href="./style.css"/>
@@ -7,9 +8,12 @@
 
 <div class="container">
     <div class="row">
-        @foreach (string emoji in Game.ShuffledEmojis) {
+        @for (int i = 0; i < Game.ShuffledEmojis.Count; i++) {
+            string emoji = Game.ShuffledEmojis[i];
+            string button = $"button-{i}";
+            
             <div class="col-3">
-                <button @onclick="@(() => Game.ButtonClick("Test"))" type="button" class="btn btn-outline-dark">
+                <button @onclick="@(() => Game.ButtonClick(emoji, button))" type="button" class="btn btn-outline-dark">
                     <h1>@emoji</h1>
                 </button>
             </div>
