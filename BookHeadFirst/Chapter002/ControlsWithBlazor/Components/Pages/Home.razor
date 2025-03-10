@@ -1,5 +1,6 @@
 ﻿@page "/"
 @rendermode InteractiveServer
+@using ControlsWithBlazor.Models
 
 <PageTitle>Home</PageTitle>
 
@@ -8,16 +9,30 @@
         <h1>Experiment with controls</h1>
     </div>
     <div class="row mt-2">
+        <div class="col-sm-6">Enter text:</div>
         <div class="col-sm-6">
-            Pick a number:
+            <input type="text" placeholder="Enter text" @onchange="Handler.UpdateValueNumeric">
         </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col-sm-6">Pick a number:</div>
         <div class="col-sm-6">
-            <input type="range"/>
+            <input type="range" @onchange="Handler.UpdateValue"/>
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col-sm-6">Click a button</div>
+        <div class="col-sm-6 btn-group">
+            @for (int i = 0; i < @Handler.NumberButtons; i++) {
+                string valueToDisplay = $"Button #{i}";
+                <button type="button" class="btn btn-secondary"
+                        @onclick="() => Handler.ButtonClick(valueToDisplay)">@i</button>
+            }
         </div>
     </div>
     <div class="row mt-5">
         <h2 class="row mt-5">
-            Here's the value:
+            Here's the value: <strong>@Handler.DisplayValue</strong>
         </h2>
     </div>
 </div>

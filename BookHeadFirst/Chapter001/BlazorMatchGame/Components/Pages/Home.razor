@@ -13,7 +13,7 @@
             string button = $"button-{i}";
 
             <div class="col-3">
-                <button @onclick="@(() => Game.ButtonClick(emoji, button))" type="button" class="btn btn-outline-dark">
+                <button @onclick="() => Game.ButtonClick(emoji, button)" type="button" class="btn btn-outline-dark">
                     <h1>@emoji</h1>
                 </button>
             </div>
