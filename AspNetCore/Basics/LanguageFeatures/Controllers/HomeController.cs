@@ -12,11 +12,28 @@ public class HomeController : Controller {
     //     return View("Index", names);
     // }
 
-    public ViewResult Index() {
-        var cart = new ShoppingCart() { Products = Product.GetProducts() };
-    
-        double cartTotal = cart.TotalPrice();
-    
-        return View("Index", new string[] { $"Total: {cartTotal:C2}" });
+    //public ViewResult Index() {
+    //    var cart = new ShoppingCart() { Products = Product.GetProducts() };
+
+    //    double cartTotal = cart.TotalPrice();
+
+    //    return View("Index", new string[] { $"Total: {cartTotal:C2}" });
+    //}
+
+    //public async Task<ViewResult> Index() {
+    //    long? length = await MyAsyncMethods.GetPageLength();
+
+    //    return View(new string[] { $"Length: {length}" });
+    //}
+
+    public async Task<ViewResult> Index() {
+        var output = new List<string>();
+
+        await foreach (long? len in MyAsyncMethods.GetPageLengths(output,
+        "apress.com", "microsoft.com", "amazon.com")) {
+            output.Add($"Page length: {len}");
+        }
+
+        return View(output);
     }
 }
