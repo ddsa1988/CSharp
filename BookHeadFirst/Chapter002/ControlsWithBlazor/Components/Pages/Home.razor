@@ -30,6 +30,14 @@
             }
         </div>
     </div>
+    <div class="row mt-2">
+        <div class="col-sm-6">Pick a date:</div>
+        <input type="date" @onchange="Handler.UpdateValue"/>
+    </div>
+    <div class="row mt-2">
+        <div class="col-sm-6">Pick a color:</div>
+        <input type="color" @onchange="Handler.UpdateValue"/>
+    </div>
     <div class="row mt-5">
         <h2 class="row mt-5">
             Here's the value: <strong>@Handler.DisplayValue</strong>
