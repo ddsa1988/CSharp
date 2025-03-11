@@ -22,7 +22,6 @@ public static class CardPicker {
 
     public static string RandomSuit() {
         string[] suits = ["Diamonds", "Spades", "Hearts", "Clubs"];
-
         int index = new Random().Next(0, suits.Length);
         
         return suits[index];
