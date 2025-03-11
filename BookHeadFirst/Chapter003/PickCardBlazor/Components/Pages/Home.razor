@@ -1,7 +1,31 @@
 ﻿@page "/"
+@rendermode InteractiveServer
+@using PickCardBlazor.Models
 
 <PageTitle>Home</PageTitle>
 
-<h1>Hello, world!</h1>
 
-Welcome to your new app.
+<div class="container">
+    <div class="row">
+        <div class="col-8">
+            <div class="row">
+                <h3>How many cards should I pick?</h3>
+            </div>
+            <div class="row mt-5">
+                <input type="range" class="col-10 form-control-range" min="1" max="15" @bind="Handler.NumberOfCards" />
+                <div class="col-2">@Handler.NumberOfCards</div>
+            </div>
+            <div class="row mt-5">
+                <button type="button" class="btn btn-primary" @onclick="Handler.UpdateCards">Pick Some Cards</button>
+            </div>
+        </div>
+        <div class="col-4">
+            <ul class="list-group">
+                @foreach (string card in Handler.PickedCards)
+                {
+                    <li class="list-group-item">@card</li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
