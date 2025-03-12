@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PickRandomCards", "PickRand
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PickCardBlazor", "PickCardBlazor\PickCardBlazor.csproj", "{D03FA3AA-2933-476B-9F7C-6F02F0A814F9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleAccountBlazor", "SimpleAccountBlazor\SimpleAccountBlazor.csproj", "{792C97BE-AA7B-4A65-9FEA-BBABB9972BD0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,13 @@ Global
 		{D03FA3AA-2933-476B-9F7C-6F02F0A814F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D03FA3AA-2933-476B-9F7C-6F02F0A814F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D03FA3AA-2933-476B-9F7C-6F02F0A814F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBEDE040-C0EB-43F1-94B9-52593DCD639B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBEDE040-C0EB-43F1-94B9-52593DCD639B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBEDE040-C0EB-43F1-94B9-52593DCD639B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBEDE040-C0EB-43F1-94B9-52593DCD639B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{792C97BE-AA7B-4A65-9FEA-BBABB9972BD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{792C97BE-AA7B-4A65-9FEA-BBABB9972BD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{792C97BE-AA7B-4A65-9FEA-BBABB9972BD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{792C97BE-AA7B-4A65-9FEA-BBABB9972BD0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
