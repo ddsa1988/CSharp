@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PickCardBlazor", "PickCardB
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleAccountBlazor", "SimpleAccountBlazor\SimpleAccountBlazor.csproj", "{792C97BE-AA7B-4A65-9FEA-BBABB9972BD0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleCassinoBlazor", "SimpleCassinoBlazor\SimpleCassinoBlazor.csproj", "{427D85B6-8BC3-4D31-8E0D-2BAEF76D3526}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -34,5 +36,9 @@ Global
 		{792C97BE-AA7B-4A65-9FEA-BBABB9972BD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{792C97BE-AA7B-4A65-9FEA-BBABB9972BD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{792C97BE-AA7B-4A65-9FEA-BBABB9972BD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{427D85B6-8BC3-4D31-8E0D-2BAEF76D3526}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{427D85B6-8BC3-4D31-8E0D-2BAEF76D3526}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{427D85B6-8BC3-4D31-8E0D-2BAEF76D3526}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{427D85B6-8BC3-4D31-8E0D-2BAEF76D3526}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
