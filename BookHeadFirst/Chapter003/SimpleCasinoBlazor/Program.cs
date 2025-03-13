@@ -1,4 +1,4 @@
-using SimpleCassinoBlazor.Components;
+using SimpleCasinoBlazor.Components;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
@@ -9,7 +9,8 @@ builder.Services.AddRazorComponents()
 WebApplication app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment()) {
+if (!app.Environment.IsDevelopment())
+{
     app.UseExceptionHandler("/Error", createScopeForErrors: true);
 }
 

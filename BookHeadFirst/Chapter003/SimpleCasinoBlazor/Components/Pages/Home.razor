@@ -1,0 +1,26 @@
+﻿@page "/"
+@using SimpleCasinoBlazor.Models
+@rendermode InteractiveServer
+
+
+<div class="container">
+    <div class="row">
+        <h1>Simple Casino</h1>
+    </div>
+    <div class="row">
+        <p>Welcome to the Casino. The odds are @Game.Odds</p>
+    </div>
+    <div class="row">
+        <p>The player has @Game.Player.Balance bucks</p>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <span>How much do you like to bet:</span>
+            <input type="number"/>
+            <button type="button" class="btn btn-primary">Bet</button>
+        </div>
+    </div>
+    <div class="row">
+        <p>@Game.TextResult</p>
+    </div>
+</div>
