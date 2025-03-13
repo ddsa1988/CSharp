@@ -11,16 +11,23 @@
         <p>Welcome to the Casino. The odds are @Game.Odds</p>
     </div>
     <div class="row">
-        <p>The player has @Game.Player.Balance bucks</p>
+        <p>The player has @Game.Player.Balance.ToString("C2") bucks.</p>
     </div>
     <div class="row">
         <div class="col-sm-12">
             <span>How much do you like to bet:</span>
-            <input type="number"/>
-            <button type="button" class="btn btn-primary">Bet</button>
+            <input type="number" @bind="Game.BetValue" />
+            <button type="button" class="btn btn-primary" @onclick="() => Game.Bet(Game.BetValue)">Bet</button>
         </div>
     </div>
     <div class="row">
         <p>@Game.TextResult</p>
     </div>
 </div>
+
+@code {
+
+    protected override void OnInitialized() {
+        Game.InitGame();
+    }
+}
