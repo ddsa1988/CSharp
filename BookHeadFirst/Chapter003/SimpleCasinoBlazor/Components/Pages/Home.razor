@@ -14,10 +14,15 @@
         <p>The player has @Game.Player.Balance.ToString("C2") bucks.</p>
     </div>
     <div class="row">
-        <div class="col-sm-12">
+        <div class="col-sm-6">
             <span>How much do you like to bet:</span>
             <input type="number" @bind="Game.BetValue" />
             <button type="button" class="btn btn-primary" @onclick="() => Game.Bet(Game.BetValue)">Bet</button>
+        </div>
+        <div class="col-sm-6">
+            <span>How much do you like to deposit:</span>
+            <input type="number" @bind="Game.DepositValue" />
+            <button type="button" class="btn btn-primary" @onclick="() => Game.Deposit(Game.DepositValue)">Deposit</button>
         </div>
     </div>
     <div class="row">
@@ -27,7 +32,8 @@
 
 @code {
 
-    protected override void OnInitialized() {
+    protected override void OnInitialized()
+    {
         Game.InitGame();
     }
 }
