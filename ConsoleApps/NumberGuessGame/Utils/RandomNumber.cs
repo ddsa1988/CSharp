@@ -1,4 +1,4 @@
-﻿namespace NumberGuessGame.Models;
+﻿namespace NumberGuessGame.Utils;
 
 public static class RandomNumber {
     private static readonly Random Random;

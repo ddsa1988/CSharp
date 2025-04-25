@@ -19,4 +19,9 @@ public class ToDo {
             _description = value;
         }
     }
+
+    public override string ToString() {
+        return "Description: " + Description +
+               ", IsCompleted: " + IsCompleted;
+    }
 }
