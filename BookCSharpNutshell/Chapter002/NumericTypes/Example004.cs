@@ -3,6 +3,7 @@
 public static class Example004 {
     public static void UserMain() {
         // Numeric suffixes
+        
         Console.WriteLine("float a = 1.0F");
         Console.WriteLine("double a = 1.0 or 1.0D");
         Console.WriteLine("decimal a = 1.0M");
