@@ -4,7 +4,7 @@ namespace GameStore.Endpoints;
 
 public static class GamesEndpoints {
     private const string GetGameEndpointName = "GetGame";
-    private static readonly List<GameDto> Games = Utils.Games.GetGames();
+    private static readonly List<GameDto> Games = Utils.Games.Create();
 
     // Extension method
     public static RouteGroupBuilder MapGamesApplication(this WebApplication app) {
