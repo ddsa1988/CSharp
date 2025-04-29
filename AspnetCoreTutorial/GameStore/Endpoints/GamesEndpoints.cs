@@ -9,7 +9,8 @@ public static class GamesEndpoints {
     // Extension method
     public static RouteGroupBuilder MapGamesApplication(this WebApplication app) {
         // Define groups of endpoints with a common prefix
-        RouteGroupBuilder group = app.MapGroup("games");
+        // Used the package MinimalApis.Extensions for data validation
+        RouteGroupBuilder group = app.MapGroup("games").WithParameterValidation();
 
         // Get /games
         group.MapGet("/", () => Games);

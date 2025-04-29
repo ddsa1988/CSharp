@@ -1,9 +1,9 @@
-﻿using Chapter002.NumericTypes;
+﻿using Chapter002.Strings;
 
 namespace Chapter002;
 
 public static class Program {
     public static void Main(string[] args) {
-        Example008.UserMain();
+        Example001.UserMain();
     }
 }
