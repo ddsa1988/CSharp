@@ -7,7 +7,7 @@ public static class GamesEndpoints {
     private static readonly List<GameDto> Games = Utils.Games.Create();
 
     // Extension method
-    public static RouteGroupBuilder MapGamesApplication(this WebApplication app) {
+    public static RouteGroupBuilder MapGamesEndpoints(this WebApplication app) {
         // Define groups of endpoints with a common prefix
         // Used the package MinimalApis.Extensions for data validation
         RouteGroupBuilder group = app.MapGroup("games").WithParameterValidation();
