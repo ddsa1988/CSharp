@@ -1,9 +1,9 @@
-﻿using Chapter002.Arrays;
+﻿using Chapter002.Parameters;
 
 namespace Chapter002;
 
 public static class Program {
     public static void Main(string[] args) {
-        Example004.UserMain();
+        Example001.UserMain();
     }
 }
