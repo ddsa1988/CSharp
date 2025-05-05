@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace GameStore.Data.Migrations
 {
     /// <inheritdoc />
@@ -17,7 +19,7 @@ namespace GameStore.Data.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Name = table.Column<string>(type: "TEXT", nullable: false)
+                    Name = table.Column<string>(type: "TEXT", maxLength: 30, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -30,10 +32,10 @@ namespace GameStore.Data.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Name = table.Column<string>(type: "TEXT", nullable: false),
+                    Name = table.Column<string>(type: "TEXT", maxLength: 30, nullable: false),
                     GenreId = table.Column<int>(type: "INTEGER", nullable: false),
                     Price = table.Column<float>(type: "REAL", nullable: false),
-                    ReleaseDate = table.Column<DateOnly>(type: "TEXT", nullable: true)
+                    ReleaseDate = table.Column<DateOnly>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -44,6 +46,18 @@ namespace GameStore.Data.Migrations
                         principalTable: "Genres",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "Genres",
+                columns: new[] { "Id", "Name" },
+                values: new object[,]
+                {
+                    { 1, "Fighting" },
+                    { 2, "Roleplaying" },
+                    { 3, "Sports" },
+                    { 4, "Racing" },
+                    { 5, "Kids and Family" }
                 });
 
             migrationBuilder.CreateIndex(

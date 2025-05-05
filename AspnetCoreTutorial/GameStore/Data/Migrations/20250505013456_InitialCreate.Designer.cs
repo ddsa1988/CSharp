@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GameStore.Data.Migrations
 {
     [DbContext(typeof(GameStoreContext))]
-    [Migration("20250504022434_SeedGenres")]
-    partial class SeedGenres
+    [Migration("20250505013456_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -37,7 +37,7 @@ namespace GameStore.Data.Migrations
                     b.Property<float>("Price")
                         .HasColumnType("REAL");
 
-                    b.Property<DateOnly?>("ReleaseDate")
+                    b.Property<DateOnly>("ReleaseDate")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");

@@ -34,7 +34,7 @@ namespace GameStore.Data.Migrations
                     b.Property<float>("Price")
                         .HasColumnType("REAL");
 
-                    b.Property<DateOnly?>("ReleaseDate")
+                    b.Property<DateOnly>("ReleaseDate")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
