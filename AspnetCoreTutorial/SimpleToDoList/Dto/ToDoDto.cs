@@ -1,3 +1,3 @@
 namespace SimpleToDoList.Dto;
 
-public record ToDoDto(int Id, string Description);
+public record ToDoDto(int Id, string Description, bool IsCompleted);
