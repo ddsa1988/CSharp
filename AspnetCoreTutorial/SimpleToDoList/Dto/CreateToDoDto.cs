@@ -1,3 +1,3 @@
 namespace SimpleToDoList.Dto;
 
-public record GameCreateDto(string Name, bool IsCompleted);
+public record CreateToDoDto(string Description, bool IsCompleted);

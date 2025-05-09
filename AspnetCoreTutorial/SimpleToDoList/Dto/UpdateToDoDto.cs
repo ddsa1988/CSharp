@@ -1,3 +1,3 @@
 namespace SimpleToDoList.Dto;
 
-public record UpdateCreateDto(string Name, bool IsCompleted);
+public record UpdateToDoDto(string Description, bool IsCompleted);
