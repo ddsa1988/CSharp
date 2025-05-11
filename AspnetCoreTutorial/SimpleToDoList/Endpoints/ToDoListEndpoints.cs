@@ -7,19 +7,22 @@ public static class ToDoListEndpoints {
     private static readonly List<ToDoDto> ToDoList = Utils.ToDoList.Create();
     private static int _nextId = ToDoList.Count + 1;
 
-    public static WebApplication MapToDoListEndpoints(this WebApplication app) {
+    public static RouteGroupBuilder MapToDoListEndpoints(this WebApplication app) {
+        // Define groups of endpoints with a common prefix
+        RouteGroupBuilder group = app.MapGroup("todolist").WithParameterValidation();
+
         // Get /todoList
-        app.MapGet("/todoList", () => ToDoList);
+        group.MapGet("/", () => ToDoList);
 
         // Get /todoList/id
-        app.MapGet("/todoList/{id:int}", (int id) => {
+        group.MapGet("/{id:int}", (int id) => {
             ToDoDto? todo = ToDoList.Find(todo => todo.Id == id);
 
             return todo == null ? Results.NotFound() : Results.Ok(todo);
         }).WithName(GetToDoEndpointName);
 
         // Post /todoList
-        app.MapPost("/todoList", (CreateToDoDto newTodo) => {
+        group.MapPost("/", (CreateToDoDto newTodo) => {
             var todo = new ToDoDto(_nextId++, newTodo.Description, false);
 
             ToDoList.Add(todo);
@@ -28,7 +31,7 @@ public static class ToDoListEndpoints {
         });
 
         // Put /todolist/id
-        app.MapPut("/todoList/{id:int}", (int id, UpdateToDoDto updateTodo) => {
+        group.MapPut("/{id:int}", (int id, UpdateToDoDto updateTodo) => {
             int index = ToDoList.FindIndex(todo => todo.Id == id);
 
             if (index == -1) return Results.NotFound();
@@ -39,7 +42,7 @@ public static class ToDoListEndpoints {
         });
 
         // Delete /todoList/id
-        app.MapDelete("/todoList/{id:int}", (int id) => {
+        group.MapDelete("/{id:int}", (int id) => {
             int index = ToDoList.FindIndex(todo => todo.Id == id);
 
             if (index == -1) return Results.NotFound();
@@ -49,6 +52,6 @@ public static class ToDoListEndpoints {
             return Results.NoContent();
         });
 
-        return app;
+        return group;
     }
 }

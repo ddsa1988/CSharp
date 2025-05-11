@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameStore", "GameStore\Game
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleToDoList", "SimpleToDoList\SimpleToDoList.csproj", "{04AF1BF6-6DAB-4C40-A763-AE6F558AE6C8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookStore", "BookStore\BookStore.csproj", "{31A6AAB8-ED08-4601-8907-812BC43A54AF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{04AF1BF6-6DAB-4C40-A763-AE6F558AE6C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{04AF1BF6-6DAB-4C40-A763-AE6F558AE6C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{04AF1BF6-6DAB-4C40-A763-AE6F558AE6C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31A6AAB8-ED08-4601-8907-812BC43A54AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31A6AAB8-ED08-4601-8907-812BC43A54AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31A6AAB8-ED08-4601-8907-812BC43A54AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31A6AAB8-ED08-4601-8907-812BC43A54AF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

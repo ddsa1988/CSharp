@@ -1,3 +1,7 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace SimpleToDoList.Dto;
 
-public record CreateToDoDto(string Description, bool IsCompleted);
+public record CreateToDoDto(
+    [Required] string Description,
+    bool IsCompleted);
