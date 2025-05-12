@@ -14,40 +14,40 @@ public static class Example011 {
 
         Console.WriteLine(User.Sum(20, 30));
     }
-}
 
-internal partial class User {
-    public string Name { get; set; }
+    private partial class User {
+        public string Name { get; set; }
 
-    public User(string name) {
-        Name = name;
+        public User(string name) {
+            Name = name;
+        }
+
+        // Partial method definition
+
+        public partial void Greeting(string msg);
+
+        public static partial int Sum(int a, int b);
     }
 
-    // Partial method definition
+    private partial class User {
+        public int Age { get; set; }
 
-    public partial void Greeting(string msg);
+        public User(string name, int age) : this(name) {
+            Age = age;
+        }
 
-    public static partial int Sum(int a, int b);
-}
+        // Partial method implementation
 
-internal partial class User {
-    public int Age { get; set; }
+        public partial void Greeting(string msg) {
+            Console.WriteLine("Greeting: {0} {1} {2}", Name, Age, msg);
+        }
 
-    public User(string name, int age) : this(name) {
-        Age = age;
-    }
+        public static partial int Sum(int a, int b) {
+            return a + b;
+        }
 
-    // Partial method implementation
-
-    public partial void Greeting(string msg) {
-        Console.WriteLine("Greeting: {0} {1} {2}", Name, Age, msg);
-    }
-
-    public static partial int Sum(int a, int b) {
-        return a + b;
-    }
-
-    public override string ToString() {
-        return $"User [ Name = {Name}, Age = {Age} ]";
+        public override string ToString() {
+            return $"User [ Name = {Name}, Age = {Age} ]";
+        }
     }
 }

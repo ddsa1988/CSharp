@@ -7,17 +7,17 @@ public static class Example010 {
 
         Test.Greeting("Hello World");
     }
-}
 
-internal class Test {
-    public static readonly int X = 3;
+    private class Test {
+        public static readonly int X = 3;
 
-    static Test() {
-        Console.WriteLine("Static constructor called.");
-        Console.WriteLine("{0} = {1}", nameof(X), X);
-    }
+        static Test() {
+            Console.WriteLine("Static constructor called.");
+            Console.WriteLine("{0} = {1}", nameof(X), X);
+        }
 
-    public static void Greeting(string msg) {
-        Console.WriteLine("Greeting: " + msg);
+        public static void Greeting(string msg) {
+            Console.WriteLine("Greeting: " + msg);
+        }
     }
 }

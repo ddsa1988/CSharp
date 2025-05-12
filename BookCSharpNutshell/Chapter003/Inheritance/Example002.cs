@@ -1,13 +1,8 @@
 ﻿namespace Chapter003.Inheritance;
 
-public static class Example001 {
+public static class Example002 {
     public static void UserMain() {
-        // A class can inherit from another class to extend or customize the original class.
-        var stock = new Stock() { Name = "Stock", SharesOwned = 1000 };
-        var house = new House() { Name = "House", Mortgage = 250000 };
-
-        Console.WriteLine(stock);
-        Console.WriteLine(house);
+        // References are polymorphic. This means a variable of type x can refer to an object that subclasses x. 
     }
 
     private class Asset {
