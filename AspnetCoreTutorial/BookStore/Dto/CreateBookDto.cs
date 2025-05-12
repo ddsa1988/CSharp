@@ -8,4 +8,5 @@ public record class CreateBookDto(
     [Required] string Publisher,
     [Required] [Range(1, int.MaxValue)] int Edition,
     [Required] [Range(1, long.MaxValue)] long Isbn,
+    [Required] [Range(1, float.MaxValue)] float Price,
     DateOnly PublishDate);
