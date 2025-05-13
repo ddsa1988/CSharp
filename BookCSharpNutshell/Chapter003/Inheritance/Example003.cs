@@ -1,20 +1,20 @@
 ﻿namespace Chapter003.Inheritance;
 
-public static class Example002 {
+public static class Example003 {
     public static void UserMain() {
-        // References are polymorphic. This means a variable of type x can refer to an object that subclasses x. 
+        // An upcast operation creates a base class reference from a subclass reference
 
         var asset = new Asset() { Name = "Asset" };
         var stock = new Stock() { Name = "Stock", SharesOwned = 1000 };
-        var house = new House() { Name = "House", Mortgage = 250000 };
 
-        Display(asset);
-        Display(house);
-        Display(stock);
-    }
+        Console.WriteLine("{0} => {1}", nameof(asset), asset);
+        Console.WriteLine("{0} => {1}", nameof(stock), stock);
 
-    private static void Display(Asset asset) {
-        Console.WriteLine("{0} = {1}", nameof(asset.Name), asset.Name);
+        asset = stock;
+
+        Console.WriteLine("{0} => {1}", nameof(asset), asset);
+        Console.WriteLine("{0} => {1}", nameof(asset), asset.Name);
+        // Console.WriteLine("{0} => {1}", nameof(asset), asset.SharesOwned); // Compile-time error
     }
 
     private class Asset {

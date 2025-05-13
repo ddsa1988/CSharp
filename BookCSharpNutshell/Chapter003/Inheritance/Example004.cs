@@ -1,14 +1,21 @@
 ﻿namespace Chapter003.Inheritance;
 
-public static class Example001 {
+public static class Example004 {
     public static void UserMain() {
-        // A class can inherit from another class to extend or customize the original class.
+        // A downcast operation creates a subclass reference from a base class reference
 
         var stock = new Stock() { Name = "Stock", SharesOwned = 1000 };
-        var house = new House() { Name = "House", Mortgage = 250000 };
 
-        Console.WriteLine(stock);
-        Console.WriteLine(house);
+        Console.WriteLine("{0} => {1}", nameof(stock), stock);
+
+        Asset asset = stock;
+        stock = (Stock)asset;
+
+        Console.WriteLine("{0} => {1}", nameof(asset), asset);
+        //Console.WriteLine("{0} => {1}", nameof(asset), asset.SharesOwned); // Compile-time error
+
+        Console.WriteLine("{0} => {1}", nameof(stock), stock);
+        Console.WriteLine("{0} => {1}", nameof(stock), stock.SharesOwned);
     }
 
     private class Asset {
@@ -24,14 +31,6 @@ public static class Example001 {
 
         public override string ToString() {
             return $"Stock [ Name = {Name}, SharesOwned = {SharesOwned} ]";
-        }
-    }
-
-    private class House : Asset {
-        public decimal Mortgage { get; set; }
-
-        public override string ToString() {
-            return $"House [ Name = {Name}, Mortgage = {Mortgage} ]";
         }
     }
 }

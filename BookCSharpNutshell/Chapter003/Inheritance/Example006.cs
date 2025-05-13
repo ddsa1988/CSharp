@@ -1,14 +1,17 @@
 ﻿namespace Chapter003.Inheritance;
 
-public static class Example001 {
+public static class Example006 {
     public static void UserMain() {
-        // A class can inherit from another class to extend or customize the original class.
+        // The as operator performs a downcast that evaluates to null (rather than throwing an exception) if the downcast fail
 
+        var asset = new Asset() { Name = "Asset" };
         var stock = new Stock() { Name = "Stock", SharesOwned = 1000 };
-        var house = new House() { Name = "House", Mortgage = 250000 };
 
-        Console.WriteLine(stock);
-        Console.WriteLine(house);
+        Console.WriteLine("{0} => {1}", nameof(asset), asset);
+        Console.WriteLine("{0} => {1}", nameof(stock), stock);
+
+        stock = asset as Stock;
+        Console.WriteLine("{0} => {1}", nameof(stock), stock == null ? "null" : stock);
     }
 
     private class Asset {
@@ -24,14 +27,6 @@ public static class Example001 {
 
         public override string ToString() {
             return $"Stock [ Name = {Name}, SharesOwned = {SharesOwned} ]";
-        }
-    }
-
-    private class House : Asset {
-        public decimal Mortgage { get; set; }
-
-        public override string ToString() {
-            return $"House [ Name = {Name}, Mortgage = {Mortgage} ]";
         }
     }
 }
