@@ -3,3 +3,18 @@ GET localhost:5000/books
 ###
 
 GET localhost:5000/books/1
+
+###
+
+POST localhost:5000/books
+Content-Type: application/json
+
+{
+  "title": "Title 10",
+  "author": "Author 1",
+  "publisher": "Publisher 1",
+  "edition": 1,
+  "isbn": 123,
+  "price": 19.9,
+  "publishDate": "2022-10-25"
+}

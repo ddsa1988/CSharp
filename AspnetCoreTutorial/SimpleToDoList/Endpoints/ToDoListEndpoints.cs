@@ -23,6 +23,10 @@ public static class ToDoListEndpoints {
 
         // Post /todoList
         group.MapPost("/", (CreateToDoDto newTodo) => {
+            int index = ToDoList.FindIndex(todo => todo.Description == newTodo.Description);
+
+            if (index != -1) return Results.Conflict("Todo already exists");
+
             var todo = new ToDoDto(_nextId++, newTodo.Description, false);
 
             ToDoList.Add(todo);
