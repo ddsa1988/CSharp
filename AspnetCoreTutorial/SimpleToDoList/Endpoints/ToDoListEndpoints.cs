@@ -53,6 +53,8 @@ public static class ToDoListEndpoints {
 
             ToDoList.RemoveAt(index);
 
+            _nextId--;
+
             return Results.NoContent();
         });
 

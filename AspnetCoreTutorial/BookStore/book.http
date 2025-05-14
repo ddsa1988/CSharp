@@ -18,3 +18,22 @@ Content-Type: application/json
   "price": 19.9,
   "publishDate": "2022-10-25"
 }
+
+###
+
+PUT localhost:5000/books/1
+Content-Type: application/json
+
+{
+  "title": "Title 100",
+  "author": "Author 110",
+  "publisher": "Publisher 1",
+  "edition": 1,
+  "isbn": 123,
+  "price": 19.9,
+  "publishDate": "2022-10-25"
+}
+
+###
+
+DELETE localhost:5000/books/1
