@@ -5,9 +5,8 @@ public static class Example009 {
         // A class declared as abstract can never be instantiated. Instead, only its concrete
         // subclasses can be instantiated.
 
-        var stock = new Stock();
-        stock.SharesOwned = 100;
-        stock.CurrentPrice = 20;
+        // Asset asset = new Asset(); // Compile-time error
+        var stock = new Stock() { SharesOwned = 1000, CurrentPrice = 20 };
 
         Console.WriteLine(stock.Greeting("Tuesday"));
         Console.WriteLine();
