@@ -1,9 +1,9 @@
-﻿using Chapter003.Inheritance;
+﻿using Chapter003.Interfaces;
 
 namespace Chapter003;
 
 public static class Program {
     public static void Main(string[] args) {
-        Example012.UserMain();
+        Example001.UserMain();
     }
 }
