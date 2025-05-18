@@ -1,62 +1,58 @@
+using Microsoft.EntityFrameworkCore;
+using SimpleToDoList.Data;
 using SimpleToDoList.Dto;
+using SimpleToDoList.Entities;
+using SimpleToDoList.Mapping;
 
 namespace SimpleToDoList.Endpoints;
 
 public static class ToDoListEndpoints {
     private const string GetToDoEndpointName = "GetToDoList";
-    private static readonly List<ToDoDto> ToDoList = Utils.ToDoList.Create();
-    private static int _nextId = ToDoList.Count + 1;
 
     public static RouteGroupBuilder MapToDoListEndpoints(this WebApplication app) {
         // Define groups of endpoints with a common prefix
         RouteGroupBuilder group = app.MapGroup("todolist").WithParameterValidation();
 
         // Get /todoList
-        group.MapGet("/", () => ToDoList);
+        group.MapGet("/", (ToDoListContext dbContext) =>
+            dbContext.ToDoList
+                .Select(todo => todo.ToDto())
+                .AsNoTracking());
 
         // Get /todoList/id
-        group.MapGet("/{id:int}", (int id) => {
-            ToDoDto? todo = ToDoList.Find(todo => todo.Id == id);
+        group.MapGet("/{id:int}", (int id, ToDoListContext dbContext) => {
+            ToDo? todo = dbContext.ToDoList.Find(id);
 
-            return todo == null ? Results.NotFound() : Results.Ok(todo);
+            return todo == null ? Results.NotFound() : Results.Ok(todo.ToDto());
         }).WithName(GetToDoEndpointName);
 
         // Post /todoList
-        group.MapPost("/", (CreateToDoDto newTodo) => {
-            int index = ToDoList.FindIndex(todo => todo.Description == newTodo.Description);
+        group.MapPost("/", (CreateToDoDto newTodo, ToDoListContext dbContext) => {
+            ToDo todo = newTodo.ToEntity();
 
-            if (index != -1) return Results.Conflict("Todo already exists");
+            dbContext.ToDoList.Add(todo);
+            dbContext.SaveChanges();
 
-            var todo = new ToDoDto(_nextId++, newTodo.Description, false);
-
-            ToDoList.Add(todo);
-
-            return Results.CreatedAtRoute(GetToDoEndpointName, new { id = todo.Id }, todo);
+            return Results.CreatedAtRoute(GetToDoEndpointName, new { id = todo.Id }, todo.ToDto());
         });
 
         // Put /todolist/id
-        group.MapPut("/{id:int}", (int id, UpdateToDoDto updateTodo) => {
-            int index = ToDoList.FindIndex(todo => todo.Id == id);
+        group.MapPut("/{id:int}", (int id, UpdateToDoDto updatedTodo, ToDoListContext dbContext) => {
+            ToDo? existingTodo = dbContext.ToDoList.Find(id);
 
-            if (index == -1) return Results.NotFound();
+            if (existingTodo == null) return Results.NotFound();
 
-            ToDoList[index] = new ToDoDto(id, updateTodo.Description, updateTodo.IsCompleted);
+            dbContext.Entry(existingTodo).CurrentValues.SetValues(updatedTodo.ToEntity(id));
+            dbContext.SaveChanges();
 
             return Results.NoContent();
         });
 
         // Delete /todoList/id
-        group.MapDelete("/{id:int}", (int id) => {
-            int index = ToDoList.FindIndex(todo => todo.Id == id);
-
-            if (index == -1) return Results.NotFound();
-
-            ToDoList.RemoveAt(index);
-
-            _nextId--;
-
-            return Results.NoContent();
-        });
+        group.MapDelete("/{id:int}",
+            (int id, ToDoListContext dbContext) => {
+                dbContext.ToDoList.Where(todo => todo.Id == id).ExecuteDelete();
+            });
 
         return group;
     }

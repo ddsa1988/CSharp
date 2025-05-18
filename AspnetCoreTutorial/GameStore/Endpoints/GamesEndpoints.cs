@@ -42,12 +42,12 @@ public static class GamesEndpoints {
         });
 
         // Put /games
-        group.MapPut("/{id:int}", async (int id, UpdateGameDto updateGame, GameStoreContext dbContext) => {
+        group.MapPut("/{id:int}", async (int id, UpdateGameDto updatedGame, GameStoreContext dbContext) => {
             Game? existingGame = await dbContext.Games.FindAsync(id);
 
             if (existingGame == null) return Results.NotFound();
 
-            dbContext.Entry(existingGame).CurrentValues.SetValues(updateGame.ToEntity(id));
+            dbContext.Entry(existingGame).CurrentValues.SetValues(updatedGame.ToEntity(id));
 
             await dbContext.SaveChangesAsync();
 
@@ -56,9 +56,7 @@ public static class GamesEndpoints {
 
         // Delete /games
         group.MapDelete("/{id:int}", async (int id, GameStoreContext dbContext) => {
-            await dbContext.Games
-                .Where(game => game.Id == id)
-                .ExecuteDeleteAsync();
+            await dbContext.Games.Where(game => game.Id == id).ExecuteDeleteAsync();
 
             return Results.NoContent();
         });
