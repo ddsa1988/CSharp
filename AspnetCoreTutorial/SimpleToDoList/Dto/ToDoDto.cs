@@ -2,7 +2,4 @@ using System.ComponentModel.DataAnnotations;
 
 namespace SimpleToDoList.Dto;
 
-public record ToDoDto(
-    [Required] [Range(1, int.MaxValue)] int Id,
-    [Required] string Description,
-    bool IsCompleted);
+public record ToDoDto(int Id, string Description, bool IsCompleted);

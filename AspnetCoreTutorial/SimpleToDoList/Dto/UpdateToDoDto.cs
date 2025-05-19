@@ -3,5 +3,5 @@ using System.ComponentModel.DataAnnotations;
 namespace SimpleToDoList.Dto;
 
 public record UpdateToDoDto(
-    [Required] string Description,
+    [Required] [StringLength(50)] string Description,
     bool IsCompleted);
