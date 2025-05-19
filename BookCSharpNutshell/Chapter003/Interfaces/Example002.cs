@@ -2,6 +2,8 @@
 
 public static class Example002 {
     public static void UserMain() {
+        // Interfaces can derive from other interfaces.
+
         var test = new Test();
 
         test.Method1();
