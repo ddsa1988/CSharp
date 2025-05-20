@@ -56,6 +56,10 @@ public static class GamesEndpoints {
 
             if (existingGame == null) return Results.NotFound();
 
+            Genre? genre = await dbContext.Genres.FindAsync(updatedGame.GenreId);
+            
+            if(genre == null) return Results.NotFound("Genre not found");
+            
             dbContext.Entry(existingGame).CurrentValues.SetValues(updatedGame.ToEntity(id));
 
             await dbContext.SaveChangesAsync();
