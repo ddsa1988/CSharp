@@ -37,12 +37,12 @@ public static class GamesEndpoints {
 
             if (existingGame != null) return Results.Conflict("Game already exists");
 
-            Genre? genre = await dbContext.Genres.FindAsync(newGame.GenreId);
+            Genre? existingGenre = await dbContext.Genres.FindAsync(newGame.GenreId);
 
-            if (genre == null) return Results.NotFound("Genre not found");
+            if (existingGenre == null) return Results.NotFound("Genre not found");
 
             Game game = newGame.ToEntity();
-            game.Genre = genre;
+            game.Genre = existingGenre;
 
             dbContext.Games.Add(game);
             await dbContext.SaveChangesAsync();
@@ -56,9 +56,9 @@ public static class GamesEndpoints {
 
             if (existingGame == null) return Results.NotFound();
 
-            Genre? genre = await dbContext.Genres.FindAsync(updatedGame.GenreId);
+            Genre? existingGenre = await dbContext.Genres.FindAsync(updatedGame.GenreId);
             
-            if(genre == null) return Results.NotFound("Genre not found");
+            if(existingGenre == null) return Results.NotFound("Genre not found");
             
             dbContext.Entry(existingGame).CurrentValues.SetValues(updatedGame.ToEntity(id));
 
