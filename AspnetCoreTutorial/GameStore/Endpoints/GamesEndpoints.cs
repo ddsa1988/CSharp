@@ -32,6 +32,11 @@ public static class GamesEndpoints {
 
         // Post /games
         group.MapPost("/", async (CreateGameDto newGame, GameStoreContext dbContext) => {
+            // Game? existingGame = await dbContext.Games.Where(game => game.Name == newGame.Name).FirstOrDefaultAsync();
+            Game? existingGame = await dbContext.Games.FirstOrDefaultAsync(game => game.Name == newGame.Name);
+
+            if (existingGame != null) return Results.Conflict("Game already exists");
+
             Game game = newGame.ToEntity();
             game.Genre = await dbContext.Genres.FindAsync(newGame.GenreId);
 

@@ -28,6 +28,10 @@ public static class ToDoListEndpoints {
 
         // Post /todoList
         group.MapPost("/", (CreateToDoDto newTodo, ToDoListContext dbContext) => {
+            ToDo? existingTodo = dbContext.ToDoList.FirstOrDefault(todo => todo.Description == newTodo.Description);
+
+            if (existingTodo != null) return Results.Conflict("Todo already exists");
+
             ToDo todo = newTodo.ToEntity();
 
             dbContext.ToDoList.Add(todo);
