@@ -1,0 +1,27 @@
+﻿GET localhost:5000/publishers
+
+###
+
+GET localhost:5000/publishers/1
+
+###
+
+POST localhost:5000/publishers
+Content-Type: application/json
+
+{
+  "name": "Publisher 1"
+}
+
+###
+
+PUT localhost:5000/publishers/1
+Content-Type: application/json
+
+{
+  "name": "Publisher 10"
+}
+
+###
+
+DELETE localhost:5000/publishers/1

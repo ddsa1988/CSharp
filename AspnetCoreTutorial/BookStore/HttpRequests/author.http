@@ -1,0 +1,27 @@
+﻿GET localhost:5000/authors
+
+###
+
+GET localhost:5000/authors/1
+
+###
+
+POST localhost:5000/authors
+Content-Type: application/json
+
+{
+  "name": "Author 1"
+}
+
+###
+
+PUT localhost:5000/authors/1
+Content-Type: application/json
+
+{
+  "name": "Author 10"
+}
+
+###
+
+DELETE localhost:5000/authors/1
