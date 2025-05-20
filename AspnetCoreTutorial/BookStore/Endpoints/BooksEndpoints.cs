@@ -27,8 +27,9 @@ public static class BooksEndpoints {
 
             if (index != -1) return Results.Conflict("Book already exists");
 
-            var book = new BookDto(_nextId++, newBook.Title, newBook.Author, newBook.Publisher, newBook.Edition,
-                newBook.Isbn, newBook.Price, newBook.PublishDate);
+            var book = new BookDto(_nextId++, newBook.Title, newBook.Author, newBook.Publisher, newBook.Isbn,
+                newBook.Edition,
+                newBook.Price, newBook.PublishDate);
 
             Books.Add(book);
 
@@ -42,7 +43,7 @@ public static class BooksEndpoints {
             if (index == 1) return Results.NotFound();
 
             Books[index] = new BookDto(id, updatedBook.Title, updatedBook.Author, updatedBook.Publisher,
-                updatedBook.Edition, updatedBook.Isbn, updatedBook.Price, updatedBook.PublishDate);
+                updatedBook.Isbn, updatedBook.Edition, updatedBook.Price, updatedBook.PublishDate);
 
             return Results.NoContent();
         });

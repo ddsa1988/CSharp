@@ -5,7 +5,7 @@ public record class BookDto(
     string Title,
     string Author,
     string Publisher,
+    string Isbn,
     int Edition,
-    long Isbn,
     float Price,
     DateOnly PublishDate);

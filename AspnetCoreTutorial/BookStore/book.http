@@ -14,7 +14,7 @@ Content-Type: application/json
   "author": "Author 1",
   "publisher": "Publisher 1",
   "edition": 1,
-  "isbn": 123,
+  "isbn": "978-65-89999-01-3",
   "price": 19.9,
   "publishDate": "2022-10-25"
 }
@@ -29,7 +29,7 @@ Content-Type: application/json
   "author": "Author 110",
   "publisher": "Publisher 1",
   "edition": 1,
-  "isbn": 123,
+  "isbn": "978-65-89999-01-3",
   "price": 19.9,
   "publishDate": "2022-10-25"
 }
