@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace BookStore.Dto;
+namespace BookStore.Dto.Book;
 
 public record class UpdateBookDto(
     [Required] [StringLength(30)] string Title,

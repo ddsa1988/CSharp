@@ -1,10 +1,10 @@
-using BookStore.Dto;
+using BookStore.Dto.Book;
 
 namespace BookStore.Endpoints;
 
 public static class BooksEndpoints {
     private const string GetBookEndpoint = "GetBook";
-    private static readonly List<BookDto> Books = Utils.Books.Create();
+    private static readonly List<BookSummaryDto> Books = Utils.Books.Create();
     private static int _nextId = Books.Count + 1;
 
     public static RouteGroupBuilder MapBooksEndpoints(this WebApplication app) {
@@ -16,7 +16,7 @@ public static class BooksEndpoints {
 
         // Get /books/id
         group.MapGet("/{id:int}", (int id) => {
-            BookDto? book = Books.Find(book => book.Id == id);
+            BookSummaryDto? book = Books.Find(book => book.Id == id);
 
             return book == null ? Results.NotFound() : Results.Ok(book);
         }).WithName(GetBookEndpoint);
@@ -27,7 +27,7 @@ public static class BooksEndpoints {
 
             if (index != -1) return Results.Conflict("Book already exists");
 
-            var book = new BookDto(_nextId++, newBook.Title, newBook.Author, newBook.Publisher, newBook.Isbn,
+            var book = new BookSummaryDto(_nextId++, newBook.Title, newBook.Author, newBook.Publisher, newBook.Isbn,
                 newBook.Edition,
                 newBook.Price, newBook.PublishDate);
 
@@ -42,7 +42,7 @@ public static class BooksEndpoints {
 
             if (index == 1) return Results.NotFound();
 
-            Books[index] = new BookDto(id, updatedBook.Title, updatedBook.Author, updatedBook.Publisher,
+            Books[index] = new BookSummaryDto(id, updatedBook.Title, updatedBook.Author, updatedBook.Publisher,
                 updatedBook.Isbn, updatedBook.Edition, updatedBook.Price, updatedBook.PublishDate);
 
             return Results.NoContent();

@@ -1,10 +1,10 @@
-namespace BookStore.Dto;
+namespace BookStore.Dto.Book;
 
-public record class BookDto(
+public record class BookDetailsDto(
     int Id,
     string Title,
-    string Author,
-    string Publisher,
+    int Author,
+    int Publisher,
     string Isbn,
     int Edition,
     float Price,
