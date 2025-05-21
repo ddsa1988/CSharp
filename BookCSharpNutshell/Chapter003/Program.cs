@@ -1,9 +1,9 @@
-﻿using Chapter003.Interfaces;
+﻿using Chapter003.Enums;
 
 namespace Chapter003;
 
 public static class Program {
     public static void Main(string[] args) {
-        Example006.UserMain();
+        Example001.UserMain();
     }
 }
