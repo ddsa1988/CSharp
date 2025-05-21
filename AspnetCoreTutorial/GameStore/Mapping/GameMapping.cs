@@ -5,20 +5,20 @@ namespace GameStore.Mapping;
 
 public static class GameMapping {
     // Create extension methods for the CreateGameDto and the Game classes.
-    public static Game ToEntity(this CreateGameDto game) {
+    public static Game ToEntity(this CreateGameDto game, Genre genre) {
         return new Game() {
             Name = game.Name,
-            GenreId = game.GenreId,
+            Genre = genre,
             Price = game.Price,
             ReleaseDate = game.ReleaseDate
         };
     }
 
-    public static Game ToEntity(this UpdateGameDto game, int id) {
+    public static Game ToEntity(this UpdateGameDto game, Genre genre, int id) {
         return new Game() {
             Id = id,
             Name = game.Name,
-            GenreId = game.GenreId,
+            Genre = genre,
             Price = game.Price,
             ReleaseDate = game.ReleaseDate
         };
@@ -29,6 +29,6 @@ public static class GameMapping {
     }
 
     public static GameDetailsDto ToGameDetailsDto(this Game game) {
-        return new GameDetailsDto(game.Id, game.Name, game.GenreId, game.Price, game.ReleaseDate);
+        return new GameDetailsDto(game.Id, game.Name, game.Genre.Id, game.Price, game.ReleaseDate);
     }
 }
