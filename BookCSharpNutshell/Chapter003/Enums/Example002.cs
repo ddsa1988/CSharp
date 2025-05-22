@@ -1,12 +1,8 @@
 ﻿namespace Chapter003.Enums;
 
-public static class Example001 {
+public static class Example002 {
     public static void UserMain() {
-        // An enum is a special value type that lets you specify a group of named numeric constants.
-
-        const BorderSide topSide = BorderSide.Top;
-
-        Console.WriteLine("{0} => {1} == {2}\n", nameof(topSide), topSide, BorderSide.Top);
+        // You can specify an explicit underlying value for each enum member.
 
         Console.WriteLine("{0} = {1}", BorderSide.Left, (int)BorderSide.Left);
         Console.WriteLine("{0} = {1}", BorderSide.Right, (int)BorderSide.Right);
@@ -15,9 +11,9 @@ public static class Example001 {
     }
 
     private enum BorderSide {
-        Left,
+        Left = 5,
         Right,
-        Top,
+        Top = 10,
         Bottom
     }
 }
