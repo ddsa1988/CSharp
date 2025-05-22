@@ -10,6 +10,6 @@ WebApplication app = builder.Build();
 
 app.MapToDoListEndpoints();
 
-app.MigrateDatabase();
+await app.MigrateDatabaseAsync();
 
 app.Run();

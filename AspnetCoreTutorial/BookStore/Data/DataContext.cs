@@ -1,11 +1,11 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace SimpleToDoList.Data;
+namespace BookStore.Data;
 
 public static class DataExtension {
     public static async Task MigrateDatabaseAsync(this WebApplication app) {
         using IServiceScope scope = app.Services.CreateScope();
-        var toDoListContext = scope.ServiceProvider.GetRequiredService<ToDoListContext>();
-        await toDoListContext.Database.MigrateAsync();
+        var bookStoreContext = scope.ServiceProvider.GetRequiredService<BookStoreContext>();
+        await bookStoreContext.Database.MigrateAsync();
     }
 }
