@@ -14,11 +14,12 @@ public static class ToDoListEndpoints {
         RouteGroupBuilder group = app.MapGroup("todolist").WithParameterValidation();
 
         // Get /todoList
-        group.MapGet("/", async (ToDoListContext dbContext) =>
-            await dbContext.ToDoList
+        group.MapGet("/", async (ToDoListContext dbContext) => {
+            return await dbContext.ToDoList
                 .Select(todo => todo.ToDto())
                 .AsNoTracking()
-                .ToListAsync());
+                .ToListAsync();
+        });
 
         // Get /todoList/id
         group.MapGet("/{id:int}", async (int id, ToDoListContext dbContext) => {

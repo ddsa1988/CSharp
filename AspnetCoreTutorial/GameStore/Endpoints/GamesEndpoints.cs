@@ -16,12 +16,13 @@ public static class GamesEndpoints {
         RouteGroupBuilder group = app.MapGroup("games").WithParameterValidation();
 
         // Get /games
-        group.MapGet("/", async (GameStoreContext dbContext) =>
-            await dbContext.Games
+        group.MapGet("/", async (GameStoreContext dbContext) => {
+            return await dbContext.Games
                 .Include(game => game.Genre)
                 .Select(game => game.ToGameSummaryDto())
                 .AsNoTracking()
-                .ToListAsync());
+                .ToListAsync();
+        });
 
         // Get /games/id
         group.MapGet("/{id:int}", async (int id, GameStoreContext dbContext) => {

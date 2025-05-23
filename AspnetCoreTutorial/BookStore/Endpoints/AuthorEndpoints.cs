@@ -14,21 +14,16 @@ public static class AuthorEndpoints {
         RouteGroupBuilder group = app.MapGroup("authors").WithParameterValidation();
 
         // Get /authors
-        group.MapGet("/",
-            async (BookStoreContext dbContext) => {
-                await dbContext.Author.Select(author => author.ToDto()).AsNoTracking().ToListAsync();
-            });
+        group.MapGet("/", async (BookStoreContext dbContext) => {
+            return await dbContext.Author
+                .Select(author => author.ToDto())
+                .AsNoTracking()
+                .ToListAsync();
+        });
 
         // Get /authors/id
         group.MapGet("/{id:int}", async (int id, BookStoreContext dbContext) => {
             Author? author = await dbContext.Author.FindAsync(id);
-
-            return author == null ? Results.NotFound() : Results.Ok(author.ToDto());
-        }).WithName(GetAuthorEndpoint);
-
-        // Get /authors/name
-        group.MapGet("/{name}", async (string name, BookStoreContext dbContext) => {
-            Author? author = await dbContext.Author.FindAsync(name);
 
             return author == null ? Results.NotFound() : Results.Ok(author.ToDto());
         }).WithName(GetAuthorEndpoint);
@@ -64,14 +59,6 @@ public static class AuthorEndpoints {
         group.MapDelete("/{id:int}",
             async (int id, BookStoreContext dbContext) => {
                 await dbContext.Author.Where(author => author.Id == id).ExecuteDeleteAsync();
-
-                return Results.NoContent();
-            });
-
-        // Delete /authors/name
-        group.MapDelete("/{name}",
-            async (string name, BookStoreContext dbContext) => {
-                await dbContext.Author.Where(author => author.Name == name).ExecuteDeleteAsync();
 
                 return Results.NoContent();
             });

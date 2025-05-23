@@ -19,7 +19,7 @@ PUT localhost:5000/authors/1
 Content-Type: application/json
 
 {
-  "name": "Author 10"
+  "name": "Author 1"
 }
 
 ###
