@@ -58,6 +58,8 @@ public static class ToDoListEndpoints {
         group.MapDelete("/{id:int}",
             async (int id, ToDoListContext dbContext) => {
                 await dbContext.ToDoList.Where(todo => todo.Id == id).ExecuteDeleteAsync();
+
+                return Results.NoContent();
             });
 
         return group;
