@@ -56,12 +56,11 @@ public static class AuthorEndpoints {
         });
 
         // Delete /authors/id
-        group.MapDelete("/{id:int}",
-            async (int id, BookStoreContext dbContext) => {
-                await dbContext.Author.Where(author => author.Id == id).ExecuteDeleteAsync();
+        group.MapDelete("/{id:int}", async (int id, BookStoreContext dbContext) => {
+            await dbContext.Author.Where(author => author.Id == id).ExecuteDeleteAsync();
 
-                return Results.NoContent();
-            });
+            return Results.NoContent();
+        });
 
         return group;
     }
