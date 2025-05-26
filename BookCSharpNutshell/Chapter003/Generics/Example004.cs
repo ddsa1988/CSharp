@@ -60,7 +60,7 @@ public static class Example004 {
         public double Salary { get; set; }
     }
 
-    public class Analyst : IEmployee {
+    private class Analyst : IEmployee {
         public string Name { get; set; } = string.Empty;
         public int Id { get; set; }
         public double Salary { get; set; }
