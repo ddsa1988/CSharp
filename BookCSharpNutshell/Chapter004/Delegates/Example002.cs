@@ -31,7 +31,7 @@ public static class Example002 {
         }
     }
 
-    private delegate int Transformer(int x); // Higher-order function
+    private delegate int Transformer(int x);
 
     private static int Square(int x) => x * x;
 
