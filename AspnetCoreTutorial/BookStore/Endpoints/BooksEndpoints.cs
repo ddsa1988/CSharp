@@ -8,8 +8,6 @@ namespace BookStore.Endpoints;
 
 public static class BooksEndpoints {
     private const string GetBookEndpoint = "GetBook";
-    private static readonly List<BookSummaryDto> Books = Utils.Books.Create();
-    private static int _nextId = Books.Count + 1;
 
     public static RouteGroupBuilder MapBooksEndpoints(this WebApplication app) {
         // Define groups of endpoints with a common prefix
@@ -45,10 +43,6 @@ public static class BooksEndpoints {
             Publisher? existingPublisher = await dbContext.Publisher.FindAsync(newBook.PublisherId);
 
             if (existingPublisher == null) return Results.NotFound("Publisher not found");
-
-            int index = Books.FindIndex(book => book.Title == newBook.Title);
-
-            if (index != -1) return Results.Conflict("Book already exists");
 
             Book book = newBook.ToEntity(existingAuthor, existingPublisher);
 
