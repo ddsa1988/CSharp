@@ -10,9 +10,9 @@ POST localhost:5000/books
 Content-Type: application/json
 
 {
-  "title": "Title 10",
-  "author": "Author 1",
-  "publisher": "Publisher 1",
+  "title": "Title 40",
+  "authorId": 1,
+  "publisherId": 1,
   "edition": 1,
   "isbn": "978-65-89999-01-3",
   "price": 19.9,
@@ -26,8 +26,8 @@ Content-Type: application/json
 
 {
   "title": "Title 100",
-  "author": "Author 110",
-  "publisher": "Publisher 1",
+  "authorId": 1,
+  "publisherId": 2,
   "edition": 1,
   "isbn": "978-65-89999-01-3",
   "price": 19.9,
