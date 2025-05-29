@@ -4,6 +4,10 @@ namespace FirstApp.Controllers;
 
 public class HomeController : Controller {
     public ViewResult Index() {
-        return View("MyView");
+        const string greeting = "Hello. Today is ";
+        string date = DateTime.Now.ToString("dddd, dd MMMM yyyy");
+        string msg = greeting + date + ".";
+        
+        return View("MyView", msg);
     }
 }
