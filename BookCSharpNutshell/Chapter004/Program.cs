@@ -1,9 +1,9 @@
-﻿using Chapter004.Delegates;
+﻿using Chapter004.LambdaExpressions;
 
 namespace Chapter004;
 
 public static class Program {
     public static void Main() {
-        Example007.UserMain();
+        Example001.UserMain();
     }
 }
