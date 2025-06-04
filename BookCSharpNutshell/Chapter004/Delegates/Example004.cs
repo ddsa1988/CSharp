@@ -1,7 +1,7 @@
 ﻿namespace Chapter004.Delegates;
 
 public static class Example004 {
-    public static void UserMain() {
+    public static void Run() {
         /*
             All delegate instances have multicast capability. This means that a delegate instance
             can reference not just a single target method but also a list of target methods.

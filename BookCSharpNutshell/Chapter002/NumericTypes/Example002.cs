@@ -1,7 +1,7 @@
 ﻿namespace Chapter002.NumericTypes;
 
 public static class Example002 {
-    public static void UserMain() {
+    public static void Run() {
         // Numeric literals
 
         const int a = 127; // Decimal notation
@@ -10,7 +10,7 @@ public static class Example002 {
         const int d = 1_000_000; // Underscore notation [to make more readable]
         const double e = 1.5; // Decimal notation
         const double f = 1E06; // Exponential notation
-        
+
         Console.WriteLine("{0} => {1}", nameof(a), a);
         Console.WriteLine("{0} => {1}", nameof(b), b);
         Console.WriteLine("{0} => {1}", nameof(c), c);
@@ -19,4 +19,3 @@ public static class Example002 {
         Console.WriteLine("{0} => {1}", nameof(f), f);
     }
 }
-

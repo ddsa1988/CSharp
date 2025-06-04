@@ -1,7 +1,7 @@
 ﻿namespace Chapter003.Classes;
 
 public static class Example005 {
-    public static void UserMain() {
+    public static void Run() {
         // The "this" reference refers to the instance itself.
         // The "this" reference is valid only within nonstatic members of a class or struct.
 

@@ -1,7 +1,7 @@
 ﻿namespace Chapter002.Arrays;
 
 public static class Example001 {
-    public static void UserMain() {
+    public static void Run() {
         // An array represents a fixed number of variables (called elements) of a particular type.
         // The elements in an array are always stored in a contiguous block of memory providing highly efficient access.
 

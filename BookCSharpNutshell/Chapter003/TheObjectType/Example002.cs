@@ -1,7 +1,7 @@
 ﻿namespace Chapter003.TheObjectType;
 
 public static class Example002 {
-    public static void UserMain() {
+    public static void Run() {
         // Boxing converts a value-type instance to a reference-type instance
         // Unboxing converts a reference-type instance to a value-type instance
 

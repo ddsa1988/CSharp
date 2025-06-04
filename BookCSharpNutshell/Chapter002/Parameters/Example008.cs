@@ -1,7 +1,7 @@
 namespace Chapter002.Parameters;
 
 public static class Example008 {
-    public static void UserMain() {
+    public static void Run() {
         // Methods, constructors, and indexers can declare optional parameters.
         // A parameter is optional if it specifies a default value in its declaration.
 

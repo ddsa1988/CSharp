@@ -1,7 +1,7 @@
 ﻿namespace Chapter002.Parameters;
 
 public static class Example004 {
-    public static void UserMain() {
+    public static void Run() {
         // The ref modifier: the arguments are passed by reference
 
         int x = 10;

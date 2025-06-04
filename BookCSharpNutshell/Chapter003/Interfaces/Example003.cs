@@ -1,7 +1,7 @@
 ﻿namespace Chapter003.Interfaces;
 
 public static class Example003 {
-    public static void UserMain() {
+    public static void Run() {
         // Implementing multiple interfaces can sometimes result in a collision between member signatures.
         // You can resolve such collisions by explicitly implementing an interface member.
 

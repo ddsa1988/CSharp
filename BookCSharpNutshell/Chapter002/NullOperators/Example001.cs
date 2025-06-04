@@ -1,7 +1,7 @@
 namespace Chapter002.NullOperators;
 
 public static class Example001 {
-    public static void UserMain() {
+    public static void Run() {
         // The ?? operator is the null-coalescing operator. It says, “If the operand to
         // the left is non-null, give it to me; otherwise, give me another value.”
 

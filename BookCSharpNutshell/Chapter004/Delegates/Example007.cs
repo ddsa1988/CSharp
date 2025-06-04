@@ -1,7 +1,7 @@
 ﻿namespace Chapter004.Delegates;
 
 public static class Example007 {
-    public static void UserMain() {
+    public static void Run() {
         // The Func and Action Delegates
 
         // delegate TResult Func <out TResult> ();

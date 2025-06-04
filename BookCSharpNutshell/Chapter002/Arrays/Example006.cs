@@ -1,7 +1,7 @@
 namespace Chapter002.Arrays;
 
 public static class Example006 {
-    public static void UserMain() {
+    public static void Run() {
         // You can initialize a rectangular array with explicit values
 
         int[,] matrix = new int[,] {

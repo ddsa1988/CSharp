@@ -1,9 +1,9 @@
-﻿using Chapter004.LambdaExpressions;
+﻿using Chapter004.Exceptions;
 
 namespace Chapter004;
 
 public static class Program {
     public static void Main() {
-        Example001.UserMain();
+        Example001.Run();
     }
 }

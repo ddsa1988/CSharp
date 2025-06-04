@@ -1,7 +1,7 @@
 ﻿namespace Chapter003.Inheritance;
 
 public static class Example008 {
-    public static void UserMain() {
+    public static void Run() {
         // A function marked as virtual can be overridden by subclasses wanting to provide a specialized implementation.
         // Methods, properties, indexers, and events can all be declared virtual
 

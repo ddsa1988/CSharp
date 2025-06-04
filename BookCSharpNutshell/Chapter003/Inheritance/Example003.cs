@@ -1,7 +1,7 @@
 ﻿namespace Chapter003.Inheritance;
 
 public static class Example003 {
-    public static void UserMain() {
+    public static void Run() {
         // An upcast operation creates a base class reference from a subclass reference
 
         var asset = new Asset() { Name = "Asset" };

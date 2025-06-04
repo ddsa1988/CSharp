@@ -1,7 +1,7 @@
 ﻿namespace Chapter003.TheObjectType;
 
 public static class Example004 {
-    public static void UserMain() {
+    public static void Run() {
         // Object type members
 
         // public Object();

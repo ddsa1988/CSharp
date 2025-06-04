@@ -1,7 +1,7 @@
 ﻿namespace Chapter003.Generics;
 
 public static class Example002 {
-    public static void UserMain() {
+    public static void Run() {
         // A generic method declares type parameters within the signature of a method.
 
         int x = 20;

@@ -1,7 +1,7 @@
 ﻿namespace Chapter002.Parameters;
 
 public static class Example007 {
-    public static void UserMain() {
+    public static void Run() {
         /*
             The params modifier, if applied to the last parameter of a method, allows the
             method to accept any number of arguments of a particular type. The parameter

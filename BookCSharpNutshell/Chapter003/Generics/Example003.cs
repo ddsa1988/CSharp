@@ -1,7 +1,7 @@
 ﻿namespace Chapter003.Generics;
 
 public static class Example003 {
-    public static void UserMain() {
+    public static void Run() {
         // You can use the default keyword to get the default value for a generic type parameter. 
 
         int[] numbers = new int[5];

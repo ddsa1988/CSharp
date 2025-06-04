@@ -1,7 +1,7 @@
 ﻿namespace Chapter002.NumericTypes;
 
 public static class Example007 {
-    public static void UserMain() {
+    public static void Run() {
         // Underflow and Overflow
 
         {

@@ -1,7 +1,7 @@
 ﻿namespace Chapter003.Interfaces;
 
 public static class Example002 {
-    public static void UserMain() {
+    public static void Run() {
         // Interfaces can derive from other interfaces.
 
         var test = new Test();

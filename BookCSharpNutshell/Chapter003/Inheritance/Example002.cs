@@ -1,7 +1,7 @@
 ﻿namespace Chapter003.Inheritance;
 
 public static class Example002 {
-    public static void UserMain() {
+    public static void Run() {
         // References are polymorphic. This means a variable of type x can refer to an object that subclasses x. 
 
         var asset = new Asset() { Name = "Asset" };

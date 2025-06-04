@@ -1,7 +1,7 @@
 namespace Chapter003.Classes;
 
 public static class Example006 {
-    public static void UserMain() {
+    public static void Run() {
         // Properties look like fields from the outside, but internally they contain logic, like methods do.
     }
 

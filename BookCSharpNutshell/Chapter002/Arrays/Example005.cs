@@ -1,7 +1,7 @@
 namespace Chapter002.Arrays;
 
 public static class Example005 {
-    public static void UserMain() {
+    public static void Run() {
         // Rectangular arrays are declared using commas to separate each dimension.
         // Rectangular arrays have fixed length in each inner dimension.
 

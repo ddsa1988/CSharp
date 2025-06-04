@@ -1,7 +1,7 @@
 ﻿namespace Chapter004.Delegates;
 
 public static class Example005 {
-    public static void UserMain() {
+    public static void Run() {
         // Multicast delegate example
 
         var p = new ProgressReporter(WriteProgressToConsole);

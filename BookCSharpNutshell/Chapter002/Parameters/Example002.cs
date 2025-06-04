@@ -1,7 +1,7 @@
 ﻿namespace Chapter002.Parameters;
 
 public static class Example002 {
-    public static void UserMain() {
+    public static void Run() {
         // By default, arguments in C# are passed by value, which is by far the most common case.
         // This means that a copy of the value is created when passed to the method.
 

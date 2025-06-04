@@ -1,7 +1,7 @@
 namespace Chapter002.BooleanType;
 
 public static class Example002 {
-    public static void UserMain() {
+    public static void Run() {
         // For reference types, equality compares the references of the variables
 
         var p1 = new Person() { Name = "John" };

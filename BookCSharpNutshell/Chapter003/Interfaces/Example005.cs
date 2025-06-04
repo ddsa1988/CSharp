@@ -1,7 +1,7 @@
 ﻿namespace Chapter003.Interfaces;
 
 public static class Example005 {
-    public static void UserMain() {
+    public static void Run() {
         // From C# 8, you can add a default implementation to an interface member, making it optional to implement.
 
         var logger1 = new Logger1();

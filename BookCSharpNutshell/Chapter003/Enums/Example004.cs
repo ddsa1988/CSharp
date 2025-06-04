@@ -1,7 +1,7 @@
 ﻿namespace Chapter003.Enums;
 
 public static class Example004 {
-    public static void UserMain() {
+    public static void Run() {
         // Flag enums are combined enum members. To prevent ambiguities, members of a combinable
         // enum require explicitly assigned values, typically in powers of two.
         // To work with combined enum values, you use bitwise operators such as | and &.

@@ -1,7 +1,7 @@
 ﻿namespace Chapter002.Arrays;
 
 public static class Example002 {
-    public static void UserMain() {
+    public static void Run() {
         // Default element initialization
 
         {

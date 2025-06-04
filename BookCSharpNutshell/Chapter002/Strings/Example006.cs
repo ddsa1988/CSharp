@@ -1,7 +1,7 @@
 ﻿namespace Chapter002.Strings;
 
 public static class Example006 {
-    public static void UserMain() {
+    public static void Run() {
         // Wrapping a string in three or more quote characters (""") creates a raw string literal.
         // Raw string literals can contain almost any character sequence, without escaping or doubling up.
 

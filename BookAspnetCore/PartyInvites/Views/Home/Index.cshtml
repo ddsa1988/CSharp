@@ -1,4 +1,4 @@
-@model string
+@model IEnumerable<GuestResponse>
 
 @{
     Layout = null;
@@ -12,6 +12,8 @@
     <title>Party Invites</title>
 </head>
 <body>
-<h1>@Model</h1>
+    @foreach (GuestResponse response in @Model) {
+        <h1>@response</h1>
+    }
 </body>
 </html>

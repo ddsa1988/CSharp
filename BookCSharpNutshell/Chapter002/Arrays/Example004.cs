@@ -1,7 +1,7 @@
 ﻿namespace Chapter002.Arrays;
 
 public static class Example004 {
-    public static void UserMain() {
+    public static void Run() {
         // Ranges let you “slice” an array by using the .. operator
 
         char[] vowels = ['a', 'e', 'i', 'o', 'u'];

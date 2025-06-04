@@ -1,7 +1,7 @@
 ﻿namespace Chapter003.Classes;
 
 public static class Example011 {
-    public static void UserMain() {
+    public static void Run() {
         // Partial types allow a type definition to be split—typically across multiple files.
 
         var user1 = new User("Diego");

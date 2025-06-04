@@ -1,7 +1,7 @@
 namespace Chapter002.Arrays;
 
 public static class Example007 {
-    public static void UserMain() {
+    public static void Run() {
         // Jagged arrays [array of arrays] are declared using successive square brackets to represent each dimension.
         // The inner dimensions aren’t specified in the declaration because, unlike a rectangular array,
         // each inner array can be an arbitrary length. Each inner array is implicitly initialized to

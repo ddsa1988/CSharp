@@ -1,7 +1,7 @@
 namespace Chapter002.NumericTypes;
 
 public static class Example009 {
-    public static void UserMain() {
+    public static void Run() {
         // Double and decimal precision
 
         const double a = 1.0;

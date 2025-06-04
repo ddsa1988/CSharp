@@ -1,7 +1,7 @@
 ﻿namespace Chapter003.Classes;
 
 public static class Example004 {
-    public static void UserMain() {
+    public static void Run() {
         // Object initializers: To simplify object initialization, any accessible fields or properties
         // of an object can be set via an object initializer directly after construction.
 

@@ -1,7 +1,7 @@
 ﻿namespace Chapter003.Inheritance;
 
 public static class Example010 {
-    public static void UserMain() {
+    public static void Run() {
         var circle = new Circle() { Radius = 10 };
         var rectangle = new Rectangle() { Width = 10, Height = 10 };
 

@@ -1,7 +1,7 @@
 ﻿namespace Chapter002.NumericTypes;
 
 public static class Example003 {
-    public static void UserMain() {
+    public static void Run() {
         // Numeric literal type inference
 
         Console.WriteLine(1.GetType());
@@ -11,4 +11,3 @@ public static class Example003 {
         Console.WriteLine(0x100000000.GetType());
     }
 }
-

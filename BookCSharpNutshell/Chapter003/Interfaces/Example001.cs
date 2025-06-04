@@ -3,7 +3,7 @@
 namespace Chapter003.Interfaces;
 
 public static class Example001 {
-    public static void UserMain() {
+    public static void Run() {
         // An interface is similar to a class, but only specifies behavior and does not hold state (data)
 
         var countdown = new Countdown(10);

@@ -1,7 +1,7 @@
 namespace Chapter003.Classes;
 
 public static class Example007 {
-    public static void UserMain() {
+    public static void Run() {
         /*
            The get and set accessors can have different access levels. The typical use case for
            this is to have a public property with an internal or private access modifier on the setter.

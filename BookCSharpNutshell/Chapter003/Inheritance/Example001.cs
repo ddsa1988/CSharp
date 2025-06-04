@@ -1,7 +1,7 @@
 ﻿namespace Chapter003.Inheritance;
 
 public static class Example001 {
-    public static void UserMain() {
+    public static void Run() {
         // A class can inherit from another class to extend or customize the original class.
 
         var stock = new Stock() { Name = "Stock", SharesOwned = 1000 };

@@ -1,7 +1,7 @@
 ﻿namespace Chapter004.Delegates;
 
 public static class Example003 {
-    public static void UserMain() {
+    public static void Run() {
         /*
             When an instance method is assigned to a delegate object, the latter maintains a
             reference not only to the method but also to the instance to which the method belongs.

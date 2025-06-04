@@ -1,7 +1,7 @@
 ﻿namespace Chapter003.Inheritance;
 
 public static class Example006 {
-    public static void UserMain() {
+    public static void Run() {
         // The as operator performs a downcast that evaluates to null (rather than throwing an exception) if the downcast fail
 
         var asset = new Asset() { Name = "Asset" };

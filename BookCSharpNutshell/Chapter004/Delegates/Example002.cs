@@ -1,7 +1,7 @@
 ﻿namespace Chapter004.Delegates;
 
 public static class Example002 {
-    public static void UserMain() {
+    public static void Run() {
         // Plug-in Methods with Delegates
 
         {

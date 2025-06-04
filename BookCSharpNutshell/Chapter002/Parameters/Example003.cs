@@ -3,7 +3,7 @@
 namespace Chapter002.Parameters;
 
 public static class Example003 {
-    public static void UserMain() {
+    public static void Run() {
         // Passing a reference-type argument by value copies the reference but not the object.
 
         var sb = new StringBuilder("Diego");

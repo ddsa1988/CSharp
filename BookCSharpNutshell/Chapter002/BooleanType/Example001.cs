@@ -1,7 +1,7 @@
 namespace Chapter002.BooleanType;
 
 public static class Example001 {
-    public static void UserMain() {
+    public static void Run() {
         // For value types, equality compares the actual values of the variables
 
         const int a = 1;

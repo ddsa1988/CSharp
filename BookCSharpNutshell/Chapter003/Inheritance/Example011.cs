@@ -1,7 +1,7 @@
 ﻿namespace Chapter003.Inheritance;
 
 public static class Example011 {
-    public static void UserMain() {
+    public static void Run() {
         // The "base" keyword access the members from the base class
 
         var stock = new Stock() { Name = "Stock", SharesOwned = 1000 };

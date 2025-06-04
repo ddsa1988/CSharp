@@ -1,7 +1,7 @@
 ﻿namespace Chapter003.Inheritance;
 
 public static class Example009 {
-    public static void UserMain() {
+    public static void Run() {
         // A class declared as abstract can never be instantiated. Instead, only its concrete
         // subclasses can be instantiated.
 

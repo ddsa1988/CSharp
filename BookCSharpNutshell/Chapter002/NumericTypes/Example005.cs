@@ -1,7 +1,7 @@
 ﻿namespace Chapter002.NumericTypes;
 
 public static class Example005 {
-    public static void UserMain() {
+    public static void Run() {
         // Numeric conversions
 
         const int a = 12345; // int is a 32-bit integer

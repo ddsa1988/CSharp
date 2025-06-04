@@ -1,7 +1,7 @@
 ﻿namespace Chapter003.Inheritance;
 
 public static class Example012 {
-    public static void UserMain() {
+    public static void Run() {
         // The "base" keyword can call base class constructor
 
         var derivedClass = new DerivedClass();

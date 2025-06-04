@@ -1,7 +1,7 @@
 ﻿namespace Chapter003.TheObjectType;
 
 public static class Example003 {
-    public static void UserMain() {
+    public static void Run() {
         // The GetType Method is used on the instance
         // typeof Operator is used on a type name
 

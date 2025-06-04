@@ -1,7 +1,7 @@
 ﻿namespace Chapter003.Interfaces;
 
 public static class Example004 {
-    public static void UserMain() {
+    public static void Run() {
         // An implicitly implemented interface member is, by default, sealed.
         // It must be marked virtual or abstract in the base class in order to be overridden.
 

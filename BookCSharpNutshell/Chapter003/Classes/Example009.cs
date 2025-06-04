@@ -1,7 +1,7 @@
 ﻿namespace Chapter003.Classes;
 
 public static class Example009 {
-    public static void UserMain() {
+    public static void Run() {
         // To write an indexer, define a property called this, specifying the arguments in square brackets.
 
         var sentence = new Sentence();

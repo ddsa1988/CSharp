@@ -1,7 +1,7 @@
 ﻿namespace Chapter003.Inheritance;
 
 public static class Example013 {
-    public static void UserMain() {
+    public static void Run() {
         // A required member must be populated via an object initializer when constructed
 
         // var person = new Person(); // Compile-time error

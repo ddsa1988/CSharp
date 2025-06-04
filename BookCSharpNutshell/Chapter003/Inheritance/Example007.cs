@@ -1,7 +1,7 @@
 ﻿namespace Chapter003.Inheritance;
 
 public static class Example007 {
-    public static void UserMain() {
+    public static void Run() {
         // The is operator tests whether a variable matches a pattern. 
 
         var asset = new Asset() { Name = "Asset" };

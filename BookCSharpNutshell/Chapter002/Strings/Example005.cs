@@ -1,7 +1,7 @@
 ﻿namespace Chapter002.Strings;
 
 public static class Example005 {
-    public static void UserMain() {
+    public static void Run() {
         // Verbatim string literal is prefixed with @ and does not support escape sequences.
 
         const string a = "\\\\\\\\server\\\\file-share\\\\hello-world.cs"; // String with escape sequence

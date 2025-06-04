@@ -1,7 +1,7 @@
 ﻿namespace Chapter002.FirstApp;
 
 public static class Example002 {
-    public static void UserMain() {
+    public static void Run() {
         const int n1 = 30;
         const int n2 = 100;
 

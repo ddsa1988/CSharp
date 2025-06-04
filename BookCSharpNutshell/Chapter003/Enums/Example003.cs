@@ -1,7 +1,7 @@
 ﻿namespace Chapter003.Enums;
 
 public static class Example003 {
-    public static void UserMain() {
+    public static void Run() {
         // You can convert an enum instance to and from its underlying integral value with an explicit cast.
 
         const int bottomValue = (int)BorderSide.Bottom;

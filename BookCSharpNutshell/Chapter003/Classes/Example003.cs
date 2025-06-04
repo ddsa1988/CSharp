@@ -1,7 +1,7 @@
 ﻿namespace Chapter003.Classes;
 
 public static class Example003 {
-    public static void UserMain() {
+    public static void Run() {
         // Deconstructor assigns fields to a set of variables.
 
         var rect = new Rectangle(10.5f, 22.5f);

@@ -1,7 +1,7 @@
 ﻿namespace Chapter002.NumericTypes;
 
 public static class Example008 {
-    public static void UserMain() {
+    public static void Run() {
         // Floating-point numbers special values
 
         const float zero = 0.0F;

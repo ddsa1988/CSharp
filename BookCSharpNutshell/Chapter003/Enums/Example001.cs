@@ -1,7 +1,7 @@
 ﻿namespace Chapter003.Enums;
 
 public static class Example001 {
-    public static void UserMain() {
+    public static void Run() {
         // An enum is a special value type that lets you specify a group of named numeric constants.
 
         const BorderSide topSide = BorderSide.Top;

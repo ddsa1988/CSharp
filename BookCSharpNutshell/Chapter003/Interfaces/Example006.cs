@@ -1,7 +1,7 @@
 ﻿namespace Chapter003.Interfaces;
 
 public static class Example006 {
-    public static void UserMain() {
+    public static void Run() {
         // An interface can also declare static members. There are two kinds of static interface members:
         // Static nonvirtual interface members;
         // Static virtual/abstract interface members.

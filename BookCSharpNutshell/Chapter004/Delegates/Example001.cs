@@ -1,7 +1,7 @@
 ﻿namespace Chapter004.Delegates;
 
 public static class Example001 {
-    public static void UserMain() {
+    public static void Run() {
         // A delegate type defines the kind of method that delegate instances can call.
         // Specifically, it defines the method’s return type and its parameter types.
 

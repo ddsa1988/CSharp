@@ -1,7 +1,7 @@
 ﻿namespace Chapter002.Parameters;
 
 public static class Example006 {
-    public static void UserMain() {
+    public static void Run() {
         /*
             The in parameter is similar to a ref parameter except that the argument’s value
             cannot be modified by the method (doing so generates a compile-time error). This

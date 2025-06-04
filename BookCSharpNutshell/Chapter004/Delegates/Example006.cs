@@ -1,7 +1,7 @@
 ﻿namespace Chapter004.Delegates;
 
 public static class Example006 {
-    public static void UserMain() {
+    public static void Run() {
         // A delegate type can contain generic type parameters.
 
         {

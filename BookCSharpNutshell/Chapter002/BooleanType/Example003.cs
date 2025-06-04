@@ -1,7 +1,7 @@
 namespace Chapter002.BooleanType;
 
 public static class Example003 {
-    public static void UserMain() {
+    public static void Run() {
         // The && and || operators short-circuit evaluation when possible.
 
         const string? name = "Diego";

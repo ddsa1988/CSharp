@@ -1,7 +1,7 @@
 ﻿namespace Chapter003.TheObjectType;
 
 public static class Example001 {
-    public static void UserMain() {
+    public static void Run() {
         // The object (System.Object) is the ultimate base class for all types. Any type can be upcast to object.
 
         object obj1 = "Diego";

@@ -1,7 +1,7 @@
 namespace Chapter002.NullOperators;
 
 public static class Example003 {
-    public static void UserMain() {
+    public static void Run() {
         // The ?. operator is the null-conditional allows you to call methods and access members
         // just like the standard dot operator except that if the operand on the left is null,
         // the expression evaluates to null instead of throwing a NullReferenceException.

@@ -1,7 +1,7 @@
 ﻿namespace Chapter002.Parameters;
 
 public static class Example005 {
-    public static void UserMain() {
+    public static void Run() {
         //  The out argument is like a ref argument except for the following:
         //  • It need not be assigned before going into the function.
         //  • It must be assigned before it comes out of the function.

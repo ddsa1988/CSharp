@@ -1,7 +1,7 @@
 ﻿namespace Chapter003.Classes;
 
 public static class Example002 {
-    public static void UserMain() {
+    public static void Run() {
         // Constructors
 
         var obj1 = new Person();

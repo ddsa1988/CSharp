@@ -1,7 +1,7 @@
 ﻿namespace Chapter003.Classes;
 
 public static class Example001 {
-    public static void UserMain() {
+    public static void Run() {
         // Simple class example
 
         var obj1 = new MyClass();
