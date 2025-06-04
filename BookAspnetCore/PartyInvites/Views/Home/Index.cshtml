@@ -1,5 +1,3 @@
-@model IEnumerable<GuestResponse>
-
 @{
     Layout = null;
 }
@@ -13,8 +11,12 @@
     <title>Party Invites</title>
 </head>
 <body>
-    @foreach (GuestResponse response in @Model) {
-        <h1>@response</h1>
-    }
+    <div>
+        <p>
+            We're going to have an exciting party.
+        </p>
+        @* <a href="/Home/RsvpForm">RSVP Now</a> *@
+        <a asp-controller="Home" asp-action="RsvpForm">RSVP Now</a>
+    </div>
 </body>
 </html>
