@@ -4,7 +4,7 @@ using PartyInvites.Models;
 namespace PartyInvites.Controllers;
 
 public class HomeController : Controller {
-    public IActionResult Index() {
+    public ViewResult Index() {
         const string view = "Index";
 
         GuestResponse[] responses = [
@@ -14,5 +14,11 @@ public class HomeController : Controller {
             new("Ameixa", "ameixa@outlook.com", "452183", true)
         ];
         return View(view, responses);
+    }
+
+    public ViewResult RsvpForm() {
+        const string view = "RsvpForm";
+
+        return View(view);
     }
 }
