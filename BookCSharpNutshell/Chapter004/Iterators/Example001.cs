@@ -12,6 +12,7 @@ public static class Example001 {
     private static IEnumerable<int> GetNumber(int maxValue) {
         for (int i = 0; i < maxValue; i++) {
             yield return i;
+            Console.WriteLine("Inside {0} method. ", nameof(GetNumber));
         }
     }
 }
