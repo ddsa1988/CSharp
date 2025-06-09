@@ -19,6 +19,8 @@ public class HomeController : Controller {
     public ViewResult RsvpForm(GuestResponse guestResponse) {
         const string view = "RsvpForm";
         Console.WriteLine(guestResponse);
+        
+        Service.ManageDatabase.PrintDatabasePath();
         return View(view);
     }
 }
