@@ -1,9 +1,9 @@
-﻿using Chapter004.Tuples;
+﻿using Chapter004.Records;
 
 namespace Chapter004;
 
 public static class Program {
     public static void Main() {
-        Example003.Run();
+        Example001.Run();
     }
 }
