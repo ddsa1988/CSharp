@@ -16,11 +16,10 @@ public class HomeController : Controller {
     }
 
     [HttpPost]
-    public ViewResult RsvpForm(GuestResponse guestResponse) {
+    public ViewResult RsvpForm(Response response) {
         const string view = "RsvpForm";
-        Console.WriteLine(guestResponse);
+        Console.WriteLine(response);
         
-        Service.ManageDatabase.PrintDatabasePath();
         return View(view);
     }
 }
