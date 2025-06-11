@@ -14,23 +14,21 @@ public static class ManageDatabase {
         Console.WriteLine(File.Exists(DatabasePath));
     }
 
-    public static void WriteAll(string filePath, IEnumerable<Response> responses) {
-        if (File.Exists(filePath)) {
-            File.Delete(filePath);
+    public static void Write(Response response) {
+        if (!File.Exists(DatabasePath)) {
+            using StreamWriter sw = File.CreateText(DatabasePath);
+            sw.Write(response.ToJson());
         }
 
-        using FileStream fs = File.Create(filePath);
-        using var sw = new StreamWriter(fs);
-
-        foreach (Response guestResponse in responses) {
-            sw.Write(guestResponse.ToJson());
+        using (StreamWriter sw = File.AppendText(DatabasePath)) {
+            sw.WriteLine(response.ToJson());
         }
     }
 
-    public static IEnumerable<Response> ReadAll(string filePath) {
-        if (!File.Exists(filePath)) return [];
+    public static IEnumerable<Response> ReadAll() {
+        if (!File.Exists(DatabasePath)) return [];
 
-        using var sr = new StreamReader(filePath);
+        using StreamReader sr = File.OpenText(DatabasePath);
 
         var responses = new List<Response>();
 
