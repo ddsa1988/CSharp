@@ -18,12 +18,18 @@ public class HomeController : Controller {
 
     [HttpPost]
     public ViewResult RsvpForm(Response response) {
-        const string view = "RsvpForm";
-        
-        Console.WriteLine(response);
-        
-        ManageDatabase.Write(response);
-        
-        return View(view);
+        const string view = "Thanks";
+
+        DatabaseService.Write(response);
+
+        return View(view, response);
+    }
+
+    public ViewResult ListResponses() {
+        const string view = "ListResponses";
+
+        IEnumerable<Response> responses = DatabaseService.ReadAll();
+
+        return View(view, responses);
     }
 }

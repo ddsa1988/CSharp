@@ -3,32 +3,32 @@ using PartyInvites.Models;
 
 namespace PartyInvites.Service;
 
-public static class ManageDatabase {
+public static class DatabaseService {
     private const string FolderName = "Database";
     private const string FileName = "Database.txt";
     private static readonly char SepChar = Path.DirectorySeparatorChar;
-    private static readonly string DatabasePath = $"{FolderName}{SepChar}{FileName}";
+    private static readonly string FilePath = $"{FolderName}{SepChar}{FileName}";
 
-    public static void PrintDatabasePath() {
-        Console.WriteLine(Path.GetFullPath(DatabasePath));
-        Console.WriteLine(File.Exists(DatabasePath));
+    public static void PrintFilePath() {
+        Console.WriteLine(Path.GetFullPath(FilePath));
+        Console.WriteLine(File.Exists(FilePath));
     }
 
     public static void Write(Response response) {
-        if (!File.Exists(DatabasePath)) {
-            using StreamWriter sw = File.CreateText(DatabasePath);
+        if (!File.Exists(FilePath)) {
+            using StreamWriter sw = File.CreateText(FilePath);
             sw.Write(response.ToJson());
         }
 
-        using (StreamWriter sw = File.AppendText(DatabasePath)) {
+        using (StreamWriter sw = File.AppendText(FilePath)) {
             sw.WriteLine(response.ToJson());
         }
     }
 
     public static IEnumerable<Response> ReadAll() {
-        if (!File.Exists(DatabasePath)) return [];
+        if (!File.Exists(FilePath)) return [];
 
-        using StreamReader sr = File.OpenText(DatabasePath);
+        using StreamReader sr = File.OpenText(FilePath);
 
         var responses = new List<Response>();
 
