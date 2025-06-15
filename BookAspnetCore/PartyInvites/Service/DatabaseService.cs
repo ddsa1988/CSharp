@@ -25,7 +25,7 @@ public static class DatabaseService {
         }
     }
 
-    public static IEnumerable<Response> ReadAll() {
+    public static List<Response> ReadAll() {
         if (!File.Exists(FilePath)) return [];
 
         using StreamReader sr = File.OpenText(FilePath);

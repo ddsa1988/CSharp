@@ -6,30 +6,42 @@ namespace PartyInvites.Controllers;
 
 public class HomeController : Controller {
     public ViewResult Index() {
-        const string view = "Index";
-        return View(view);
+        const string defaultView = "Index";
+
+        return View(defaultView);
     }
 
     [HttpGet]
     public ViewResult RsvpForm() {
-        const string view = "RsvpForm";
-        return View(view);
+        const string defaultView = "RsvpForm";
+
+        return View(defaultView);
     }
 
     [HttpPost]
-    public ViewResult RsvpForm(Response response) {
-        const string view = "Thanks";
-
-        DatabaseService.Write(response);
-
-        return View(view, response);
-    }
-
-    public ViewResult ListResponses() {
-        const string view = "ListResponses";
+    public ViewResult RsvpForm(Response newResponse) {
+        const string defaultView = "RsvpForm";
+        const string thanksView = "Thanks";
 
         IEnumerable<Response> responses = DatabaseService.ReadAll();
 
-        return View(view, responses);
+        Response? existingResponse = responses.FirstOrDefault(response =>
+            response.Name != null && response.Name.Equals(newResponse.Name, StringComparison.OrdinalIgnoreCase));
+
+        if (existingResponse != null) {
+            return View(defaultView);
+        }
+
+        DatabaseService.Write(newResponse);
+
+        return View(thanksView, newResponse);
+    }
+
+    public ViewResult ListResponses() {
+        const string defaultView = "ListResponses";
+
+        IEnumerable<Response> responses = DatabaseService.ReadAll();
+
+        return View(defaultView, responses.Where(response => response.WillAttend == true));
     }
 }
