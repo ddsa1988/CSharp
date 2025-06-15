@@ -25,8 +25,7 @@ public class HomeController : Controller {
 
         IEnumerable<Response> responses = DatabaseService.ReadAll();
 
-        Response? existingResponse = responses.FirstOrDefault(response =>
-            response.Name != null && response.Name.Equals(newResponse.Name, StringComparison.OrdinalIgnoreCase));
+        Response? existingResponse = responses.FirstOrDefault(response => response.Equals(newResponse));
 
         if (existingResponse != null) {
             return View(defaultView);
