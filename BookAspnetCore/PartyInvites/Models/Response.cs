@@ -1,6 +1,16 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace PartyInvites.Models;
 
-public record Response(string? Name, string? Email, string? Phone, bool? WillAttend) {
+public record Response(
+    [Required(ErrorMessage = "Please enter your name")]
+    string? Name,
+    [Required(ErrorMessage = "Please enter your email address")]
+    string? Email,
+    [Required(ErrorMessage = "Please enter your phone number")]
+    string? Phone,
+    [Required(ErrorMessage = "Please specify whether you'll attend")]
+    bool? WillAttend) {
     public override int GetHashCode() {
         return (Name != null ? Name.GetHashCode() : 0);
     }

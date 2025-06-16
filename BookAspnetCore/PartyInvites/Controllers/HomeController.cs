@@ -6,30 +6,25 @@ namespace PartyInvites.Controllers;
 
 public class HomeController : Controller {
     public ViewResult Index() {
-        const string defaultView = "Index";
-
-        return View(defaultView);
+        return View();
     }
 
     [HttpGet]
     public ViewResult RsvpForm() {
-        const string defaultView = "RsvpForm";
-
-        return View(defaultView);
+        return View();
     }
 
     [HttpPost]
     public ViewResult RsvpForm(Response newResponse) {
-        const string defaultView = "RsvpForm";
         const string thanksView = "Thanks";
+
+        if (!ModelState.IsValid) return View();
 
         IEnumerable<Response> responses = DatabaseService.ReadAll();
 
         Response? existingResponse = responses.FirstOrDefault(response => response.Equals(newResponse));
 
-        if (existingResponse != null) {
-            return View(defaultView);
-        }
+        if (existingResponse != null) return View();
 
         DatabaseService.Write(newResponse);
 
@@ -37,10 +32,8 @@ public class HomeController : Controller {
     }
 
     public ViewResult ListResponses() {
-        const string defaultView = "ListResponses";
-
         IEnumerable<Response> responses = DatabaseService.ReadAll();
 
-        return View(defaultView, responses.Where(response => response.WillAttend == true));
+        return View(responses.Where(response => response.WillAttend == true));
     }
 }
