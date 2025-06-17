@@ -8,16 +8,16 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css"/>
     <title>Party Invites</title>
 </head>
 <body>
-    <div>
-        <p>
-            We're going to have an exciting party.
-        </p>
+    <div class="text-center m-2">
+        <h3>We're going to have an exciting party!</h3>
+        <h4>And YOU are invited!</h4>
         @* <a href="/Home/RsvpForm">RSVP Now</a> *@
-        <a asp-controller="Home" asp-action="RsvpForm">RSVP Now</a><br/>
-        <a asp-controller="Home" asp-action="ListResponses">List Responses</a>
+        <a class="btn btn-primary m-2" asp-controller="Home" asp-action="RsvpForm">RSVP Now</a><br/>
+        <a class="btn btn-primary m-2" asp-controller="Home" asp-action="ListResponses">List Responses</a>
     </div>
 </body>
 </html>
