@@ -1,9 +1,9 @@
-﻿using Chapter004.Records;
+﻿using Chapter004.Patterns;
 
 namespace Chapter004;
 
 public static class Program {
     public static void Main() {
-        Example008.Run();
+        Example002.Run();
     }
 }
