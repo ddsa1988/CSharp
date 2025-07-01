@@ -4,6 +4,6 @@ namespace Chapter006;
 
 public static class Program {
     public static void Main() {
-        Example006.Run();
+        Example007.Run();
     }
 }
