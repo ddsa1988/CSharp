@@ -14,5 +14,11 @@ public static class Example007 {
         string[] words = text.Split(',');
 
         foreach (string word in words) Console.WriteLine(word.Trim());
+
+        Console.WriteLine();
+
+        string together = string.Join("; ", words);
+
+        Console.WriteLine(together);
     }
 }
