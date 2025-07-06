@@ -1,12 +1,14 @@
-﻿GET localhost:5000/publishers
+﻿@baseUrl = http://localhost:5000
+
+GET {{baseUrl}}/publishers
 
 ###
 
-GET localhost:5000/publishers/1
+GET {{baseUrl}}/publishers/1
 
 ###
 
-POST localhost:5000/publishers
+POST {{baseUrl}}/publishers
 Content-Type: application/json
 
 {
@@ -15,7 +17,7 @@ Content-Type: application/json
 
 ###
 
-PUT localhost:5000/publishers/1
+PUT {{baseUrl}}/publishers/1
 Content-Type: application/json
 
 {
@@ -24,4 +26,4 @@ Content-Type: application/json
 
 ###
 
-DELETE localhost:5000/publishers/1
+DELETE {{baseUrl}}/publishers/1
