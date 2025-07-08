@@ -19,6 +19,6 @@ public static class Example012 {
             }
         }
 
-        Console.WriteLine("Original => " + "[ " + string.Join(", ", names) + " ]");
+        Console.WriteLine("Sorted => " + "[ " + string.Join(", ", names) + " ]");
     }
 }
