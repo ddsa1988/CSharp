@@ -1,9 +1,9 @@
-﻿using Chapter006.Strings;
+﻿using Chapter006.DateAndTime;
 
 namespace Chapter006;
 
 public static class Program {
     public static void Main() {
-        Example012.Run();
+        Example001.Run();
     }
 }
