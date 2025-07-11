@@ -1,11 +1,12 @@
 ﻿@page "/"
+@using GameStore.Clients
 @using GameStore.Models
 
-<PageTitle>Game Catalog</PageTitle>
+<PageTitle>Game Store</PageTitle>
 
-@if (_games?.Length > 0) {
-    <table>
-        <thead>
+@if (_clientGames?.Count() > 0) {
+    <table class="table table-stripped table-bordered table-hover text-center mt-3">
+        <thead class="table-dark">
             <th>Id</th>
             <th>Name</th>
             <th>Genre</th>
@@ -14,27 +15,27 @@
             <th></th>
         </thead>
         <tbody>
-            @foreach(GameSummary game in _games)
-            {
+            @foreach (GameSummary? game in _clientGames) {
                 <tr>
                     <td>@game.Id</td>
                     <td>@game.Name</td>
                     <td>@game.Genre</td>
-                    <td>@game.Price</td>
+                    <td>@game.Price.ToString("C2")</td>
                     <td>@game.ReleaseDate</td>
                 </tr>
             }
         </tbody>
     </table>
+} else {
+    <p><em>Loading..</em></p>
 }
-
 
 @code{
 
-    private readonly GameSummary[] _games = [
-        new() { Id = 1, Name = "Street Fighter II", Genre = "Fight", Price = 19.9, ReleaseDate = new DateOnly(1992, 9, 27) },
-        new(){Id = 2, Name = "Final Fantasy XIV", Genre = "Roleplaying", Price = 59.99, ReleaseDate = new DateOnly(2010,9,30)},
-        new(){Id = 3, Name = "Fifa 23", Genre = "Sports", Price = 69.99, ReleaseDate = new DateOnly(2022,9,27)}
-    ];
+    private IEnumerable<GameSummary>? _clientGames;
     
+    protected override void OnInitialized() {
+        _clientGames = GamesClient.GetGames();
+    }
+
 }

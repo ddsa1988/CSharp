@@ -1,6 +1,4 @@
-﻿using System.Globalization;
-
-namespace Chapter006.Strings;
+﻿namespace Chapter006.Strings;
 
 public static class Example012 {
     public static void Run() {
