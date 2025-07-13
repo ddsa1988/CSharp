@@ -14,5 +14,19 @@ public static class GamesClient {
         new() { Id = 3, Name = "Fifa 23", Genre = "Sports", Price = 69.99, ReleaseDate = new DateOnly(2022, 9, 27) }
     ];
 
+    private static IEnumerable<Genre> Genres() => GenresClient.GetGenres();
+
     public static IEnumerable<GameSummary> GetGames() => Games;
+
+    public static void AddGame(GameDetails newGame) {
+        var game = new GameSummary() {
+            Id = Games.Count + 1,
+            Name = newGame.Name,
+            Genre = "newGame.Genre",
+            Price = newGame.Price,
+            ReleaseDate = newGame.ReleaseDate
+        };
+
+        Games.Add(game);
+    }
 }
