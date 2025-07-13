@@ -19,10 +19,18 @@ public static class GamesClient {
     public static IEnumerable<GameSummary> GetGames() => Games;
 
     public static void AddGame(GameDetails newGame) {
+        bool isNewGenreIdValid = int.TryParse(newGame.GenreId, out int newGenreId);
+
+        if (!isNewGenreIdValid) return;
+
+        Genre? existingGenre = Genres().FirstOrDefault(genre => genre.Id == newGenreId);
+
+        if (existingGenre == null) return;
+
         var game = new GameSummary() {
             Id = Games.Count + 1,
             Name = newGame.Name,
-            Genre = "newGame.Genre",
+            Genre = existingGenre.Name,
             Price = newGame.Price,
             ReleaseDate = newGame.ReleaseDate
         };
