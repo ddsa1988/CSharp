@@ -1,0 +1,24 @@
+﻿@using LanguageFeatures.ExtensionMethods
+@using LanguageFeatures.Models
+@model IEnumerable<Product?>
+@{ Layout = null; }
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Example 001</title>
+</head>
+<body>
+    <h1>Return objects in a view</h1>
+    <ul>
+        @foreach (Product? value in Model) {
+            if (value != null) {
+                <li>@value.ToJson()</li>
+            }
+        }
+    </ul>
+    <a asp-controller="Home" asp-action="Index">Home page</a>
+</body>
+</html>

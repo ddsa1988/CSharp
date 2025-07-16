@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PartyInvites", "PartyInvite
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyProject", "MyProject\MyProject.csproj", "{169DBAD7-8387-489F-9133-F6CB5B7BDD71}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanguageFeatures", "LanguageFeatures\LanguageFeatures.csproj", "{35F7E2E5-AA45-4370-AF02-130754BAC972}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{169DBAD7-8387-489F-9133-F6CB5B7BDD71}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{169DBAD7-8387-489F-9133-F6CB5B7BDD71}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{169DBAD7-8387-489F-9133-F6CB5B7BDD71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35F7E2E5-AA45-4370-AF02-130754BAC972}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35F7E2E5-AA45-4370-AF02-130754BAC972}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35F7E2E5-AA45-4370-AF02-130754BAC972}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35F7E2E5-AA45-4370-AF02-130754BAC972}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
