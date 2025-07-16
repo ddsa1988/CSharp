@@ -1,4 +1,6 @@
-﻿@{ Layout = null; }
+﻿@using LanguageFeatures.Models
+@model (IEnumerable<Product?>, decimal)
+@{ Layout = null; }
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,6 +11,17 @@
 </head>
 <body>
     <h1>Extension methods</h1>
+
+    <ul>
+        @foreach (Product? product in Model.Item1) {
+            if (product != null) {
+                <li>@product.ToString()</li>
+            }
+        }
+    </ul>
+
+    <p>Total price = @Model.Item2.ToString("C2")</p>
+
     <a asp-controller="Home" asp-action="Index">Home page</a>
 </body>
 </html>

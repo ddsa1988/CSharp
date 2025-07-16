@@ -12,13 +12,15 @@
 </head>
 <body>
     <h1>Return objects in a view</h1>
+
     <ul>
-        @foreach (Product? value in Model) {
-            if (value != null) {
-                <li>@value.ToJson()</li>
+        @foreach (Product? product in Model) {
+            if (product != null) {
+                <li>@product.ToJson()</li>
             }
         }
     </ul>
+    
     <a asp-controller="Home" asp-action="Index">Home page</a>
 </body>
 </html>

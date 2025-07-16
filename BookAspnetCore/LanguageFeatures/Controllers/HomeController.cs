@@ -1,4 +1,5 @@
-﻿using LanguageFeatures.Models;
+﻿using LanguageFeatures.ExtensionMethods;
+using LanguageFeatures.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LanguageFeatures.Controllers;
@@ -14,6 +15,9 @@ public class HomeController : Controller {
     }
 
     public ViewResult Example002() {
-        return View();
+        var shoppingCart = new ShoppingCart() { Products = Products.GetProducts() };
+        decimal totalPrice = shoppingCart.TotalPrice();
+
+        return View("Example002", (shoppingCart.Products, totalPrice));
     }
 }
