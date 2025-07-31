@@ -16,17 +16,16 @@ public class HomeController : Controller {
 
     [HttpPost]
     public ViewResult RsvpForm(GuestResponse guestResponse) {
-        var response = new GuestResponse() { Name = "Diego", Email = "email", Phone = "9999", WillAttend = true };
-        string responseJson = response.GuestResponseToJson();
+        string responseJson = guestResponse.GuestResponseToJson();
 
-        Console.WriteLine("Write file");
         Repository.Repository.WriteGuestResponse(responseJson);
 
-        Console.WriteLine("\nRead file");
+        return View("Thanks", guestResponse);
+    }
 
+    public ViewResult ListResponses() {
         IEnumerable<GuestResponse> guestResponses = Repository.Repository.GetGuestResponses();
-        Console.WriteLine(guestResponses);
 
-        return View();
+        return View(guestResponses.Where(response => response.WillAttend == true));
     }
 }
