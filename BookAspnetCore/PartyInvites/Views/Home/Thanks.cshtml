@@ -10,12 +10,11 @@
 </head>
 <body>
     <div>
-        <h1>Thank you, @Model.Name</h1>
+        <h1>Thank you, @Model.Name!</h1>
 
         @if (Model.WillAttend == true) {
             <p>It's great that you're coming. The drinks are already in the fridge!</p>
-        }
-        else {
+        } else {
             <p>Sorry to hear that you can't make it, but thanks for letting us know.</p>
         }
 
