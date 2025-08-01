@@ -16,7 +16,11 @@ public class HomeController : Controller {
 
     [HttpPost]
     public ViewResult RsvpForm(GuestResponse guestResponse) {
-        string responseJson = guestResponse.GuestResponseToJson();
+        string? responseJson = guestResponse.GuestResponseToJson();
+
+        if (responseJson == null) {
+            return View("RsvpForm");
+        }
 
         Repository.Repository.WriteGuestResponse(responseJson);
 
