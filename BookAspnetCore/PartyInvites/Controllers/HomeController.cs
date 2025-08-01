@@ -15,20 +15,20 @@ public class HomeController : Controller {
     }
 
     [HttpPost]
-    public ViewResult RsvpForm(GuestResponse guestResponse) {
+    public async Task<ViewResult> RsvpForm(GuestResponse guestResponse) {
         string? responseJson = guestResponse.GuestResponseToJson();
 
         if (responseJson == null) {
             return View("RsvpForm");
         }
 
-        Repository.Repository.WriteGuestResponse(responseJson);
+        await Repository.Repository.WriteGuestResponse(responseJson);
 
         return View("Thanks", guestResponse);
     }
 
-    public ViewResult ListResponses() {
-        IEnumerable<GuestResponse> guestResponses = Repository.Repository.GetGuestResponses();
+    public async Task<ViewResult> ListResponses() {
+        IEnumerable<GuestResponse> guestResponses = await Repository.Repository.GetGuestResponses();
 
         return View(guestResponses.Where(response => response.WillAttend == true));
     }

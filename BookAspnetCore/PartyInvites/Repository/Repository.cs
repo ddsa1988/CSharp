@@ -5,20 +5,33 @@ namespace PartyInvites.Repository;
 
 public static class Repository {
     private static readonly char Sep = Path.DirectorySeparatorChar;
-    private static readonly string FilePath = $"Repository{Sep}Data{Sep}GuestResponses.txt";
+    private static readonly string FolderPath = $"Repository{Sep}Data";
+    private static readonly string FilePath = $"{FolderPath}{Sep}GuestResponses.txt";
 
-    public static void WriteGuestResponse(string json) {
-        // Console.WriteLine(Path.GetFullPath(filePath));
-
-        if (!File.Exists(FilePath)) {
-            File.Create(FilePath).Close();
+    public static async Task WriteGuestResponse(string json) {
+        if (!Directory.Exists(FolderPath)) {
+            try {
+                Directory.CreateDirectory(FolderPath);
+            } catch (Exception ex) {
+                Console.WriteLine("Error to create directory: " + ex.Message);
+                return;
+            }
         }
 
-        using StreamWriter sw = File.AppendText(FilePath);
-        sw.WriteLine(json);
+        if (!File.Exists(FilePath)) {
+            try {
+                File.Create(FilePath).Close();
+            } catch (Exception ex) {
+                Console.WriteLine("Error to create file: " + ex.Message);
+                return;
+            }
+        }
+
+        await using StreamWriter sw = File.AppendText(FilePath);
+        await sw.WriteLineAsync(json);
     }
 
-    public static IEnumerable<GuestResponse> GetGuestResponses() {
+    public static async Task<IEnumerable<GuestResponse>> GetGuestResponses() {
         var guestResponses = new List<GuestResponse>();
 
         if (!File.Exists(FilePath)) {
@@ -28,7 +41,7 @@ public static class Repository {
         using var sr = new StreamReader(FilePath);
 
         while (!sr.EndOfStream) {
-            string? line = sr.ReadLine();
+            string? line = await sr.ReadLineAsync();
 
             GuestResponse? guestResponse = line?.GuestResponseFromJson();
 
