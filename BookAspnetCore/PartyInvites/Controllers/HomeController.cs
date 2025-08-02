@@ -16,11 +16,11 @@ public class HomeController : Controller {
 
     [HttpPost]
     public async Task<ViewResult> RsvpForm(GuestResponse guestResponse) {
+        if (!ModelState.IsValid) return View();
+
         string? responseJson = guestResponse.GuestResponseToJson();
 
-        if (responseJson == null) {
-            return View("RsvpForm");
-        }
+        if (responseJson == null) return View();
 
         await Repository.Repository.WriteGuestResponse(responseJson);
 
