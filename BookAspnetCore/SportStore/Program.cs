@@ -1,10 +1,15 @@
+using SportStore.Models;
+
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 
-WebApplication app = builder.Build();
+string? connectionString = builder.Configuration.GetConnectionString("SportStoreConnection");
+builder.Services.AddSqlite<StoreDbContext>(connectionString);
 
-//app.MapGet("/", () => "Hello World!");
+builder.Services.AddScoped<IStoreRepository, EfStoreRepository>();
+
+WebApplication app = builder.Build();
 
 app.UseStaticFiles();
 app.MapDefaultControllerRoute();
