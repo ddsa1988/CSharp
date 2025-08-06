@@ -14,7 +14,8 @@ public static class SeedData {
 
         context.Products.AddRange(
             new Product {
-                Name = "Kayak", Description = "A boat for one person",
+                Name = "Kayak",
+                Description = "A boat for one person",
                 Category = "Watersports", Price = 275
             },
             new Product {
