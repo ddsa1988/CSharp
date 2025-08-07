@@ -5,5 +5,5 @@ namespace SportStore.Models;
 public class StoreDbContext : DbContext {
     public StoreDbContext(DbContextOptions<StoreDbContext> options) : base(options) { }
 
-    public DbSet<Product> Products => Set<Product>();
+    public DbSet<Product> Products => Set<Product>(); // Provide access to the Product object in the database
 }
