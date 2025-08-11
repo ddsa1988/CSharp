@@ -16,7 +16,7 @@ public static class SeedData {
             new Product {
                 Name = "Kayak",
                 Description = "A boat for one person",
-                Category = "Watersports", Price = 275
+                Category = "Watersports", Price = 275m
             },
             new Product {
                 Name = "Life Jacket",
@@ -36,12 +36,12 @@ public static class SeedData {
             new Product {
                 Name = "Stadium",
                 Description = "Flat-packed 35,000-seat stadium",
-                Category = "Soccer", Price = 79500
+                Category = "Soccer", Price = 79500m
             },
             new Product {
                 Name = "Thinking Cap",
                 Description = "Improve brain efficiency by 75%",
-                Category = "Chess", Price = 16
+                Category = "Chess", Price = 16m
             },
             new Product {
                 Name = "Unsteady Chair",
@@ -51,12 +51,12 @@ public static class SeedData {
             new Product {
                 Name = "Human Chess Board",
                 Description = "A fun game for the family",
-                Category = "Chess", Price = 75
+                Category = "Chess", Price = 75m
             },
             new Product {
                 Name = "Bling-Bling King",
                 Description = "Gold-plated, diamond-studded King",
-                Category = "Chess", Price = 1200
+                Category = "Chess", Price = 1200m
             }
         );
         context.SaveChanges();
