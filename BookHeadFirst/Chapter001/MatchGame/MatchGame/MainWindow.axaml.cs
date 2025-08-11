@@ -1,6 +1,6 @@
 using Avalonia.Controls;
 
-namespace AnimalMatchingGame;
+namespace MatchGame;
 
 public partial class MainWindow : Window {
     public MainWindow() {
