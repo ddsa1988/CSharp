@@ -13,6 +13,7 @@ builder.Services.AddScoped<IStoreRepository, EfStoreRepository>();
 WebApplication app = builder.Build();
 
 app.UseStaticFiles(); // Enable support for serving static content from the wwwroot folder
+app.MapControllerRoute("pagination", "Products/Page{productPage}", new { controller = "Home", action = "Index" });
 app.MapDefaultControllerRoute(); // Default endpoint routing
 
 SeedData.EnsurePopulated(app); // Seed data to populate the database
