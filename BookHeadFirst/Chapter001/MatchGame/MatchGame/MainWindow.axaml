@@ -15,25 +15,25 @@
     </Window.Styles>
 
     <Grid Name="MainGrid" ShowGridLines="True" RowDefinitions="*,*,*,*,*" ColumnDefinitions="*,*,*,*">
-        <TextBlock Grid.Row="0" Grid.Column="0">?</TextBlock>
-        <TextBlock Grid.Row="0" Grid.Column="1">?</TextBlock>
-        <TextBlock Grid.Row="0" Grid.Column="2">?</TextBlock>
-        <TextBlock Grid.Row="0" Grid.Column="3">?</TextBlock>
+        <TextBlock Grid.Row="0" Grid.Column="0" PointerPressed="TextBlock_Pressed">?</TextBlock>
+        <TextBlock Grid.Row="0" Grid.Column="1" PointerPressed="TextBlock_Pressed">?</TextBlock>
+        <TextBlock Grid.Row="0" Grid.Column="2" PointerPressed="TextBlock_Pressed">?</TextBlock>
+        <TextBlock Grid.Row="0" Grid.Column="3" PointerPressed="TextBlock_Pressed">?</TextBlock>
 
-        <TextBlock Grid.Row="1" Grid.Column="0">?</TextBlock>
-        <TextBlock Grid.Row="1" Grid.Column="1">?</TextBlock>
-        <TextBlock Grid.Row="1" Grid.Column="2">?</TextBlock>
-        <TextBlock Grid.Row="1" Grid.Column="3">?</TextBlock>
+        <TextBlock Grid.Row="1" Grid.Column="0" PointerPressed="TextBlock_Pressed">?</TextBlock>
+        <TextBlock Grid.Row="1" Grid.Column="1" PointerPressed="TextBlock_Pressed">?</TextBlock>
+        <TextBlock Grid.Row="1" Grid.Column="2" PointerPressed="TextBlock_Pressed">?</TextBlock>
+        <TextBlock Grid.Row="1" Grid.Column="3" PointerPressed="TextBlock_Pressed">?</TextBlock>
 
-        <TextBlock Grid.Row="2" Grid.Column="0">?</TextBlock>
-        <TextBlock Grid.Row="2" Grid.Column="1">?</TextBlock>
-        <TextBlock Grid.Row="2" Grid.Column="2">?</TextBlock>
-        <TextBlock Grid.Row="2" Grid.Column="3">?</TextBlock>
+        <TextBlock Grid.Row="2" Grid.Column="0" PointerPressed="TextBlock_Pressed">?</TextBlock>
+        <TextBlock Grid.Row="2" Grid.Column="1" PointerPressed="TextBlock_Pressed">?</TextBlock>
+        <TextBlock Grid.Row="2" Grid.Column="2" PointerPressed="TextBlock_Pressed">?</TextBlock>
+        <TextBlock Grid.Row="2" Grid.Column="3" PointerPressed="TextBlock_Pressed">?</TextBlock>
 
-        <TextBlock Grid.Row="3" Grid.Column="0">?</TextBlock>
-        <TextBlock Grid.Row="3" Grid.Column="1">?</TextBlock>
-        <TextBlock Grid.Row="3" Grid.Column="2">?</TextBlock>
-        <TextBlock Grid.Row="3" Grid.Column="3">?</TextBlock>
+        <TextBlock Grid.Row="3" Grid.Column="0" PointerPressed="TextBlock_Pressed">?</TextBlock>
+        <TextBlock Grid.Row="3" Grid.Column="1" PointerPressed="TextBlock_Pressed">?</TextBlock>
+        <TextBlock Grid.Row="3" Grid.Column="2" PointerPressed="TextBlock_Pressed">?</TextBlock>
+        <TextBlock Grid.Row="3" Grid.Column="3" PointerPressed="TextBlock_Pressed">?</TextBlock>
     </Grid>
 
 </Window>
