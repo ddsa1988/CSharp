@@ -6,6 +6,7 @@ public static class Example002 {
         Ex002();
         Ex003();
         Ex004();
+        Ex005();
     }
 
     private static void Ex001() {
@@ -52,7 +53,19 @@ public static class Example002 {
             q = p - q;
             // Console.Write(q + " ");
         }
+    }
 
-        Console.WriteLine();
+    private static void Ex005() {
+        int count = 0;
+
+        while (count < 10) {
+            count++;
+        }
+
+        for (int i = 0; i < 5; i++) {
+            count--;
+        }
+
+        Console.WriteLine(count);
     }
 }
