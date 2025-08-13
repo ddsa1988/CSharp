@@ -36,8 +36,9 @@
             <TextBlock Grid.Row="3" Grid.Column="2" PointerPressed="TextBlockPressed">?</TextBlock>
             <TextBlock Grid.Row="3" Grid.Column="3" PointerPressed="TextBlockPressed">?</TextBlock>
         </Grid>
-        <Grid Name="FooterGrid" RowDefinitions="*" ColumnDefinitions="*">
-            <TextBlock Name="TimeTextBlock" PointerPressed="TimeTextBlockPressed">Elapsed time</TextBlock>
+        <Grid Name="FooterGrid" RowDefinitions="*,*" ColumnDefinitions="*">
+            <TextBlock Grid.Row="0" Name="TimeTextBlock" PointerPressed="TimeTextBlockPressed">Elapsed time</TextBlock>
+            <TextBlock Grid.Row="1" Name="BestTimeTextBlock"></TextBlock>
         </Grid>
     </StackPanel>
 
