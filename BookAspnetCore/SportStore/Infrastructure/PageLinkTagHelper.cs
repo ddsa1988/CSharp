@@ -16,6 +16,10 @@ public class PageLinkTagHelper : TagHelper {
     }
 
     [ViewContext] [HtmlAttributeNotBound] public ViewContext? ViewContext { get; set; }
+
+    [HtmlAttributeName(DictionaryAttributePrefix = "page-url-")]
+    public Dictionary<string, object> PageUrlValues { get; set; } = new();
+
     public PagingInfo? PageModel { get; set; }
     public string? PageAction { get; set; }
     public bool PageClassesEnabled { get; set; }
@@ -30,8 +34,10 @@ public class PageLinkTagHelper : TagHelper {
         var result = new TagBuilder("div");
 
         for (int i = 1; i <= PageModel.TotalPages; i++) {
+            PageUrlValues["productPage"] = i;
+
             var tag = new TagBuilder("a") {
-                Attributes = { ["href"] = urlHelper.Action(PageAction, new { productPage = i }) }
+                Attributes = { ["href"] = urlHelper.Action(PageAction, PageUrlValues) }
             };
 
             if (PageClassesEnabled) {
