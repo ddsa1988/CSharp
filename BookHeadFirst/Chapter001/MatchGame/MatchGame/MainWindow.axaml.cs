@@ -53,11 +53,28 @@ public partial class MainWindow : Window {
 
     private void SetUpGame() {
         string[] originalEmojis = [
-            "🐶", "🐶", "🐺", "🐺", "🐮", "🐮", "🦊", "🦊", "🐱", "🐱", "🦁", "🦁", "🐯", "🐯", "🐹", "🐹",
+            "🐶", "🐺", "🐮", "🦊", "🐱", "🦁", "🐯", "🐹",
+            "🌍", "🏜️", "🏟️", "🏔️", "🌋", "🏝️", "🏝️", "🏞️",
+            "🎃", "🎇", "🎈", "🎎", "🎁", "🎄", "🧨", "⚽",
+            "😎", "🥶", "🤬", "😈", "🤩", "💩", "🤡", "🤑"
         ];
 
         var random = new Random();
-        List<string> emojis = originalEmojis.ToList();
+        int emojisPairs = MainGrid.Children.OfType<TextBlock>().Count() / 2;
+        var emojis = new List<string>();
+        var indices = new List<int>();
+
+        for (int i = 0; i < emojisPairs; i++) {
+            int index;
+
+            do {
+                index = random.Next(0, originalEmojis.Length);
+            } while (indices.Contains(index));
+
+            indices.Add(index);
+            string nextEmoji = originalEmojis[index];
+            emojis.AddRange([nextEmoji, nextEmoji]);
+        }
 
         foreach (TextBlock textBlock in MainGrid.Children.OfType<TextBlock>()) {
             int index = random.Next(emojis.Count);
@@ -70,7 +87,7 @@ public partial class MainWindow : Window {
         }
 
         _matchesFound = 0;
-        _maxMatchesFound = originalEmojis.Length / 2;
+        _maxMatchesFound = emojisPairs;
         _tenthsOfSecondsElapsed = 0;
         _isGameOver = false;
         _timer.Start();
