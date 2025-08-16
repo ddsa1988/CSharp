@@ -7,12 +7,52 @@
         Title="ExperimentWithControls">
 
     <Grid ShowGridLines="True" RowDefinitions="*, *, 0.5*" ColumnDefinitions="*,*">
+
         <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top"
                Margin="10,10,0,0"
                FontSize="18" Content="Enter a number:">
         </Label>
+
+        <TextBox Name="NumberTextBox" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top"
+                 Margin="10,50,0,0" Width="120" TextAlignment="Center" FontSize="18" TextWrapping="Wrap" Text="0"
+                 TextChanged="TextBoxChanged" />
+
+        <RadioButton Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top"
+                     Margin="200,50,0,0" Content="1" Checked="RadioButtonChecked" />
+        <RadioButton Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top"
+                     Margin="250,50,0,0" Content="2" Checked="RadioButtonChecked" />
+        <RadioButton Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top"
+                     Margin="300,50,0,0" Content="3" Checked="RadioButtonChecked" />
+        <RadioButton Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top"
+                     Margin="200,80,0,0" Content="4" Checked="RadioButtonChecked" />
+        <RadioButton Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top"
+                     Margin="250,80,0,0" Content="5" Checked="RadioButtonChecked" />
+        <RadioButton Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top"
+                     Margin="300,80,0,0" Content="6" Checked="RadioButtonChecked" />
+
+        <ListBox Name="MyListBox" Grid.Row="1" Grid.Column="0" Margin="10" SelectionChanged="MyListBoxSelectionChanged">
+            <ListBoxItem>1</ListBoxItem>
+            <ListBoxItem>2</ListBoxItem>
+            <ListBoxItem>3</ListBoxItem>
+            <ListBoxItem>4</ListBoxItem>
+            <ListBoxItem>5</ListBoxItem>
+        </ListBox>
+
+        <ComboBox Name="ReadOnlyComboBox" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch"
+                  VerticalAlignment="Top" Margin="10" SelectionChanged="ReadOnlyComboBoxChanged">
+            <ListBoxItem>1</ListBoxItem>
+            <ListBoxItem>2</ListBoxItem>
+            <ListBoxItem>3</ListBoxItem>
+            <ListBoxItem>4</ListBoxItem>
+            <ListBoxItem>5</ListBoxItem>
+        </ComboBox>
+
+        <Slider Name="SmallSlider" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" Margin="10" Minimum="1"
+                Maximum="5" ValueChanged="SliderValueChanged">
+        </Slider>
+
         <TextBlock Name="Number" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"
                    Text="#" FontSize="24" TextWrapping="Wrap" />
-    </Grid>
 
+    </Grid>
 </Window>
