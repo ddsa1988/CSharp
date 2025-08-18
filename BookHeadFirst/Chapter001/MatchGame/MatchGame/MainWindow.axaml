@@ -16,25 +16,25 @@
 
     <StackPanel>
         <Grid Name="MainGrid" RowDefinitions="90,90,90,90" ColumnDefinitions="*,*,*,*">
-            <TextBlock Grid.Row="0" Grid.Column="0" PointerPressed="TextBlockPressed">?</TextBlock>
-            <TextBlock Grid.Row="0" Grid.Column="1" PointerPressed="TextBlockPressed">?</TextBlock>
-            <TextBlock Grid.Row="0" Grid.Column="2" PointerPressed="TextBlockPressed">?</TextBlock>
-            <TextBlock Grid.Row="0" Grid.Column="3" PointerPressed="TextBlockPressed">?</TextBlock>
-
-            <TextBlock Grid.Row="1" Grid.Column="0" PointerPressed="TextBlockPressed">?</TextBlock>
-            <TextBlock Grid.Row="1" Grid.Column="1" PointerPressed="TextBlockPressed">?</TextBlock>
-            <TextBlock Grid.Row="1" Grid.Column="2" PointerPressed="TextBlockPressed">?</TextBlock>
-            <TextBlock Grid.Row="1" Grid.Column="3" PointerPressed="TextBlockPressed">?</TextBlock>
-
-            <TextBlock Grid.Row="2" Grid.Column="0" PointerPressed="TextBlockPressed">?</TextBlock>
-            <TextBlock Grid.Row="2" Grid.Column="1" PointerPressed="TextBlockPressed">?</TextBlock>
-            <TextBlock Grid.Row="2" Grid.Column="2" PointerPressed="TextBlockPressed">?</TextBlock>
-            <TextBlock Grid.Row="2" Grid.Column="3" PointerPressed="TextBlockPressed">?</TextBlock>
-
-            <TextBlock Grid.Row="3" Grid.Column="0" PointerPressed="TextBlockPressed">?</TextBlock>
-            <TextBlock Grid.Row="3" Grid.Column="1" PointerPressed="TextBlockPressed">?</TextBlock>
-            <TextBlock Grid.Row="3" Grid.Column="2" PointerPressed="TextBlockPressed">?</TextBlock>
-            <TextBlock Grid.Row="3" Grid.Column="3" PointerPressed="TextBlockPressed">?</TextBlock>
+            <!-- <TextBlock Grid.Row="0" Grid.Column="0" PointerPressed="TextBlockPressed">?</TextBlock> -->
+            <!-- <TextBlock Grid.Row="0" Grid.Column="1" PointerPressed="TextBlockPressed">?</TextBlock> -->
+            <!-- <TextBlock Grid.Row="0" Grid.Column="2" PointerPressed="TextBlockPressed">?</TextBlock> -->
+            <!-- <TextBlock Grid.Row="0" Grid.Column="3" PointerPressed="TextBlockPressed">?</TextBlock> -->
+            <!-- -->
+            <!-- <TextBlock Grid.Row="1" Grid.Column="0" PointerPressed="TextBlockPressed">?</TextBlock> -->
+            <!-- <TextBlock Grid.Row="1" Grid.Column="1" PointerPressed="TextBlockPressed">?</TextBlock> -->
+            <!-- <TextBlock Grid.Row="1" Grid.Column="2" PointerPressed="TextBlockPressed">?</TextBlock> -->
+            <!-- <TextBlock Grid.Row="1" Grid.Column="3" PointerPressed="TextBlockPressed">?</TextBlock> -->
+            <!-- -->
+            <!-- <TextBlock Grid.Row="2" Grid.Column="0" PointerPressed="TextBlockPressed">?</TextBlock> -->
+            <!-- <TextBlock Grid.Row="2" Grid.Column="1" PointerPressed="TextBlockPressed">?</TextBlock> -->
+            <!-- <TextBlock Grid.Row="2" Grid.Column="2" PointerPressed="TextBlockPressed">?</TextBlock> -->
+            <!-- <TextBlock Grid.Row="2" Grid.Column="3" PointerPressed="TextBlockPressed">?</TextBlock> -->
+            <!-- -->
+            <!-- <TextBlock Grid.Row="3" Grid.Column="0" PointerPressed="TextBlockPressed">?</TextBlock> -->
+            <!-- <TextBlock Grid.Row="3" Grid.Column="1" PointerPressed="TextBlockPressed">?</TextBlock> -->
+            <!-- <TextBlock Grid.Row="3" Grid.Column="2" PointerPressed="TextBlockPressed">?</TextBlock> -->
+            <!-- <TextBlock Grid.Row="3" Grid.Column="3" PointerPressed="TextBlockPressed">?</TextBlock> -->
         </Grid>
         <Grid Name="FooterGrid" RowDefinitions="*,*" ColumnDefinitions="*">
             <TextBlock Grid.Row="0" Name="TimeTextBlock" PointerPressed="TimeTextBlockPressed">Elapsed time</TextBlock>

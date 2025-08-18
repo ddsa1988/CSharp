@@ -24,6 +24,8 @@ public partial class MainWindow : Window {
         _timer.Interval = TimeSpan.FromSeconds(0.1);
         _timer.Tick += TimerTick;
 
+        CreateLayout();
+
         SetUpGame();
     }
 
@@ -49,6 +51,23 @@ public partial class MainWindow : Window {
         }
 
         _timer.Stop();
+    }
+
+    private void CreateLayout() {
+        const int rows = 4;
+        const int columns = 4;
+
+        for (int row = 0; row < rows; row++) {
+            for (int column = 0; column < columns; column++) {
+                var textBlock = new TextBlock();
+                textBlock.PointerPressed += TextBlockPressed;
+
+                Grid.SetRow(textBlock, row);
+                Grid.SetColumn(textBlock, column);
+
+                MainGrid.Children.Add(textBlock);
+            }
+        }
     }
 
     private void SetUpGame() {
