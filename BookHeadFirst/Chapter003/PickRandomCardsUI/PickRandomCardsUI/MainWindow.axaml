@@ -5,9 +5,32 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="PickRandomCardsUI.MainWindow"
         Title="PickRandomCardsUI">
-    <Grid Name="MainGrid" ShowGridLines="True" RowDefinitions="*,*" ColumnDefinitions="*,*">
-        <TextBox Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Margin="10" TextAlignment="Center" IsEnabled="False"
-                 IsVisible="True" FontSize="18" Text="?" />
 
+    <Window.Styles>
+        <Style Selector="ListBoxItem">
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+        </Style>
+    </Window.Styles>
+
+    <Grid Name="MainGrid" ShowGridLines="False" RowDefinitions="*,*" ColumnDefinitions="*,*">
+
+        <StackPanel Grid.Row="0" Grid.Column="0" Margin="10" HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+            <Label FontSize="20">How many cards should I pick?</Label>
+            <Slider Name="NumberOfCards" Minimum="1" Maximum="20" Foreground="Black" TickFrequency="1"
+                    IsSnapToTickEnabled="True"
+                    TickPlacement="BottomRight"
+                    ValueChanged="SliderValueChanged">
+
+            </Slider>
+            <TextBlock Name="CardsAmount" Margin="10" HorizontalAlignment="Center" FontSize="20">1</TextBlock>
+        </StackPanel>
+
+        <Button Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"
+                Click="ButtonClicked">
+            Pick some cards
+        </Button>
+
+        <ListBox Name="ListOfCards" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Margin="10" FontSize="20"></ListBox>
     </Grid>
 </Window>

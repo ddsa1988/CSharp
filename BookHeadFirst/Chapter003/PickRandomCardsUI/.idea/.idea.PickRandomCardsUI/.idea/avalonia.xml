@@ -3,7 +3,9 @@
   <component name="AvaloniaProject">
     <option name="projectPerEditor">
       <map>
+        <entry key="PickRandomCardsUI/App.axaml" value="PickRandomCardsUI/PickRandomCardsUI.csproj" />
         <entry key="PickRandomCardsUI/MainWindow.axaml" value="PickRandomCardsUI/PickRandomCardsUI.csproj" />
+        <entry key="PickRandomCardsUI/Styles1.axaml" value="PickRandomCardsUI/PickRandomCardsUI.csproj" />
       </map>
     </option>
   </component>
