@@ -1,11 +1,11 @@
 namespace Examples.Models;
 
-public class Guy {
-    public required string Name { get; set; }
+public class Player {
+    public required string Name { get; init; }
     public int Cash { get; set; }
 
     public void WriteMyInfo() {
-        Console.WriteLine(Name + " has " + Cash + " bucks");
+        Console.WriteLine($"{Name} has {Cash:C} bucks");
     }
 
     public int GiveCash(int amount) {
@@ -30,5 +30,9 @@ public class Guy {
         }
 
         Cash += amount;
+    }
+
+    public override string ToString() {
+        return $"Player [Name: {Name}, Cash: {Cash:C}]";
     }
 }
