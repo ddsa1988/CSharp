@@ -19,11 +19,12 @@
                   FontWeight="Bold" Content="Magic" />
 
         <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Stretch"
-                HorizontalContentAlignment="Center" Margin="10 0 10 0" FontWeight="Bold" Content="Roll for damage" />
+                HorizontalContentAlignment="Center" Margin="10 0 10 0" FontWeight="Bold" Content="Roll for damage"
+                Click="ButtonOnClick" />
 
         <TextBlock Name="Damage" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Text="Damage"
                    HorizontalAlignment="Center"
-                   VerticalAlignment="Center" FontSize="18" FontWeight="Bold" />
+                   VerticalAlignment="Center" FontWeight="Bold" />
 
     </Grid>
 </Window>

@@ -12,14 +12,13 @@ public static class Example001 {
         var random = new Random();
         var swordDamage = new SwordDamage();
 
-        int roll = 0;
-
         while (true) {
             Console.Write("0 for no magic/flaming, 1 for magic, 2 for flaming, 3 for both, anything else to quit: ");
-            string? input = Console.ReadLine();
-            char option = input != null && input.Length > 0 ? input[0] : '\0';
+            char option = Console.ReadKey().KeyChar;
 
             if (!options.Contains(option)) break;
+
+            int roll = 0;
 
             for (int i = 0; i < numberDices; i++) {
                 roll += random.Next(diceMinValue, diceMaxValue + 1);
@@ -29,7 +28,7 @@ public static class Example001 {
             swordDamage.SetMagic(option == '1' || option == '3');
             swordDamage.SetFlaming(option == '2' || option == '3');
 
-            Console.WriteLine($"{nameof(roll)} {roll} for {swordDamage.Damage} HP");
+            Console.WriteLine($"\n{nameof(roll)} {roll} for {swordDamage.Damage} HP");
         }
     }
 }
