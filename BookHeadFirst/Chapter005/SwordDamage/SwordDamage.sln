@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwordDamage", "SwordDamage\SwordDamage.csproj", "{1149862C-1D0D-43D3-A3B4-75CC6F6244BB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1149862C-1D0D-43D3-A3B4-75CC6F6244BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1149862C-1D0D-43D3-A3B4-75CC6F6244BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1149862C-1D0D-43D3-A3B4-75CC6F6244BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1149862C-1D0D-43D3-A3B4-75CC6F6244BB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
