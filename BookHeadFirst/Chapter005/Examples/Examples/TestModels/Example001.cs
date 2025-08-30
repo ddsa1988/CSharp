@@ -1,6 +1,6 @@
 using Examples.Models;
 
-namespace Examples.CalculateDamage;
+namespace Examples.TestModels;
 
 public static class Example001 {
     public static void Run() {
@@ -24,11 +24,11 @@ public static class Example001 {
                 roll += random.Next(diceMinValue, diceMaxValue + 1);
             }
 
-            swordDamage.Roll = roll;
-            swordDamage.SetMagic(option == '1' || option == '3');
-            swordDamage.SetFlaming(option == '2' || option == '3');
+            bool isMagic = option == '1' || option == '3';
+            bool isFlame = option == '2' || option == '3';
+            int damage = swordDamage.CalculateDamage(roll, isMagic, isFlame);
 
-            Console.WriteLine($"\n{nameof(roll)} {roll} for {swordDamage.Damage} HP");
+            Console.WriteLine($"\n{nameof(roll)} {roll} for {damage} HP");
         }
     }
 }
