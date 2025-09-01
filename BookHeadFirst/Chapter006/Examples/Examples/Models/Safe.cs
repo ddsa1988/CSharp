@@ -1,14 +1,19 @@
 namespace Examples.Models;
 
 public class Safe {
-    private const string Contents = "precious jewels";
-    private const string SafeCombination = "12345";
+    private string Contents { get; }
+    private string SafeCombination { get; }
 
-    public static string Open(string combination) {
+    public Safe(string contents, string safeCombination) {
+        Contents = contents;
+        SafeCombination = safeCombination;
+    }
+
+    public string Open(string combination) {
         return combination == SafeCombination ? Contents : string.Empty;
     }
 
-    public static void PickLock(LockSmith lockpicker) {
+    public void PickLock(LockSmith lockpicker) {
         lockpicker.Combination = SafeCombination;
     }
 }
@@ -26,12 +31,12 @@ public class LockSmith {
     public string Combination { private get; set; } = string.Empty;
 
     public void OpenSafe(Safe safe, SafeOwner owner) {
-        Safe.PickLock(this);
-        string safeContents = Safe.Open(Combination);
+        safe.PickLock(this);
+        string safeContents = safe.Open(Combination);
         ReturnContents(safeContents, owner);
     }
 
-    protected static void ReturnContents(string safeContents, SafeOwner owner) {
+    protected virtual void ReturnContents(string safeContents, SafeOwner owner) {
         owner.ReceiveContents(safeContents);
     }
 }
@@ -39,8 +44,8 @@ public class LockSmith {
 public class JewelThief : LockSmith {
     private string _stolenJewels = string.Empty;
 
-    protected void ReturnContents(string safeContents, SafeOwner owner) {
+    protected override void ReturnContents(string safeContents, SafeOwner owner) {
         _stolenJewels = safeContents;
-        Console.WriteLine($"I'm stealing the jewels! I stole: {_stolenJewels}");
+        Console.WriteLine($"I'm stealing the jewels! I stole: {_stolenJewels}.");
     }
 }
