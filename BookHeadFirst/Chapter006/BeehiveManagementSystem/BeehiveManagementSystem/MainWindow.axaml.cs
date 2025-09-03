@@ -11,6 +11,7 @@ public partial class MainWindow : Window {
 
     private void AssignJob_OnClick(object? sender, RoutedEventArgs e) {
         Console.WriteLine("AssignJob_OnClick");
+        Console.WriteLine(Models.HoneyVault.StatusReport);
     }
 
     private void WorkNextShift_OnClick(object? sender, RoutedEventArgs e) {
