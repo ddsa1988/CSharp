@@ -3,6 +3,7 @@
   <component name="AvaloniaProject">
     <option name="projectPerEditor">
       <map>
+        <entry key="BeehiveManagementSystem/App.axaml" value="BeehiveManagementSystem/BeehiveManagementSystem.csproj" />
         <entry key="BeehiveManagementSystem/MainWindow.axaml" value="BeehiveManagementSystem/BeehiveManagementSystem.csproj" />
       </map>
     </option>

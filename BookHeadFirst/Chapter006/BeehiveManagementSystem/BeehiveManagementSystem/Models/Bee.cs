@@ -1,10 +1,20 @@
+using BeehiveManagementSystem.Enums;
+
 namespace BeehiveManagementSystem.Models;
 
 public class Bee {
-    public required string Job { get; set; }
-    public readonly float CostPerShift = 0f;
+    public BeeJob Job { get; private set; }
+    public virtual float CostPerShift { get; }
 
-    public void WorkTheNextShift() { }
+    protected Bee(BeeJob job) {
+        Job = job;
+    }
+
+    public void WorkTheNextShift() {
+        if (!HoneyVault.ConsumeHoney(CostPerShift)) return;
+
+        DoJob();
+    }
 
     protected virtual void DoJob() { }
 }
