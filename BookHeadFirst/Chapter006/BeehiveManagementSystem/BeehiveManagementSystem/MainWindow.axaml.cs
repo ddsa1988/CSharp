@@ -8,7 +8,7 @@ using Enumerable = System.Linq.Enumerable;
 namespace BeehiveManagementSystem;
 
 public partial class MainWindow : Window {
-    private readonly Queen _queen = new Queen();
+    private readonly Queen _queen = new();
 
     public MainWindow() {
         InitializeComponent();

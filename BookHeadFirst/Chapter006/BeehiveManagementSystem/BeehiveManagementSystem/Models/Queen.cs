@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using BeehiveManagementSystem.Enums;
+using BeehiveManagementSystem.Extensions;
 
 namespace BeehiveManagementSystem.Models;
 
@@ -41,13 +42,14 @@ public class Queen : Bee {
     }
 
     private string WorkerStatus(BeeJob job) {
+        string jobName = job.ToString().PascalCaseToTitleCase();
         int count = 0;
 
         foreach (Bee worker in _workers) {
             if (worker.Job == job) count++;
         }
 
-        return $"{count} {job} bee{(count == 1 ? "" : "s")}";
+        return $"{count} {jobName} bee{(count == 1 ? "" : "s")}";
     }
 
     public void AssignBee(BeeJob job) {
