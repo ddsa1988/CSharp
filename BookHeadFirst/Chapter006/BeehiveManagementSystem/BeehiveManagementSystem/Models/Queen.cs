@@ -12,7 +12,7 @@ public class Queen : Bee {
     private float _unassignedWorkers = 3;
     private readonly List<Bee> _workers = [];
     public string StatusReport { get; private set; } = string.Empty;
-    public override float CostPerShift => 2.15f;
+    protected override float CostPerShift => 2.15f;
 
     public Queen() : base(BeeJob.Queen) {
         AssignBee(BeeJob.NectarCollector);

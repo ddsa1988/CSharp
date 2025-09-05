@@ -2,9 +2,9 @@ using BeehiveManagementSystem.Enums;
 
 namespace BeehiveManagementSystem.Models;
 
-public class Bee {
+public abstract class Bee {
+    protected abstract float CostPerShift { get; }
     public BeeJob Job { get; private set; }
-    public virtual float CostPerShift { get; }
 
     protected Bee(BeeJob job) {
         Job = job;
@@ -16,5 +16,5 @@ public class Bee {
         DoJob();
     }
 
-    protected virtual void DoJob() { }
+    protected abstract void DoJob();
 }

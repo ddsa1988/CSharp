@@ -4,7 +4,7 @@ namespace BeehiveManagementSystem.Models;
 
 public class NectarCollector : Bee {
     private const float NectarCollectedPerShift = 33.25f;
-    public override float CostPerShift => 1.95f;
+    protected override float CostPerShift => 1.95f;
 
     public NectarCollector() : base(BeeJob.NectarCollector) { }
 
