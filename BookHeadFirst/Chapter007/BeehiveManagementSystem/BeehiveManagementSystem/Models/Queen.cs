@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using BeehiveManagementSystem.Enums;
 using BeehiveManagementSystem.Extensions;
+using BeehiveManagementSystem.Interfaces;
 
 namespace BeehiveManagementSystem.Models;
 
@@ -10,7 +11,7 @@ public class Queen : Bee {
     private const float HoneyPerUnassignedWorker = 0.5f;
     private float _eggs;
     private float _unassignedWorkers = 3;
-    private readonly List<Bee> _workers = [];
+    private readonly List<IWorker> _workers = [];
     public string StatusReport { get; private set; } = string.Empty;
     protected override float CostPerShift => 2.15f;
 
@@ -20,7 +21,7 @@ public class Queen : Bee {
         AssignBee(BeeJob.EggCare);
     }
 
-    private void AddWorker(Bee worker) {
+    private void AddWorker(IWorker worker) {
         if (_unassignedWorkers < 1) return;
 
         _unassignedWorkers--;
@@ -45,7 +46,7 @@ public class Queen : Bee {
         string jobName = job.ToString().PascalCaseToTitleCase();
         int count = 0;
 
-        foreach (Bee worker in _workers) {
+        foreach (IWorker worker in _workers) {
             if (worker.Job == job) count++;
         }
 
@@ -75,7 +76,7 @@ public class Queen : Bee {
     protected override void DoJob() {
         _eggs += EggsPerShift;
 
-        foreach (Bee worker in _workers) {
+        foreach (IWorker worker in _workers) {
             worker.WorkTheNextShift();
         }
 
