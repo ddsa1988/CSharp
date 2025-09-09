@@ -1,6 +1,6 @@
-using Examples.Interface.Interfaces;
+using Examples.Interfaces;
 
-namespace Examples.Interface.Models;
+namespace Examples.Models;
 
 public class TallGuy : IClown {
     private string _funnyThingIHave = "Big shoes.";

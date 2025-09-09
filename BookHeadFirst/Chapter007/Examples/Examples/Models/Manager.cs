@@ -1,6 +1,6 @@
-using Examples.Interface.Interfaces;
+using Examples.Interfaces;
 
-namespace Examples.Interface.Models;
+namespace Examples.Models;
 
 public class Manager : Person, IEmployee {
     public int Id { get; set; }

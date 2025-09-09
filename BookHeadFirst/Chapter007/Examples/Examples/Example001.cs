@@ -1,6 +1,6 @@
-using Examples.Interface.Models;
+using Examples.Models;
 
-namespace Examples.Interface;
+namespace Examples;
 
 public static class Example001 {
     public static void Run() {

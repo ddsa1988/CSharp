@@ -1,7 +1,7 @@
-using Examples.Interface.Interfaces;
-using Examples.Interface.Models;
+using Examples.Interfaces;
+using Examples.Models;
 
-namespace Examples.Interface;
+namespace Examples;
 
 public static class Example002 {
     public static void Run() {
