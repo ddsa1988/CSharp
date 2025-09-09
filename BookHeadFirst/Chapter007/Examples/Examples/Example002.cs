@@ -1,4 +1,3 @@
-using Examples.Interfaces;
 using Examples.Models;
 
 namespace Examples;
