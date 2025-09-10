@@ -16,7 +16,7 @@ public static class Example004 {
             animal.MakeNoise();
 
             switch (animal) {
-                case ISwim swimmer:
+                case ISwimmer swimmer:
                     swimmer.Swim();
                     break;
                 case IPackHunter hunter:
@@ -24,7 +24,7 @@ public static class Example004 {
                     break;
             }
 
-            // if (animal is ISwim swimmer) {
+            // if (animal is ISwimmer swimmer) {
             //     swimmer.Swim();
             // }
             //
@@ -32,8 +32,8 @@ public static class Example004 {
             //    hunter.HuntInPack();
             // }
 
-            // if (typeof(ISwim).IsAssignableFrom(animal.GetType())) {
-            //     var swimmer = (ISwim)animal;
+            // if (typeof(ISwimmer).IsAssignableFrom(animal.GetType())) {
+            //     var swimmer = (ISwimmer)animal;
             //     swimmer.Swim();
             // }
             //
