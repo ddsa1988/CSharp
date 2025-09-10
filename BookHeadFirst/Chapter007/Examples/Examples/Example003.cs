@@ -24,10 +24,6 @@ public static class Example003 {
                     break;
             }
 
-            Console.WriteLine();
-
-            // animal.MakeNoise();
-            //
             // if (typeof(Hippo).IsInstanceOfType(animal)) {
             //     var hippo = (Hippo)animal;
             //     hippo.Swim();
@@ -37,11 +33,7 @@ public static class Example003 {
             //     var wolf = (Wolf)animal;
             //     wolf.HuntInPack();
             // }
-            //
-            // Console.WriteLine();
 
-            // animal.MakeNoise();
-            //
             // if (animal is Hippo hippo) {
             //     hippo.Swim();
             //     continue;
@@ -50,8 +42,8 @@ public static class Example003 {
             // if (animal is Wolf wolf) {
             //     wolf.HuntInPack();
             // }
-            //
-            // Console.WriteLine();
+
+            Console.WriteLine();
         }
     }
 }

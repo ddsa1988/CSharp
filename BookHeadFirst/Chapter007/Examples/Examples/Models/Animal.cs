@@ -8,7 +8,15 @@ public abstract class Canine : Animal {
     protected bool BelongsToPack { get; init; }
 }
 
-public class Hippo : Animal {
+public interface ISwim {
+    public void Swim();
+}
+
+public interface IPackHunter {
+    public void HuntInPack();
+}
+
+public class Hippo : Animal, ISwim {
     public override void MakeNoise() {
         Console.WriteLine("Hippo make noise.");
     }
@@ -18,7 +26,7 @@ public class Hippo : Animal {
     }
 }
 
-public class Wolf : Canine {
+public class Wolf : Canine, IPackHunter {
     public Wolf(bool belongsToPack) {
         BelongsToPack = belongsToPack;
     }
