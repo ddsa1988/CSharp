@@ -2,6 +2,6 @@
 
 public static class Program {
     public static void Main(string[] args) {
-        Example006.Run();
+        Example007.Run();
     }
 }

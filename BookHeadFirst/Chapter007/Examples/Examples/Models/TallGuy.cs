@@ -1,7 +1,7 @@
 namespace Examples.Models;
 
 public interface IClown {
-    public string FunnyThingIHave { get; set; }
+    public string FunnyThingIHave { get; }
     public void Honk();
 }
 
@@ -20,6 +20,6 @@ public class TallGuy : IClown {
     }
 
     public void Honk() {
-        Console.WriteLine("Honk!!!");
+        Console.WriteLine("Tall Guy Honk!!!");
     }
 }
