@@ -8,7 +8,7 @@ public static class Example007 {
         fingersTheClown.Honk();
 
         var iScaryClownReference = fingersTheClown as IScaryClown;
-        iScaryClownReference?.ScareLittleChildren();
+        iScaryClownReference?.ScareAdults();
 
         // if (fingersTheClown is IScaryClown iScaryClownReference) {
         //     iScaryClownReference.ScareLittleChildren();
