@@ -8,11 +8,11 @@ using Enumerable = System.Linq.Enumerable;
 namespace BeehiveManagementSystem;
 
 public partial class MainWindow : Window {
-    private readonly Queen _queen = new();
+    private readonly Queen? _queen;
 
     public MainWindow() {
         InitializeComponent();
-        StatusReport.Text = _queen.StatusReport;
+        _queen = Resources["Queen"] as Queen;
     }
 
     private void AssignJob_OnClick(object? sender, RoutedEventArgs e) {
@@ -21,15 +21,13 @@ public partial class MainWindow : Window {
 
         try {
             var job = (BeeJob)Enum.Parse(typeof(BeeJob), jobName);
-            _queen.AssignBee(job);
-            StatusReport.Text = _queen.StatusReport;
+            _queen?.AssignBee(job);
         } catch (Exception ex) {
             Console.WriteLine("Invalid job: " + ex.Message);
         }
     }
 
     private void WorkNextShift_OnClick(object? sender, RoutedEventArgs e) {
-        _queen.WorkTheNextShift();
-        StatusReport.Text = _queen.StatusReport;
+        _queen?.WorkTheNextShift();
     }
 }

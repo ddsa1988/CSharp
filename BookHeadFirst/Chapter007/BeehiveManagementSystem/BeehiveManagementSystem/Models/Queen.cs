@@ -1,12 +1,13 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using BeehiveManagementSystem.Enums;
 using BeehiveManagementSystem.Extensions;
 using BeehiveManagementSystem.Interfaces;
 
 namespace BeehiveManagementSystem.Models;
 
-public class Queen : Bee {
+public class Queen : Bee, INotifyPropertyChanged {
     private const float EggsPerShift = 0.45f;
     private const float HoneyPerUnassignedWorker = 0.5f;
     private float _eggs;
@@ -14,6 +15,7 @@ public class Queen : Bee {
     private readonly List<IWorker> _workers = [];
     public string StatusReport { get; private set; } = string.Empty;
     protected override float CostPerShift => 2.15f;
+    public event PropertyChangedEventHandler? PropertyChanged;
 
     public Queen() : base(BeeJob.Queen) {
         AssignBee(BeeJob.NectarCollector);
@@ -33,6 +35,8 @@ public class Queen : Bee {
                        $"\nEgg count: {_eggs:0.0}\nUnassigned workers: {_unassignedWorkers:0.0}\n" +
                        $"{WorkerStatus(BeeJob.NectarCollector)}\n{WorkerStatus(BeeJob.HoneyManufacturer)}" +
                        $"\n{WorkerStatus(BeeJob.EggCare)}\nTOTAL WORKERS: {_workers.Count}";
+
+        OnPropertyChanged(nameof(StatusReport));
     }
 
     public void CareForEggs(float eggsToConvert) {
@@ -82,5 +86,9 @@ public class Queen : Bee {
 
         HoneyVault.ConsumeHoney(_unassignedWorkers * HoneyPerUnassignedWorker);
         UpdateStatusReport();
+    }
+
+    private void OnPropertyChanged(string propertyName) {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 }
