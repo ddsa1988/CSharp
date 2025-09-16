@@ -2,6 +2,6 @@
 
 public static class Program {
     public static void Main() {
-        Enums.Example001.Run();
+        Enums.Example002.Run();
     }
 }
