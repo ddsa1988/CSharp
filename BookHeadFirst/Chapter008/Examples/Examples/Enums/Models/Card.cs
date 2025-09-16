@@ -1,13 +1,13 @@
 namespace Examples.Enums.Models;
 
 public enum Suits {
-    Diamond,
-    Club,
-    Heart,
-    Spade
+    Diamonds,
+    Spades,
+    Hearts,
+    Clubs,
 }
 
-public enum Values {
+public enum Ranks {
     Ace = 1,
     Two = 2,
     Three = 3,
@@ -25,12 +25,12 @@ public enum Values {
 
 public class Card {
     private readonly Suits _suit;
-    private readonly Values _value;
+    private readonly Ranks _rank;
 
-    public Card(Values value, Suits suits) {
-        _value = value;
+    public Card(Ranks rank, Suits suits) {
+        _rank = rank;
         _suit = suits;
     }
 
-    public string Name => $"{_value} of {_suit}";
+    public string Name => $"{_rank} of {_suit}";
 }

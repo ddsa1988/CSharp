@@ -7,7 +7,7 @@ public static class Example002 {
 
     public static void Run() {
         for (int i = 0; i <= 5; i++) {
-            var card = new Card((Values)Random.Next(1, 14), (Suits)Random.Next(4));
+            var card = new Card((Ranks)Random.Next(1, 14), (Suits)Random.Next(4));
             Console.WriteLine(card.Name);
         }
     }
