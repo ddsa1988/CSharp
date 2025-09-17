@@ -20,7 +20,7 @@ public static class Example003 {
         Console.WriteLine();
 
         var duckComparer = new DuckComparer();
-        ducks.Sort(duckComparer.Compare);
+        ducks.Sort(duckComparer);
 
         Console.WriteLine(string.Join("\n", ducks));
     }

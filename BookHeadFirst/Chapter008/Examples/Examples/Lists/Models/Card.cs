@@ -33,4 +33,8 @@ public class Card {
     }
 
     public string Name => $"{Rank} of {Suit}";
+
+    public override string ToString() {
+        return $"Card [Rank = {Rank}, Suit = {Suit}]";
+    }
 }
