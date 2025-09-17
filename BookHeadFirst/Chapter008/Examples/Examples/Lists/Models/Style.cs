@@ -10,6 +10,8 @@ public enum Style {
 }
 
 public enum Color {
+    Black,
+    White,
     Red,
     Green,
     Blue,
