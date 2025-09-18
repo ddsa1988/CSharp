@@ -6,7 +6,7 @@ public enum KindOfDuck {
     Loon,
 }
 
-public class Duck : IComparable<Duck> {
+public class Duck : Bird, IComparable<Duck> {
     private readonly int _size;
     public KindOfDuck Kind { get; init; }
 
@@ -30,7 +30,7 @@ public class Duck : IComparable<Duck> {
     }
 
     public override string ToString() {
-        return $"Duck [Kind = {Kind}, Size = {Size}]";
+        return $"Duck [Name = {Name}, Kind = {Kind}, Size = {Size}]";
     }
 }
 

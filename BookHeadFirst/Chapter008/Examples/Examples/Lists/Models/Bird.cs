@@ -1,0 +1,19 @@
+namespace Examples.Lists.Models;
+
+public class Bird {
+    protected string Name { get; set; } = string.Empty;
+
+    protected virtual void Fly(string destination) {
+        Console.WriteLine($"{this} is flying to  {destination}");
+    }
+
+    public override string ToString() {
+        return $"A bird named {Name}";
+    }
+
+    public static void FlyAway(List<Bird> flock, string destination) {
+        foreach (Bird bird in flock) {
+            bird.Fly(destination);
+        }
+    }
+}
