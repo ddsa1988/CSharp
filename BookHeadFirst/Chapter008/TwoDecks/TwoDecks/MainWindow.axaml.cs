@@ -43,7 +43,13 @@ public partial class MainWindow : Window {
         RightDeckListBox.ItemsSource = deck;
     }
 
-    private void ShuffleLeftDeckClick(object? sender, RoutedEventArgs e) {
+    private void LeftDeckListBoxSelectionChanged(object? sender, SelectionChangedEventArgs e) {
+        string? card = LeftDeckListBox.SelectedItem?.ToString();
+
+        Console.WriteLine(card);
+    }
+
+    private void LeftDeckClickShuffle(object? sender, RoutedEventArgs e) {
         var shuffledDeck = new List<Card>();
         var random = new Random();
 
@@ -58,17 +64,17 @@ public partial class MainWindow : Window {
         UpdateLeftDeckListBox(_leftDeck);
     }
 
-    private void ResetLeftDeckClick(object? sender, RoutedEventArgs e) {
+    private void LeftDeckClickReset(object? sender, RoutedEventArgs e) {
         _leftDeck = CreateDeck();
         UpdateLeftDeckListBox(_leftDeck);
     }
 
-    private void ClearRightDeckClick(object? sender, RoutedEventArgs e) {
+    private void RightDeckClickClear(object? sender, RoutedEventArgs e) {
         _rightDeck = [];
         UpdateRightDeckListBox(_rightDeck);
     }
 
-    private void SortRightDeckClick(object? sender, RoutedEventArgs e) {
+    private void RightDeckClickSort(object? sender, RoutedEventArgs e) {
         _rightDeck.Sort(new CardComparer());
         UpdateRightDeckListBox(_rightDeck);
     }

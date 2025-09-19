@@ -26,14 +26,14 @@
     <Grid ShowGridLines="True" RowDefinitions="Auto,*,Auto,Auto" ColumnDefinitions="*,*">
 
         <Label Grid.Row="0" Grid.Column="0" Content="Deck 1" />
-        <ListBox Name="LeftDeckListBox" Grid.Row="1" Grid.Column="0" />
-        <Button Name="ShuffleLeftDeck" Grid.Row="2" Grid.Column="0" Content="Shuffle" Click="ShuffleLeftDeckClick" />
-        <Button Name="ResetLeftDeck" Grid.Row="3" Grid.Column="0" Content="Reset" Click="ResetLeftDeckClick" />
+        <ListBox Name="LeftDeckListBox" Grid.Row="1" Grid.Column="0" SelectionChanged="LeftDeckListBoxSelectionChanged" />
+        <Button Name="LeftDeckShuffle" Grid.Row="2" Grid.Column="0" Content="Shuffle" Click="LeftDeckClickShuffle" />
+        <Button Name="LeftDeckReset" Grid.Row="3" Grid.Column="0" Content="Reset" Click="LeftDeckClickReset" />
 
         <Label Grid.Row="0" Grid.Column="1" Content="Deck 2" />
         <ListBox Name="RightDeckListBox" Grid.Row="1" Grid.Column="1" />
-        <Button Name="ClearRightDeck" Grid.Row="2" Grid.Column="1" Content="Clear" Click="ClearRightDeckClick" />
-        <Button Name="SortRightDeck" Grid.Row="3" Grid.Column="1" Content="Sort" Click="SortRightDeckClick" />
+        <Button Name="RightDeckClear" Grid.Row="2" Grid.Column="1" Content="Clear" Click="RightDeckClickClear" />
+        <Button Name="RightDeckSort" Grid.Row="3" Grid.Column="1" Content="Sort" Click="RightDeckClickSort" />
 
     </Grid>
 
