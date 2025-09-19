@@ -27,13 +27,13 @@
 
         <Label Grid.Row="0" Grid.Column="0" Content="Deck 1" />
         <ListBox Name="LeftDeckListBox" Grid.Row="1" Grid.Column="0" />
-        <Button Name="ShuffleLeftDeck" Grid.Row="2" Grid.Column="0" Content="Shuffle" />
-        <Button Name="ResetLeftDeck" Grid.Row="3" Grid.Column="0" Content="Reset" />
+        <Button Name="ShuffleLeftDeck" Grid.Row="2" Grid.Column="0" Content="Shuffle" Click="ShuffleLeftDeckClick" />
+        <Button Name="ResetLeftDeck" Grid.Row="3" Grid.Column="0" Content="Reset" Click="ResetLeftDeckClick" />
 
         <Label Grid.Row="0" Grid.Column="1" Content="Deck 2" />
         <ListBox Name="RightDeckListBox" Grid.Row="1" Grid.Column="1" />
-        <Button Name="ClearRightDeck" Grid.Row="2" Grid.Column="1" Content="Clear" />
-        <Button Name="SortRightDeck" Grid.Row="3" Grid.Column="1" Content="Sort" />
+        <Button Name="ClearRightDeck" Grid.Row="2" Grid.Column="1" Content="Clear" Click="ClearRightDeckClick" />
+        <Button Name="SortRightDeck" Grid.Row="3" Grid.Column="1" Content="Sort" Click="SortRightDeckClick" />
 
     </Grid>
 
