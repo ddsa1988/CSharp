@@ -45,8 +45,8 @@ public partial class MainWindow : Window {
 
     private void LeftDeckListBoxSelectionChanged(object? sender, SelectionChangedEventArgs e) {
         string? card = LeftDeckListBox.SelectedItem?.ToString();
-
         Console.WriteLine(card);
+        // LeftDeckListBox.SelectedItem = null;
     }
 
     private void LeftDeckClickShuffle(object? sender, RoutedEventArgs e) {
@@ -60,7 +60,6 @@ public partial class MainWindow : Window {
         }
 
         _leftDeck = shuffledDeck;
-
         UpdateLeftDeckListBox(_leftDeck);
     }
 
