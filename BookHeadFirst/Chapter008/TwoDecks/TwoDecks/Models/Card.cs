@@ -26,18 +26,18 @@ public enum Ranks {
 }
 
 public class Card {
-    public Suits Suits { get; }
+    public Suits Suit { get; }
     public Ranks Rank { get; }
 
-    public Card(Ranks rank, Suits suits) {
+    public Card(Ranks rank, Suits suit) {
         Rank = rank;
-        Suits = suits;
+        Suit = suit;
     }
 
     public override string ToString() {
         string[] facedCards = [nameof(Ranks.Ace), nameof(Ranks.Jack), nameof(Ranks.Queen), nameof(Ranks.King)];
         string rankString = facedCards.Contains(Rank.ToString()) ? Rank.ToString() : ((int)Rank).ToString();
 
-        return $"{rankString} of {Suits}";
+        return $"{rankString} of {Suit}";
     }
 }

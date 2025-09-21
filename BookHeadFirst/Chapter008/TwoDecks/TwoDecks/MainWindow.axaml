@@ -6,34 +6,18 @@
         x:Class="TwoDecks.MainWindow"
         Title="TwoDecks">
 
-    <Window.Styles>
-        <Style Selector="Label">
-            <Setter Property="HorizontalAlignment" Value="Center" />
-            <Setter Property="FontSize" Value="16" />
-        </Style>
-        <Style Selector="ListBox">
-            <Setter Property="Margin" Value="10 5"></Setter>
-            <Setter Property="FontSize" Value="16" />
-        </Style>
-        <Style Selector="Button">
-            <Setter Property="HorizontalAlignment" Value="Stretch" />
-            <Setter Property="HorizontalContentAlignment" Value="Center" />
-            <Setter Property="Margin" Value="10 5" />
-            <Setter Property="FontSize" Value="16"></Setter>
-        </Style>
-    </Window.Styles>
+    <Grid ShowGridLines="True" ColumnDefinitions="*,*" RowDefinitions="Auto,*,Auto,Auto">
 
-    <Grid ShowGridLines="True" RowDefinitions="Auto,*,Auto,Auto" ColumnDefinitions="*,*">
+        <Label Grid.Row="0" Grid.Column="0" Content="Deck _1" />
+        <Label Grid.Row="0" Grid.Column="1" Content="Deck _2" />
 
-        <Label Grid.Row="0" Grid.Column="0" Content="Deck 1" />
-        <ListBox Name="LeftDeckListBox" Grid.Row="1" Grid.Column="0" SelectionChanged="LeftDeckListBoxSelectionChanged" />
-        <Button Name="LeftDeckShuffle" Grid.Row="2" Grid.Column="0" Content="Shuffle" Click="LeftDeckClickShuffle" />
-        <Button Name="LeftDeckReset" Grid.Row="3" Grid.Column="0" Content="Reset" Click="LeftDeckClickReset" />
-
-        <Label Grid.Row="0" Grid.Column="1" Content="Deck 2" />
+        <ListBox Name="LeftDeckListBox" Grid.Row="1" Grid.Column="0" />
         <ListBox Name="RightDeckListBox" Grid.Row="1" Grid.Column="1" />
-        <Button Name="RightDeckClear" Grid.Row="2" Grid.Column="1" Content="Clear" Click="RightDeckClickClear" />
-        <Button Name="RightDeckSort" Grid.Row="3" Grid.Column="1" Content="Sort" Click="RightDeckClickSort" />
+
+        <Button Name="ShuffleLeftDeck" Grid.Row="2" Grid.Column="0" Content="_Shuffle" />
+        <Button Name="ResetLeftDeck" Grid.Row="3" Grid.Column="0" Content="_Reset" />
+        <Button Name="ClearRightDeck" Grid.Row="2" Grid.Column="1" Content="_Clear" />
+        <Button Name="SortRightDeck" Grid.Row="3" Grid.Column="1" Content="Sor_t" />
 
     </Grid>
 
