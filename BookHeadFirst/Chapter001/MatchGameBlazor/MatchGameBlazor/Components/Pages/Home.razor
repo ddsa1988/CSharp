@@ -1,0 +1,17 @@
+﻿@page "/"
+@using MatchGameBlazor.Models
+
+<PageTitle>Home</PageTitle>
+
+
+<div class="container">
+    <div class="row">
+        @foreach (string animal in new Game().SetUpGame()) {
+            <div class="col-3">
+                <button type="button" class="btn btn-outline-dark">
+                    <h1>@animal</h1>
+                </button>
+            </div>
+        }
+    </div>
+</div>
