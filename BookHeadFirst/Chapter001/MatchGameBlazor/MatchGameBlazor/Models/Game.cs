@@ -1,20 +1,18 @@
 namespace MatchGameBlazor.Models;
 
-public class Game {
-    private string? _lastTextBlockClicked;
-    private bool _findingMatch;
+public static class Game {
+    private static bool _findingMatch;
+    private static string _lastEmojiClicked = string.Empty;
+    private static string _lastEmojiDescription = string.Empty;
+    private static int _matchesFound;
+    public static List<string> Emojis { get; private set; } = [];
 
-    private bool _isGameOver;
+    public static void SetupGame() {
+        Emojis = GetEmojis();
+    }
 
-    // private readonly DispatcherTimer _timer = new();
-    private int _tenthsOfSecondsElapsed;
-    private int _matchesFound;
-    private int _maxMatchesFound;
-    private float _bestTime = float.MaxValue;
-    private const float MaxTime = 30F;
-
-    public List<string> SetUpGame() {
-        string[] originalEmojis = [
+    private static List<string> GetEmojis() {
+        string[] emojiRepository = [
             "🐶", "🐺", "🐮", "🦊", "🐱", "🦁", "🐯", "🐹",
             "🌍", "🏜️", "🏟️", "🏔️", "🌋", "🏝️", "🏝️", "🏞️",
             "🎃", "🎇", "🎈", "🎎", "🎁", "🎄", "🧨", "⚽",
@@ -23,27 +21,45 @@ public class Game {
 
         const int emojisPairs = 8;
         var random = new Random();
-        var emojis = new List<string>();
         var indices = new List<int>();
+        var emojis = new List<string>();
 
         for (int i = 0; i < emojisPairs; i++) {
             int index;
 
             do {
-                index = random.Next(0, originalEmojis.Length);
+                index = random.Next(0, emojiRepository.Length);
             } while (indices.Contains(index));
 
             indices.Add(index);
-            string nextEmoji = originalEmojis[index];
+            string nextEmoji = emojiRepository[index];
             emojis.AddRange([nextEmoji, nextEmoji]);
         }
 
-        _matchesFound = 0;
-        _maxMatchesFound = emojisPairs;
-        _tenthsOfSecondsElapsed = 0;
-        _isGameOver = false;
-        // _timer.Start();
+        return emojis.OrderBy(_ => random.Next()).ToList();
+    }
 
-        return emojis;
+    public static void ButtonOnClick(string emoji, string description) {
+        if (emoji == string.Empty || description == string.Empty) return;
+
+        if (!_findingMatch) {
+            _lastEmojiClicked = emoji;
+            _lastEmojiDescription = description;
+            _findingMatch = true;
+            return;
+        }
+
+        if (_lastEmojiClicked == emoji && _lastEmojiDescription != description) {
+            Emojis = Emojis.Select(x => x.Replace(emoji, "")).ToList();
+            _lastEmojiClicked = string.Empty;
+            _lastEmojiDescription = string.Empty;
+            _findingMatch = false;
+            _matchesFound++;
+            return;
+        }
+
+        _lastEmojiClicked = string.Empty;
+        _lastEmojiDescription = string.Empty;
+        _findingMatch = false;
     }
 }
