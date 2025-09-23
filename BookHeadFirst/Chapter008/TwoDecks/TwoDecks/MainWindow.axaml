@@ -2,22 +2,46 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:models="clr-namespace:TwoDecks.Models"
         mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="450"
         x:Class="TwoDecks.MainWindow"
-        Title="TwoDecks">
+        Title="Two Decks">
+
+    <Window.Styles>
+        <Style Selector="Label">
+            <Setter Property="HorizontalAlignment" Value="Center" />
+        </Style>
+        <Style Selector="ListBox">
+            <Setter Property="Margin" Value="5" />
+        </Style>
+        <Style Selector="Button">
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="Margin" Value="5" />
+        </Style>
+    </Window.Styles>
+
+    <Window.Resources>
+        <models:Deck x:Key="LeftDeck" />
+        <models:Deck x:Key="RightDeck" />
+    </Window.Resources>
 
     <Grid ShowGridLines="True" ColumnDefinitions="*,*" RowDefinitions="Auto,*,Auto,Auto">
 
-        <Label Grid.Row="0" Grid.Column="0" Content="Deck _1" />
-        <Label Grid.Row="0" Grid.Column="1" Content="Deck _2" />
+        <Label Name="LeftDeckLabel" Grid.Row="0" Grid.Column="0" Content="Deck _1"
+               Target="{Binding ElementName=LeftDeckListBox, Mode=OneWay}" />
+        <Label Name="RightDeckLabel" Grid.Row="0" Grid.Column="1" Content="Deck _2"
+               Target="{Binding ElementName=RightDeckListBox, Mode=OneWay}" />
 
-        <ListBox Name="LeftDeckListBox" Grid.Row="1" Grid.Column="0" />
-        <ListBox Name="RightDeckListBox" Grid.Row="1" Grid.Column="1" />
+        <ListBox Name="LeftDeckListBox" Grid.Row="1" Grid.Column="0" ItemsSource="{DynamicResource LeftDeck}"
+                 DoubleTapped="LeftDeckListBox_DoubleTapped" KeyDown="LeftDeckListBox_KeyDown" />
+        <ListBox Name="RightDeckListBox" Grid.Row="1" Grid.Column="1" ItemsSource="{DynamicResource RightDeck}"
+                 DoubleTapped="RightDeckListBox_DoubleTapped" KeyDown="RightDeckListBox_KeyDown" />
 
-        <Button Name="ShuffleLeftDeck" Grid.Row="2" Grid.Column="0" Content="_Shuffle" />
-        <Button Name="ResetLeftDeck" Grid.Row="3" Grid.Column="0" Content="_Reset" />
-        <Button Name="ClearRightDeck" Grid.Row="2" Grid.Column="1" Content="_Clear" />
-        <Button Name="SortRightDeck" Grid.Row="3" Grid.Column="1" Content="Sor_t" />
+        <Button Name="LeftDeckShuffle" Grid.Row="2" Grid.Column="0" Content="_Shuffle" Click="LeftDeckShuffle_Click" />
+        <Button Name="LeftDeckReset" Grid.Row="3" Grid.Column="0" Content="_Reset" Click="LeftDeckReset_Click" />
+        <Button Name="RightDeckClear" Grid.Row="2" Grid.Column="1" Content="_Clear" Click="RightDeckClear_Click" />
+        <Button Name="RightDeckSort" Grid.Row="3" Grid.Column="1" Content="Sor_t" Click="RightDeckSort_Click" />
 
     </Grid>
 

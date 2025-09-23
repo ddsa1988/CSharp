@@ -3,6 +3,7 @@
   <component name="AvaloniaProject">
     <option name="projectPerEditor">
       <map>
+        <entry key="TwoDecks/App.axaml" value="TwoDecks/TwoDecks.csproj" />
         <entry key="TwoDecks/MainWindow.axaml" value="TwoDecks/TwoDecks.csproj" />
       </map>
     </option>
