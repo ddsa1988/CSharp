@@ -5,7 +5,7 @@
         mc:Ignorable="d" d:DesignWidth="1024" d:DesignHeight="600"
         Width="1024" Height="600"
         x:Class="BatchProcess.MainWindow"
-        Title="BatchProcess">
+        Title="Batch Process">
 
     <Grid ShowGridLines="True" Background="{DynamicResource PrimaryBackground}" ColumnDefinitions="200,*">
         <Border Grid.Column="0" Padding="20">
