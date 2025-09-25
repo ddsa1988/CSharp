@@ -11,6 +11,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BatchProcess/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BatchProcess/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BatchProcess/App.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/BatchProcess/App.axaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BatchProcess/MainWindow.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/BatchProcess/MainWindow.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BatchProcess/Styles/AppDefaultStyles.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/BatchProcess/Styles/AppDefaultStyles.axaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,6 +86,7 @@
       <workItem from="1758683477084" duration="841000" />
       <workItem from="1758684599928" duration="91000" />
       <workItem from="1758748854056" duration="143000" />
+      <workItem from="1758766859103" duration="1866000" />
     </task>
     <servers />
   </component>
