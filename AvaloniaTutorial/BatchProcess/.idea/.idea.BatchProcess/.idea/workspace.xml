@@ -7,12 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4210ba7-a187-4ce4-8d85-ba93860a8502" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.BatchProcess/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BatchProcess/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BatchProcess/App.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/BatchProcess/App.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BatchProcess/MainWindow.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/BatchProcess/MainWindow.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BatchProcess/Styles/AppDefaultStyles.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/BatchProcess/Styles/AppDefaultStyles.axaml" afterDir="false" />
-    </list>
+    <list default="true" id="a4210ba7-a187-4ce4-8d85-ba93860a8502" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -86,7 +81,7 @@
       <workItem from="1758683477084" duration="841000" />
       <workItem from="1758684599928" duration="91000" />
       <workItem from="1758748854056" duration="143000" />
-      <workItem from="1758766859103" duration="1866000" />
+      <workItem from="1758766859103" duration="2156000" />
     </task>
     <servers />
   </component>
