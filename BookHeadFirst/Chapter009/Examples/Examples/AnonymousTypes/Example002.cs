@@ -19,8 +19,7 @@ public static class Example002 {
 
         var playerStats =
             from player in players
-            join win in playerWins
-                on player.Name equals win.Name
+            join win in playerWins on player.Name equals win.Name
             orderby player.Name
             select new {
                 player.Name,

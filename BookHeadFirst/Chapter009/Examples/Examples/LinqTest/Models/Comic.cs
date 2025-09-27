@@ -29,4 +29,12 @@ public class Comic {
         { 83, 25.75M },
         { 97, 35.25M },
     };
+
+    public static readonly IEnumerable<Review> Reviews = new List<Review> {
+        new() { Issue = 36, Critic = Critics.MuddyCritic, Score = 37.6 },
+        new() { Issue = 74, Critic = Critics.RottenTornadoes, Score = 22.8 },
+        new() { Issue = 74, Critic = Critics.MuddyCritic, Score = 84.2 },
+        new() { Issue = 83, Critic = Critics.RottenTornadoes, Score = 89.4 },
+        new() { Issue = 97, Critic = Critics.MuddyCritic, Score = 98.1 }
+    };
 }

@@ -2,6 +2,6 @@
 
 public static class Program {
     public static void Main() {
-        AnonymousTypes.Example002.Run();
+        LinqTest.Example010.Run();
     }
 }
