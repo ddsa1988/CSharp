@@ -6,18 +6,22 @@
 
     <Application.Styles>
         <FluentTheme />
-        <StyleInclude Source="Styles/AppDefaultStyles.axaml" />
+        <StyleInclude Source="Styles/AppDefaultStyles.axaml"></StyleInclude>
     </Application.Styles>
 
     <Application.Resources>
-        <SolidColorBrush x:Key="PrimaryBackground" Color="#141720" />
-        <SolidColorBrush x:Key="PrimaryForeground" Color="#cfcfcf" />
+        <SolidColorBrush x:Key="PrimaryBackground" Color="#141720"></SolidColorBrush>
+        <SolidColorBrush x:Key="PrimaryForeground" Color="#cfcfcf"></SolidColorBrush>
         <LinearGradientBrush x:Key="PrimaryBackgroundGradient" StartPoint="0,0" EndPoint="100,0">
-            <GradientStop Offset="0" Color="#111214" />
-            <GradientStop Offset="1" Color="#151e3e" />
+            <GradientStop Offset="0" Color="#111214"></GradientStop>
+            <GradientStop Offset="1" Color="#151e3e"></GradientStop>
         </LinearGradientBrush>
 
-        <SolidColorBrush x:Key="PrimaryHoverBackground" Color="#333b5a" />
-        <SolidColorBrush x:Key="PrimaryHoverForeground" Color="White" />
+        <SolidColorBrush x:Key="PrimaryHoverBackground" Color="#333b5a"></SolidColorBrush>
+        <SolidColorBrush x:Key="PrimaryHoverForeground" Color="White"></SolidColorBrush>
+
+        <FontFamily x:Key="Phosphor">/Assets/Fonts/Phosphor.ttf#Phosphor</FontFamily>
+        <FontFamily x:Key="PhosphorFill">/Assets/Fonts/Phosphor-Fill.ttf#Phosphor-Fill</FontFamily>
+
     </Application.Resources>
 </Application>
