@@ -30,12 +30,10 @@ public static class Example010 {
             ComicAnalyzer.GroupComicsByPrice(Comic.Catalog, Comic.Prices);
 
         foreach (IGrouping<PriceRange, Comic> group in groups) {
-            Console.WriteLine($"{group.Key} comics: ");
+            Console.WriteLine($"\n{group.Key} comics: ");
             foreach (Comic comic in group) {
                 Console.WriteLine($"#{comic.Issue} {comic.Name}: {Comic.Prices[comic.Issue]:c}");
             }
-
-            Console.WriteLine();
         }
 
         return false;
@@ -44,11 +42,11 @@ public static class Example010 {
     private static bool GetReviews() {
         IEnumerable<string> reviews = ComicAnalyzer.GetReviews(Comic.Catalog, Comic.Reviews);
 
+        Console.WriteLine($"\nComics reviews:");
+
         foreach (string review in reviews) {
             Console.WriteLine(review);
         }
-
-        Console.WriteLine();
 
         return false;
     }

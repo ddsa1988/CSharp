@@ -1,8 +1,8 @@
 namespace Examples.LinqTest.Models;
 
 public static class ComicAnalyzer {
-    private static PriceRange CalculatePriceRange(Comic comic) {
-        Comic.Prices.TryGetValue(comic.Issue, out decimal value);
+    private static PriceRange CalculatePriceRange(Comic comic, IReadOnlyDictionary<int, decimal> prices) {
+        prices.TryGetValue(comic.Issue, out decimal value);
         return value < 100 ? PriceRange.Cheap : PriceRange.Expensive;
     }
 
@@ -11,7 +11,7 @@ public static class ComicAnalyzer {
         IEnumerable<IGrouping<PriceRange, Comic>> grouped =
             from comic in catalog
             orderby prices[comic.Issue] descending
-            group comic by CalculatePriceRange(comic)
+            group comic by CalculatePriceRange(comic, prices)
             into priceGroup
             select priceGroup;
 
