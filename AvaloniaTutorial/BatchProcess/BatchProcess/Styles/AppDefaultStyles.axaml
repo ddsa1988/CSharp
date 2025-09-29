@@ -26,4 +26,12 @@
         <Setter Property="Foreground" Value="{DynamicResource PrimaryHoverForeground}"></Setter>
         <Setter Property="Background" Value="{DynamicResource PrimaryHoverBackground}"></Setter>
     </Style>
+
+    <Style Selector="Button.transparent">
+        <Setter Property="Background" Value="Transparent"></Setter>
+    </Style>
+
+    <Style Selector="Button.transparent:pointerover /template/ ContentPresenter">
+        <Setter Property="Background" Value="Transparent"></Setter>
+    </Style>
 </Styles>
