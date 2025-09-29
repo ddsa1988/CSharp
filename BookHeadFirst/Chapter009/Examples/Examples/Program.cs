@@ -2,6 +2,6 @@
 
 public static class Program {
     public static void Main() {
-        LinqTest.Example011.Run();
+        LambdaExpressions.Example004.Run();
     }
 }
