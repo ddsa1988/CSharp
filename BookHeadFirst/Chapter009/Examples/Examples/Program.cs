@@ -2,6 +2,6 @@
 
 public static class Program {
     public static void Main() {
-        Refactoring.Example001.Run();
+        EnumerableClass.Example002.Run();
     }
 }
