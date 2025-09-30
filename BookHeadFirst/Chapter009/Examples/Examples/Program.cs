@@ -2,6 +2,6 @@
 
 public static class Program {
     public static void Main() {
-        LambdaExpressions.Example004.Run();
+        Refactoring.Example001.Run();
     }
 }
