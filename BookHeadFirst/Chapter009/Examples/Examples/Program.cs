@@ -2,6 +2,6 @@
 
 public static class Program {
     public static void Main() {
-        YieldReturn.Example002.Run();
+        YieldReturn.Example003.Run();
     }
 }
