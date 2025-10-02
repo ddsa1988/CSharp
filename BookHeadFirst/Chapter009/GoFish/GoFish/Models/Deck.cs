@@ -7,9 +7,10 @@ public class Deck : ObservableCollection<Card> {
     private const int RanksMaxValue = 13;
     private const int SuitsMinValue = 0;
     private const int SuitsMaxValue = 3;
-    private static readonly Random Random = new Random();
+    private readonly Random _random;
 
-    public Deck() {
+    public Deck(Random random) {
+        _random = random;
         Reset();
     }
 
@@ -34,16 +35,18 @@ public class Deck : ObservableCollection<Card> {
         return card;
     }
 
-    public void Shuffle() {
+    public Deck Shuffle() {
         var copy = new List<Card>(this);
         Clear();
 
         while (copy.Count > 0) {
-            int index = Random.Next(copy.Count);
+            int index = _random.Next(copy.Count);
             Card card = copy[index];
             copy.RemoveAt(index);
             Add(card);
         }
+
+        return this;
     }
 
     public void Sort() {
