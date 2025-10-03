@@ -7,7 +7,7 @@ public enum Suits {
     Clubs,
 }
 
-public enum Ranks {
+public enum Values {
     Ace = 1,
     Two = 2,
     Three = 3,
@@ -25,16 +25,16 @@ public enum Ranks {
 
 public class Card {
     public Suits Suit { get; }
-    public Ranks Rank { get; }
+    public Values Value { get; }
 
-    public Card(Ranks rank, Suits suit) {
-        Rank = rank;
+    public Card(Values value, Suits suit) {
+        Value = value;
         Suit = suit;
     }
 
     public override string ToString() {
-        string[] facedCards = [nameof(Ranks.Ace), nameof(Ranks.Jack), nameof(Ranks.Queen), nameof(Ranks.King)];
-        string rankString = facedCards.Contains(Rank.ToString()) ? Rank.ToString() : ((int)Rank).ToString();
+        string[] facedCards = [nameof(Values.Ace), nameof(Values.Jack), nameof(Values.Queen), nameof(Values.King)];
+        string rankString = facedCards.Contains(Value.ToString()) ? Value.ToString() : ((int)Value).ToString();
 
         return $"{rankString} of {Suit}";
     }

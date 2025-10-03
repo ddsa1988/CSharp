@@ -7,10 +7,9 @@ public class Deck : ObservableCollection<Card> {
     private const int RanksMaxValue = 13;
     private const int SuitsMinValue = 0;
     private const int SuitsMaxValue = 3;
-    private readonly Random _random;
+    private readonly Random _random = new();
 
-    public Deck(Random random) {
-        _random = random;
+    public Deck() {
         Reset();
     }
 
@@ -19,7 +18,7 @@ public class Deck : ObservableCollection<Card> {
 
         for (int rank = RanksMinValue; rank <= RanksMaxValue; rank++) {
             for (int suit = SuitsMinValue; suit <= SuitsMaxValue; suit++) {
-                var card = new Card((Ranks)rank, (Suits)suit);
+                var card = new Card((Values)rank, (Suits)suit);
                 Add(card);
             }
         }

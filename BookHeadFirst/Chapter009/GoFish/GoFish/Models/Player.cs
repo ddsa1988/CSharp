@@ -1,9 +1,9 @@
 namespace GoFish.Models;
 
 public class Player {
-    private static Random _random = new Random();
     private readonly List<Card> _hand = new List<Card>();
-    private readonly List<Ranks> _books = new List<Ranks>();
+    private readonly List<Values> _books = new List<Values>();
+    public static Random Random = new Random();
 
     /// <summary>
     /// The cards in the player's hand
@@ -13,7 +13,7 @@ public class Player {
     /// <summary>
     /// The books that the player has pulled out
     /// </summary>
-    public IEnumerable<Ranks> Books => _books;
+    public IEnumerable<Values> Books => _books;
 
     public readonly string Name;
 
@@ -57,10 +57,10 @@ public class Player {
     /// If I have any cards that match the value, return them. If I run out of cards, get
     /// the next hand from the deck.
     /// </summary>
-    /// <param name="rank">Rank I'm asked for</param>
+    /// <param name="value">Rank I'm asked for</param>
     /// <param name="deck">Deck to draw my next hand from</param>
     /// <returns>The cards that were pulled out of the other player's hand</returns>
-    public IEnumerable<Card> DoYouHaveAny(Ranks rank, Deck deck) {
+    public IEnumerable<Card> DoYouHaveAny(Values value, Deck deck) {
         throw new NotImplementedException();
     }
 
@@ -85,7 +85,7 @@ public class Player {
     /// Gets a random value from the player's hand
     /// </summary>
     /// <returns>The value of a randomly selected card in the player's hand</returns>
-    public Ranks RandomRankFromHand() {
+    public Values RandomValueFromHand() {
         throw new NotImplementedException();
     }
 
