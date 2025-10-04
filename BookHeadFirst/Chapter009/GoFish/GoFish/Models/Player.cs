@@ -86,6 +86,7 @@ public class Player {
     /// </summary>
     /// <param name="cards">Cards from the other player to add</param>
     public void AddCardAndPullOutBooks(IEnumerable<Card> cards) {
+        _hand.AddRange(cards);
         throw new NotImplementedException();
     }
 
@@ -95,7 +96,6 @@ public class Player {
     /// <param name="stock">Stock to draw a card from</param>
     public void DrawCard(Deck stock) {
         if (stock.Count <= 0) return;
-
         Card card = stock.Deal(0);
         _hand.Add(card);
     }
