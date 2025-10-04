@@ -3,10 +3,10 @@ using System.Collections.ObjectModel;
 namespace GoFish.Models;
 
 public class Deck : ObservableCollection<Card> {
-    private const int RanksMinValue = 1;
-    private const int RanksMaxValue = 13;
-    private const int SuitsMinValue = 0;
-    private const int SuitsMaxValue = 3;
+    private const int MinValue = 1;
+    private const int MaxValue = 13;
+    private const int MinSuit = 0;
+    private const int MaxSuit = 3;
     private readonly Random _random = new();
 
     public Deck() {
@@ -16,9 +16,9 @@ public class Deck : ObservableCollection<Card> {
     public void Reset() {
         Clear();
 
-        for (int rank = RanksMinValue; rank <= RanksMaxValue; rank++) {
-            for (int suit = SuitsMinValue; suit <= SuitsMaxValue; suit++) {
-                var card = new Card((Values)rank, (Suits)suit);
+        for (int value = MinValue; value <= MaxValue; value++) {
+            for (int suit = MinSuit; suit <= MaxSuit; suit++) {
+                var card = new Card((Values)value, (Suits)suit);
                 Add(card);
             }
         }

@@ -90,7 +90,7 @@ public class PlayerTests {
         var player = new Player("Owen", new List<Card>());
         player.DrawCard(new Deck());
 
-        Assert.AreEqual(1, player.Books.Count());
+        Assert.AreEqual(1, player.Hand.Count());
         Assert.AreEqual("Ace of Diamonds", player.Hand.First().ToString());
     }
 

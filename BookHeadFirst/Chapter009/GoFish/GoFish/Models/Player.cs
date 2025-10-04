@@ -50,7 +50,15 @@ public class Player {
     /// </summary>
     /// <param name="stock">Stock to get the next hand from</param>
     public void GetNextHand(Deck stock) {
-        throw new NotImplementedException();
+        const int numberOfCards = 5;
+        int length = stock.Count < numberOfCards ? stock.Count : numberOfCards;
+
+        _hand.Clear();
+
+        for (int i = 0; i < length; i++) {
+            Card card = stock.Deal(0);
+            _hand.Add(card);
+        }
     }
 
     /// <summary>
@@ -78,7 +86,10 @@ public class Player {
     /// </summary>
     /// <param name="stock">Stock to draw a card from</param>
     public void DrawCard(Deck stock) {
-        throw new NotImplementedException();
+        if (stock.Count <= 0) return;
+
+        Card card = stock.Deal(0);
+        _hand.Add(card);
     }
 
     /// <summary>
