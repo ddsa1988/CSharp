@@ -7,7 +7,7 @@ public class Deck : ObservableCollection<Card> {
     private const int MaxValue = 13;
     private const int MinSuit = 0;
     private const int MaxSuit = 3;
-    private readonly Random _random = new();
+    private readonly Random _random = Player.Random;
 
     public Deck() {
         Reset();

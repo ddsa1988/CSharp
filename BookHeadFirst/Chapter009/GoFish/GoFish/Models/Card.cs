@@ -33,9 +33,6 @@ public class Card {
     }
 
     public override string ToString() {
-        string[] facedCards = [nameof(Values.Ace), nameof(Values.Jack), nameof(Values.Queen), nameof(Values.King)];
-        string rankString = facedCards.Contains(Value.ToString()) ? Value.ToString() : ((int)Value).ToString();
-
-        return $"{rankString} of {Suit}";
+        return $"{Value} of {Suit}";
     }
 }

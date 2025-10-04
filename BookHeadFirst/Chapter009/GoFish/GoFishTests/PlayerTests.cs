@@ -30,9 +30,9 @@ public class PlayerTests {
         List<string> threes = player.DoYouHaveAny(Values.Three, new Deck()).Select(card => card.ToString()).ToList();
 
         CollectionAssert.AreEqual(new List<string>() {
-            "Three of Diamonds",
             "Three of Clubs",
             "Three of Hearts",
+            "Three of Diamonds",
         }, threes);
 
         Assert.AreEqual(3, player.Hand.Count());
@@ -40,8 +40,8 @@ public class PlayerTests {
         List<string> jacks = player.DoYouHaveAny(Values.Jack, new Deck()).Select(card => card.ToString()).ToList();
 
         CollectionAssert.AreEqual(new List<string>() {
-            "Jack of Clubs",
             "Jack of Spades",
+            "Jack of Clubs",
         }, jacks);
 
         List<string> hand = player.Hand.Select(card => card.ToString()).ToList();
@@ -113,7 +113,7 @@ public class PlayerTests {
 /// Mock Random for testing that always returns a specific value
 /// </summary>
 public class MockRandom : Random {
-    public int ValueToReturn { get; set; } = 0;
+    public int ValueToReturn { get; init; } = 0;
     public override int Next() => ValueToReturn;
     public override int Next(int maxValue) => ValueToReturn;
     public override int Next(int minValue, int maxValue) => ValueToReturn;

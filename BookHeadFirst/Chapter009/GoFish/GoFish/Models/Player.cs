@@ -25,7 +25,8 @@ public class Player {
     /// <summary>
     /// Returns the current status of the player: the number of cards and books
     /// </summary>
-    public string Status => throw new NotImplementedException();
+    public string Status =>
+        $"{Name} has {Hand.Count()} card{S(Hand.Count())} and {Books.Count()} book{S(Books.Count())}";
 
     /// <summary>
     /// Constructor to create a player
@@ -65,11 +66,18 @@ public class Player {
     /// If I have any cards that match the value, return them. If I run out of cards, get
     /// the next hand from the deck.
     /// </summary>
-    /// <param name="value">Rank I'm asked for</param>
+    /// <param name="value">Value I'm asked for</param>
     /// <param name="deck">Deck to draw my next hand from</param>
     /// <returns>The cards that were pulled out of the other player's hand</returns>
     public IEnumerable<Card> DoYouHaveAny(Values value, Deck deck) {
-        throw new NotImplementedException();
+        List<Card> cards = _hand.Where(card => card.Value == value).ToList();
+        _hand.RemoveAll(card => card.Value == value);
+
+        if (_hand.Count == 0) {
+            GetNextHand(deck);
+        }
+
+        return cards;
     }
 
     /// <summary>
@@ -97,7 +105,9 @@ public class Player {
     /// </summary>
     /// <returns>The value of a randomly selected card in the player's hand</returns>
     public Values RandomValueFromHand() {
-        throw new NotImplementedException();
+        int index = Random.Next(0, _hand.Count);
+        Card card = _hand[index];
+        return card.Value;
     }
 
     public override string ToString() => Name;
