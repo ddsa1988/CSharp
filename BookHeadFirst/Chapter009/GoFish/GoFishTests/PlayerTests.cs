@@ -31,8 +31,8 @@ public class PlayerTests {
 
         CollectionAssert.AreEqual(new List<string>() {
             "Three of Diamonds",
-            "Three of Hearts",
             "Three of Clubs",
+            "Three of Hearts",
         }, threes);
 
         Assert.AreEqual(3, player.Hand.Count());
@@ -40,8 +40,8 @@ public class PlayerTests {
         List<string> jacks = player.DoYouHaveAny(Values.Jack, new Deck()).Select(card => card.ToString()).ToList();
 
         CollectionAssert.AreEqual(new List<string>() {
-            "Jack of Spades",
             "Jack of Clubs",
+            "Jack of Spades",
         }, jacks);
 
         List<string> hand = player.Hand.Select(card => card.ToString()).ToList();

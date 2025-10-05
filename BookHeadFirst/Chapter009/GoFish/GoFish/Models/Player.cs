@@ -3,7 +3,7 @@ namespace GoFish.Models;
 public class Player {
     private readonly List<Card> _hand = [];
     private readonly List<Values> _books = [];
-    private readonly string _name;
+    public readonly string Name;
     public static Random Random = new();
 
     /// <summary>
@@ -11,7 +11,7 @@ public class Player {
     /// </summary>
     /// <param name="name">Player's name</param>
     public Player(string name) {
-        _name = name;
+        Name = name;
     }
 
     /// <summary>
@@ -20,7 +20,7 @@ public class Player {
     /// <param name="name">Player's name</param>
     /// <param name="cards">Initial set of cards</param>
     public Player(string name, IEnumerable<Card> cards) {
-        _name = name;
+        Name = name;
         _hand.AddRange(cards);
     }
 
@@ -43,7 +43,7 @@ public class Player {
     /// Returns the current status of the player: the number of cards and books
     /// </summary>
     public string Status =>
-        $"{_name} has {Hand.Count()} card{S(Hand.Count())} and {Books.Count()} book{S(Books.Count())}";
+        $"{Name} has {Hand.Count()} card{S(Hand.Count())} and {Books.Count()} book{S(Books.Count())}";
 
     /// <summary>
     /// Gets up to five cars from the stock
@@ -117,6 +117,6 @@ public class Player {
     //     .Select(card => card.Value)
     //     .Skip(Random.Next(0, _hand.Count))
     //     .First();
-    
-    public override string ToString() => _name;
+
+    public override string ToString() => Name;
 }

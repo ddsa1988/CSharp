@@ -2,9 +2,9 @@ namespace GoFish.Models;
 
 public enum Suits {
     Diamonds,
-    Spades,
-    Hearts,
     Clubs,
+    Hearts,
+    Spades,
 }
 
 public enum Values {
