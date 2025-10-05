@@ -1,9 +1,28 @@
 namespace GoFish.Models;
 
 public class Player {
-    private readonly List<Card> _hand = new List<Card>();
-    private readonly List<Values> _books = new List<Values>();
-    public static Random Random = new Random();
+    private readonly List<Card> _hand = [];
+    private readonly List<Values> _books = [];
+    private readonly string _name;
+    public static Random Random = new();
+
+    /// <summary>
+    /// Constructor to create a player
+    /// </summary>
+    /// <param name="name">Player's name</param>
+    public Player(string name) {
+        _name = name;
+    }
+
+    /// <summary>
+    /// Alternate constructor
+    /// </summary>
+    /// <param name="name">Player's name</param>
+    /// <param name="cards">Initial set of cards</param>
+    public Player(string name, IEnumerable<Card> cards) {
+        _name = name;
+        _hand.AddRange(cards);
+    }
 
     /// <summary>
     /// The cards in the player's hand
@@ -15,36 +34,16 @@ public class Player {
     /// </summary>
     public IEnumerable<Values> Books => _books;
 
-    public readonly string Name;
-
     /// <summary>
     /// Pluralize a word, adding 's' if a value isn't equal to 1
     /// </summary>
-    public static string S(int s) => s == 1 ? "" : "s";
+    private static string S(int s) => s == 1 ? "" : "s";
 
     /// <summary>
     /// Returns the current status of the player: the number of cards and books
     /// </summary>
     public string Status =>
-        $"{Name} has {Hand.Count()} card{S(Hand.Count())} and {Books.Count()} book{S(Books.Count())}";
-
-    /// <summary>
-    /// Constructor to create a player
-    /// </summary>
-    /// <param name="name">Player's name</param>
-    public Player(string name) {
-        Name = name;
-    }
-
-    /// <summary>
-    /// Alternate constructor
-    /// </summary>
-    /// <param name="name">Player's name</param>
-    /// <param name="cards">Initial set of cards</param>
-    public Player(string name, IEnumerable<Card> cards) {
-        Name = name;
-        _hand.AddRange(cards);
-    }
+        $"{_name} has {Hand.Count()} card{S(Hand.Count())} and {Books.Count()} book{S(Books.Count())}";
 
     /// <summary>
     /// Gets up to five cars from the stock
@@ -116,5 +115,5 @@ public class Player {
         return card.Value;
     }
 
-    public override string ToString() => Name;
+    public override string ToString() => _name;
 }

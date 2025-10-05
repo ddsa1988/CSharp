@@ -113,7 +113,7 @@ public class PlayerTests {
 /// Mock Random for testing that always returns a specific value
 /// </summary>
 public class MockRandom : Random {
-    public int ValueToReturn { get; init; } = 0;
+    public int ValueToReturn { get; init; }
     public override int Next() => ValueToReturn;
     public override int Next(int maxValue) => ValueToReturn;
     public override int Next(int minValue, int maxValue) => ValueToReturn;
