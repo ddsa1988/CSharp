@@ -77,7 +77,7 @@ public class PlayerTests {
         player.AddCardAndPullOutBooks(cardsToAdd);
 
         List<Values> books = player.Books.ToList();
-        CollectionAssert.AreEqual(new List<Values>() { Values.Three, Values.Jack }, books);
+        CollectionAssert.AreEqual(new List<Values>() { Values.Jack, Values.Three }, books);
 
         List<string> hand = player.Hand.Select(card => card.ToString()).ToList();
         CollectionAssert.AreEqual(new List<string>() { "Four of Diamonds" }, hand);

@@ -87,7 +87,13 @@ public class Player {
     /// <param name="cards">Cards from the other player to add</param>
     public void AddCardAndPullOutBooks(IEnumerable<Card> cards) {
         _hand.AddRange(cards);
-        throw new NotImplementedException();
+        IEnumerable<IGrouping<Values, Card>> groups = _hand.GroupBy(card => card.Value);
+
+        foreach (IGrouping<Values, Card> group in groups) {
+            if (group.Count() != 4) continue;
+            _books.Add(group.Key);
+            _hand.RemoveAll(card => card.Value == group.Key);
+        }
     }
 
     /// <summary>
