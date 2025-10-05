@@ -30,9 +30,9 @@ public class PlayerTests {
         List<string> threes = player.DoYouHaveAny(Values.Three, new Deck()).Select(card => card.ToString()).ToList();
 
         CollectionAssert.AreEqual(new List<string>() {
-            "Three of Clubs",
-            "Three of Hearts",
             "Three of Diamonds",
+            "Three of Hearts",
+            "Three of Clubs",
         }, threes);
 
         Assert.AreEqual(3, player.Hand.Count());
@@ -77,7 +77,7 @@ public class PlayerTests {
         player.AddCardAndPullOutBooks(cardsToAdd);
 
         List<Values> books = player.Books.ToList();
-        CollectionAssert.AreEqual(new List<Values>() { Values.Jack, Values.Three }, books);
+        CollectionAssert.AreEqual(new List<Values>() { Values.Three, Values.Jack }, books);
 
         List<string> hand = player.Hand.Select(card => card.ToString()).ToList();
         CollectionAssert.AreEqual(new List<string>() { "Four of Diamonds" }, hand);

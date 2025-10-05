@@ -50,14 +50,10 @@ public class Player {
     /// </summary>
     /// <param name="stock">Stock to get the next hand from</param>
     public void GetNextHand(Deck stock) {
-        const int numberOfCards = 5;
-        int length = stock.Count < numberOfCards ? stock.Count : numberOfCards;
+        const int maxHandCards = 5;
 
-        _hand.Clear();
-
-        for (int i = 0; i < length; i++) {
-            Card card = stock.Deal(0);
-            _hand.Add(card);
+        while (stock.Count > 0 && _hand.Count < maxHandCards) {
+            _hand.Add(stock.Deal(0));
         }
     }
 
@@ -69,14 +65,15 @@ public class Player {
     /// <param name="deck">Deck to draw my next hand from</param>
     /// <returns>The cards that were pulled out of the other player's hand</returns>
     public IEnumerable<Card> DoYouHaveAny(Values value, Deck deck) {
-        List<Card> cards = _hand.Where(card => card.Value == value).ToList();
+        IEnumerable<Card> matchingCards = _hand.Where(card => card.Value == value).OrderBy(card => card.Suit).ToList();
+
         _hand.RemoveAll(card => card.Value == value);
 
         if (_hand.Count == 0) {
             GetNextHand(deck);
         }
 
-        return cards;
+        return matchingCards;
     }
 
     /// <summary>
@@ -86,13 +83,16 @@ public class Player {
     /// <param name="cards">Cards from the other player to add</param>
     public void AddCardAndPullOutBooks(IEnumerable<Card> cards) {
         _hand.AddRange(cards);
-        IEnumerable<IGrouping<Values, Card>> groups = _hand.GroupBy(card => card.Value);
 
-        foreach (IGrouping<Values, Card> group in groups) {
-            if (group.Count() != 4) continue;
-            _books.Add(group.Key);
-            _hand.RemoveAll(card => card.Value == group.Key);
-        }
+        IEnumerable<Values> foundBooks = _hand
+            .GroupBy(card => card.Value)
+            .Where(group => group.Count() == 4)
+            .Select(group => group.Key);
+
+        _books.AddRange(foundBooks);
+        _books.Sort();
+
+        _hand.RemoveAll(card => _books.Contains(card.Value));
     }
 
     /// <summary>
@@ -101,8 +101,9 @@ public class Player {
     /// <param name="stock">Stock to draw a card from</param>
     public void DrawCard(Deck stock) {
         if (stock.Count <= 0) return;
+
         Card card = stock.Deal(0);
-        _hand.Add(card);
+        AddCardAndPullOutBooks(new List<Card>() { card });
     }
 
     /// <summary>
