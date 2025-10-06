@@ -40,9 +40,10 @@ public class GameState {
     /// </summary>
     /// <param name="currentPlayer">The current player</param>
     /// <returns>A random player that the current player can ask for a card</returns>
-    public Player RandomPlayer(Player currentPlayer) {
-        throw new NotImplementedException();
-    }
+    public Player RandomPlayer(Player currentPlayer) => Players
+        .Where(player => player.Name != currentPlayer.Name)
+        .Skip(Player.Random.Next(0, Players.Count()))
+        .First();
 
     /// <summary>
     /// Makes one player play a round

@@ -110,13 +110,11 @@ public class Player {
     /// Gets a random value from the player's hand
     /// </summary>
     /// <returns>The value of a randomly selected card in the player's hand</returns>
-    public Values RandomValueFromHand() => _hand[Random.Next(0, _hand.Count)].Value;
-
-    // public Values RandomValueFromHand() => _hand
-    //     .OrderBy(card => card.Value)
-    //     .Select(card => card.Value)
-    //     .Skip(Random.Next(0, _hand.Count))
-    //     .First();
+    public Values RandomValueFromHand() => _hand
+        .OrderBy(card => card.Value)
+        .Select(card => card.Value)
+        .Skip(Random.Next(0, _hand.Count))
+        .First();
 
     public override string ToString() => Name;
 }
