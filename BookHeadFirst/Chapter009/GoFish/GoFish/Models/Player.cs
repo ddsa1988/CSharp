@@ -46,7 +46,7 @@ public class Player {
         $"{Name} has {Hand.Count()} card{S(Hand.Count())} and {Books.Count()} book{S(Books.Count())}";
 
     /// <summary>
-    /// Gets up to five cars from the stock
+    /// Gets up to five cards from the stock
     /// </summary>
     /// <param name="stock">Stock to get the next hand from</param>
     public void GetNextHand(Deck stock) {
