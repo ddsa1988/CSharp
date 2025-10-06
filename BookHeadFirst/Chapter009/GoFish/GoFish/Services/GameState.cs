@@ -16,7 +16,23 @@ public class GameState {
     /// <param name="opponentNames">Names of the computer players</param>
     /// <param name="stock">Shuffled stock of cards to deal from</param>
     public GameState(string humanPlayerName, IEnumerable<string> opponentNames, Deck stock) {
-        throw new NotImplementedException();
+        Stock = stock;
+
+        HumanPlayer = new Player(humanPlayerName);
+        HumanPlayer.GetNextHand(Stock);
+
+        var opponents = new List<Player>();
+
+        foreach (string name in opponentNames) {
+            if (string.IsNullOrEmpty(name)) continue;
+
+            var player = new Player(name);
+            player.GetNextHand(Stock);
+            opponents.Add(player);
+        }
+
+        Opponents = opponents;
+        Players = new List<Player>() { HumanPlayer }.Concat(opponents);
     }
 
     /// <summary>

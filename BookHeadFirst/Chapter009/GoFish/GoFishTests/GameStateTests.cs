@@ -7,10 +7,10 @@ namespace GoFishTests;
 public class GameStateTests {
     [TestMethod]
     public void TestConstructor() {
-        List<string> computerPlayerNames = ["Computer1, Computer2, Computer3"];
+        List<string> computerPlayerNames = ["Computer1", "Computer2", "Computer3"];
         var gameState = new GameState("Human", computerPlayerNames, new Deck());
 
-        CollectionAssert.AreEqual(new List<string>() { "Human", "Computer1, Computer2, Computer3" },
+        CollectionAssert.AreEqual(new List<string>() { "Human", "Computer1", "Computer2", "Computer3" },
             gameState.Players.Select(player => player.Name).ToList());
 
         Assert.AreEqual(5, gameState.HumanPlayer.Hand.Count());
@@ -18,7 +18,7 @@ public class GameStateTests {
 
     [TestMethod]
     public void TestRandomPlayer() {
-        List<string> computerPlayerNames = ["Computer1, Computer2, Computer3"];
+        List<string> computerPlayerNames = ["Computer1", "Computer2", "Computer3"];
         var gameState = new GameState("Human", computerPlayerNames, new Deck());
 
         Player.Random = new MockRandom() { ValueToReturn = 1 };
