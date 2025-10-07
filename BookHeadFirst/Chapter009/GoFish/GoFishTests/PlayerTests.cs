@@ -74,7 +74,7 @@ public class PlayerTests {
             new(Values.Three, Suits.Spades),
         };
 
-        player.AddCardAndPullOutBooks(cardsToAdd);
+        player.AddCardsAndPullOutBooks(cardsToAdd);
 
         List<Values> books = player.Books.ToList();
         CollectionAssert.AreEqual(new List<Values>() { Values.Three, Values.Jack }, books);

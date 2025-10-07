@@ -37,7 +37,7 @@ public class Player {
     /// <summary>
     /// Pluralize a word, adding 's' if a value isn't equal to 1
     /// </summary>
-    private static string S(int s) => s == 1 ? "" : "s";
+    public static string S(int s) => s == 1 ? "" : "s";
 
     /// <summary>
     /// Returns the current status of the player: the number of cards and books
@@ -81,7 +81,7 @@ public class Player {
     /// and pulls out any matching books
     /// </summary>
     /// <param name="cards">Cards from the other player to add</param>
-    public void AddCardAndPullOutBooks(IEnumerable<Card> cards) {
+    public void AddCardsAndPullOutBooks(IEnumerable<Card> cards) {
         _hand.AddRange(cards);
 
         IEnumerable<Values> foundBooks = _hand
@@ -103,7 +103,7 @@ public class Player {
         if (stock.Count <= 0) return;
 
         Card card = stock.Deal(0);
-        AddCardAndPullOutBooks(new List<Card>() { card });
+        AddCardsAndPullOutBooks(new List<Card>() { card });
     }
 
     /// <summary>
