@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using GoFish.Models;
 
 namespace GoFish.Services;
@@ -42,7 +43,7 @@ public class GameState {
     /// <returns>A random player that the current player can ask for a card</returns>
     public Player RandomPlayer(Player currentPlayer) => Players
         .Where(player => player.Name != currentPlayer.Name)
-        .Skip(Player.Random.Next(0, Players.Count()))
+        .Skip(Player.Random.Next(0, Players.Count() - 1))
         .First();
 
     /// <summary>
@@ -54,6 +55,22 @@ public class GameState {
     /// <param name="stock">The stock to draw cards from</param>
     /// <returns>A message that describes what just happened</returns>
     public string PlayRound(Player player, Player playerToAsk, Values valueToAskFor, Deck stock) {
+        IEnumerable<Card> matchingCards = playerToAsk.DoYouHaveAny(valueToAskFor, stock).ToList();
+
+        if (matchingCards.Any()) {
+            player.AddCardAndPullOutBooks(matchingCards);
+
+            return $"{player.Name} asked {playerToAsk.Name} for {GetValuePlural(valueToAskFor)}" + Environment.NewLine +
+                   $"{playerToAsk.Name} has {matchingCards.Count()} {valueToAskFor} card{S(matchingCards.Count())}";
+        }
+
+        if (!stock.Any()) {
+            return $"{player.Name} asked {playerToAsk.Name} for {GetValuePlural(valueToAskFor)}" + Environment.NewLine +
+                   "The stock is out of cards";
+        }
+
+        player.DrawCard(stock);
+
         throw new NotImplementedException();
     }
 
@@ -65,4 +82,19 @@ public class GameState {
     public string CheckForWinner() {
         throw new NotImplementedException();
     }
+
+    /// <summary>
+    /// Pluralize a word, adding 's' if a value isn't equal to 1
+    /// </summary>
+    private static string S(int s) => s == 1 ? "" : "s";
+
+    /// <summary>
+    /// Pluralize the cards values
+    /// </summary>
+    /// <param name="value"></param>
+    /// <returns></returns>
+    private static string GetValuePlural(Values value) => value switch {
+        Values.Three or Values.Six => $"{value}es",
+        _ => $"{value}s"
+    };
 }
