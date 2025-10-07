@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using GoFish.Models;
 
 namespace GoFish.Services;
@@ -83,6 +82,17 @@ public class GameState {
     /// </summary>
     /// <returns>A string with the winners, an empty string if there are no winners</returns>
     public string CheckForWinner() {
-        throw new NotImplementedException();
+        int playersCards = Players.Select(player => player.Hand.Count()).Sum();
+
+        if (playersCards > 0) return string.Empty;
+
+        IsGameOver = true;
+
+        int winningBookCount = Players.Select(player => player.Books.Count()).Max();
+        IEnumerable<Player> winners = Players.Where(player => player.Books.Count() == winningBookCount);
+
+        return winningBookCount == 1
+            ? $"The winner is {winners.First().Name}."
+            : $"The winners are {string.Join(" and ", winners)}.";
     }
 }

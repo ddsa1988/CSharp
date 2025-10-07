@@ -97,6 +97,6 @@ public class GameStateTests {
 
         var gameState = new GameState("Human", computerPlayerNames, emptyDeck);
 
-        Assert.AreEqual("The winners are Human and Computer1 and Computer2 and Computer3", gameState.CheckForWinner());
+        Assert.AreEqual("The winners are Human and Computer1 and Computer2 and Computer3.", gameState.CheckForWinner());
     }
 }
