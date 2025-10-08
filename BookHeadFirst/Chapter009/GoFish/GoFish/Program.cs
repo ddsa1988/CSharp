@@ -7,8 +7,6 @@ public static class Program {
     public static void Main(string[] args) {
         List<string> computerNames = ["Computer #1", "Computer #2"];
         _gameController = new GameController("Diego", computerNames);
-
-        PromptForAnOpponent();
     }
 
     /// <summary>
@@ -42,6 +40,22 @@ public static class Program {
     /// </summary>
     /// <returns>The opponent to ask</returns>
     private static Player PromptForAnOpponent() {
-        throw new NotImplementedException();
+        IEnumerable<Player> opponents = _gameController.Opponents.ToList();
+
+        for (int i = 0; i < opponents.Count(); i++) {
+            Console.WriteLine($"{i + 1}. {opponents.ElementAt(i)}");
+        }
+
+        while (true) {
+            Console.Write("Who do you want to ask for a card? ");
+            string? userInput = Console.ReadLine();
+
+            bool isPlayerValid = int.TryParse(userInput, out int index) && index > 0 &&
+                                 index <= opponents.Count();
+
+            if (!isPlayerValid) continue;
+
+            return opponents.ElementAt(index - 1);
+        }
     }
 }
