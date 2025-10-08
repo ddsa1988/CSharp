@@ -5,7 +5,10 @@ namespace GoFish;
 
 public static class Program {
     public static void Main(string[] args) {
-        throw new NotImplementedException();
+        List<string> computerNames = ["Computer #1", "Computer #2"];
+        _gameController = new GameController("Diego", computerNames);
+
+        PromptForAnOpponent();
     }
 
     /// <summary>
@@ -19,7 +22,18 @@ public static class Program {
     /// </summary>
     /// <returns>The value to ask for</returns>
     private static Values PromptForAValue() {
-        throw new NotImplementedException();
+        IEnumerable<Values> handValues = _gameController.HumanPlayer.Hand.Select(card => card.Value).ToList();
+
+        while (true) {
+            Console.Write("What card value do you want to ask for? ");
+            string? userInput = Console.ReadLine();
+
+            bool isValueValid = Enum.TryParse(userInput, true, out Values value) && handValues.Contains(value);
+
+            if (!isValueValid) continue;
+
+            return value;
+        }
     }
 
     /// <summary>
