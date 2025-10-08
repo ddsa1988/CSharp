@@ -8,10 +8,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a4210ba7-a187-4ce4-8d85-ba93860a8502" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/BatchProcess/App.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/BatchProcess/App.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BatchProcess/Docs/README.txt" beforeDir="false" afterPath="$PROJECT_DIR$/BatchProcess/Docs/README.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BatchProcess/MainWindow.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/BatchProcess/MainWindow.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BatchProcess/Styles/AppDefaultStyles.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/BatchProcess/Styles/AppDefaultStyles.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../BookHeadFirst/Chapter009/GoFish/GoFish/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../BookHeadFirst/Chapter009/GoFish/GoFish/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../BookHeadFirst/Chapter009/GoFish/GoFish/Services/GameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../BookHeadFirst/Chapter009/GoFish/GoFish/Services/GameController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../BookHeadFirst/Chapter009/GoFish/GoFishTests/GameControllerTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../BookHeadFirst/Chapter009/GoFish/GoFishTests/GameControllerTests.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,6 +88,7 @@
       <workItem from="1758766859103" duration="2156000" />
       <workItem from="1758937041101" duration="3687000" />
       <workItem from="1759108061500" duration="2947000" />
+      <workItem from="1759891363705" duration="7000" />
     </task>
     <servers />
   </component>
