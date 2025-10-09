@@ -1,23 +1,21 @@
 ﻿@page "/"
+@using MatchGameBlazor.Services
 @rendermode InteractiveServer
 
 <PageTitle>Home</PageTitle>
 
-
 <div class="container">
     <div class="row">
-        @foreach (int number in _numbers) {
+        @foreach (string emoji in _gameController.ShuffledEmojis) {
             <div class="col-3">
                 <button type="button" class="btn btn-outline-dark">
-                    <h1>@number</h1>
+                    <h1>@emoji</h1>
                 </button>
             </div>
         }
     </div>
 </div>
 
-@code{
-
-    private readonly IEnumerable<int> _numbers = Enumerable.Range(0, 16);
-
+@code {
+    private readonly GameController _gameController = new();
 }
