@@ -1,7 +1,23 @@
 ﻿@page "/"
+@rendermode InteractiveServer
 
 <PageTitle>Home</PageTitle>
 
-<h1>Hello, world!</h1>
 
-Welcome to your new app.
+<div class="container">
+    <div class="row">
+        @foreach (int number in _numbers) {
+            <div class="col-3">
+                <button type="button" class="btn btn-outline-dark">
+                    <h1>@number</h1>
+                </button>
+            </div>
+        }
+    </div>
+</div>
+
+@code{
+
+    private readonly IEnumerable<int> _numbers = Enumerable.Range(0, 16);
+
+}
