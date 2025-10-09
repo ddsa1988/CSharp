@@ -114,7 +114,7 @@ public class Player {
         .OrderBy(card => card.Value)
         .Select(card => card.Value)
         .Skip(Random.Next(0, _hand.Count))
-        .First();
+        .FirstOrDefault();
 
     public override string ToString() => Name;
 }
