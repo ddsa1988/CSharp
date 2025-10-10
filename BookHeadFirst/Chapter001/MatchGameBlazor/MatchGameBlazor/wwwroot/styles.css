@@ -2,8 +2,16 @@
     width: 400px;
 }
 
-button {
+.btn-emoji {
     width: 100px;
     height: 100px;
     font-size: 50px;
+}
+
+.btn-newGame {
+    width: 400px;
+}
+
+.game-info {
+    margin: 20px 0 20px 0;
 }
