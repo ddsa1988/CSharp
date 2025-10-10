@@ -6,9 +6,14 @@
 
 <div class="container">
     <div class="row">
-        @foreach (string emoji in _gameController.ShuffledEmojis) {
+        @for (int i = 0; i < _gameController.ShuffledEmojis.Count; i++) {
+            string emoji = _gameController.ShuffledEmojis.ElementAt(i);
+            string description = $"button-{i}";
+            bool isDisabled = _gameController.ButtonIsDisabled.ElementAt((i));
+
             <div class="col-3">
-                <button type="button" class="btn btn-outline-dark">
+                <button @onclick="() => _gameController.ButtonClick(emoji, description)"
+                        disabled="@isDisabled" type="button" class="btn btn-outline-dark">
                     <h1>@emoji</h1>
                 </button>
             </div>
