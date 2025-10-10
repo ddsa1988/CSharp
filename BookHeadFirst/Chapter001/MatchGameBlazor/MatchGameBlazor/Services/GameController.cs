@@ -6,7 +6,7 @@ public class GameController {
     private string _lastEmoji = string.Empty;
     private string _lastDescription = string.Empty;
     private const int NumberOfPairs = 8;
-    public int MatchesFound { get; private set; }
+    private int _matchesFound;
     public List<string> ShuffledEmojis = [];
     public List<bool> IsEmojiButtonDisabled = [];
     public bool? IsNewGameButtonHidden { get; private set; }
@@ -20,7 +20,7 @@ public class GameController {
         List<string> emojisPairs = Emojis.RandomEmojisPairs(NumberOfPairs);
         ShuffledEmojis = emojisPairs.OrderBy(item => random.Next()).ToList();
         IsNewGameButtonHidden = true;
-        MatchesFound = 0;
+        _matchesFound = 0;
         ChangeEmojiButtonState();
     }
 
@@ -29,7 +29,7 @@ public class GameController {
     }
 
     private void IsGameOver() {
-        if (MatchesFound < NumberOfPairs) return;
+        if (_matchesFound < NumberOfPairs) return;
 
         IsNewGameButtonHidden = null;
     }
@@ -46,7 +46,7 @@ public class GameController {
             _lastDescription = description;
             ShuffledEmojis = ShuffledEmojis.Select(item => item.Replace(emoji, string.Empty)).ToList();
             ChangeEmojiButtonState();
-            MatchesFound++;
+            _matchesFound++;
             IsGameOver();
             return;
         }
