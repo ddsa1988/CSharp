@@ -19,11 +19,7 @@
             </div>
         }
     </div>
-    <div>
-        <div class="row game-info">
-            <span class="col-6">Actual Time: </span>
-            <span class="col-6">Best Time: </span>
-        </div>
+    <div class="game-info">
         <button @onclick="NewGame" hidden="@_gameController.IsNewGameButtonHidden" type="button"
                 class="btn btn-outline-dark btn-newGame">
             New Game?
