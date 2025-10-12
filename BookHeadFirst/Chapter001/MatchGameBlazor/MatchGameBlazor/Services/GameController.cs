@@ -22,7 +22,7 @@ public class GameController {
     public void SetUpGame() {
         Random random = new();
         List<string> emojisPairs = Emojis.RandomEmojisPairs(NumberOfPairs);
-        ShuffledEmojis = emojisPairs.OrderBy(item => random.Next()).ToList();
+        ShuffledEmojis = emojisPairs.OrderBy(_ => random.Next()).ToList();
         IsNewGameButtonHidden = true;
         _matchesFound = 0;
 
@@ -32,7 +32,7 @@ public class GameController {
 
     private void SetUpTimer() {
         _actualTime = 0;
-        _timer.Interval = 100; // 100ms
+        _timer.Interval = 100;
         _timer.Elapsed += TimerTick;
     }
 
