@@ -13,5 +13,14 @@
 }
 
 .game-info {
-    margin: 20px 0 20px 0;
+    margin-top: 20px;
+}
+
+.game-timer {
+    display: flex;
+    justify-content: space-around;
+}
+
+.new-game {
+    margin-top: 20px;
 }

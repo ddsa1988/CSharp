@@ -20,10 +20,16 @@
         }
     </div>
     <div class="game-info">
-        <button @onclick="NewGame" hidden="@_gameController.IsNewGameButtonHidden" type="button"
-                class="btn btn-outline-dark btn-newGame">
-            New Game?
-        </button>
+        <div class="game-timer">
+            <span>Actual time: @_gameController.ActualTimeString</span>
+            <span>Best time: @_gameController.BestTimeString</span>
+        </div>
+        <div class="new-game">
+            <button @onclick="NewGame" hidden="@_gameController.IsNewGameButtonHidden" type="button"
+                    class="btn btn-outline-dark btn-newGame">
+                New Game?
+            </button>
+        </div>
     </div>
 </div>
 
