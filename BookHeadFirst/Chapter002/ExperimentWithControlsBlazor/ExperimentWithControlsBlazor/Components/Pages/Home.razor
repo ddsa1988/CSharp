@@ -8,14 +8,17 @@
     <div class="row">
         <h1>Experiment with controls</h1>
     </div>
+
     <div class="row mt-2">
         <label class="col-sm-6">Enter a text: </label>
-        <input class="col-sm-6" type="text" placeholder="Enter a text" @onchange="_controller.UpdateNumericValue"/>
+        <input class="col-sm-2" type="text" placeholder="Enter a text" @onchange="_controller.UpdateNumericValue"/>
     </div>
+
     <div class="row mt-2">
         <label class="col-sm-6">Pick a number: </label>
         <input type="range" @onchange="_controller.UpdateValue"/>
     </div>
+
     <div class="row mt-2">
         <label class="col-sm-6">Click a button: </label>
         <div class="col-sm-6 btn-group" role="group">
@@ -25,6 +28,16 @@
                         @onclick="()=> _controller.ButtonClick(valueToDisplay)">@i</button>
             }
         </div>
+    </div>
+
+    <div class="row mt-2">
+        <label class="col-sm-6">Pick a date: </label>
+        <input class="col-sm-2" type="date" @onchange="_controller.UpdateValue"/>
+    </div>
+
+    <div class="row mt-2">
+        <label class="col-sm-6">Pick a color: </label>
+        <input class="col-sm-2" type="color" @onchange="_controller.UpdateValue"/>
     </div>
 
     <div class="row mt-5">
