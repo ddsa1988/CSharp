@@ -8,4 +8,12 @@ public class MainController {
     public void UpdateValue(ChangeEventArgs e) {
         DisplayValue = e.Value?.ToString() ?? string.Empty;
     }
+
+    public void UpdateNumericValue(ChangeEventArgs e) {
+        bool isValueValid = int.TryParse(e.Value?.ToString(), out int value);
+
+        if (!isValueValid) return;
+
+        DisplayValue = value.ToString();
+    }
 }

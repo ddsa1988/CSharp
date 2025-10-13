@@ -9,8 +9,12 @@
         <h1>Experiment with controls</h1>
     </div>
     <div class="row mt-2">
+        <label class="col-sm-6">Enter a text: </label>
+        <input class="col-sm-6" type="text" placeholder="Enter a text" @onchange="_controller.UpdateNumericValue"/>
+    </div>
+    <div class="row mt-2">
         <label class="col-sm-6">Pick a number: </label>
-        <input class="col-sm-6" type="range" @onchange="_controller.UpdateValue"/>
+        <input type="range" @onchange="_controller.UpdateValue"/>
     </div>
     <div class="row mt-5">
         <h4>Here's the value: <strong>@_controller.DisplayValue</strong></h4>
