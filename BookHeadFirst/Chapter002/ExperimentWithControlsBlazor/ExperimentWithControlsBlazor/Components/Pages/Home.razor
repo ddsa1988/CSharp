@@ -1,4 +1,24 @@
 ﻿@page "/"
+@using ExperimentWithControlsBlazor.Services
+@rendermode InteractiveServer
 
 <PageTitle>Experiments With Controls</PageTitle>
 
+<div class="container">
+    <div class="row">
+        <h1>Experiment with controls</h1>
+    </div>
+    <div class="row mt-2">
+        <label class="col-sm-6">Pick a number: </label>
+        <input class="col-sm-6" type="range" @onchange="_controller.UpdateValue"/>
+    </div>
+    <div class="row mt-5">
+        <h4>Here's the value: <strong>@_controller.DisplayValue</strong></h4>
+    </div>
+</div>
+
+@code{
+
+    private readonly MainController _controller = new();
+
+}
