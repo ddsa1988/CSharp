@@ -1,18 +1,20 @@
 ﻿@page "/"
+@using System.ComponentModel
 @using MatchGameBlazor.Services
 @rendermode InteractiveServer
+@inject GameController GameController
 
 <PageTitle>Home</PageTitle>
 
 <div class="container">
     <div class="row">
-        @for (int i = 0; i < _gameController.ShuffledEmojis.Count; i++) {
-            string emoji = _gameController.ShuffledEmojis.ElementAt(i);
+        @for (int i = 0; i < GameController.ShuffledEmojis.Count; i++) {
+            string emoji = GameController.ShuffledEmojis.ElementAt(i);
             string description = $"button-{i}";
-            bool isDisabled = _gameController.IsEmojiButtonDisabled.ElementAt((i));
+            bool isDisabled = GameController.IsEmojiButtonDisabled.ElementAt((i));
 
             <div class="col-3">
-                <button @onclick="() => _gameController.ButtonClick(emoji, description)"
+                <button @onclick="() => GameController.ButtonClick(emoji, description)"
                         disabled="@isDisabled" type="button" class="btn btn-outline-dark btn-emoji">
                     <h1>@emoji</h1>
                 </button>
@@ -21,11 +23,11 @@
     </div>
     <div class="game-info">
         <div class="game-timer">
-            <span>Actual time: @_gameController.ActualTimeString</span>
-            <span>Best time: @_gameController.BestTimeString</span>
+            <span>Actual time: @GameController.ActualTimeString</span>
+            <span>Best time: @GameController.BestTimeString</span>
         </div>
         <div class="new-game">
-            <button @onclick="NewGame" hidden="@_gameController.IsNewGameButtonHidden" type="button"
+            <button @onclick="NewGame" hidden="@GameController.IsNewGameButtonHidden" type="button"
                     class="btn btn-outline-dark btn-newGame">
                 New Game?
             </button>
@@ -34,10 +36,18 @@
 </div>
 
 @code {
-    private readonly GameController _gameController = new();
 
     private void NewGame() {
-        _gameController.SetUpGame();
+        GameController.SetUpGame();
+    }
+
+    protected override void OnInitialized() {
+        // GameController.PropertyChanged += (sender, e) => { InvokeAsync(StateHasChanged); };
+        GameController.PropertyChanged += TimePropertyChanged;
+    }
+
+    private void TimePropertyChanged(object? sender, PropertyChangedEventArgs e) {
+        InvokeAsync(StateHasChanged);
     }
 
 }
