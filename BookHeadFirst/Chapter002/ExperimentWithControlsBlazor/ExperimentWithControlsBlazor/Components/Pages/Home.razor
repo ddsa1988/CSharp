@@ -16,6 +16,17 @@
         <label class="col-sm-6">Pick a number: </label>
         <input type="range" @onchange="_controller.UpdateValue"/>
     </div>
+    <div class="row mt-2">
+        <label class="col-sm-6">Click a button: </label>
+        <div class="col-sm-6 btn-group" role="group">
+            @for (int i = 0; i < 6; i++) {
+                string valueToDisplay = $"Button #{i}";
+                <button type="button" class="btn btn-secondary"
+                        @onclick="()=> _controller.ButtonClick(valueToDisplay)">@i</button>
+            }
+        </div>
+    </div>
+
     <div class="row mt-5">
         <h4>Here's the value: <strong>@_controller.DisplayValue</strong></h4>
     </div>
