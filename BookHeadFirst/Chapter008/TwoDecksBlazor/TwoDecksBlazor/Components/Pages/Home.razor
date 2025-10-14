@@ -2,6 +2,7 @@
 @rendermode InteractiveServer
 
 <PageTitle>Home</PageTitle>
+<link rel="stylesheet" href="style.css"/>
 
 <div class="container">
     <div class="row">
@@ -9,7 +10,7 @@
         <div class="col-5">
             <div class="row">
                 <label for="deck1" accesskey="o">
-                    <strong>Deck <span style="text-decoration: underline">O</span>ne</strong>
+                    <strong>Deck <span class="underline">O</span>ne</strong>
                 </label>
                 <select class="form-select mt-2" size="10" id="deck1">
                     @for (int i = 0; i < 52; i++) {
@@ -19,15 +20,41 @@
             </div>
             <div class="row">
                 <button type="button" class="btn btn-primary mt-2" accesskey="s">
-                    <span style="text-decoration: underline">S</span>huffle
+                    <span class="underline">S</span>huffle
                 </button>
             </div>
             <div class="row">
                 <button type="button" class="btn btn-primary mt-2" accesskey="r">
-                    <span style="text-decoration: underline">R</span>eset
+                    <span class="underline">R</span>eset
                 </button>
             </div>
         </div>
-        
+
+        <div class="col-2"></div>
+
+        <div class="col-5">
+            <div class="row">
+                <label for="deck2" accesskey="w">
+                    <strong>Deck T<span class="underline">w</span>o
+                    </strong>
+                </label>
+                <select class="form-select mt-2" size="10" id="deck2">
+                    @for (int i = 0; i < 52; i++) {
+                        <option value="@i">Card @i</option>
+                    }
+                </select>
+            </div>
+            <div class="row">
+                <button type="button" class="btn btn-primary mt-2" accesskey="c">
+                    <span class="underline">C</span>lear
+                </button>
+            </div>
+            <div class="row">
+                <button type="button" class="btn btn-primary mt-2" accesskey="t">
+                    Sor<span class="underline">t</span>
+                </button>
+            </div>
+        </div>
+
     </div>
 </div>
