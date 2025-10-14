@@ -5,6 +5,29 @@
 
 <div class="container">
     <div class="row">
-        <h1 class="text-center">Two Decks</h1>
+
+        <div class="col-5">
+            <div class="row">
+                <label for="deck1" accesskey="o">
+                    <strong>Deck <span style="text-decoration: underline">O</span>ne</strong>
+                </label>
+                <select class="form-select mt-2" size="10" id="deck1">
+                    @for (int i = 0; i < 52; i++) {
+                        <option value="@i">Card @i</option>
+                    }
+                </select>
+            </div>
+            <div class="row">
+                <button type="button" class="btn btn-primary mt-2" accesskey="s">
+                    <span style="text-decoration: underline">S</span>huffle
+                </button>
+            </div>
+            <div class="row">
+                <button type="button" class="btn btn-primary mt-2" accesskey="r">
+                    <span style="text-decoration: underline">R</span>eset
+                </button>
+            </div>
+        </div>
+        
     </div>
 </div>
