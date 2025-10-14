@@ -11,18 +11,31 @@
                 <h3>How many cards should I pick?</h3>
             </div>
             <div class="row mt-5">
-                @* <input type="range" class="col-10" @bind=""/> *@
-                <input type="range" class="col-10 form-control-range" min="1" max="15"/>
-                <div class="col-2">15</div>
+                <input type="range" class="col-10 form-control-range" @bind="_numberOfCards" min="1" max="15"/>
+                <div class="col-2">@_numberOfCards</div>
             </div>
             <div class="row mt-5">
-                <button class="btn btn-primary">Pick Some Cards</button>
+                <button class="btn btn-primary" @onclick="() => GetCards(_numberOfCards)">Pick Some
+                    Cards
+                </button>
             </div>
         </div>
         <div class="col-4">
             <ul class="list-group">
-                <li class="list-group-item text-center">Items</li>
+                @foreach (Card card in _cards) {
+                    <li class="list-group-item text-center">@card</li>
+                }
             </ul>
         </div>
     </div>
 </div>
+
+@code {
+    private int _numberOfCards = 8;
+    private IEnumerable<Card> _cards = [];
+
+    private void GetCards(int numberOfCards) {
+        _cards = CardPicker.GetRandomCards(numberOfCards);
+    }
+
+}
