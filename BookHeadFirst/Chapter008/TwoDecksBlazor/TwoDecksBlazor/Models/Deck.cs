@@ -37,7 +37,7 @@ public class Deck : List<Card> {
             throw new IndexOutOfRangeException();
         }
 
-        Card card = this[index];
+        Card card = base[index];
         RemoveAt(index);
         return card;
     }
