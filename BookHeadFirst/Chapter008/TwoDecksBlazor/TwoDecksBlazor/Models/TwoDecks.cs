@@ -45,10 +45,14 @@ public class TwoDecks {
 
     public void MoveCard(int index, bool leftToRight) {
         if (leftToRight) {
+            if (index < 0 || index >= _leftDeck.Count) return;
+
             Card card = _leftDeck[index];
             _leftDeck.RemoveAt(index);
             _rightDeck.Add(card);
         } else {
+            if (index < 0 || index >= _rightDeck.Count) return;
+
             Card card = _rightDeck[index];
             _rightDeck.RemoveAt(index);
             _leftDeck.Add(card);

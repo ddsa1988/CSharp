@@ -14,9 +14,9 @@
                     <strong>Deck <span class="underline">O</span>ne</strong>
                 </label>
                 <select class="form-select mt-2" size="10" id="deck1" @bind="_leftCardSelected"
-                        @ondblclick="() => _decks.MoveCard(_leftCardSelected, true)">
+                        @ondblclick="LeftDeckDblClick" @onkeydown="LeftDeckKeyDown">
                     @for (int i = 0; i < _decks.LeftDeckCount; i++) {
-                        <option value="@i">Card @_decks.LeftDeckCardName(i)</option>
+                        <option value="@i">@_decks.LeftDeckCardName(i)</option>
                     }
                 </select>
             </div>
@@ -41,9 +41,9 @@
                     </strong>
                 </label>
                 <select class="form-select mt-2" size="10" id="deck2" @bind="_rightCardSelected"
-                        @ondblclick="() => _decks.MoveCard(_rightCardSelected, false)">
+                        @ondblclick="RightDeckDblClick" @onkeydown="RightDeckKeyDown">
                     @for (int i = 0; i < _decks.RightDeckCount; i++) {
-                        <option value="@i">Card @_decks.RightDeckCardName(i)</option>
+                        <option value="@i">@_decks.RightDeckCardName(i)</option>
                     }
                 </select>
             </div>
@@ -67,5 +67,25 @@
     private readonly TwoDecks _decks = new();
     private int _leftCardSelected;
     private int _rightCardSelected;
+
+    private void LeftDeckDblClick() {
+        _decks.MoveCard(_leftCardSelected, true);
+    }
+
+    private void RightDeckDblClick() {
+        _decks.MoveCard(_rightCardSelected, false);
+    }
+
+    private void LeftDeckKeyDown(KeyboardEventArgs e) {
+        if (e.Key != "Enter") return;
+
+        _decks.MoveCard(_leftCardSelected, true);
+    }
+
+    private void RightDeckKeyDown(KeyboardEventArgs e) {
+        if (e.Key != "Enter") return;
+
+        _decks.MoveCard(_rightCardSelected, false);
+    }
 
 }

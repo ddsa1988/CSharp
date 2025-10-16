@@ -10,7 +10,7 @@ public class Deck : List<Card> {
     public void Reset() {
         Clear();
 
-        for (int rank = 1; rank <= 14; rank++) {
+        for (int rank = 1; rank < 14; rank++) {
             for (int suit = 1; suit < 5; suit++) {
                 var card = new Card((Ranks)rank, (Suits)suit);
                 Add(card);
