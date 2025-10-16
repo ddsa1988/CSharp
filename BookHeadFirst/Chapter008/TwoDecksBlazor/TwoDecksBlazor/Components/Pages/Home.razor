@@ -1,4 +1,5 @@
 ﻿@page "/"
+@using TwoDecksBlazor.Models
 @rendermode InteractiveServer
 
 <PageTitle>Home</PageTitle>
@@ -12,19 +13,20 @@
                 <label for="deck1" accesskey="o">
                     <strong>Deck <span class="underline">O</span>ne</strong>
                 </label>
-                <select class="form-select mt-2" size="10" id="deck1">
-                    @for (int i = 0; i < 52; i++) {
-                        <option value="@i">Card @i</option>
+                <select class="form-select mt-2" size="10" id="deck1" @bind="LeftCardSelected"
+                        @ondblclick="() => _decks.MoveCard(LeftCardSelected, true)">
+                    @for (int i = 0; i < _decks.LeftDeck.Count; i++) {
+                        <option value="@i">Card @_decks.LeftDeck[i]</option>
                     }
                 </select>
             </div>
             <div class="row">
-                <button type="button" class="btn btn-primary mt-2" accesskey="s">
+                <button type="button" class="btn btn-primary mt-2" accesskey="s" @onclick="_decks.Shuffle">
                     <span class="underline">S</span>huffle
                 </button>
             </div>
             <div class="row">
-                <button type="button" class="btn btn-primary mt-2" accesskey="r">
+                <button type="button" class="btn btn-primary mt-2" accesskey="r" @onclick="_decks.Reset">
                     <span class="underline">R</span>eset
                 </button>
             </div>
@@ -38,19 +40,20 @@
                     <strong>Deck T<span class="underline">w</span>o
                     </strong>
                 </label>
-                <select class="form-select mt-2" size="10" id="deck2">
-                    @for (int i = 0; i < 52; i++) {
-                        <option value="@i">Card @i</option>
+                <select class="form-select mt-2" size="10" id="deck2" @bind="RightCardSelected"
+                        @ondblclick="() => _decks.MoveCard(RightCardSelected, false)">
+                    @for (int i = 0; i < _decks.RightDeck.Count; i++) {
+                        <option value="@i">Card @_decks.RightDeck[i]</option>
                     }
                 </select>
             </div>
             <div class="row">
-                <button type="button" class="btn btn-primary mt-2" accesskey="c">
+                <button type="button" class="btn btn-primary mt-2" accesskey="c" @onclick="_decks.Clear">
                     <span class="underline">C</span>lear
                 </button>
             </div>
             <div class="row">
-                <button type="button" class="btn btn-primary mt-2" accesskey="t">
+                <button type="button" class="btn btn-primary mt-2" accesskey="t" @onclick="_decks.Sort">
                     Sor<span class="underline">t</span>
                 </button>
             </div>
@@ -58,3 +61,11 @@
 
     </div>
 </div>
+
+@code{
+
+    private readonly TwoDecks _decks = new();
+    private int LeftCardSelected;
+    private int RightCardSelected;
+
+}

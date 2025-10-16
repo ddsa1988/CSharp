@@ -1,10 +1,8 @@
 ﻿namespace TwoDecksBlazor.Models;
 
 public class Card {
-    public Ranks Rank { get; init; }
-    public Suits Suit { get; init; }
-
-    public Card() { }
+    public Ranks Rank { get; }
+    public Suits Suit { get; }
 
     public Card(Ranks rank, Suits suit) {
         Rank = rank;
