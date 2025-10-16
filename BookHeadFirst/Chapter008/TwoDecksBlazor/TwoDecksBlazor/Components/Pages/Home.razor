@@ -13,10 +13,10 @@
                 <label for="deck1" accesskey="o">
                     <strong>Deck <span class="underline">O</span>ne</strong>
                 </label>
-                <select class="form-select mt-2" size="10" id="deck1" @bind="LeftCardSelected"
-                        @ondblclick="() => _decks.MoveCard(LeftCardSelected, true)">
-                    @for (int i = 0; i < _decks.LeftDeck.Count; i++) {
-                        <option value="@i">Card @_decks.LeftDeck[i]</option>
+                <select class="form-select mt-2" size="10" id="deck1" @bind="_leftCardSelected"
+                        @ondblclick="() => _decks.MoveCard(_leftCardSelected, true)">
+                    @for (int i = 0; i < _decks.LeftDeckCount; i++) {
+                        <option value="@i">Card @_decks.LeftDeckCardName(i)</option>
                     }
                 </select>
             </div>
@@ -32,7 +32,7 @@
             </div>
         </div>
 
-        <div class="col-2"></div>
+        <div class="col-1"></div>
 
         <div class="col-5">
             <div class="row">
@@ -40,10 +40,10 @@
                     <strong>Deck T<span class="underline">w</span>o
                     </strong>
                 </label>
-                <select class="form-select mt-2" size="10" id="deck2" @bind="RightCardSelected"
-                        @ondblclick="() => _decks.MoveCard(RightCardSelected, false)">
-                    @for (int i = 0; i < _decks.RightDeck.Count; i++) {
-                        <option value="@i">Card @_decks.RightDeck[i]</option>
+                <select class="form-select mt-2" size="10" id="deck2" @bind="_rightCardSelected"
+                        @ondblclick="() => _decks.MoveCard(_rightCardSelected, false)">
+                    @for (int i = 0; i < _decks.RightDeckCount; i++) {
+                        <option value="@i">Card @_decks.RightDeckCardName(i)</option>
                     }
                 </select>
             </div>
@@ -65,7 +65,7 @@
 @code{
 
     private readonly TwoDecks _decks = new();
-    private int LeftCardSelected;
-    private int RightCardSelected;
+    private int _leftCardSelected;
+    private int _rightCardSelected;
 
 }
