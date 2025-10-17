@@ -10,7 +10,7 @@ public static class Program {
     private static GameController? _gameController;
 
     /// <summary>
-    /// The Mian method is the entry point of the application
+    /// The Main method is the entry point of the application
     /// </summary>
     /// <param name="args"></param>
     public static void Main(string[] args) {
