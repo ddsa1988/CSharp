@@ -2,7 +2,57 @@
 @rendermode InteractiveServer
 
 <PageTitle>Home</PageTitle>
+<link rel="stylesheet" href="style.css"/>
 
-<h1>Hello, world!</h1>
+<div class="container">
+    <div class="row">
 
-Welcome to your new app.
+        <div class="left-container col-6">
+            <div>
+                <h3>Game in progress</h3>
+                <p class="text-scroll rounded">
+                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of
+                    classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a
+                    Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin
+                    words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in
+                    classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32
+                    and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero,
+                    written in 45 BC. This book is a treatise on the theory of ethics, very popular during the
+                    Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in
+                    section 1.10.32.
+                </p>
+            </div>
+            <div>
+                <h3>Books</h3>
+                <p class="text-scroll">Players books</p>
+            </div>
+        </div>
+
+        <div class="col-1"></div>
+
+        <div class="right-container col-4">
+            <div>
+                <h3>Your hand</h3>
+                <select class="form-select" size="10">
+                    <option>Cards name</option>
+                </select>
+            </div>
+
+            <div>
+                <h3>Player to ask</h3>
+                <select class="form-select" size="5">
+                    <option>Player name</option>
+                </select>
+            </div>
+
+            <div>
+                <p>Text with card and player selected</p>
+            </div>
+
+            <div>
+                <button type="button" class="btn btn-primary btn-lg w-100">Ask For a Card</button>
+            </div>
+        </div>
+
+    </div>
+</div>

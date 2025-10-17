@@ -1,0 +1,11 @@
+﻿.container {
+    height: 95vh;
+}
+
+.text-scroll {
+    width: 75%;
+    height: 200px;
+    overflow-y: auto;
+    border: 1px solid #cccc;
+    padding: 10px;
+}
