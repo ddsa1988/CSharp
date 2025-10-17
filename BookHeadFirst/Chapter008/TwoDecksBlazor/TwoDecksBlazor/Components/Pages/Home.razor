@@ -65,27 +65,28 @@
 @code{
 
     private readonly TwoDecks _decks = new();
+    private const string EnterKey = "Enter";
     private int _leftCardSelected;
     private int _rightCardSelected;
 
     private void LeftDeckDblClick() {
-        _decks.MoveCard(_leftCardSelected, true);
+        _decks.MoveCard(_leftCardSelected, Direction.LeftToRight);
     }
 
     private void RightDeckDblClick() {
-        _decks.MoveCard(_rightCardSelected, false);
+        _decks.MoveCard(_rightCardSelected, Direction.RightToLeft);
     }
 
     private void LeftDeckKeyDown(KeyboardEventArgs e) {
-        if (e.Key != "Enter") return;
+        if (e.Key != EnterKey) return;
 
-        _decks.MoveCard(_leftCardSelected, true);
+        _decks.MoveCard(_leftCardSelected, Direction.LeftToRight);
     }
 
     private void RightDeckKeyDown(KeyboardEventArgs e) {
-        if (e.Key != "Enter") return;
+        if (e.Key != EnterKey) return;
 
-        _decks.MoveCard(_rightCardSelected, false);
+        _decks.MoveCard(_rightCardSelected, Direction.RightToLeft);
     }
 
 }

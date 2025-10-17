@@ -43,15 +43,17 @@ public class TwoDecks {
         _rightDeck.Sort(new CardComparer());
     }
 
-    public void MoveCard(int index, bool leftToRight) {
-        if (leftToRight) {
-            if (index < 0 || index >= _leftDeck.Count) return;
+    public void MoveCard(int index, Direction direction) {
+        if (index < 0) return;
+
+        if (direction == Direction.LeftToRight) {
+            if (index >= _leftDeck.Count) return;
 
             Card card = _leftDeck[index];
             _leftDeck.RemoveAt(index);
             _rightDeck.Add(card);
         } else {
-            if (index < 0 || index >= _rightDeck.Count) return;
+            if (index >= _rightDeck.Count) return;
 
             Card card = _rightDeck[index];
             _rightDeck.RemoveAt(index);
