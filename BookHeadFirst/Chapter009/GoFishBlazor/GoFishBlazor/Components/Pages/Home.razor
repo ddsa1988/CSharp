@@ -1,4 +1,6 @@
 ﻿@page "/"
+@using GoFishBlazor.Models
+@using GoFishBlazor.Services
 @rendermode InteractiveServer
 
 <PageTitle>Home</PageTitle>
@@ -9,18 +11,8 @@
 
         <div class="left-container col-6">
             <div>
-                <h3>Game in progress</h3>
-                <p class="text-scroll rounded">
-                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of
-                    classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a
-                    Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin
-                    words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in
-                    classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32
-                    and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero,
-                    written in 45 BC. This book is a treatise on the theory of ethics, very popular during the
-                    Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in
-                    section 1.10.32.
-                </p>
+                <h3>Game progress</h3>
+                <p class="text-scroll rounded">@_game.GameProgress</p>
             </div>
             <div class="mt-5">
                 <h3>Books</h3>
@@ -33,26 +25,50 @@
         <div class="right-container col-4">
             <div>
                 <h3>Your hand</h3>
-                <select class="form-select" size="10">
-                    <option>Cards name</option>
+                <select class="form-select" size="10" @bind="_cardSelected">
+                    @for (int i = 0; i < _game.PlayerCardCount; i++) {
+                        <option value="@i">@_game.PlayerCardName(i)</option>
+                    }
                 </select>
             </div>
 
             <div class="mt-5">
                 <h3>Player to ask</h3>
-                <select class="form-select" size="5">
-                    <option>Player name</option>
+                <select class="form-select" size="5" @bind="_opponentSelected">
+                    @for (int i = 0; i < _game.OpponentCount; i++) {
+                        <option value="@i">@_game.OpponentName(i)</option>
+                    }
                 </select>
             </div>
 
             <div class="mt-5">
-                <p>Text with card and player selected</p>
+                <h5>Value selected: @_game.PlayerCardValue(_cardSelected)</h5>
+                <h5>Player selected: @_game.OpponentName(_opponentSelected)</h5>
             </div>
 
             <div>
-                <button type="button" class="btn btn-primary btn-lg w-100 mt-5">Ask For a Card</button>
+                <button type="button" class="btn btn-primary btn-lg w-100 mt-5" @onclick="AskForCard">Ask For a
+                    Card
+                </button>
             </div>
         </div>
 
     </div>
 </div>
+
+@code{
+
+    private const int OpponentCount = 3;
+    private static readonly IEnumerable<string> ComputerPlayerNames = Enumerable.Range(1, OpponentCount).Select(i => $"Computer #{i}");
+    private const string HumanName = "Diego";
+
+    private readonly Game _game = new(HumanName, ComputerPlayerNames);
+    private int _cardSelected;
+    private int _opponentSelected;
+
+
+    private void AskForCard() {
+        _game.PlayerAskForCard(_cardSelected, _opponentSelected);
+    }
+
+}
