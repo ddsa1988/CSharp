@@ -2,18 +2,22 @@ namespace Examples.FileStreams;
 
 public static class Example001 {
     public static void Run() {
-        const string folderName = "FirstFile.txt";
-        char sepChar = Path.DirectorySeparatorChar;
-        string directoryPath = $"..{sepChar}..{sepChar}..{sepChar}FileStreams{sepChar}Files";
-        string filePath = $"{directoryPath}{sepChar}{folderName}";
+        const string folderName = "Files";
+        const string fileName = "FirstFile.txt";
+        string directoryPath = AppContext.BaseDirectory + folderName;
+        string filePath = Path.Combine(directoryPath, fileName);
 
         // Console.WriteLine(Environment.CurrentDirectory);
         // Console.WriteLine(Directory.GetCurrentDirectory());
         // Console.WriteLine(Path.GetFullPath(filePath));
 
-        // if (!Path.Exists(directoryPath)) return;
+        // if (!Path.Exists(directoryPath)) {
+        //     Directory.CreateDirectory(directoryPath);
+        // }
 
-        if (!Directory.Exists(directoryPath)) return;
+        if (!Directory.Exists(directoryPath)) {
+            Directory.CreateDirectory(directoryPath);
+        }
 
         var writer = new StreamWriter(filePath, false);
         writer.WriteLine("This is a test");
