@@ -27,7 +27,7 @@ public enum Ranks {
     Ten = 10,
     Jack = 11,
     Queen = 12,
-    King = 123,
+    King = 13,
 }
 
 public enum Suits {
