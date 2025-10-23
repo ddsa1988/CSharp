@@ -4,13 +4,20 @@ namespace Examples.FileStreams;
 
 public static class Example009 {
     public static void Run() {
-        var deck = new Deck();
-        Console.WriteLine(string.Join("\n", deck) + '\n');
+        const string folderName = "Files";
+        const string fileName = "DeckOfCards.txt";
+        string directoryPath = AppContext.BaseDirectory + folderName;
+        string filePath = Path.Combine(directoryPath, fileName);
 
-        deck.Shuffle();
-        Console.WriteLine(string.Join("\n", deck) + '\n');
+        var deck1 = new Deck();
 
-        deck.Sort();
-        Console.WriteLine(string.Join("\n", deck));
+        deck1.Shuffle();
+        deck1.WriteCards(filePath);
+
+        var deck2 = new Deck(filePath);
+
+        foreach (Card card in deck2) {
+            Console.WriteLine(card);
+        }
     }
 }

@@ -13,6 +13,14 @@ public class Deck : Collection<Card> {
         Reset();
     }
 
+    public Deck(string fileName) {
+        if (ReadCards(fileName)) {
+            return;
+        }
+
+        Reset();
+    }
+
     public void Reset() {
         Clear();
 
@@ -62,5 +70,57 @@ public class Deck : Collection<Card> {
         }
 
         return this;
+    }
+
+    public bool WriteCards(string fileName) {
+        string directoryName = Path.GetDirectoryName(fileName) ?? string.Empty;
+
+        if (!Directory.Exists(directoryName)) return false;
+
+        if (!File.Exists(fileName)) {
+            File.Delete(fileName);
+        }
+
+        using var writer = new StreamWriter(fileName);
+        foreach (Card card in this) {
+            writer.WriteLine(card.ToString());
+        }
+
+        return true;
+    }
+
+    private bool ReadCards(string fileName) {
+        string directoryName = Path.GetDirectoryName(fileName) ?? string.Empty;
+
+        if (!Directory.Exists(directoryName)) return false;
+        if (!File.Exists(fileName)) return false;
+
+        Clear();
+
+        using var reader = new StreamReader(fileName);
+
+        while (!reader.EndOfStream) {
+            const int cardNameSplitSize = 3;
+            const int cardRankIndex = 0;
+            const int cardSuitIndex = 2;
+
+            string? line = reader.ReadLine();
+            if (line == null) continue;
+
+            string[] values = line.Split(' ');
+
+            if (values.Length < cardNameSplitSize) continue;
+
+            string strRank = values[cardRankIndex];
+            string strSuit = values[cardSuitIndex];
+
+            if (!Enum.TryParse(strRank, out Ranks rank)) continue;
+            if (!Enum.TryParse(strSuit, out Suits suit)) continue;
+
+            var card = new Card(rank, suit);
+            Add(card);
+        }
+
+        return true;
     }
 }
