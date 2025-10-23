@@ -6,8 +6,8 @@ public static class Example003 {
     public static void Run() {
         const string folderName = "Files";
         const string fileName = "LoremIpsum.txt";
-        string directoryName = AppContext.BaseDirectory + folderName;
-        string filePath = Path.Combine(directoryName, fileName);
+        string directoryPath = AppContext.BaseDirectory + folderName;
+        string filePath = Path.Combine(directoryPath, fileName);
 
         if (!File.Exists(filePath)) return;
 

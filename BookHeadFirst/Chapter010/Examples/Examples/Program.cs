@@ -2,6 +2,6 @@
 
 public static class Program {
     public static void Main(string[] args) {
-        FileStreams.Example004.Run();
+        FileStreams.Example009.Run();
     }
 }
