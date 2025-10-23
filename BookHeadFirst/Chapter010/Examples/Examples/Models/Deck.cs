@@ -48,4 +48,19 @@ public class Deck : Collection<Card> {
 
         return this;
     }
+
+    public Deck Sort() {
+        var copy = new List<Card>(this);
+        Clear();
+
+        copy.Sort(new CardComparer());
+
+        while (copy.Count > 0) {
+            const int index = 0;
+            Add(copy[index]);
+            copy.RemoveAt(index);
+        }
+
+        return this;
+    }
 }
