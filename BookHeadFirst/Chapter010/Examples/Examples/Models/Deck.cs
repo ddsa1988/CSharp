@@ -83,7 +83,7 @@ public class Deck : Collection<Card> {
 
         using var writer = new StreamWriter(fileName);
         foreach (Card card in this) {
-            writer.WriteLine(card.ToString());
+            writer.Write(card + Environment.NewLine);
         }
 
         return true;
@@ -107,7 +107,7 @@ public class Deck : Collection<Card> {
             string? line = reader.ReadLine();
             if (line == null) continue;
 
-            string[] values = line.Split(' ');
+            string[] values = line.Split(' ', StringSplitOptions.RemoveEmptyEntries);
 
             if (values.Length < cardNameSplitSize) continue;
 
