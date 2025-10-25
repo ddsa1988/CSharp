@@ -12,7 +12,11 @@
         <div class="left-container col-6">
             <div>
                 <h3>Game progress</h3>
-                <p class="text-scroll rounded">@_game.GameProgress</p>
+                <ul class="text-scroll rounded">
+                    @foreach (string progress in _gameProgress) {
+                        <li>@progress</li>
+                    }
+                </ul>
             </div>
             <div class="mt-5">
                 <h3>Books</h3>
@@ -26,8 +30,8 @@
             <div>
                 <h3>Your hand</h3>
                 <select class="form-select" size="10" @bind="_cardSelected">
-                    @for (int i = 0; i < _game.PlayerCardCount; i++) {
-                        <option value="@i">@_game.PlayerCardName(i)</option>
+                    @for (int i = 0; i < Game.PlayerCardCount; i++) {
+                        <option value="@i">@Game.PlayerCardName(i)</option>
                     }
                 </select>
             </div>
@@ -35,15 +39,15 @@
             <div class="mt-5">
                 <h3>Player to ask</h3>
                 <select class="form-select" size="5" @bind="_opponentSelected">
-                    @for (int i = 0; i < _game.OpponentCount; i++) {
-                        <option value="@i">@_game.OpponentName(i)</option>
+                    @for (int i = 0; i < Game.OpponentCount; i++) {
+                        <option value="@i">@Game.OpponentName(i)</option>
                     }
                 </select>
             </div>
 
             <div class="mt-5">
-                <h5>Value selected: @_game.PlayerCardValue(_cardSelected)</h5>
-                <h5>Player selected: @_game.OpponentName(_opponentSelected)</h5>
+                <h5>Value selected: @Game.PlayerCardValue(_cardSelected)</h5>
+                <h5>Player selected: @Game.OpponentName(_opponentSelected)</h5>
             </div>
 
             <div>
@@ -62,13 +66,15 @@
     private static readonly IEnumerable<string> ComputerPlayerNames = Enumerable.Range(1, OpponentCount).Select(i => $"Computer #{i}");
     private const string HumanName = "Diego";
 
-    private readonly Game _game = new(HumanName, ComputerPlayerNames);
+    private static readonly Game Game = new(HumanName, ComputerPlayerNames);
     private int _cardSelected;
     private int _opponentSelected;
+    private string[] _gameProgress = Game.GameProgress.Split(Environment.NewLine);
 
 
     private void AskForCard() {
-        _game.PlayerAskForCard(_cardSelected, _opponentSelected);
+        Game.PlayerAskForCard(_cardSelected, _opponentSelected);
+        _gameProgress = Game.GameProgress.Split(Environment.NewLine);
     }
 
 }
