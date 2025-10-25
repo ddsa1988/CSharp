@@ -14,6 +14,8 @@ public class Game {
 
     public string GameProgress => _game.Status;
 
+    public string BookProgress => _game.Books;
+
     public string PlayerCardName(int index) {
         if (index < 0 || index >= _game.HumanPlayer.Hand.Count()) return string.Empty;
 

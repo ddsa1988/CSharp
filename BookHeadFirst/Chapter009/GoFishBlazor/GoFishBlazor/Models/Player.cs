@@ -4,7 +4,7 @@ public class Player {
     private readonly List<Card> _hand = [];
     private readonly List<Values> _books = [];
     public readonly string Name;
-    public static Random Random = new();
+    public static readonly Random Random = new();
 
     /// <summary>
     /// Constructor to create a player
@@ -27,7 +27,12 @@ public class Player {
     /// <summary>
     /// The cards in the player's hand
     /// </summary>
-    public IEnumerable<Card> Hand => _hand;
+    public IEnumerable<Card> Hand {
+        get {
+            _hand.Sort(new CardComparerByValue());
+            return _hand;
+        }
+    }
 
     /// <summary>
     /// The books that the player has pulled out
@@ -40,10 +45,14 @@ public class Player {
     public static string S(int s) => s == 1 ? "" : "s";
 
     /// <summary>
-    /// Returns the current status of the player: the number of cards and books
+    /// Returns the current status of the player: the number of cards
     /// </summary>
-    public string Status =>
-        $"{Name} has {Hand.Count()} card{S(Hand.Count())} and {Books.Count()} book{S(Books.Count())}";
+    public string CardStatus => $"{Name} has {Hand.Count()} card{S(Hand.Count())}";
+
+    /// <summary>
+    /// Returns the current status of the player: the number of books
+    /// </summary>
+    public string BookStatus => $"{Name} has {Books.Count()} book{S(Books.Count())}";
 
     /// <summary>
     /// Gets up to five cards from the stock

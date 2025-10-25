@@ -4,8 +4,9 @@ namespace GoFishBlazor.Services;
 
 public class GameController {
     private GameState _gameState;
-    public static Random Random = new();
     public string Status { get; private set; }
+    public string Books { get; private set; }
+
 
     public bool IsGameOver => _gameState.IsGameOver;
     public Player HumanPlayer => _gameState.HumanPlayer;
@@ -19,6 +20,7 @@ public class GameController {
     public GameController(string humanPlayerName, IEnumerable<string> computerPlayerNames) {
         _gameState = new GameState(humanPlayerName, computerPlayerNames, new Deck().Shuffle());
         Status = $"Starting a new game with players {string.Join(", ", _gameState.Players)}.";
+        Books = string.Join(Environment.NewLine, _gameState.Players.Select(player => player.BookStatus));
     }
 
     /// <summary>
@@ -32,9 +34,10 @@ public class GameController {
 
         ComputerPlayersPlayNextRound();
 
-        Status += string.Join(Environment.NewLine, _gameState.Players.Select(player => player.Status));
+        Status += string.Join(Environment.NewLine, _gameState.Players.Select(player => player.CardStatus));
         Status += $"{Environment.NewLine}The stock has {_gameState.Stock.Count} cards";
         Status += Environment.NewLine + _gameState.CheckForWinner();
+        Books = string.Join(Environment.NewLine, _gameState.Players.Select(player => player.BookStatus));
     }
 
     /// <summary>

@@ -1,5 +1,4 @@
 ﻿@page "/"
-@using GoFishBlazor.Models
 @using GoFishBlazor.Services
 @rendermode InteractiveServer
 
@@ -20,7 +19,11 @@
             </div>
             <div class="mt-5">
                 <h3>Books</h3>
-                <p class="text-scroll">Players books</p>
+                <ul class="text-scroll">
+                    @foreach (string book in _bookProgress) {
+                        <li>@book</li>
+                    }
+                </ul>
             </div>
         </div>
 
@@ -69,12 +72,22 @@
     private static readonly Game Game = new(HumanName, ComputerPlayerNames);
     private int _cardSelected;
     private int _opponentSelected;
-    private string[] _gameProgress = Game.GameProgress.Split(Environment.NewLine);
+    private string[] _gameProgress = [];
+    private string[] _bookProgress = [];
+
+    protected override void OnInitialized() {
+        UpdateGameProgress();
+    }
 
 
     private void AskForCard() {
         Game.PlayerAskForCard(_cardSelected, _opponentSelected);
+        UpdateGameProgress();
+    }
+
+    private void UpdateGameProgress() {
         _gameProgress = Game.GameProgress.Split(Environment.NewLine);
+        _bookProgress = Game.BookProgress.Split(Environment.NewLine);
     }
 
 }
