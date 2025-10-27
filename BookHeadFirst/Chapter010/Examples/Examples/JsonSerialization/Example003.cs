@@ -16,7 +16,7 @@ public static class Example003 {
 
         if (string.IsNullOrWhiteSpace(jsonString)) return;
 
-        var guys = JsonSerializer.Deserialize<Stack<Dude>>(jsonString);
+        var guys = JsonSerializer.Deserialize<Stack<Dude>>(jsonString, JsonReadOptions);
 
         if (guys == null) return;
 
@@ -26,7 +26,7 @@ public static class Example003 {
         }
     }
 
-    private static readonly JsonSerializerOptions JasonReadOptions = new() {
+    private static readonly JsonSerializerOptions JsonReadOptions = new() {
         AllowTrailingCommas = true
     };
 }
