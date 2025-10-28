@@ -35,6 +35,6 @@ public static class Example001 {
             Console.Write($"{b:x2} ");
         }
 
-        Console.WriteLine($" - {dataWritten.Length} bytes");
+        Console.WriteLine($"- {dataWritten.Length} bytes");
     }
 }
