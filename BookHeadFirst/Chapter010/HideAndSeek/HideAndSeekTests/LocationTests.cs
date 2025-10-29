@@ -48,20 +48,20 @@ public class LocationTests {
     /// </summary>
     [TestMethod]
     public void TestExitList() {
-        string expectedText = "- the Upstairs Room is Up" + Environment.NewLine +
-                              "- the Southeast Room is to the Southeast" + Environment.NewLine +
-                              "- the Northeast Room is to the Northeast" + Environment.NewLine +
-                              "- the East Room is to the East" + Environment.NewLine +
-                              "- the North Room is to the North" + Environment.NewLine +
-                              "- the South Room is to the South" + Environment.NewLine +
-                              "- the West Room is to the West" + Environment.NewLine +
-                              "- the Southwest Room is to the Southwest" + Environment.NewLine +
-                              "- the Northwest Room is to the Northwest" + Environment.NewLine +
-                              "- the Downstairs Room is Down";
+        List<string> expectedList = [
+            "- the Upstairs Room is Up",
+            "- the Southeast Room is to the Southeast",
+            "- the Northeast Room is to the Northeast",
+            "- the East Room is to the East",
+            "- the North Room is to the North",
+            "- the South Room is to the South",
+            "- the West Room is to the West",
+            "- the Southwest Room is to the Southwest",
+            "- the Northwest Room is to the Northwest",
+            "- the Downstairs Room is Down"
+        ];
 
-        string exitListText = string.Join(Environment.NewLine, _center.ExitList);
-
-        Assert.AreEqual(expectedText, exitListText);
+        CollectionAssert.AreEqual(expectedList, _center.ExitList.ToList());
     }
 
     /// <summary>
