@@ -85,5 +85,23 @@ public class LocationTests {
     [TestMethod]
     public void TestAddHall() {
         // This test will add a hallway with two locations and make sure they work
+        Location eastRoom = _center.GetExit(Direction.East);
+        var eastHall1 = new Location("East hall 1");
+        var eastHall2 = new Location("East hall 2");
+
+        Assert.AreEqual(1, eastRoom.Exits.Count);
+
+        eastRoom.AddExit(Direction.East, eastHall1);
+        eastHall1.AddExit(Direction.East, eastHall2);
+
+        Assert.AreSame(eastRoom, eastHall1.GetExit(Direction.West));
+        Assert.AreSame(eastHall1, eastRoom.GetExit(Direction.East));
+        
+        Assert.AreSame(eastHall1, eastHall2.GetExit(Direction.West));
+        Assert.AreSame(eastHall2, eastHall1.GetExit(Direction.East));
+
+        Assert.AreEqual(2, eastRoom.Exits.Count);
+        Assert.AreEqual(2, eastHall1.Exits.Count);
+        Assert.AreEqual(1, eastHall2.Exits.Count);
     }
 }
