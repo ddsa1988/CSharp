@@ -65,11 +65,17 @@ public class LocationTests {
     }
 
     /// <summary>
-    /// Validates that each room’s name and return exit is created correctly
+    /// Validates that each room’s exit returns to the center location
     /// </summary>
     [TestMethod]
     public void TestReturnExits() {
-        // This test will test navigating through the center Location
+        foreach ((Direction direction, Location location) in _center.Exits) {
+            int centerDirectionValue = (int)direction * -1;
+            var centerDirection = (Direction)centerDirectionValue;
+
+            Assert.AreEqual(1, location.Exits.Count);
+            Assert.AreSame(_center, location.GetExit(centerDirection));
+        }
     }
 
     /// <summary>

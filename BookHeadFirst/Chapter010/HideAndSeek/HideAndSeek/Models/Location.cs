@@ -65,8 +65,8 @@ public class Location {
     /// <param name="direction">Direction of the connecting location</param>
     /// <param name="connectingLocation">Location to add the return exit to</param>
     private void AddReturnExit(Direction direction, Location connectingLocation) {
-        int directionNumber = (int)direction * -1;
-        var returnDirection = (Direction)directionNumber;
+        int returnDirectionValue = (int)direction * -1;
+        var returnDirection = (Direction)returnDirectionValue;
 
         Exits.Add(returnDirection, connectingLocation);
     }
