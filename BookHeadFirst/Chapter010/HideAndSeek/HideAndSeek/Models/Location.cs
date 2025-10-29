@@ -28,7 +28,7 @@ public class Location {
     /// </summary>
     /// <param name="direction">Direction to describe</param>
     /// <returns>string describing the direction</returns>
-    private string DescribeDirection(Direction direction) => direction switch {
+    private static string DescribeDirection(Direction direction) => direction switch {
         Direction.Up => "Up",
         Direction.Down => "Down",
         Direction.In => "In",
@@ -56,13 +56,19 @@ public class Location {
     /// <param name="connectingLocation">Connecting location to add</param>
     public void AddExit(Direction direction, Location connectingLocation) {
         Exits.Add(direction, connectingLocation);
+        connectingLocation.AddReturnExit(direction, this);
+    }
 
-        int oppositeDirection = (int)direction * -1;
-        var newDirection = (Direction)oppositeDirection;
+    /// <summary>
+    /// Adds a return exit to a connecting location
+    /// </summary>
+    /// <param name="direction">Direction of the connecting location</param>
+    /// <param name="connectingLocation">Location to add the return exit to</param>
+    private void AddReturnExit(Direction direction, Location connectingLocation) {
+        int directionNumber = (int)direction * -1;
+        var returnDirection = (Direction)directionNumber;
 
-        if (connectingLocation.Exits.ContainsKey(newDirection)) return;
-
-        connectingLocation.Exits.Add(newDirection, this);
+        Exits.Add(returnDirection, connectingLocation);
     }
 
     /// <summary>
