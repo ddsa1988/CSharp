@@ -6,18 +6,20 @@ public class Location {
     /// <summary>
     /// The name of this location
     /// </summary>
-    public string Name { get; private set; } = string.Empty;
+    public string Name { get; }
 
     /// <summary>
     /// The exits out of this location
     /// </summary>
-    public IDictionary<Direction, Location> Exits = new Dictionary<Direction, Location>();
+    public readonly IDictionary<Direction, Location> Exits = new Dictionary<Direction, Location>();
 
     /// <summary>
     /// The constructor sets the location name
     /// </summary>
     /// <param name="name">Name of the location</param>
-    public Location(string name) => throw new NotImplementedException();
+    public Location(string name) {
+        Name = name;
+    }
 
     public override string ToString() => Name;
 
@@ -37,7 +39,15 @@ public class Location {
     /// <summary>
     /// Returns a sequence of descriptions of the exits, sorted by direction
     /// </summary>
-    public IEnumerable<string> ExitList => throw new NotImplementedException();
+    public IEnumerable<string> ExitList {
+        get {
+            List<string> exits = [];
+            exits.AddRange(Exits.OrderBy(pair => pair.Key).ToDictionary().Keys.Select(direction =>
+                $"- the {Exits[direction]} is {DescribeDirection(direction)}"));
+
+            return exits;
+        }
+    }
 
     /// <summary>
     /// Adds an exit to this location
@@ -45,7 +55,7 @@ public class Location {
     /// <param name="direction">Direction of the connecting location</param>
     /// <param name="connectingLocation">Connecting location to add</param>
     public void AddExit(Direction direction, Location connectingLocation) {
-        throw new NotImplementedException();
+        Exits.Add(direction, connectingLocation);
     }
 
     /// <summary>
