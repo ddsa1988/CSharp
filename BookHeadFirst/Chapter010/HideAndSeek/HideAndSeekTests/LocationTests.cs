@@ -5,7 +5,8 @@ namespace HideAndSeekTests;
 
 [TestClass]
 public class LocationTests {
-    private Location? _center;
+    private const string CenterRoom = "Center Room";
+    private readonly Location _center = new Location(CenterRoom);
 
     /// <summary>
     /// Initializes each unit test by setting creating a new the center location
@@ -13,9 +14,7 @@ public class LocationTests {
     /// </summary>
     [TestInitialize]
     public void Initialize() {
-        _center = new Location("Center Room");
-
-        Assert.AreSame("Center Room", _center.ToString());
+        Assert.AreSame(CenterRoom, _center.ToString());
         Assert.AreEqual(0, _center.ExitList.Count());
 
         _center.AddExit(Direction.North, new Location("North Room"));
@@ -37,8 +36,6 @@ public class LocationTests {
     /// </summary>
     [TestMethod]
     public void TestGetExit() {
-        if (_center == null) return;
-
         Location eastRoom = _center.GetExit(Direction.East);
 
         Assert.AreEqual("East Room", eastRoom.Name);
@@ -52,6 +49,8 @@ public class LocationTests {
     [TestMethod]
     public void TestExitList() {
         // This test will make sure the ExitList property works
+        IEnumerable<string> test = _center.ExitList;
+        Console.WriteLine(string.Join("\n", test));
     }
 
     /// <summary>

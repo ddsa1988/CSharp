@@ -56,6 +56,13 @@ public class Location {
     /// <param name="connectingLocation">Connecting location to add</param>
     public void AddExit(Direction direction, Location connectingLocation) {
         Exits.Add(direction, connectingLocation);
+
+        int oppositeDirection = (int)direction * -1;
+        var newDirection = (Direction)oppositeDirection;
+
+        if (connectingLocation.Exits.ContainsKey(newDirection)) return;
+
+        connectingLocation.Exits.Add(newDirection, this);
     }
 
     /// <summary>
@@ -63,5 +70,7 @@ public class Location {
     /// </summary>
     /// <param name="direction">Direction of the exit location</param>
     /// <returns>The exit location, or this if there is no exit in that direction</returns>
-    public Location GetExit(Direction direction) => throw new NotImplementedException();
+    public Location GetExit(Direction direction) {
+        return Exits.TryGetValue(direction, out Location? location) ? location : this;
+    }
 }
