@@ -6,7 +6,7 @@ namespace HideAndSeekTests;
 [TestClass]
 public class LocationTests {
     private const string CenterRoom = "Center Room";
-    private readonly Location _center = new Location(CenterRoom);
+    private readonly Location _center = new(CenterRoom);
 
     /// <summary>
     /// Initializes each unit test by setting creating a new the center location
@@ -48,9 +48,20 @@ public class LocationTests {
     /// </summary>
     [TestMethod]
     public void TestExitList() {
-        // This test will make sure the ExitList property works
-        IEnumerable<string> test = _center.ExitList;
-        Console.WriteLine(string.Join("\n", test));
+        string expectedText = "- the Upstairs Room is Up" + Environment.NewLine +
+                              "- the Southeast Room is to the Southeast" + Environment.NewLine +
+                              "- the Northeast Room is to the Northeast" + Environment.NewLine +
+                              "- the East Room is to the East" + Environment.NewLine +
+                              "- the North Room is to the North" + Environment.NewLine +
+                              "- the South Room is to the South" + Environment.NewLine +
+                              "- the West Room is to the West" + Environment.NewLine +
+                              "- the Southwest Room is to the Southwest" + Environment.NewLine +
+                              "- the Northwest Room is to the Northwest" + Environment.NewLine +
+                              "- the Downstairs Room is Down";
+
+        string exitListText = string.Join(Environment.NewLine, _center.ExitList);
+
+        Assert.AreEqual(expectedText, exitListText);
     }
 
     /// <summary>
