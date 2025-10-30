@@ -6,7 +6,7 @@ public class GameController {
     /// <summary>
     /// The player's current location in the house
     /// </summary>
-    public Location CurrentLocation { get; set; }
+    public Location CurrentLocation { get; private set; }
 
     /// <summary>
     /// Returns the current status to show to the player
