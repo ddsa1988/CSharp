@@ -49,16 +49,16 @@ public class LocationTests {
     [TestMethod]
     public void TestExitList() {
         List<string> expectedList = [
-            " - the Upstairs Room is Up",
-            " - the Southeast Room is to the Southeast",
-            " - the Northeast Room is to the Northeast",
-            " - the East Room is to the East",
-            " - the North Room is to the North",
-            " - the South Room is to the South",
-            " - the West Room is to the West",
-            " - the Southwest Room is to the Southwest",
-            " - the Northwest Room is to the Northwest",
-            " - the Downstairs Room is Down"
+            "- the Upstairs Room is Up",
+            "- the Southeast Room is to the Southeast",
+            "- the Northeast Room is to the Northeast",
+            "- the East Room is to the East",
+            "- the North Room is to the North",
+            "- the South Room is to the South",
+            "- the West Room is to the West",
+            "- the Southwest Room is to the Southwest",
+            "- the Northwest Room is to the Northwest",
+            "- the Downstairs Room is Down"
         ];
 
         CollectionAssert.AreEqual(expectedList, _center.ExitList.ToList());

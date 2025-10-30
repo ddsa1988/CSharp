@@ -43,7 +43,7 @@ public class Location {
         Exits
             .OrderBy((pair) => (int)pair.Key)
             .ThenBy(pair => Math.Abs((int)pair.Key))
-            .Select(pair => $" - the {Exits[pair.Key]} is {DescribeDirection(pair.Key)}");
+            .Select(pair => $"- the {Exits[pair.Key]} is {DescribeDirection(pair.Key)}");
 
     /// <summary>
     /// Adds an exit to this location

@@ -27,8 +27,6 @@ public class GameControllerTest {
 
         Assert.IsTrue(_gameController.Move(Direction.Up));
         Assert.AreEqual(HouseRooms.Landing, _gameController.CurrentLocation.Name);
-
-        // Add more movement tests to the TestMovement method
     }
 
     [TestMethod]
@@ -46,18 +44,16 @@ public class GameControllerTest {
         Assert.AreEqual("Moving East", _gameController.ParseInput("East"));
 
         Assert.AreEqual("You are in the Hallway. You see the following exits:" +
-                        Environment.NewLine + " - the Landing is Up" +
-                        Environment.NewLine + " - the Bathroom is to the North" +
-                        Environment.NewLine + " - the Living Room is to the South" +
-                        Environment.NewLine + " - the Entry is to the West" +
-                        Environment.NewLine + " - the Kitchen is to the Northwest", _gameController.Status);
+                        Environment.NewLine + "- the Landing is Up" +
+                        Environment.NewLine + "- the Bathroom is to the North" +
+                        Environment.NewLine + "- the Living Room is to the South" +
+                        Environment.NewLine + "- the Entry is to the West" +
+                        Environment.NewLine + "- the Kitchen is to the Northwest", _gameController.Status);
 
         Assert.AreEqual("Moving South", _gameController.ParseInput("South"));
 
         Assert.AreEqual(
             "You are in the Living Room. You see the following exits:" + Environment.NewLine +
-            " - the Hallway is to the North", _gameController.Status);
-
-        // Can you add more input parsing tests to the TestParseInput method?
+            "- the Hallway is to the North", _gameController.Status);
     }
 }
