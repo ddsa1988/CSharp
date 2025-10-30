@@ -21,7 +21,7 @@ public class GameController {
     /// <summary>
     /// A prompt to display to the player
     /// </summary>
-    public static string Prompt => "Which direction do you want to go: ";
+    public string Prompt => "Which direction do you want to go: ";
 
     public GameController() {
         CurrentLocation = House.Entry;
