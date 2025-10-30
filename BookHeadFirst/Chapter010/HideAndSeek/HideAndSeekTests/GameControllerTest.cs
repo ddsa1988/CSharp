@@ -23,12 +23,12 @@ public class GameControllerTest {
         Assert.AreEqual(HouseRooms.Entry, _gameController.CurrentLocation.Name);
 
         Assert.IsTrue(_gameController.Move(Direction.East));
-        Assert.AreEqual(HouseRooms.Entry, _gameController.CurrentLocation.Name);
+        Assert.AreEqual(HouseRooms.Hallway, _gameController.CurrentLocation.Name);
 
         Assert.IsTrue(_gameController.Move(Direction.Up));
-        Assert.AreEqual(HouseRooms.Entry, _gameController.CurrentLocation.Name);
+        Assert.AreEqual(HouseRooms.Landing, _gameController.CurrentLocation.Name);
 
-        // Add more movement tests to the TestMovement test method
+        // Add more movement tests to the TestMovement method
     }
 
     [TestMethod]
@@ -57,6 +57,6 @@ public class GameControllerTest {
             "You are in the Living Room. You see the following exits:" + Environment.NewLine +
             " - the Hallway is to the North", _gameController.Status);
 
-        // Can you add more input parsing tests to the TestParseInput test method?
+        // Can you add more input parsing tests to the TestParseInput method?
     }
 }

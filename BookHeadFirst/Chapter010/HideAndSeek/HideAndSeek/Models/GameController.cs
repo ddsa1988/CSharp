@@ -28,7 +28,10 @@ public class GameController {
     /// <param name="direction">The direction to move</param>
     /// <returns>True if the player can move in that direction, false otherwise</returns>
     public bool Move(Direction direction) {
-        throw new NotImplementedException();
+        if (!CurrentLocation.Exits.TryGetValue(direction, out Location? exit)) return false;
+
+        CurrentLocation = exit;
+        return true;
     }
 
     /// <summary>
