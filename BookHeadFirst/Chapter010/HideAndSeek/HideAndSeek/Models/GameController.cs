@@ -11,7 +11,12 @@ public class GameController {
     /// <summary>
     /// Returns the current status to show to the player
     /// </summary>
-    public string Status => throw new NotImplementedException();
+    public string Status {
+        get {
+            string exitsList = Environment.NewLine + string.Join(Environment.NewLine, CurrentLocation.ExitList);
+            return $"You are in the {CurrentLocation}. You see the following exits:{exitsList}";
+        }
+    }
 
     /// <summary>
     /// A prompt to display to the player
@@ -40,6 +45,17 @@ public class GameController {
     /// <param name="input">Input to parse</param>
     /// <returns>The results of parsing the input</returns>
     public string ParseInput(string input) {
-        throw new NotImplementedException();
+        bool isInputValid = Enum.TryParse(input, out Direction direction);
+
+        if (!isInputValid) {
+            return "That's not a valid direction";
+        }
+
+        if (!CurrentLocation.Exits.ContainsKey(direction)) {
+            return "There's no exit in that direction";
+        }
+
+        Move(direction);
+        return $"Moving {direction.ToString()}";
     }
 }

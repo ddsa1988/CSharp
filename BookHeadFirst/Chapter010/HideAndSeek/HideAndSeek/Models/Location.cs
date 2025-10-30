@@ -39,15 +39,11 @@ public class Location {
     /// <summary>
     /// Returns a sequence of descriptions of the exits, sorted by direction
     /// </summary>
-    public IEnumerable<string> ExitList {
-        get {
-            List<string> exits = [];
-            exits.AddRange(Exits.OrderBy(pair => pair.Key).ToDictionary().Keys.Select(direction =>
-                $"- the {Exits[direction]} is {DescribeDirection(direction)}"));
-
-            return exits;
-        }
-    }
+    public IEnumerable<string> ExitList =>
+        Exits
+            .OrderBy((pair) => (int)pair.Key)
+            .ThenBy(pair => Math.Abs((int)pair.Key))
+            .Select(pair => $" - the {Exits[pair.Key]} is {DescribeDirection(pair.Key)}");
 
     /// <summary>
     /// Adds an exit to this location
