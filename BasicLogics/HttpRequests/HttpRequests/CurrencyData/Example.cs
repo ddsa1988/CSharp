@@ -12,28 +12,34 @@ public static class Example {
 
         string currencyType = selectCurrency switch {
             0 => "USD-BRL",
-            _ => "EUR-BRL",
+            1 => "EUR-BRL",
+            2 => "BTC-BRL",
+            _ => "USD-BRL,EUR-BRL,BTC-BRL"
         };
 
         using var client = new HttpClient();
+        CurrencyResponse? currency = null;
 
-        string responseStr =
-            await client.GetStringAsync("https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL");
-
-        Console.WriteLine(responseStr + Environment.NewLine);
-
-        var currency =
-            await client.GetFromJsonAsync<CurrencyResponse>(
-                $"https://economia.awesomeapi.com.br/json/last/{currencyType}");
+        try {
+            currency =
+                await client.GetFromJsonAsync<CurrencyResponse>(
+                    $"https://economia.awesomeapi.com.br/json/last/{currencyType}");
+        } catch (HttpRequestException e) {
+            Console.WriteLine($"HttpRequestException: {e.Message}");
+        } catch (Exception e) {
+            Console.WriteLine($"GeneralException: {e.Message}");
+        }
 
         if (currency?.CurrencyInfo == null) return;
 
-        string currencyName = currency.CurrencyInfo.Keys.First();
-        bool isDataValid = currency.CurrencyInfo.TryGetValue(currencyName, out JsonElement jsonCurrencyInfo);
+        foreach ((string key, JsonElement value) in currency.CurrencyInfo) {
+            if (!currency.CurrencyInfo.TryGetValue(key, out JsonElement jsonCurrencyInfo)) continue;
 
-        if (!isDataValid) return;
+            var currencyInfo = JsonSerializer.Deserialize<CurrencyInfo>(jsonCurrencyInfo.ToString());
 
-        var currencyInfo = JsonSerializer.Deserialize<CurrencyInfo>(jsonCurrencyInfo.ToString());
-        Console.WriteLine(currencyInfo?.Name);
+            if (currencyInfo == null) continue;
+
+            Console.WriteLine(currencyInfo.Name);
+        }
     }
 }
