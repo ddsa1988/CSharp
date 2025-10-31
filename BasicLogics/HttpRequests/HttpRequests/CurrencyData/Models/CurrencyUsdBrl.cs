@@ -2,8 +2,8 @@ using System.Text.Json.Serialization;
 
 namespace HttpRequests.CurrencyData.Models;
 
-public class CurrencyResponse {
-    private const string CurrencyCode = "EURBRL";
+public class CurrencyUsdBrl {
+    private const string CurrencyCode = "USDBRL";
 
     [JsonPropertyName($"{CurrencyCode}")] public required CurrencyInfo CurrencyInfo { get; init; }
 }
