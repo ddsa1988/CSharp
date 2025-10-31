@@ -33,7 +33,7 @@ public static class Example001 {
         if (response == null) return;
 
         if (!response.IsSuccessStatusCode) {
-            Console.WriteLine("Error code: {0}", response.StatusCode);
+            Console.WriteLine($"Error code: {response.StatusCode}");
             return;
         }
 
