@@ -18,6 +18,8 @@ public static class Example {
         };
 
         using var client = new HttpClient();
+        client.Timeout = TimeSpan.FromSeconds(30);
+
         CurrencyResponse? content = null;
         HttpResponseMessage? response = null;
 
