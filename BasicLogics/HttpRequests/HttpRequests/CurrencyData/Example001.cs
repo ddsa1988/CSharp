@@ -1,5 +1,5 @@
 using System.Net.Http.Json;
-using HttpRequests.CurrencyData.Models;
+using HttpRequests.CurrencyData.Dto;
 
 namespace HttpRequests.CurrencyData;
 
@@ -7,6 +7,7 @@ public static class Example001 {
     public static async Task Run() {
         // Ex.: https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL
 
+        const string apiEndpoint = "https://economia.awesomeapi.com.br/last/";
         const int selectCurrency = 3;
 
         string currencyType = selectCurrency switch {
@@ -20,34 +21,34 @@ public static class Example001 {
         client.Timeout = TimeSpan.FromSeconds(30);
 
         HttpResponseMessage? response = null;
-        Dictionary<string, CurrencyInfo>? currencies = null;
+        Dictionary<string, CurrencyDto>? currenciesDto = null;
 
         try {
-            response = await client.GetAsync($"https://economia.awesomeapi.com.br/json/last/{currencyType}");
-        } catch (HttpRequestException e) {
-            Console.WriteLine($"Http Request Exception: {e.Message}");
-        } catch (Exception e) {
-            Console.WriteLine($"General Exception: {e.Message}");
+            response = await client.GetAsync(apiEndpoint + currencyType);
+        } catch (HttpRequestException ex) {
+            Console.WriteLine("Http request exception: " + ex.Message);
+        } catch (Exception ex) {
+            Console.WriteLine("General exception: " + ex.Message);
         }
 
         if (response == null) return;
 
         if (!response.IsSuccessStatusCode) {
-            Console.WriteLine($"Error code: {response.StatusCode}");
+            Console.WriteLine("Response status code: " + response.StatusCode);
             return;
         }
 
         try {
-            currencies = await response.Content.ReadFromJsonAsync<Dictionary<string, CurrencyInfo>>();
-        } catch (OperationCanceledException e) {
-            Console.WriteLine($"Operation Canceled Exception: {e.Message}");
-        } catch (Exception e) {
-            Console.WriteLine($"General Exception: {e.Message}");
+            currenciesDto = await response.Content.ReadFromJsonAsync<Dictionary<string, CurrencyDto>>();
+        } catch (OperationCanceledException ex) {
+            Console.WriteLine("Operation canceled exception: " + ex.Message);
+        } catch (Exception ex) {
+            Console.WriteLine("General exception: " + ex.Message);
         }
 
-        if (currencies == null) return;
+        if (currenciesDto == null) return;
 
-        foreach ((string key, CurrencyInfo currencyInfo) in currencies) {
+        foreach ((string key, CurrencyDto currencyInfo) in currenciesDto) {
             Console.WriteLine($"{key}: {currencyInfo}{Environment.NewLine}");
         }
     }

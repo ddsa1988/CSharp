@@ -1,8 +1,8 @@
 using System.Text.Json.Serialization;
 
-namespace HttpRequests.CurrencyData.Models;
+namespace HttpRequests.CurrencyData.Dto;
 
-public record CurrencyInfo(
+public record CurrencyDto(
     [property: JsonPropertyName("code")] string Code,
     [property: JsonPropertyName("codein")] string CodeIn,
     [property: JsonPropertyName("name")] string Name,

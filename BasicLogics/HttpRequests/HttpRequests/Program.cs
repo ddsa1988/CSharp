@@ -2,6 +2,6 @@
 
 public static class Program {
     public static async Task Main(string[] args) {
-        await CurrencyData.Example001.Run();
+        await PostalCodeData.Example001.Run();
     }
 }
