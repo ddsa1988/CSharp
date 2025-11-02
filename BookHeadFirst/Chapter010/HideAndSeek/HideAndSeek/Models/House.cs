@@ -5,9 +5,11 @@ namespace HideAndSeek.Models;
 
 public static class House {
     public static readonly Location Entry;
+    public static Random Random;
 
     static House() {
         Entry = new Location(HouseRooms.Entry);
+        Random = new Random();
         CreateLayout();
     }
 
@@ -39,5 +41,17 @@ public static class House {
         landing.AddExit(Direction.South, pantry);
         landing.AddExit(Direction.Southeast, kidsRoom);
         landing.AddExit(Direction.Up, attic);
+    }
+
+    public static Location GetLocationByName(string name) {
+        throw new NotImplementedException();
+    }
+
+    public static Location RandomExit(Location location) {
+        throw new NotImplementedException();
+    }
+
+    public static void ClearHidingPlaces() {
+        throw new NotImplementedException();
     }
 }
