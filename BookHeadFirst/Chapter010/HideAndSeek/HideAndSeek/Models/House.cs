@@ -16,19 +16,19 @@ public static class House {
     }
 
     private static void CreateLayout() {
-        var garage = new Location(HouseRooms.Garage);
+        var garage = new LocationWithHidingPlace(HouseRooms.Garage, HidingPlaces.Garage);
         var hallway = new Location(HouseRooms.Hallway);
-        var kitchen = new Location(HouseRooms.Kitchen);
-        var bathroom = new Location(HouseRooms.Bathroom);
-        var livingRoom = new Location(HouseRooms.LivingRoom);
+        var kitchen = new LocationWithHidingPlace(HouseRooms.Kitchen, HidingPlaces.Kitchen);
+        var bathroom = new LocationWithHidingPlace(HouseRooms.Bathroom, HidingPlaces.Bathroom);
+        var livingRoom = new LocationWithHidingPlace(HouseRooms.LivingRoom, HidingPlaces.LivingRoom);
         var landing = new Location(HouseRooms.Landing);
-        var masterBedroom = new Location(HouseRooms.MasterBedroom);
-        var masterBathroom = new Location(HouseRooms.MasterBathroom);
-        var secondBathroom = new Location(HouseRooms.SecondBathroom);
-        var nursery = new Location(HouseRooms.Nursery);
-        var pantry = new Location(HouseRooms.Pantry);
-        var kidsRoom = new Location(HouseRooms.KidsRoom);
-        var attic = new Location(HouseRooms.Attic);
+        var masterBedroom = new LocationWithHidingPlace(HouseRooms.MasterBedroom, HidingPlaces.MasterBedroom);
+        var masterBathroom = new LocationWithHidingPlace(HouseRooms.MasterBathroom, HidingPlaces.MasterBathroom);
+        var secondBathroom = new LocationWithHidingPlace(HouseRooms.SecondBathroom, HidingPlaces.SecondBathroom);
+        var nursery = new LocationWithHidingPlace(HouseRooms.Nursery, HidingPlaces.Nursery);
+        var pantry = new LocationWithHidingPlace(HouseRooms.Pantry, HidingPlaces.Pantry);
+        var kidsRoom = new LocationWithHidingPlace(HouseRooms.KidsRoom, HidingPlaces.KidsRoom);
+        var attic = new LocationWithHidingPlace(HouseRooms.Attic, HidingPlaces.Attic);
 
         Entry.AddExit(Direction.Out, garage);
         Entry.AddExit(Direction.East, hallway);
