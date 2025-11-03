@@ -14,10 +14,10 @@ public class LocationWithHidingPlace : Location {
     }
 
     public IEnumerable<Opponent> CheckHidingPlace() {
-        IEnumerable<Opponent> copyHiddenOpponents = _hiddenOpponents.ToList();
-        _hiddenOpponents = [];
+        IEnumerable<Opponent> foundOpponents = new List<Opponent>(_hiddenOpponents);
+        _hiddenOpponents.Clear();
 
-        return copyHiddenOpponents;
+        return foundOpponents;
     }
 
     public override string ToString() => Name;
