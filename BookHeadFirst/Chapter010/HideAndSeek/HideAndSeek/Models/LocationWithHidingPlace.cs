@@ -1,7 +1,7 @@
 namespace HideAndSeek.Models;
 
 public class LocationWithHidingPlace : Location {
-    private List<Opponent> _hiddenOpponents;
+    private readonly List<Opponent> _hiddenOpponents;
     public string HidingPlace { get; }
 
     public LocationWithHidingPlace(string name, string hidingPlace) : base(name) {
