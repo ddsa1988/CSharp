@@ -1,18 +1,23 @@
 namespace HideAndSeek.Models;
 
 public class LocationWithHidingPlace : Location {
+    private List<Opponent> _hiddenOpponents;
     public string HidingPlace { get; }
 
     public LocationWithHidingPlace(string name, string hidingPlace) : base(name) {
         HidingPlace = hidingPlace;
+        _hiddenOpponents = [];
     }
 
     public void Hide(Opponent opponent) {
-        throw new NotImplementedException();
+        _hiddenOpponents.Add(opponent);
     }
 
     public IEnumerable<Opponent> CheckHidingPlace() {
-        throw new NotImplementedException();
+        IEnumerable<Opponent> copyHiddenOpponents = _hiddenOpponents.ToList();
+        _hiddenOpponents = [];
+
+        return copyHiddenOpponents;
     }
 
     public override string ToString() => Name;
