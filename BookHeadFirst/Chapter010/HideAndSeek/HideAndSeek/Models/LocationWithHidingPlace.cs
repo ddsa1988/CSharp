@@ -14,4 +14,6 @@ public class LocationWithHidingPlace : Location {
     public IEnumerable<Opponent> CheckHidingPlace() {
         throw new NotImplementedException();
     }
+
+    public override string ToString() => Name;
 }
