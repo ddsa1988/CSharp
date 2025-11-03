@@ -64,6 +64,10 @@ public static class House {
     }
 
     public static void ClearHidingPlaces() {
-        throw new NotImplementedException();
+        foreach (Location location in Locations) {
+            if (location is not LocationWithHidingPlace hidingPlace) continue;
+
+            hidingPlace.CheckHidingPlace();
+        }
     }
 }
