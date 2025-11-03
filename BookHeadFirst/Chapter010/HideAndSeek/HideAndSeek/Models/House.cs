@@ -5,10 +5,12 @@ namespace HideAndSeek.Models;
 
 public static class House {
     public static readonly Location Entry;
+    public static readonly List<Location> Locations;
     public static Random Random;
 
     static House() {
         Entry = new Location(HouseRooms.Entry);
+        Locations = [];
         Random = new Random();
         CreateLayout();
     }
@@ -41,14 +43,24 @@ public static class House {
         landing.AddExit(Direction.South, pantry);
         landing.AddExit(Direction.Southeast, kidsRoom);
         landing.AddExit(Direction.Up, attic);
+
+        Locations.AddRange([
+            Entry, garage, hallway, kitchen, bathroom, livingRoom, landing, masterBedroom, masterBathroom,
+            secondBathroom, nursery, pantry, kidsRoom, attic
+        ]);
     }
 
     public static Location GetLocationByName(string name) {
-        throw new NotImplementedException();
+        Location location = Locations.FirstOrDefault(l => l.Name.Equals(name)) ?? Entry;
+
+        return location;
     }
 
     public static Location RandomExit(Location location) {
-        throw new NotImplementedException();
+        IDictionary<Direction, Location> exits = location.Exits;
+        Location randomExit = exits.OrderBy(pair => pair.Value.Name).Skip(Random.Next(0, exits.Count)).First().Value;
+
+        return randomExit;
     }
 
     public static void ClearHidingPlaces() {

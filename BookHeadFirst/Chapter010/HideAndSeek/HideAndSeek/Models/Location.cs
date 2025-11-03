@@ -41,8 +41,7 @@ public class Location {
     /// </summary>
     public IEnumerable<string> ExitList =>
         Exits
-            .OrderBy((pair) => (int)pair.Key)
-            .ThenBy(pair => Math.Abs((int)pair.Key))
+            .OrderBy(pair => (int)pair.Key)
             .Select(pair => $"- the {Exits[pair.Key]} is {DescribeDirection(pair.Key)}");
 
     /// <summary>

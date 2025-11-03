@@ -52,6 +52,7 @@ public class HouseTests {
 
     [TestMethod]
     public void TestGetLocationByName() {
+        Assert.AreEqual("Entry", House.GetLocationByName("Ent").Name);
         Assert.AreEqual("Entry", House.GetLocationByName("Entry").Name);
         Assert.AreEqual("Attic", House.GetLocationByName("Attic").Name);
         Assert.AreEqual("Garage", House.GetLocationByName("Garage").Name);
