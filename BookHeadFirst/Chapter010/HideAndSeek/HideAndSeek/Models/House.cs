@@ -16,12 +16,12 @@ public static class House {
     }
 
     private static void CreateLayout() {
-        var garage = new LocationWithHidingPlace(HouseRooms.Garage, HidingPlaces.Garage);
         var hallway = new Location(HouseRooms.Hallway);
+        var landing = new Location(HouseRooms.Landing);
+        var garage = new LocationWithHidingPlace(HouseRooms.Garage, HidingPlaces.Garage);
         var kitchen = new LocationWithHidingPlace(HouseRooms.Kitchen, HidingPlaces.Kitchen);
         var bathroom = new LocationWithHidingPlace(HouseRooms.Bathroom, HidingPlaces.Bathroom);
         var livingRoom = new LocationWithHidingPlace(HouseRooms.LivingRoom, HidingPlaces.LivingRoom);
-        var landing = new Location(HouseRooms.Landing);
         var masterBedroom = new LocationWithHidingPlace(HouseRooms.MasterBedroom, HidingPlaces.MasterBedroom);
         var masterBathroom = new LocationWithHidingPlace(HouseRooms.MasterBathroom, HidingPlaces.MasterBathroom);
         var secondBathroom = new LocationWithHidingPlace(HouseRooms.SecondBathroom, HidingPlaces.SecondBathroom);
