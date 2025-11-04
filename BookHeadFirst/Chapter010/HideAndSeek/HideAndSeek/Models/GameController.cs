@@ -14,7 +14,21 @@ public class GameController {
     public string Status {
         get {
             string exitsList = Environment.NewLine + string.Join(Environment.NewLine, CurrentLocation.ExitList);
-            return $"You are in the {CurrentLocation}. You see the following exits:{exitsList}";
+            string status = $"You are in the {CurrentLocation}. You see the following exits:{exitsList}";
+
+            if (CurrentLocation is LocationWithHidingPlace location) {
+                status += Environment.NewLine + $"Someone could hide {location.HidingPlace}";
+            }
+
+            if (_foundOpponents.Count > 0) {
+                status +=
+                    Environment.NewLine +
+                    $"You have found {_foundOpponents.Count} of {Opponents.Count()} opponents: {string.Join(", ", _foundOpponents)}";
+            } else {
+                status += Environment.NewLine + "You have not found any opponents";
+            }
+
+            return status;
         }
     }
 
@@ -77,7 +91,26 @@ public class GameController {
     /// <param name="input">Input to parse</param>
     /// <returns>The results of parsing the input</returns>
     public string ParseInput(string input) {
+        bool isInputCheck = input.Equals("check", StringComparison.CurrentCultureIgnoreCase);
         bool isInputValid = Enum.TryParse(input, out Direction direction);
+
+        MoveNumber++;
+
+        if (isInputCheck) {
+            if (CurrentLocation is not LocationWithHidingPlace location) {
+                return $"There is no hiding place in the {CurrentLocation.Name}";
+            }
+
+            List<Opponent> hiddenOpponents = location.CheckHidingPlace().ToList();
+
+            if (hiddenOpponents.Count <= 0) return $"Nobody was hiding {location.HidingPlace}";
+
+            _foundOpponents.AddRange(hiddenOpponents);
+
+            string opponentStr = $"opponent{(hiddenOpponents.Count == 1 ? "" : "s")}";
+
+            return $"You found {hiddenOpponents.Count} {opponentStr} hiding {location.HidingPlace}";
+        }
 
         if (!isInputValid) {
             return "That's not a valid direction";

@@ -2,7 +2,7 @@
 
 public static class HidingPlaces {
     public const string Garage = "behind the car";
-    public const string Kitchen = "next to stove";
+    public const string Kitchen = "next to the stove";
     public const string Bathroom = "behind the door";
     public const string LivingRoom = "behind the sofa";
     public const string MasterBedroom = "in the closet";

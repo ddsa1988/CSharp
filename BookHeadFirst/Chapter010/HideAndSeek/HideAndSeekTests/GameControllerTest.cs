@@ -48,13 +48,16 @@ public class GameControllerTest {
                         Environment.NewLine + "- the Bathroom is to the North" +
                         Environment.NewLine + "- the Living Room is to the South" +
                         Environment.NewLine + "- the Entry is to the West" +
-                        Environment.NewLine + "- the Kitchen is to the Northwest", _gameController.Status);
+                        Environment.NewLine + "- the Kitchen is to the Northwest" +
+                        Environment.NewLine + "You have not found any opponents", _gameController.Status);
 
         Assert.AreEqual("Moving South", _gameController.ParseInput("South"));
 
         Assert.AreEqual(
-            "You are in the Living Room. You see the following exits:" + Environment.NewLine +
-            "- the Hallway is to the North", _gameController.Status);
+            "You are in the Living Room. You see the following exits:" +
+            Environment.NewLine + "- the Hallway is to the North" +
+            Environment.NewLine + "Someone could hide behind the sofa" +
+            Environment.NewLine + "You have not found any opponents", _gameController.Status);
     }
 
     [TestMethod]
@@ -93,7 +96,7 @@ public class GameControllerTest {
         // We hid Joe in the Garage, so validate ParseInput's return value and the properties
         Assert.AreEqual("You found 1 opponent hiding behind the car", _gameController.ParseInput("check"));
         Assert.AreEqual("You are in the Garage. You see the following exits:" +
-                        Environment.NewLine + " - the Entry is In" +
+                        Environment.NewLine + "- the Entry is In" +
                         Environment.NewLine + "Someone could hide behind the car" +
                         Environment.NewLine + "You have found 1 of 5 opponents: Joe", _gameController.Status);
 
@@ -115,7 +118,7 @@ public class GameControllerTest {
 
         Assert.AreEqual("You found 2 opponents hiding next to the stove", _gameController.ParseInput("check"));
         Assert.AreEqual("You are in the Kitchen. You see the following exits:" +
-                        Environment.NewLine + " - the Hallway is to the Southeast" +
+                        Environment.NewLine + "- the Hallway is to the Southeast" +
                         Environment.NewLine + "Someone could hide next to the stove" +
                         Environment.NewLine + "You have found 3 of 5 opponents: Joe, Bob, Jimmy",
             _gameController.Status);
@@ -139,7 +142,7 @@ public class GameControllerTest {
         Assert.AreEqual(17, _gameController.MoveNumber);
         Assert.AreEqual("You found 2 opponents hiding in a trunk", _gameController.ParseInput("check"));
         Assert.AreEqual("You are in the Attic. You see the following exits:" +
-                        Environment.NewLine + " - the Landing is Down" +
+                        Environment.NewLine + "- the Landing is Down" +
                         Environment.NewLine + "Someone could hide in a trunk" +
                         Environment.NewLine +
                         "You have found 5 of 5 opponents: Joe, Bob, Jimmy, Ana, Owen", _gameController.Status);
