@@ -41,11 +41,11 @@ public class GameController {
     /// Private list of opponents the player needs to find
     /// </summary>
     public readonly IEnumerable<Opponent> Opponents = new List<Opponent>() {
-        new Opponent("Joe"),
-        new Opponent("Bob"),
-        new Opponent("Ana"),
-        new Opponent("Owen"),
-        new Opponent("Jimmy"),
+        new("Joe"),
+        new("Bob"),
+        new("Ana"),
+        new("Owen"),
+        new("Jimmy"),
     };
 
     /// <summary>
