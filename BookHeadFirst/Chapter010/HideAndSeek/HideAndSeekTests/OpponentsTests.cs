@@ -7,8 +7,6 @@ namespace HideAndSeekTests;
 public class OpponentsTests {
     [TestMethod]
     public void TestOpponentHiding() {
-        List<Location> houseLocations = House.Locations;
-
         var opponent1 = new Opponent("Opponent1");
         Assert.AreEqual("Opponent1", opponent1.Name);
 
