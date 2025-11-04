@@ -19,13 +19,45 @@ public class GameController {
     }
 
     /// <summary>
-    /// A prompt to display to the player
+    /// The number of moves the player has made
     /// </summary>
-    public string Prompt => "Which direction do you want to go: ";
+    public int MoveNumber { get; private set; } = 1;
+
+    /// <summary>
+    /// Private list of opponents the player needs to find
+    /// </summary>
+    public readonly IEnumerable<Opponent> Opponents = new List<Opponent>() {
+        new Opponent("Joe"),
+        new Opponent("Bob"),
+        new Opponent("Ana"),
+        new Opponent("Owen"),
+        new Opponent("Jimmy"),
+    };
+
+    /// <summary>
+    /// Private list of opponents the player has found so far
+    /// </summary>
+    private readonly List<Opponent> _foundOpponents = [];
 
     public GameController() {
+        House.ClearHidingPlaces();
+
+        foreach (Opponent opponent in Opponents) {
+            opponent.Hide();
+        }
+
         CurrentLocation = House.Entry;
     }
+
+    /// <summary>
+    /// Returns true if the game is over
+    /// </summary>
+    public bool GameOver => Opponents.Count() == _foundOpponents.Count;
+
+    /// <summary>
+    /// A prompt to display to the player
+    /// </summary>
+    public string Prompt => $"{MoveNumber}: Which direction do you want to go (or type 'check'): ";
 
     /// <summary>
     /// Move to the location in a direction
