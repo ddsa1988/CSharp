@@ -137,6 +137,8 @@ public class GameController {
 
                 string json = JsonSerializer.Serialize(savedGame, JsonWriteOptions);
 
+                ManageGameFile.Write(json);
+
                 return "Saved current game";
             }
             case UserChoices.Load: {
