@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Text.Json;
 using HideAndSeek.Enums;
 using HideAndSeek.Services;
@@ -29,7 +30,7 @@ public class GameController {
     /// <summary>
     /// Private dictionary of opponents locations for saved game
     /// </summary>
-    private readonly Dictionary<string, string> _opponentsLocations = new();
+    private Dictionary<string, string> _opponentsLocations = new();
 
     /// <summary>
     /// Private list of opponents the player has found so far
@@ -128,12 +129,8 @@ public class GameController {
                 return $"You found {hiddenOpponents.Count} {opponentStr} hiding {location.HidingPlace}";
             }
             case UserChoices.Save: {
-                SavedGame savedGame = new() {
-                    PlayerLocation = CurrentLocation.Name,
-                    OpponentsLocations = _opponentsLocations,
-                    OpponentsFound = _opponentsFound.Select(opponent => opponent.Name).ToList(),
-                    MoveNumber = this.MoveNumber,
-                };
+                SavedGame savedGame = new(CurrentLocation.Name, _opponentsLocations,
+                    _opponentsFound.Select(opponent => opponent.Name).ToList(), MoveNumber);
 
                 string json = JsonSerializer.Serialize(savedGame, JsonWriteOptions);
 
@@ -142,6 +139,42 @@ public class GameController {
                 return "Saved current game";
             }
             case UserChoices.Load: {
+                string json = ManageGameFile.Read();
+
+                if (string.IsNullOrWhiteSpace(json)) {
+                    return "Nothing to reload";
+                }
+
+                SavedGame? savedGame = null;
+
+                try {
+                    savedGame = JsonSerializer.Deserialize<SavedGame>(json);
+                } catch (JsonException ex) {
+                    Debug.WriteLine(ex.Message);
+                } catch (Exception ex) {
+                    Debug.WriteLine(ex.Message);
+                }
+
+                if (savedGame is null) return "Nothing to reload";
+
+                House.ClearHidingPlaces();
+
+                CurrentLocation = House.GetLocationByName(savedGame.PlayerLocation);
+
+                _opponentsLocations = savedGame.OpponentsLocations;
+
+                foreach ((string opponentName, string locationName) in _opponentsLocations) {
+                    var opponent = new Opponent(opponentName);
+                    if (House.GetLocationByName(locationName) is not LocationWithHidingPlace location) continue;
+
+                    location.Hide(opponent);
+                }
+
+                _opponentsFound.Clear();
+                _opponentsFound.AddRange(savedGame.OpponentsFound.Select(name => new Opponent(name)).ToList());
+
+                MoveNumber = savedGame.MoveNumber;
+
                 return "Loaded game";
             }
             case UserChoices.Quit: {
