@@ -4,8 +4,8 @@ using HideAndSeek.Services;
 namespace HideAndSeek.Models;
 
 public static class House {
+    private static readonly List<Location> Locations;
     public static readonly Location Entry;
-    public static readonly List<Location> Locations;
     public static Random Random;
 
     static House() {

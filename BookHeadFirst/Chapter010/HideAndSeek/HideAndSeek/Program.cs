@@ -6,9 +6,9 @@ public static class Program {
     public static void Main() {
         while (true) {
             var gameController = new GameController();
-            
+
             while (!gameController.GameOver) {
-                Console.WriteLine(gameController.Status);
+                Console.WriteLine(gameController.Status + Environment.NewLine);
                 Console.Write(gameController.Prompt);
                 Console.WriteLine(gameController.ParseInput(Console.ReadLine() ?? string.Empty));
             }
