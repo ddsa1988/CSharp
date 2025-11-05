@@ -39,12 +39,18 @@ public class GameController {
     /// <summary>
     /// Returns true if the game is over
     /// </summary>
-    public bool GameOver => Opponents.Count() == _opponentsFound.Count;
+    public bool IsGameOver => Opponents.Count() == _opponentsFound.Count;
+
+    /// <summary>
+    /// Returns true if the player quit the game
+    /// </summary>
+    public bool QuitGame { get; private set; }
 
     /// <summary>
     /// A prompt to display to the player
     /// </summary>
-    public string Prompt => $"{MoveNumber}: Which direction do you want to go (or type 'check', 'save', 'load'): ";
+    public string Prompt =>
+        $"{MoveNumber}: Which direction do you want to go (or type 'check', 'save', 'load', 'quit'): ";
 
     /// <summary>
     /// Constructor
@@ -131,10 +137,14 @@ public class GameController {
 
                 string json = JsonSerializer.Serialize(savedGame, JsonWriteOptions);
 
-                return string.Empty;
+                return "Saved current game";
             }
             case UserChoices.Load: {
-                break;
+                return "Loaded game";
+            }
+            case UserChoices.Quit: {
+                QuitGame = true;
+                return "Exiting the game";
             }
         }
 

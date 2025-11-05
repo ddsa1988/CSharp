@@ -64,7 +64,7 @@ public class GameControllerTest {
     public void TestParseCheck() {
         if (_gameController == null) return;
 
-        Assert.IsFalse(_gameController.GameOver);
+        Assert.IsFalse(_gameController.IsGameOver);
 
         // Clear the hiding places and hide the opponents in specific rooms
         House.ClearHidingPlaces();
@@ -124,7 +124,7 @@ public class GameControllerTest {
             _gameController.Status);
         Assert.AreEqual("11: Which direction do you want to go (or type 'check'): ", _gameController.Prompt);
         Assert.AreEqual(11, _gameController.MoveNumber);
-        Assert.IsFalse(_gameController.GameOver);
+        Assert.IsFalse(_gameController.IsGameOver);
 
         // Head up to the Landing, then check the Pantry (nobody's hiding there)
         _gameController.ParseInput("Southeast");
@@ -149,6 +149,6 @@ public class GameControllerTest {
 
         Assert.AreEqual("18: Which direction do you want to go (or type 'check'): ", _gameController.Prompt);
         Assert.AreEqual(18, _gameController.MoveNumber);
-        Assert.IsTrue(_gameController.GameOver);
+        Assert.IsTrue(_gameController.IsGameOver);
     }
 }
