@@ -1,2 +1,0 @@
-{"Name":"Diego","Email":"diego@email","Phone":"9999","WillAttend":true}
-{"Name":"Amanda","Email":"amanda@email","Phone":"88888","WillAttend":true}
