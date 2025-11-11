@@ -6,9 +6,10 @@ public static class ExtensionMethods {
         if (array.Length == 0) return;
 
         int lenght = array.Length;
-        bool swapped = false;
 
         for (int i = 0; i < lenght - 1; i++) {
+            bool swapped = false;
+
             for (int j = 0; j < lenght - i - 1; j++) {
                 if (array[j].CompareTo(array[j + 1]) <= 0) continue;
 
