@@ -3,11 +3,11 @@ using System.Text.Json;
 namespace PartyInvites.Models;
 
 public static class Repository {
-    private static readonly List<GuestResponse> Responses;
+    private static readonly List<GuestResponse> Responses = [];
 
-    static Repository() {
-        Responses = [];
-    }
+    private static readonly JsonSerializerOptions JsonWriteOptions = new() {
+        WriteIndented = true
+    };
 
     public static IEnumerable<GuestResponse> GuestResponses => Responses;
 
@@ -15,6 +15,7 @@ public static class Repository {
         Responses.Add(response);
     }
 
+    // Extension methods
     public static string ToJson(this IEnumerable<GuestResponse> guestResponses) {
         List<GuestResponse> responses = guestResponses.ToList();
 
@@ -40,8 +41,4 @@ public static class Repository {
 
         return responses ?? Enumerable.Empty<GuestResponse>();
     }
-
-    private static readonly JsonSerializerOptions JsonWriteOptions = new() {
-        WriteIndented = true
-    };
 }
