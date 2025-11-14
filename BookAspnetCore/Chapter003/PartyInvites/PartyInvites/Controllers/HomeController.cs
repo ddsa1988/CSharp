@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using PartyInvites.Models;
 using PartyInvites.Utilities;
@@ -20,7 +19,7 @@ public class HomeController : Controller {
         Repository.AddGuestResponse(guestResponse);
         string json = Repository.GuestResponses.ToJson();
         RepositoryFile.Write(json);
-        
+
         return View("Thanks", guestResponse);
     }
 }
