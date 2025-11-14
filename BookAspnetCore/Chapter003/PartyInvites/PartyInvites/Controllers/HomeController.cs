@@ -16,10 +16,17 @@ public class HomeController : Controller {
 
     [HttpPost]
     public ViewResult RsvpForm(GuestResponse guestResponse) {
+        if (!ModelState.IsValid) return View();
+
         Repository.AddGuestResponse(guestResponse);
         string json = Repository.GuestResponses.ToJson();
         RepositoryFile.Write(json);
 
         return View("Thanks", guestResponse);
+    }
+
+    [HttpGet]
+    public ViewResult ListResponses() {
+        return View(Repository.GuestResponses.Where(response => response.WillAttend == true));
     }
 }
