@@ -6,7 +6,6 @@ public static class RepositoryFile {
     private static readonly string DirectoryPath = AppContext.BaseDirectory + FolderName;
     private static readonly string FilePath = Path.Combine(DirectoryPath, FileName);
 
-
     public static void Write(string content) {
         if (string.IsNullOrEmpty(content.Trim())) return;
 
