@@ -1,13 +1,37 @@
 using System.Text.Json;
+using PartyInvites.Utilities;
 
 namespace PartyInvites.Models;
 
 public static class Repository {
-    private static readonly List<GuestResponse> Responses = [];
+    private static readonly List<GuestResponse> Responses;
 
     private static readonly JsonSerializerOptions JsonWriteOptions = new() {
         WriteIndented = true
     };
+
+    static Repository() {
+        Responses = InitializeRepository();
+    }
+
+    private static List<GuestResponse> InitializeRepository() {
+        List<GuestResponse>? responses = null;
+        string json = RepositoryFile.Read();
+
+        if (string.IsNullOrEmpty(json.Trim())) return [];
+
+        try {
+            responses = JsonSerializer.Deserialize<List<GuestResponse>>(json);
+        } catch (JsonException ex) {
+            Console.WriteLine(ex.Message);
+        } catch (NotSupportedException ex) {
+            Console.WriteLine(ex.Message);
+        } catch (Exception ex) {
+            Console.WriteLine(ex.Message);
+        }
+
+        return responses ?? [];
+    }
 
     public static IEnumerable<GuestResponse> GuestResponses => Responses;
 
@@ -24,21 +48,5 @@ public static class Repository {
         string json = JsonSerializer.Serialize(responses, JsonWriteOptions);
 
         return json;
-    }
-
-    public static IEnumerable<GuestResponse> ToGuestResponsesRepository(this string json) {
-        List<GuestResponse>? responses = null;
-
-        try {
-            responses = JsonSerializer.Deserialize<List<GuestResponse>>(json);
-        } catch (JsonException ex) {
-            Console.WriteLine(ex.Message);
-        } catch (NotSupportedException ex) {
-            Console.WriteLine(ex.Message);
-        } catch (Exception ex) {
-            Console.WriteLine(ex.Message);
-        }
-
-        return responses ?? Enumerable.Empty<GuestResponse>();
     }
 }
