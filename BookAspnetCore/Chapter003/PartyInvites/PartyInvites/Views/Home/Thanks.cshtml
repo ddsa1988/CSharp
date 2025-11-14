@@ -10,9 +10,10 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Thanks</title>
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css"/>
 </head>
 <body>
-    <div>
+    <div class="text-center">
         <h1>Thank you, @Model.Name!</h1>
         @if (Model.WillAttend == true) {
             @:It's great that you're coming. The drinks are already in the fridge!
@@ -20,7 +21,7 @@
             @:Sorry to hear that you can't make it, but thanks for letting us know.
         }
     </div>
-    <div>
+    <div class="text-center">
         Click <a asp-controller="Home" asp-action="ListResponses">here</a> to see who is coming.
     </div>
 </body>

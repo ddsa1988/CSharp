@@ -8,16 +8,17 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Party</title>
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css"/>
 </head>
 <body>
-    <div>
+    <div class="text-center m-2">
         <p>We're going to have an exciting party.<br/>(To do: sell it better. Add pictures or something.)</p>
     </div>
-    <div>
-        <a asp-controller="Home" asp-action="RsvpForm">Rsvp Now</a>
+    <div class="text-center m-2">
+        <a asp-controller="Home" asp-action="RsvpForm" class="btn btn-primary w-25">Rsvp now</a>
     </div>
-    <div>
-        Click <a asp-controller="Home" asp-action="ListResponses">here</a> to see who is coming.
+    <div class="text-center m-2">
+        <a asp-controller="Home" asp-action="ListResponses" class="btn btn-primary w-25">People attending the party</a>
     </div>
 </body>
 </html>

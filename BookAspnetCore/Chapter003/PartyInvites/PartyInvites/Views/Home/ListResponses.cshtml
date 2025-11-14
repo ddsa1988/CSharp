@@ -10,10 +10,11 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>List Responses</title>
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css"/>
 </head>
 <body>
-    <h2>Here is the list of people attending the party</h2>
-    <table>
+    <h5 class="bg-primary text-white text-center m-2 p-2">Here is the list of people attending the party</h5>
+    <table class="table table-bordered table-striped table-sm">
         <thead>
             <tr>
                 <th>Name</th>
@@ -31,5 +32,8 @@
             }
         </tbody>
     </table>
+    <div class="m-2">
+        <a asp-controller="Home" asp-action="Index" class="btn btn-primary">Home page</a>
+    </div>
 </body>
 </html>
