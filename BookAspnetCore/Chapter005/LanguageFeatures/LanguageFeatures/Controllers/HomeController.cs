@@ -1,11 +1,15 @@
-using Microsoft.AspNetCore.Mvc;
+// using Microsoft.AspNetCore.Mvc;
+// using LanguageFeatures.Models;
 
 namespace LanguageFeatures.Controllers;
 
 public class HomeController : Controller {
     public ViewResult Index() {
-        string[] strings = ["C#", "Language", "Features"];
+        Product[] products = Product.GetProducts();
 
-        return View(strings);
+        IEnumerable<string> productsDescription =
+            products.Select(p => $"{nameof(p.Name)}: {p.Name}, {nameof(p.Price)}: {p.Price:C2}");
+
+        return View(productsDescription);
     }
 }
