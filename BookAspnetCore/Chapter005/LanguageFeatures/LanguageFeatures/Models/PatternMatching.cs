@@ -13,6 +13,8 @@ public static class PatternMatching {
             total += decimalValue;
         }
 
+        // decimal total = data.OfType<decimal>().Sum();
+
         return total;
     }
 
