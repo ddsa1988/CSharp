@@ -4,12 +4,25 @@
 namespace LanguageFeatures.Controllers;
 
 public class HomeController : Controller {
-    public ViewResult Index() {
-        Product[] products = Product.GetProducts();
+    public async Task<ViewResult> Index() {
+        // Product[] products = Product.GetProducts();
+        //
+        // IEnumerable<string> productsDescription =
+        //     products.Select(p => $"{nameof(p.Name)}: {p.Name}, {nameof(p.Price)}: {p.Price:C2}");
+        //
+        // return View(productsDescription);
 
-        IEnumerable<string> productsDescription =
-            products.Select(p => $"{nameof(p.Name)}: {p.Name}, {nameof(p.Price)}: {p.Price:C2}");
+        // long length = await MyAsyncMethods.GetPageLength("https://apress.com");
+        //
+        // return View(new[] { $"Length: {length}" });
 
-        return View(productsDescription);
+        var output = new List<string>();
+        string[] urls = ["https://apress.com", "https://microsoft.com", "https://amazon.com"];
+
+        foreach (long length in await MyAsyncMethods.GetPageLengths(output, urls)) {
+            output.Add($"Page length: {length}");
+        }
+
+        return View(output);
     }
 }
