@@ -1,3 +1,10 @@
+@using SimpleApp.Models
+@model IEnumerable<Product>
+
+@{
+    Layout = null;
+}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +13,10 @@
     <title>Simple App</title>
 </head>
 <body>
-    <h1>Simple App</h1>
+    <ul>
+        @foreach (Product product in Model) {
+            <li>@product.Description()</li>
+        }
+    </ul>
 </body>
 </html>
