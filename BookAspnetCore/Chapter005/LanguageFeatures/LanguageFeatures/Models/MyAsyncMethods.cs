@@ -1,7 +1,7 @@
 namespace LanguageFeatures.Models;
 
 public static class MyAsyncMethods {
-    public static async Task<long> GetPageLength(string url) {
+    private static async Task<long> GetPageLength(string url) {
         var client = new HttpClient();
         client.Timeout = TimeSpan.FromSeconds(30);
         HttpResponseMessage? response = null;
@@ -24,15 +24,12 @@ public static class MyAsyncMethods {
         return 0;
     }
 
-    public static async Task<IEnumerable<long>> GetPageLengths(List<string> output, params string[] urls) {
-        var results = new List<long>();
-
+    public static async IAsyncEnumerable<long> GetPageLengths(List<string> output, params string[] urls) {
         foreach (string url in urls) {
             output.Add($"Started request for {url}");
-            results.Add(await GetPageLength(url));
             output.Add($"Completed request for {url}");
+            long length = await GetPageLength(url);
+            yield return length;
         }
-
-        return results;
     }
 }

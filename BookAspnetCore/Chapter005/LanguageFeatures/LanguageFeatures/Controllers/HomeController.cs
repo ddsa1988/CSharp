@@ -19,7 +19,7 @@ public class HomeController : Controller {
         var output = new List<string>();
         string[] urls = ["https://apress.com", "https://microsoft.com", "https://amazon.com"];
 
-        foreach (long length in await MyAsyncMethods.GetPageLengths(output, urls)) {
+        await foreach (long length in MyAsyncMethods.GetPageLengths(output, urls)) {
             output.Add($"Page length: {length}");
         }
 
