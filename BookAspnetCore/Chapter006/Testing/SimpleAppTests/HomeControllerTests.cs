@@ -16,7 +16,7 @@ public class HomeControllerTests {
         };
 
         var mock = new Mock<IDataSource>();
-        mock.Setup(m => m.Products).Returns(testData);
+        mock.Setup(dataSource => dataSource.Products).Returns(testData);
         var controller = new HomeController();
         controller.DataSource = mock.Object;
 
