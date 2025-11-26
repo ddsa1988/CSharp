@@ -5,12 +5,18 @@ namespace SportsStore.Controllers;
 
 public class HomeController : Controller {
     private readonly IStoreRepository _repository;
+    public int PageSize = 4;
 
     public HomeController(IStoreRepository repository) {
         _repository = repository;
     }
 
-    public IActionResult Index() {
-        return View(_repository.Products);
+    public ViewResult Index(int productPage = 1) {
+        IQueryable<Product> products = _repository.Products
+            .OrderBy(p => p.ProductId)
+            .Skip((productPage - 1) * PageSize)
+            .Take(PageSize);
+
+        return View(products);
     }
 }
