@@ -7,7 +7,7 @@ using SportsStore.Models.ViewModels;
 
 namespace SportsStore.Infrastructure;
 
-[HtmlTargetElement("div", Attributes = "page-model")]
+[HtmlTargetElement("div", Attributes = "page-info")]
 public class PageLinkTagHelper : TagHelper {
     private readonly IUrlHelperFactory _urlHelperFactory;
     [ViewContext] [HtmlAttributeNotBound] public ViewContext? ViewContext { get; set; }
@@ -22,15 +22,12 @@ public class PageLinkTagHelper : TagHelper {
         if (ViewContext == null || PageInfo == null) return;
 
         IUrlHelper urlHelper = _urlHelperFactory.GetUrlHelper(ViewContext);
-        var divTag = new TagBuilder("div");
 
-        for (int i = 1; i < PageInfo.TotalPages; i++) {
+        for (int i = 1; i <= PageInfo.TotalPages; i++) {
             var anchorTag = new TagBuilder("a");
             anchorTag.Attributes["href"] = urlHelper.Action(PageAction, new { productPage = i });
             anchorTag.InnerHtml.Append(i.ToString());
-            divTag.InnerHtml.AppendHtml(anchorTag);
+            output.Content.AppendHtml(anchorTag);
         }
-
-        output.Content.AppendHtml(divTag);
     }
 }
