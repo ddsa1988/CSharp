@@ -14,6 +14,11 @@ public class PageLinkTagHelper : TagHelper {
     public PageInfo? PageInfo { get; set; }
     public string? PageAction { get; set; }
 
+    public bool PageClassesEnabled { get; set; }
+    public string PageClass { get; set; } = string.Empty;
+    public string PageClassNormal { get; set; } = string.Empty;
+    public string PageClassSelected { get; set; } = string.Empty;
+
     public PageLinkTagHelper(IUrlHelperFactory urlHelperFactory) {
         _urlHelperFactory = urlHelperFactory;
     }
@@ -26,6 +31,12 @@ public class PageLinkTagHelper : TagHelper {
         for (int i = 1; i <= PageInfo.TotalPages; i++) {
             var anchorTag = new TagBuilder("a");
             anchorTag.Attributes["href"] = urlHelper.Action(PageAction, new { productPage = i });
+
+            if (PageClassesEnabled) {
+                anchorTag.AddCssClass(PageClass);
+                anchorTag.AddCssClass(i == PageInfo.CurrentPage ? PageClassSelected : PageClassNormal);
+            }
+
             anchorTag.InnerHtml.Append(i.ToString());
             output.Content.AppendHtml(anchorTag);
         }
