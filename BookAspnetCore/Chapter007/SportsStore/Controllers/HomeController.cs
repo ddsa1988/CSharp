@@ -12,14 +12,18 @@ public class HomeController : Controller {
         _repository = repository;
     }
 
-    public ViewResult Index(int productPage = 1) {
+    public ViewResult Index(string? category, int productPage = 1) {
         var productsListViewModel = new ProductsListViewModel() {
-            Products = _repository.Products.OrderBy(p => p.ProductId).Skip((productPage - 1) * PageSize).Take(PageSize),
+            Products = _repository.Products
+                .Where(p => category == null || p.Category == category)
+                .OrderBy(p => p.ProductId)
+                .Skip((productPage - 1) * PageSize).Take(PageSize),
             PageInfo = new PageInfo {
                 CurrentPage = productPage,
                 ItemsPerPage = PageSize,
                 TotalItems = _repository.Products.Count()
-            }
+            },
+            CurrentCategory = category
         };
 
         return View(productsListViewModel);

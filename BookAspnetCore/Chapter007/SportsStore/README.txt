@@ -9,4 +9,4 @@ Views/Home: This folder will contain Razor files that are specific to the Home c
 
 Views/Shared: This folder will contain Razor files that are common to all controllers.
 
-Page: 177
+Page: 182
