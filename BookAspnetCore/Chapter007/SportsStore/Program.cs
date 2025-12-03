@@ -13,6 +13,8 @@ builder.Services.AddDbContext<StoreDbContext>(options => { options.UseSqlite(con
 
 builder.Services.AddScoped<IStoreRepository, EfStoreRepository>();
 
+builder.Services.AddRazorPages();
+
 WebApplication app = builder.Build();
 
 app.UseStaticFiles();
@@ -30,6 +32,8 @@ app.MapControllerRoute("pagination", "Products/Page{productPage:int}",
     new { controller = "Home", action = "Index", productPage = 1 });
 
 app.MapDefaultControllerRoute();
+
+app.MapRazorPages();
 
 SeedData.EnsurePopulated(app);
 
