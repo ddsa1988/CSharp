@@ -14,10 +14,13 @@ builder.Services.AddDbContext<StoreDbContext>(options => { options.UseSqlite(con
 builder.Services.AddScoped<IStoreRepository, EfStoreRepository>();
 
 builder.Services.AddRazorPages();
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession();
 
 WebApplication app = builder.Build();
 
 app.UseStaticFiles();
+app.UseSession();
 
 app.MapControllerRoute("categoryPage", "{category}/Page{productPage:int}",
     new { controller = "Home", action = "Index" });
