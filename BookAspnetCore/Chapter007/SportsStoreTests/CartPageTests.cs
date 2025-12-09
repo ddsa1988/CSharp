@@ -34,7 +34,7 @@ public class CartPageTests {
         mockContext.Setup(context => context.Session).Returns(mockSession.Object);
 
         // Act
-        var cartModel = new CartModel(mockRepository.Object) {
+        var cartModel = new CartModel(mockRepository.Object, testCart) {
             PageContext = new PageContext(new ActionContext() {
                 HttpContext = mockContext.Object,
                 RouteData = new RouteData(),
@@ -68,7 +68,7 @@ public class CartPageTests {
         mockContext.Setup(context => context.Session).Returns(mockSession.Object);
 
         // Act
-        var cartModel = new CartModel(mockRepository.Object) {
+        var cartModel = new CartModel(mockRepository.Object, testCart) {
             PageContext = new PageContext(new ActionContext {
                 HttpContext = mockContext.Object,
                 RouteData = new RouteData(),

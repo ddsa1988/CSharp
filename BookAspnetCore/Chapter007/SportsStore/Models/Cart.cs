@@ -9,7 +9,7 @@ public class CartLine {
 public class Cart {
     public List<CartLine> CartLines { get; set; } = [];
 
-    public void AddItem(Product product, int quantity) {
+    public virtual void AddItem(Product product, int quantity) {
         CartLine? cartLine = CartLines.FirstOrDefault(cart => cart.Product.ProductId == product.ProductId);
 
         if (cartLine == null) {
@@ -20,7 +20,7 @@ public class Cart {
         }
     }
 
-    public void RemoveItem(Product product) {
+    public virtual void RemoveItem(Product product) {
         CartLines.RemoveAll(cart => cart.Product.ProductId == product.ProductId);
     }
 
@@ -28,7 +28,7 @@ public class Cart {
         return CartLines.Sum(cart => cart.Product.Price * cart.Quantity);
     }
 
-    public void Clear() {
+    public virtual void Clear() {
         CartLines.Clear();
     }
 }
