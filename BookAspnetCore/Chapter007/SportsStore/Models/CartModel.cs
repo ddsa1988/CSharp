@@ -27,4 +27,9 @@ public class CartModel : PageModel {
 
         return RedirectToPage(new { returnUrl });
     }
+
+    public IActionResult OnPostRemove(long productId, string returnUrl) {
+        Cart.RemoveItem(Cart.CartLines.First(cartLine => cartLine.Product.ProductId == productId).Product);
+        return RedirectToPage(new { returnUrl });
+    }
 }
