@@ -12,6 +12,8 @@ string connectionString = "Data Source=" + Path.Combine(Directory.GetCurrentDire
 builder.Services.AddDbContext<StoreDbContext>(options => { options.UseSqlite(connectionString); });
 
 builder.Services.AddScoped<IStoreRepository, EfStoreRepository>();
+builder.Services.AddScoped<IOrderRepository, EfOrderRepository>();
+
 builder.Services.AddRazorPages();
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession();
