@@ -19,6 +19,7 @@ builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession();
 builder.Services.AddScoped(SessionCart.GetCart);
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+builder.Services.AddServerSideBlazor();
 
 WebApplication app = builder.Build();
 
@@ -38,8 +39,9 @@ app.MapControllerRoute("pagination", "Products/Page{productPage:int}",
     new { controller = "Home", action = "Index", productPage = 1 });
 
 app.MapDefaultControllerRoute();
-
 app.MapRazorPages();
+app.MapBlazorHub();
+app.MapFallbackToPage("/admin/{*catchall}", "/Admin/Index");
 
 SeedData.EnsurePopulated(app);
 
