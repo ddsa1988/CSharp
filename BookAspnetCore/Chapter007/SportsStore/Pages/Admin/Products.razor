@@ -1,4 +1,22 @@
 @page "/admin/products"
 @page "/admin"
+@inherits OwningComponentBase<IStoreRepository>
 
-<h4>This is the products component</h4>
+
+@code{
+
+    private IStoreRepository Repository => Service;
+    private IEnumerable<Product> ProductData { get; set; } = [];
+
+    protected override async Task OnInitializedAsync() {
+        await UpdateData();
+    }
+
+    private async Task UpdateData() {
+        ProductData = await Repository.Products.ToListAsync();
+    }
+
+    private string GetDetailsUrl(long id) => $"/admin/products/details/{id}";
+    private string GetEditUrl(long id) => $"/admin/products/edit/{id}";
+
+}
