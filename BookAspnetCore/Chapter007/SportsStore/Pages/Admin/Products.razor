@@ -2,6 +2,40 @@
 @page "/admin"
 @inherits OwningComponentBase<IStoreRepository>
 
+<table class="table table-sm table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (ProductData.Any()) {
+            @foreach (Product product in ProductData) {
+                <tr>
+                    <td>@product.ProductId</td>
+                    <td>@product.Name</td>
+                    <td>@product.Category</td>
+                    <td>@product.Price.ToString("c")</td>
+                    <td>
+                        <NavLink class="btn btn-info btn-sm" href="@GetDetailsUrl(product.ProductId ?? 0)">Details
+                        </NavLink>
+                        <NavLink class="btn btn-warning btn-sm" href="@GetEditUrl(product.ProductId ?? 0)">Edit
+                        </NavLink>
+                    </td>
+                </tr>
+            }
+        } else {
+            <tr>
+                <td colspan="5" class="text-center">No Products</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<NavLink class="btn btn-primary" href="/admin/products/create">Create</NavLink>
 
 @code{
 
@@ -16,7 +50,7 @@
         ProductData = await Repository.Products.ToListAsync();
     }
 
-    private string GetDetailsUrl(long id) => $"/admin/products/details/{id}";
-    private string GetEditUrl(long id) => $"/admin/products/edit/{id}";
+    private static string GetDetailsUrl(long id) => $"/admin/products/details/{id}";
+    private static string GetEditUrl(long id) => $"/admin/products/edit/{id}";
 
 }
