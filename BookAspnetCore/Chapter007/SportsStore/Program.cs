@@ -1,15 +1,22 @@
 using Microsoft.EntityFrameworkCore;
 using SportsStore.Models;
+using Microsoft.AspNetCore.Identity;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 
-string connectionString = "Data Source=" + Path.Combine(Directory.GetCurrentDirectory(), "Database", "SportsStore.db");
+string storeConnection = "Data Source=" + Path.Combine(Directory.GetCurrentDirectory(), "Database", "SportsStore.db");
 
-//string? connectionString = builder.Configuration.GetConnectionString("SportsStoreConnection");
+string identityConnection = "Data Source=" + Path.Combine(Directory.GetCurrentDirectory(), "Database", "Identity.db");
 
-builder.Services.AddDbContext<StoreDbContext>(options => { options.UseSqlite(connectionString); });
+//string? storeConnection = builder.Configuration.GetConnectionString("SportsStoreConnection");
+//string? identityConnection = builder.Configuration.GetConnectionString("IdentityConnection");
+
+builder.Services.AddDbContext<StoreDbContext>(options => { options.UseSqlite(storeConnection); });
+
+builder.Services.AddDbContext<AppIdentityDbContext>(options => { options.UseSqlite(identityConnection); });
+builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AppIdentityDbContext>();
 
 builder.Services.AddScoped<IStoreRepository, EfStoreRepository>();
 builder.Services.AddScoped<IOrderRepository, EfOrderRepository>();
@@ -25,6 +32,9 @@ WebApplication app = builder.Build();
 
 app.UseStaticFiles();
 app.UseSession();
+
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapControllerRoute("categoryPage", "{category}/Page{productPage:int}",
     new { controller = "Home", action = "Index" });
