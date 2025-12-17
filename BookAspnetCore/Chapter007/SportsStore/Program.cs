@@ -7,7 +7,6 @@ WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 string storeConnection = "Data Source=" + Path.Combine(Directory.GetCurrentDirectory(), "Database", "SportsStore.db");
-
 string identityConnection = "Data Source=" + Path.Combine(Directory.GetCurrentDirectory(), "Database", "Identity.db");
 
 //string? storeConnection = builder.Configuration.GetConnectionString("SportsStoreConnection");
