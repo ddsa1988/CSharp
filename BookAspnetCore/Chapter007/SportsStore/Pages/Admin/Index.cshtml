@@ -1,8 +1,9 @@
-@page "/admin"
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
 
-@{
-    Layout = null;
-}
+@page "/admin"
+@{ Layout = null; }
+
 
 <!DOCTYPE html>
 <html lang="en">
