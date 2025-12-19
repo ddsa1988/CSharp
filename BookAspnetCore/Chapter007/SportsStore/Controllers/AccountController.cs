@@ -14,6 +14,7 @@ public class AccountController : Controller {
         _signInManager = signInManager;
     }
 
+    [HttpGet]
     public ViewResult Login(string returnUrl) {
         return View(new LoginModel { ReturnUrl = returnUrl });
     }
