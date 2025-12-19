@@ -29,6 +29,10 @@ builder.Services.AddServerSideBlazor();
 
 WebApplication app = builder.Build();
 
+if (app.Environment.IsProduction()) {
+    app.UseExceptionHandler("/error");
+}
+
 app.UseStaticFiles();
 app.UseSession();
 
