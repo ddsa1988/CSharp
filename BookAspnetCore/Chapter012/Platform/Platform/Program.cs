@@ -4,11 +4,13 @@ WebApplication app = builder.Build();
 app.Use(async (context, next) => {
     if (context.Request.Method == HttpMethods.Get && context.Request.Query["custom"] == "true") {
         context.Response.ContentType = "text/plain";
-        await context.Response.WriteAsync("Custom middleware\n");
+        await context.Response.WriteAsync("Custom Middleware\n");
     }
 
     await next();
 });
+
+app.UseMiddleware<Platform.Middleware.QueryStringMiddleware>();
 
 app.MapGet("/", () => "Hello World!");
 
