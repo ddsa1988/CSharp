@@ -4,9 +4,13 @@ WebApplication app = builder.Build();
 app.Map("/branch", branch => {
     branch.UseMiddleware<Platform.Middleware.QueryStringMiddleware>();
 
-    branch.Use(async (HttpContext context, Func<Task> next) => {
-        await context.Response.WriteAsync("Branch Middleware");
-    });
+    // branch.Use(async (HttpContext context, Func<Task> next) => {
+    //     await context.Response.WriteAsync("Branch Middleware");
+    // });
+
+    // branch.Run(async (context) => { await context.Response.WriteAsync("Branch Middleware"); });
+
+    branch.Run(new Platform.Middleware.QueryStringMiddleware().Invoke);
 });
 
 app.Use(async (context, next) => {
