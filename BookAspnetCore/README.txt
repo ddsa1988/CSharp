@@ -1,3 +1,3 @@
 Book Pro ASP NET Core 6 - Adam Freeman, 9th Edition
 
-Page => 311
+Page => 317

@@ -1,8 +1,13 @@
+using Platform.Middleware;
+
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
+
+builder.Services.Configure<MessageOptions>(options => { options.CityName = "Colombo"; });
+
 WebApplication app = builder.Build();
 
 app.Map("/branch", branch => {
-    branch.UseMiddleware<Platform.Middleware.QueryStringMiddleware>();
+    branch.UseMiddleware<QueryStringMiddleware>();
 
     // branch.Use(async (HttpContext context, Func<Task> next) => {
     //     await context.Response.WriteAsync("Branch Middleware");
@@ -10,7 +15,7 @@ app.Map("/branch", branch => {
 
     // branch.Run(async (context) => { await context.Response.WriteAsync("Branch Middleware"); });
 
-    branch.Run(new Platform.Middleware.QueryStringMiddleware().Invoke);
+    branch.Run(new QueryStringMiddleware().Invoke);
 });
 
 app.Use(async (context, next) => {
@@ -35,7 +40,9 @@ app.Use(async (context, next) => {
     await next();
 });
 
-app.UseMiddleware<Platform.Middleware.QueryStringMiddleware>();
+app.UseMiddleware<QueryStringMiddleware>();
+
+app.UseMiddleware<LocationMiddleware>();
 
 app.MapGet("/", () => "Hello World!");
 
