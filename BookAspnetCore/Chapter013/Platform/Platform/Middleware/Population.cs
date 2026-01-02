@@ -1,3 +1,5 @@
+using Platform.ExtensionMethod;
+
 namespace Platform.Middleware;
 
 public class Population {
@@ -16,14 +18,14 @@ public class Population {
             string city = parts[1];
 
             int? population = city.ToLower() switch {
-                "london" => 8136000,
-                "paris" => 2141000,
-                "monaco" => 39000,
+                "london" => 8_136_000,
+                "paris" => 2_141_000,
+                "monaco" => 39_000,
                 _ => null
             };
 
             if (population.HasValue) {
-                await context.Response.WriteAsync($"City: {city}, Population: {population}\n");
+                await context.Response.WriteAsync($"City: {city.Capitalize()}, Population: {population}\n");
             }
         }
 
