@@ -2,6 +2,6 @@
 
 public static class Program {
     public static void Main() {
-        Delegates.Example001.Run();
+        Delegates.Example003.Run();
     }
 }

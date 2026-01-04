@@ -11,12 +11,13 @@ public static class Example001 {
         const int x = 10;
         const int y = 20;
 
+        // Transformer transformer = new Transformer(Sum);
+        // Console.WriteLine(transformer.Invoke(x, y));
+
         Transformer transformer = Sum;
-        Console.WriteLine(transformer.Invoke(x, y));
         Console.WriteLine(transformer(x, y));
 
         transformer = Sub;
-        Console.WriteLine(transformer.Invoke(x, y));
         Console.WriteLine(transformer(x, y));
     }
 
