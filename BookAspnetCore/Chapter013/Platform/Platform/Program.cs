@@ -6,7 +6,9 @@ WebApplication app = builder.Build();
 app.UseMiddleware<Population>();
 app.UseMiddleware<Capital>();
 
-app.Run(async (context) => await context.Response.WriteAsync("Terminal Middleware Reached"));
+//app.Run(async (context) => await context.Response.WriteAsync("Terminal Middleware Reached"));
+
+app.MapGet("/routing", async context => { await context.Response.WriteAsync("Request was Routed"); });
 
 app.MapGet("/", () => "Hello World!");
 
