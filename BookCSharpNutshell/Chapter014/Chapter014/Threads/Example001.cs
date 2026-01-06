@@ -1,8 +1,12 @@
 namespace Chapter014.Threads;
 
 public static class Example001 {
+    // A thread is an execution path that can proceed independently of others.
     public static void Run() {
-        var thread = new Thread(WriteY);
+        var thread = new Thread(WriteY) {
+            Name = "Thread WriteY"
+        };
+
         thread.Start();
 
         WriteX();
