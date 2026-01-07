@@ -9,7 +9,7 @@ app.MapGet("routing", async context => { await context.Response.WriteAsync("Requ
 
 app.MapGet("capital/{country}", Capital.Endpoint);
 
-app.MapGet("population/{city}", Population.Endpoint);
+app.MapGet("population/{city}", Population.Endpoint).WithMetadata(new RouteNameMetadata("population"));
 
 app.MapGet("{first}/{second}/{third}", async context => {
     await context.Response.WriteAsync("Request Was Routed\n");
