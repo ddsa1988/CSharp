@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="TemperatureConverter/App.axaml" value="TemperatureConverter/TemperatureConverter.csproj" />
+        <entry key="TemperatureConverter/MainWindow.axaml" value="TemperatureConverter/TemperatureConverter.csproj" />
+      </map>
+    </option>
+  </component>
+</project>
