@@ -6,5 +6,29 @@
         x:Class="TemperatureConverter.MainWindow"
         Title="TemperatureConverter">
 
-    <Button>Calculate</Button>
+    <Window.Styles>
+        <Style Selector="Button">
+            <Setter Property="HorizontalAlignment" Value="Center" />
+        </Style>
+
+        <Style Selector="Border.TitleBorder">
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="CornerRadius" Value="5" />
+            <Setter Property="Background" Value="LightBlue" />
+        </Style>
+
+        <Style Selector="TextBlock.Title">
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="FontSize" Value="24" />
+        </Style>
+    </Window.Styles>
+
+    <StackPanel>
+        <Border Classes="TitleBorder">
+            <TextBlock Classes="Title">Temperature Converter</TextBlock>
+        </Border>
+        <Grid></Grid>
+        <Button>Calculate</Button>
+    </StackPanel>
 </Window>
