@@ -2,12 +2,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="450"
         x:Class="TemperatureConverter.MainWindow"
-        Title="TemperatureConverter">
+        Title="TemperatureConverter"
+        Width="400" Height="450">
 
     <Window.Styles>
-        <Style Selector="Button">
+        <Style Selector="Button.CalculateBtn">
             <Setter Property="HorizontalAlignment" Value="Center" />
         </Style>
 
@@ -22,13 +23,29 @@
             <Setter Property="HorizontalAlignment" Value="Center" />
             <Setter Property="FontSize" Value="24" />
         </Style>
+        <Style Selector="Grid.MainGrid">
+            <Setter Property="ShowGridLines" Value="True" />
+            <Setter Property="Margin" Value="5" />
+        </Style>
+        <Style Selector="TextBlock.TempUnits">
+            <Setter Property="Margin" Value="10" />
+        </Style>
+        <Style Selector="TextBox.TempValues">
+            <Setter Property="Margin" Value="0 5" />
+            <Setter Property="TextAlignment" Value="Center" />
+        </Style>
     </Window.Styles>
 
-    <StackPanel>
+    <StackPanel Orientation="Vertical">
         <Border Classes="TitleBorder">
             <TextBlock Classes="Title">Temperature Converter</TextBlock>
         </Border>
-        <Grid></Grid>
-        <Button>Calculate</Button>
+        <Grid Classes="MainGrid" ColumnDefinitions="120,100" RowDefinitions="Auto, Auto">
+            <TextBlock Classes="TempUnits" Grid.Row="0" Grid.Column="0">Celsius</TextBlock>
+            <TextBox Classes="TempValues" Grid.Row="0" Grid.Column="1">0</TextBox>
+            <TextBlock Classes="TempUnits" Grid.Row="1" Grid.Column="0">Fahrenheit</TextBlock>
+            <TextBox Classes="TempValues" Grid.Row="1" Grid.Column="1">0</TextBox>
+        </Grid>
+        <Button Classes="CalculateBtn">Calculate</Button>
     </StackPanel>
 </Window>
