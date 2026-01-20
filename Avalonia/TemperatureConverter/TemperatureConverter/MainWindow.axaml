@@ -9,7 +9,8 @@
 
     <Window.Styles>
         <Style Selector="Button.CalculateBtn">
-            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="Width" Value="100" />
         </Style>
 
         <Style Selector="Border.TitleBorder">
@@ -24,7 +25,7 @@
             <Setter Property="FontSize" Value="24" />
         </Style>
         <Style Selector="Grid.MainGrid">
-            <Setter Property="ShowGridLines" Value="True" />
+            <!-- <Setter Property="ShowGridLines" Value="True" /> -->
             <Setter Property="Margin" Value="5" />
         </Style>
         <Style Selector="TextBlock.TempUnits">
@@ -33,6 +34,7 @@
         <Style Selector="TextBox.TempValues">
             <Setter Property="Margin" Value="0 5" />
             <Setter Property="TextAlignment" Value="Center" />
+            <Setter Property="Width" Value="100" />
         </Style>
     </Window.Styles>
 
@@ -40,12 +42,13 @@
         <Border Classes="TitleBorder">
             <TextBlock Classes="Title">Temperature Converter</TextBlock>
         </Border>
-        <Grid Classes="MainGrid" ColumnDefinitions="120,100" RowDefinitions="Auto, Auto">
+        <Grid Classes="MainGrid" ColumnDefinitions="120,100" RowDefinitions="Auto, Auto,Auto">
             <TextBlock Classes="TempUnits" Grid.Row="0" Grid.Column="0">Celsius</TextBlock>
-            <TextBox Classes="TempValues" Grid.Row="0" Grid.Column="1">0</TextBox>
+            <TextBox Classes="TempValues" Grid.Row="0" Grid.Column="1" Name="Celsius" KeyDown="Celsius_OnKeyDown">0</TextBox>
             <TextBlock Classes="TempUnits" Grid.Row="1" Grid.Column="0">Fahrenheit</TextBlock>
-            <TextBox Classes="TempValues" Grid.Row="1" Grid.Column="1">0</TextBox>
+            <TextBox Classes="TempValues" Grid.Row="1" Grid.Column="1" Name="Fahrenheit" IsReadOnly="True">0</TextBox>
+            <Button Classes="CalculateBtn" Grid.Row="2" Grid.Column="1" Click="Button_OnClick">Calculate</Button>
         </Grid>
-        <Button Classes="CalculateBtn">Calculate</Button>
+
     </StackPanel>
 </Window>
