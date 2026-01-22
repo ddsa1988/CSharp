@@ -4,21 +4,49 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="450"
-        x:CompileBindings="True"
         x:Class="BasicMvvmSample.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
         Title="BasicMvvmSample"
         Width="400" Height="450">
 
+    <Window.Styles>
+        <Style Selector="TextBlock.NameField">
+            <Setter Property="Margin" Value="0 0 0 5" />
+        </Style>
+        <Style Selector="TextBox.NameProperty">
+            <Setter Property="Margin" Value="0 0 0 5" />
+        </Style>
+        <Style Selector="TextBox.Greeting">
+            <Setter Property="IsReadOnly" Value="True" />
+            <Setter Property="FontWeight" Value="Bold" />
+        </Style>
+    </Window.Styles>
+
     <Design.DataContext>
         <vm:MainWindowViewModel />
     </Design.DataContext>
 
-    <StackPanel DataContext="{Binding SimpleViewModel}" Margin="5">
-        <TextBlock Text="Enter your name:" Margin="0 0 0 5" />
-        <TextBox Text="{Binding Name}" Margin="0 0 0 5" />
-        <TextBox Text="{Binding Greeting, Mode=OneWay}" IsReadOnly="True" FontWeight="Bold" />
-    </StackPanel>
+    <TabControl>
+
+        <!-- Simple view model -->
+        <TabItem Header="Simple View Model">
+            <StackPanel DataContext="{Binding SimpleViewModel}" Margin="5">
+                <TextBlock Classes="NameField" Text="Enter your name:" />
+                <TextBox Classes="NameProperty" Text="{Binding Name}" />
+                <TextBox Classes="Greeting" Text="{Binding Greeting, Mode=OneWay}" />
+            </StackPanel>
+        </TabItem>
+
+        <!-- Reactive view model -->
+        <TabItem Header="Reactive UI">
+            <StackPanel DataContext="{Binding ReactiveViewModel}">
+                <TextBlock Classes="NameField" Text="Enter your name:" />
+                <TextBox Classes="NameProperty" Text="{Binding Name}" />
+                <TextBox Classes="Greeting" Text="{Binding Greeting, Mode=OneWay}" />
+            </StackPanel>
+
+        </TabItem>
+    </TabControl>
 
 </Window>

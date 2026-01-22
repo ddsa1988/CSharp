@@ -1,7 +1,7 @@
 ﻿using Avalonia;
 using System;
 
-namespace BasicMvvmSample;
+namespace CommandSample;
 
 public static class Program {
     // Initialization code. Don't use any Avalonia, third-party APIs or any
