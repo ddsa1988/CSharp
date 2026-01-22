@@ -1,5 +1,6 @@
 ﻿using Avalonia;
 using System;
+using ReactiveUI.Avalonia;
 
 namespace CommandSample;
 
@@ -14,6 +15,6 @@ public static class Program {
 
     // Avalonia configuration, don't remove; also used by visual designer.
     private static AppBuilder BuildAvaloniaApp() {
-        return AppBuilder.Configure<App>().UsePlatformDetect().WithInterFont().LogToTrace();
+        return AppBuilder.Configure<App>().UsePlatformDetect().WithInterFont().LogToTrace().UseReactiveUI();
     }
 }
