@@ -3,6 +3,7 @@
   <component name="AvaloniaProject">
     <option name="projectPerEditor">
       <map>
+        <entry key="CommandSample/Views/CommunityToolkitCommandsSampleView.axaml" value="CommandSample/CommandSample.csproj" />
         <entry key="CommandSample/Views/MainWindow.axaml" value="CommandSample/CommandSample.csproj" />
         <entry key="CommandSample/Views/ReactiveUiCommandSampleView.axaml" value="CommandSample/CommandSample.csproj" />
       </map>

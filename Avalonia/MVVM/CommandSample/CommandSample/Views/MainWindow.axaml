@@ -22,6 +22,9 @@
         <TabItem Header="ReactiveUI">
             <views:ReactiveUiCommandSampleView DataContext="{Binding ReactiveUiCommandsViewModel}" />
         </TabItem>
+        <TabItem Header="CommunityToolkit">
+            <views:CommunityToolkitCommandsSampleView DataContext="{Binding CommunityToolkitCommandsViewModel}" />
+        </TabItem>
     </TabControl>
 
 </Window>
