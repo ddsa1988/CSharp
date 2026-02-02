@@ -1,0 +1,6 @@
+@WmsHostAddress = http://localhost:5000
+
+GET {{WmsHostAddress}}/
+Accept: application/json
+
+###

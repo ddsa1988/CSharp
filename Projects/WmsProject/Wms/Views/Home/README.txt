@@ -1,0 +1,1 @@
+This folder will contain Razor files that are specific to the Home controller.
