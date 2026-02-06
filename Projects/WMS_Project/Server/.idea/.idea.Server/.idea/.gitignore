@@ -4,7 +4,7 @@
 # Rider ignored files
 /modules.xml
 /contentModel.xml
-/.idea.WmsProject.iml
+/.idea.Server.iml
 /projectSettingsUpdater.xml
 # Ignored default folder with query files
 /queries/

@@ -1,4 +1,4 @@
-﻿namespace WmsTests;
+﻿namespace AppTests;
 
 public class UnitTest1 {
     [Fact]

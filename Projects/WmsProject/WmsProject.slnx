@@ -1,4 +1,0 @@
-<Solution>
-  <Project Path="Wms/Wms.csproj" />
-  <Project Path="WmsTests/WmsTests.csproj" />
-</Solution>

@@ -1,0 +1,6 @@
+@AppHostAddress = http://localhost:5000
+
+GET {{AppHostAddress}}/
+Accept: application/json
+
+###
