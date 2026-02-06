@@ -4,3 +4,13 @@ GET {{AppHostAddress}}/
 Accept: application/json
 
 ###
+
+GET {{AppHostAddress}}/categories
+Accept: application/json
+
+###
+
+GET {{AppHostAddress}}/categories/4
+Accept: application/json
+
+###
