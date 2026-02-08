@@ -10,7 +10,27 @@ Accept: application/json
 
 ###
 
-GET {{AppHostAddress}}/categories/4
+GET {{AppHostAddress}}/categories/3
 Accept: application/json
+
+###
+
+POST {{AppHostAddress}}/categories
+Content-Type: application/json
+
+{
+  "name": "Category 4",
+  "description": "Description 4"
+}
+
+###
+
+PUT {{AppHostAddress}}/categories/4
+Content-Type: application/json
+
+{
+  "name": "Category 45",
+  "description": "Description 45"
+}
 
 ###
