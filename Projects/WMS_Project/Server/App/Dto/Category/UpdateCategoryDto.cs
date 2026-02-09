@@ -1,3 +1,8 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace App.Dto.Category;
 
-public record UpdateCategoryDto(string Name, string Description);
+public record UpdateCategoryDto(
+    [Required] [StringLength(30)] string Name,
+    [StringLength(50)] string Description
+);
