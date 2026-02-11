@@ -6,9 +6,9 @@ public class Component {
     public string? Description { get; set; }
     public int Quantity { get; set; }
     public long CategoryId { get; set; }
-    public long ManufacturerId { get; set; }
-    public long LocationId { get; set; }
     public Category? Category { get; set; }
+    public long ManufacturerId { get; set; }
     public Manufacturer? Manufacturer { get; set; }
+    public long LocationId { get; set; }
     public Location? Location { get; set; }
 }
