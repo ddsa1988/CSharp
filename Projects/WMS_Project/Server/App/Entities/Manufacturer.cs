@@ -7,5 +7,5 @@ public class Manufacturer {
     [MaxLength(30)] public required string Name { get; init; }
 
     [MaxLength(50)] public string? Description { get; init; }
-    //public required List<Component> Components { get; init; }
+    public IReadOnlyCollection<Component> Components { get; } = new List<Component>();
 }

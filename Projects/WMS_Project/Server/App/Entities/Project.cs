@@ -8,5 +8,5 @@ public class Project {
     [MaxLength(50)] public string? Description { get; init; }
 
     public required DateOnly StartDate { get; init; }
-    //public required Dictionary<Component, int> Components { get; init; }
+    public IReadOnlyDictionary<Component, int> Components { get; } = new Dictionary<Component, int>();
 }

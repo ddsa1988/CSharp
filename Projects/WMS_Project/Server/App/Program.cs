@@ -1,13 +1,17 @@
 using App.Data;
 using App.Endpoints;
+using Microsoft.EntityFrameworkCore;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
-string? warehouseConnection = builder.Configuration.GetConnectionString("WarehouseConnection");
+//string? warehouseConnection = builder.Configuration.GetConnectionString("WarehouseConnection");
 
-builder.Services.AddSqlite<WarehouseDbContext>(warehouseConnection);
+string warehouseConnection =
+    "Data Source=" + Path.Combine(Directory.GetCurrentDirectory(), "Database", "Warehouse.db");
 
-//builder.Services.AddDbContext<WarehouseDbContext>(options => { options.UseSqlite(warehouseConnection); });
+//builder.Services.AddSqlite<WarehouseDbContext>(warehouseConnection);
+
+builder.Services.AddDbContext<WarehouseDbContext>(options => { options.UseSqlite(warehouseConnection); });
 
 WebApplication app = builder.Build();
 
