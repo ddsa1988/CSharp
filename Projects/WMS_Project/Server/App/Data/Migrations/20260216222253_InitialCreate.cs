@@ -18,7 +18,8 @@ namespace App.Data.Migrations
                     Id = table.Column<long>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "TEXT", maxLength: 30, nullable: false),
-                    Description = table.Column<string>(type: "TEXT", maxLength: 50, nullable: true)
+                    Description = table.Column<string>(type: "TEXT", maxLength: 50, nullable: true),
+                    IsDeleted = table.Column<bool>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -32,7 +33,8 @@ namespace App.Data.Migrations
                     Id = table.Column<long>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "TEXT", maxLength: 30, nullable: false),
-                    Description = table.Column<string>(type: "TEXT", maxLength: 50, nullable: true)
+                    Description = table.Column<string>(type: "TEXT", maxLength: 50, nullable: true),
+                    IsDeleted = table.Column<bool>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -46,7 +48,8 @@ namespace App.Data.Migrations
                     Id = table.Column<long>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "TEXT", maxLength: 30, nullable: false),
-                    Description = table.Column<string>(type: "TEXT", maxLength: 50, nullable: true)
+                    Description = table.Column<string>(type: "TEXT", maxLength: 50, nullable: true),
+                    IsDeleted = table.Column<bool>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -61,6 +64,7 @@ namespace App.Data.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "TEXT", maxLength: 30, nullable: false),
                     Description = table.Column<string>(type: "TEXT", maxLength: 50, nullable: true),
+                    IsDeleted = table.Column<bool>(type: "INTEGER", nullable: false),
                     StartDate = table.Column<DateOnly>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
@@ -76,6 +80,7 @@ namespace App.Data.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "TEXT", maxLength: 30, nullable: false),
                     Description = table.Column<string>(type: "TEXT", maxLength: 50, nullable: true),
+                    IsDeleted = table.Column<bool>(type: "INTEGER", nullable: false),
                     Quantity = table.Column<int>(type: "INTEGER", nullable: false),
                     CategoryId = table.Column<long>(type: "INTEGER", nullable: false),
                     ManufacturerId = table.Column<long>(type: "INTEGER", nullable: false),
