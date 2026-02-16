@@ -17,4 +17,6 @@ WebApplication app = builder.Build();
 
 app.MapCategoriesEndpoints();
 
+app.MigrateDb();
+
 app.Run();
