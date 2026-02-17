@@ -33,7 +33,7 @@ public static class CategoryEndpoints {
             dbContext.Categories.Add(category);
             dbContext.SaveChanges();
 
-            return Results.CreatedAtRoute(getCategoryEndpointName, new { id = category.Id }, category);
+            return Results.CreatedAtRoute(getCategoryEndpointName, new { id = category.Id }, createCategory);
         });
 
         // PUT
