@@ -1,6 +1,7 @@
 using App.Data;
 using App.Dto.Category;
 using App.Entities;
+using App.Mapping;
 
 namespace App.Endpoints;
 
@@ -17,23 +18,22 @@ public static class CategoryEndpoints {
         RouteGroupBuilder group = app.MapGroup("categories").WithParameterValidation();
 
         // GET
-        group.MapGet("/", () => Categories);
+        group.MapGet("/", (WarehouseDbContext dbContext) => dbContext.Categories.ToList());
 
-        group.MapGet("/{id:long}", (long id) => {
-            CategoryDto? category = Categories.FirstOrDefault(category => category.Id == id);
+        group.MapGet("/{id:long}", (long id, WarehouseDbContext dbContext) => {
+            CategoryDto? categoryDto = dbContext.Categories.Find(id)?.ToDto();
 
-            return category == null ? Results.NotFound() : Results.Ok(category);
+            return categoryDto == null ? Results.NotFound() : Results.Ok(categoryDto);
         }).WithName(getCategoryEndpointName);
 
         // POST
         group.MapPost("/", (CreateCategoryDto createCategory, WarehouseDbContext dbContext) => {
-            Category category = new()
-                { Name = createCategory.Name, Description = createCategory.Description, IsDeleted = false };
+            Category category = createCategory.ToEntity();
 
             dbContext.Categories.Add(category);
             dbContext.SaveChanges();
 
-            return Results.CreatedAtRoute(getCategoryEndpointName, new { id = category.Id }, createCategory);
+            return Results.CreatedAtRoute(getCategoryEndpointName, new { id = category.Id }, category.ToDto());
         });
 
         // PUT
