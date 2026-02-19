@@ -2,23 +2,19 @@ using App.Data;
 using App.Dto.Category;
 using App.Entities;
 using App.Mapping;
+using Microsoft.EntityFrameworkCore;
 
 namespace App.Endpoints;
 
 public static class CategoryEndpoints {
-    private static readonly List<CategoryDto> Categories = [
-        new(1, "Category 1", "Description 1", false),
-        new(2, "Category 2", "Description 2", false),
-        new(3, "Category 3", "Description 3", false),
-    ];
-
     public static RouteGroupBuilder MapCategoriesEndpoints(this WebApplication app) {
         const string getCategoryEndpointName = "GetCategory";
 
         RouteGroupBuilder group = app.MapGroup("categories").WithParameterValidation();
 
         // GET
-        group.MapGet("/", (WarehouseDbContext dbContext) => dbContext.Categories.ToList());
+        group.MapGet("/",
+            (WarehouseDbContext dbContext) => dbContext.Categories.Select(category => category.ToDto()).AsNoTracking());
 
         group.MapGet("/{id:long}", (long id, WarehouseDbContext dbContext) => {
             CategoryDto? categoryDto = dbContext.Categories.Find(id)?.ToDto();
@@ -37,20 +33,25 @@ public static class CategoryEndpoints {
         });
 
         // PUT
-        group.MapPut("/{id:long}", (long id, UpdateCategoryDto updateCategory) => {
-            int index = Categories.FindIndex(category => category.Id == id);
+        group.MapPut("/{id:long}", (long id, UpdateCategoryDto updateCategory, WarehouseDbContext dbContext) => {
+            Category? existingCategory = dbContext.Categories.Find(id);
 
-            if (index == -1) return Results.NotFound();
+            if (existingCategory == null) return Results.NotFound();
 
-            Categories[index] = new CategoryDto(id, updateCategory.Name, updateCategory.Description,
-                updateCategory.IsDeleted);
+            dbContext.Entry(existingCategory).CurrentValues.SetValues(updateCategory.ToEntity(id));
+            dbContext.SaveChanges();
 
             return Results.NoContent();
         });
 
         // DELETE
-        group.MapDelete("/{id:long}", (long id) => {
-            Categories.RemoveAll(category => category.Id == id && category.IsDeleted);
+        group.MapDelete("/{id:long}", (long id, WarehouseDbContext dbContext) => {
+            Category? existingCategory = dbContext.Categories.Find(id);
+
+            if (existingCategory == null) return Results.NotFound();
+
+            dbContext.Categories.Where(category => category.Id == id).ExecuteDelete();
+            dbContext.SaveChanges();
 
             return Results.NoContent();
         });

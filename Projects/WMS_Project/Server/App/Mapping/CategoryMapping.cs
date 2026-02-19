@@ -5,7 +5,7 @@ namespace App.Mapping;
 
 public static class CategoryMapping {
     public static Category ToEntity(this CreateCategoryDto categoryDto) {
-        var category = new Category() {
+        Category category = new() {
             Name = categoryDto.Name,
             Description = categoryDto.Description,
             IsDeleted = false
@@ -15,8 +15,19 @@ public static class CategoryMapping {
     }
 
     public static CategoryDto ToDto(this Category category) {
-        var categoryDto = new CategoryDto(category.Id, category.Name, category.Description, category.IsDeleted);
+        CategoryDto categoryDto = new(category.Id, category.Name, category.Description, category.IsDeleted);
 
         return categoryDto;
+    }
+
+    public static Category ToEntity(this UpdateCategoryDto categoryDto, long id) {
+        Category category = new() {
+            Id = id,
+            Name = categoryDto.Name,
+            Description = categoryDto.Description,
+            IsDeleted = false
+        };
+
+        return category;
     }
 }
