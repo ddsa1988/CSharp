@@ -13,45 +13,48 @@ public static class CategoryEndpoints {
         RouteGroupBuilder group = app.MapGroup("categories").WithParameterValidation();
 
         // GET
-        group.MapGet("/",
-            (WarehouseDbContext dbContext) => dbContext.Categories.Select(category => category.ToDto()).AsNoTracking());
+        group.MapGet("/", async (WarehouseDbContext dbContext) =>
+            await dbContext.Categories
+                .Select(category => category.ToDto())
+                .AsNoTracking()
+                .ToListAsync());
 
-        group.MapGet("/{id:long}", (long id, WarehouseDbContext dbContext) => {
-            CategoryDto? categoryDto = dbContext.Categories.Find(id)?.ToDto();
+        group.MapGet("/{id:long}", async (long id, WarehouseDbContext dbContext) => {
+            Category? category = await dbContext.Categories.FindAsync(id);
 
-            return categoryDto == null ? Results.NotFound() : Results.Ok(categoryDto);
+            return category == null ? Results.NotFound() : Results.Ok(category.ToDto());
         }).WithName(getCategoryEndpointName);
 
         // POST
-        group.MapPost("/", (CreateCategoryDto createCategory, WarehouseDbContext dbContext) => {
+        group.MapPost("/", async (CreateCategoryDto createCategory, WarehouseDbContext dbContext) => {
             Category category = createCategory.ToEntity();
 
             dbContext.Categories.Add(category);
-            dbContext.SaveChanges();
+            await dbContext.SaveChangesAsync();
 
             return Results.CreatedAtRoute(getCategoryEndpointName, new { id = category.Id }, category.ToDto());
         });
 
         // PUT
-        group.MapPut("/{id:long}", (long id, UpdateCategoryDto updateCategory, WarehouseDbContext dbContext) => {
-            Category? existingCategory = dbContext.Categories.Find(id);
+        group.MapPut("/{id:long}", async (long id, UpdateCategoryDto updateCategory, WarehouseDbContext dbContext) => {
+            Category? existingCategory = await dbContext.Categories.FindAsync(id);
 
             if (existingCategory == null) return Results.NotFound();
 
             dbContext.Entry(existingCategory).CurrentValues.SetValues(updateCategory.ToEntity(id));
-            dbContext.SaveChanges();
+            await dbContext.SaveChangesAsync();
 
             return Results.NoContent();
         });
 
         // DELETE
-        group.MapDelete("/{id:long}", (long id, WarehouseDbContext dbContext) => {
-            Category? existingCategory = dbContext.Categories.Find(id);
+        group.MapDelete("/{id:long}", async (long id, WarehouseDbContext dbContext) => {
+            Category? existingCategory = await dbContext.Categories.FindAsync(id);
 
             if (existingCategory == null) return Results.NotFound();
 
-            dbContext.Categories.Where(category => category.Id == id).ExecuteDelete();
-            dbContext.SaveChanges();
+            await dbContext.Categories.Where(category => category.Id == id).ExecuteDeleteAsync();
+            await dbContext.SaveChangesAsync();
 
             return Results.NoContent();
         });
