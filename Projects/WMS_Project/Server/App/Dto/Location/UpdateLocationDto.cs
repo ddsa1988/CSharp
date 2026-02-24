@@ -1,8 +1,8 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace App.Dto.Category;
+namespace App.Dto.Location;
 
-public record UpdateCategoryDto(
+public record UpdateLocationDto(
     [Required] [StringLength(30)] string Name,
     [StringLength(50)] string? Description
 );
