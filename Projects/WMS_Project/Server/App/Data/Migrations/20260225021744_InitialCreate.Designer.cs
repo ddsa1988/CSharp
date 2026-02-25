@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace App.Data.Migrations
 {
     [DbContext(typeof(WarehouseDbContext))]
-    [Migration("20260216222253_InitialCreate")]
+    [Migration("20260225021744_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -70,14 +70,7 @@ namespace App.Data.Migrations
                         .HasMaxLength(30)
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("Quantity")
-                        .HasColumnType("INTEGER");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("CategoryId");
-
-                    b.HasIndex("LocationId");
 
                     b.HasIndex("ManufacturerId");
 
@@ -158,29 +151,11 @@ namespace App.Data.Migrations
 
             modelBuilder.Entity("App.Entities.Component", b =>
                 {
-                    b.HasOne("App.Entities.Category", "Category")
-                        .WithMany()
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("App.Entities.Location", "Location")
-                        .WithMany()
-                        .HasForeignKey("LocationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("App.Entities.Manufacturer", "Manufacturer")
+                    b.HasOne("App.Entities.Manufacturer", null)
                         .WithMany("Components")
                         .HasForeignKey("ManufacturerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Category");
-
-                    b.Navigation("Location");
-
-                    b.Navigation("Manufacturer");
                 });
 
             modelBuilder.Entity("App.Entities.Manufacturer", b =>

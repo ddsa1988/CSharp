@@ -81,7 +81,6 @@ namespace App.Data.Migrations
                     Name = table.Column<string>(type: "TEXT", maxLength: 30, nullable: false),
                     Description = table.Column<string>(type: "TEXT", maxLength: 50, nullable: true),
                     IsDeleted = table.Column<bool>(type: "INTEGER", nullable: false),
-                    Quantity = table.Column<int>(type: "INTEGER", nullable: false),
                     CategoryId = table.Column<long>(type: "INTEGER", nullable: false),
                     ManufacturerId = table.Column<long>(type: "INTEGER", nullable: false),
                     LocationId = table.Column<long>(type: "INTEGER", nullable: false)
@@ -90,34 +89,12 @@ namespace App.Data.Migrations
                 {
                     table.PrimaryKey("PK_Components", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Components_Categories_CategoryId",
-                        column: x => x.CategoryId,
-                        principalTable: "Categories",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Components_Locations_LocationId",
-                        column: x => x.LocationId,
-                        principalTable: "Locations",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
                         name: "FK_Components_Manufacturers_ManufacturerId",
                         column: x => x.ManufacturerId,
                         principalTable: "Manufacturers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Components_CategoryId",
-                table: "Components",
-                column: "CategoryId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Components_LocationId",
-                table: "Components",
-                column: "LocationId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Components_ManufacturerId",
@@ -129,16 +106,16 @@ namespace App.Data.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Components");
-
-            migrationBuilder.DropTable(
-                name: "Projects");
-
-            migrationBuilder.DropTable(
                 name: "Categories");
 
             migrationBuilder.DropTable(
+                name: "Components");
+
+            migrationBuilder.DropTable(
                 name: "Locations");
+
+            migrationBuilder.DropTable(
+                name: "Projects");
 
             migrationBuilder.DropTable(
                 name: "Manufacturers");
