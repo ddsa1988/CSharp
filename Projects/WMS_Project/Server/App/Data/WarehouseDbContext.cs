@@ -11,4 +11,5 @@ public class WarehouseDbContext : DbContext {
     public DbSet<Manufacturer> Manufacturers { get; set; }
     public DbSet<Component> Components { get; set; }
     public DbSet<Project> Projects { get; set; }
+    public DbSet<ProjectComponent> ProjectComponents { get; set; }
 }

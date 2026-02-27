@@ -69,6 +69,10 @@ namespace App.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CategoryId");
+
+                    b.HasIndex("LocationId");
+
                     b.HasIndex("ManufacturerId");
 
                     b.ToTable("Components");
@@ -126,6 +130,9 @@ namespace App.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<DateOnly>("CreationDate")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Description")
                         .HasMaxLength(50)
                         .HasColumnType("TEXT");
@@ -138,26 +145,83 @@ namespace App.Data.Migrations
                         .HasMaxLength(30)
                         .HasColumnType("TEXT");
 
-                    b.Property<DateOnly>("StartDate")
-                        .HasColumnType("TEXT");
-
                     b.HasKey("Id");
 
                     b.ToTable("Projects");
                 });
 
+            modelBuilder.Entity("App.Entities.ProjectComponent", b =>
+                {
+                    b.Property<long>("ProjectId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<long>("ComponentId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("ProjectId", "ComponentId");
+
+                    b.HasIndex("ComponentId");
+
+                    b.ToTable("ProjectComponents");
+                });
+
             modelBuilder.Entity("App.Entities.Component", b =>
                 {
-                    b.HasOne("App.Entities.Manufacturer", null)
+                    b.HasOne("App.Entities.Category", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("App.Entities.Location", "Location")
+                        .WithMany()
+                        .HasForeignKey("LocationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("App.Entities.Manufacturer", "Manufacturer")
                         .WithMany("Components")
                         .HasForeignKey("ManufacturerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Category");
+
+                    b.Navigation("Location");
+
+                    b.Navigation("Manufacturer");
+                });
+
+            modelBuilder.Entity("App.Entities.ProjectComponent", b =>
+                {
+                    b.HasOne("App.Entities.Component", "Component")
+                        .WithMany()
+                        .HasForeignKey("ComponentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("App.Entities.Project", "Project")
+                        .WithMany("ProjectComponents")
+                        .HasForeignKey("ProjectId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Component");
+
+                    b.Navigation("Project");
                 });
 
             modelBuilder.Entity("App.Entities.Manufacturer", b =>
                 {
                     b.Navigation("Components");
+                });
+
+            modelBuilder.Entity("App.Entities.Project", b =>
+                {
+                    b.Navigation("ProjectComponents");
                 });
 #pragma warning restore 612, 618
         }

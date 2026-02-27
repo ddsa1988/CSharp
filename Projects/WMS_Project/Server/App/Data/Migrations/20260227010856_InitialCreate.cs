@@ -65,7 +65,7 @@ namespace App.Data.Migrations
                     Name = table.Column<string>(type: "TEXT", maxLength: 30, nullable: false),
                     Description = table.Column<string>(type: "TEXT", maxLength: 50, nullable: true),
                     IsDeleted = table.Column<bool>(type: "INTEGER", nullable: false),
-                    StartDate = table.Column<DateOnly>(type: "TEXT", nullable: false)
+                    CreationDate = table.Column<DateOnly>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -89,6 +89,18 @@ namespace App.Data.Migrations
                 {
                     table.PrimaryKey("PK_Components", x => x.Id);
                     table.ForeignKey(
+                        name: "FK_Components_Categories_CategoryId",
+                        column: x => x.CategoryId,
+                        principalTable: "Categories",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Components_Locations_LocationId",
+                        column: x => x.LocationId,
+                        principalTable: "Locations",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
                         name: "FK_Components_Manufacturers_ManufacturerId",
                         column: x => x.ManufacturerId,
                         principalTable: "Manufacturers",
@@ -96,26 +108,69 @@ namespace App.Data.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "ProjectComponents",
+                columns: table => new
+                {
+                    ProjectId = table.Column<long>(type: "INTEGER", nullable: false),
+                    ComponentId = table.Column<long>(type: "INTEGER", nullable: false),
+                    Quantity = table.Column<int>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ProjectComponents", x => new { x.ProjectId, x.ComponentId });
+                    table.ForeignKey(
+                        name: "FK_ProjectComponents_Components_ComponentId",
+                        column: x => x.ComponentId,
+                        principalTable: "Components",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ProjectComponents_Projects_ProjectId",
+                        column: x => x.ProjectId,
+                        principalTable: "Projects",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Components_CategoryId",
+                table: "Components",
+                column: "CategoryId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Components_LocationId",
+                table: "Components",
+                column: "LocationId");
+
             migrationBuilder.CreateIndex(
                 name: "IX_Components_ManufacturerId",
                 table: "Components",
                 column: "ManufacturerId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ProjectComponents_ComponentId",
+                table: "ProjectComponents",
+                column: "ComponentId");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Categories");
+                name: "ProjectComponents");
 
             migrationBuilder.DropTable(
                 name: "Components");
 
             migrationBuilder.DropTable(
-                name: "Locations");
+                name: "Projects");
 
             migrationBuilder.DropTable(
-                name: "Projects");
+                name: "Categories");
+
+            migrationBuilder.DropTable(
+                name: "Locations");
 
             migrationBuilder.DropTable(
                 name: "Manufacturers");
