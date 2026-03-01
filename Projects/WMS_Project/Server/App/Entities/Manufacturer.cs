@@ -3,10 +3,9 @@ using App.Entities.Interfaces;
 
 namespace App.Entities;
 
-public class Manufacturer : IBaseEntity, ISoftDeletable {
+public class Manufacturer : IBaseEntity {
     public long Id { get; init; }
     [MaxLength(30)] public required string Name { get; init; }
     [MaxLength(50)] public string? Description { get; init; }
     public bool IsDeleted { get; set; }
-    public ICollection<Component> Components { get; init; } = new List<Component>();
 }

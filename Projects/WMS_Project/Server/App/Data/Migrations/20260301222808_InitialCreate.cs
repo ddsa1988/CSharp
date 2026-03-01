@@ -114,7 +114,8 @@ namespace App.Data.Migrations
                 {
                     ProjectId = table.Column<long>(type: "INTEGER", nullable: false),
                     ComponentId = table.Column<long>(type: "INTEGER", nullable: false),
-                    Quantity = table.Column<int>(type: "INTEGER", nullable: false)
+                    Quantity = table.Column<int>(type: "INTEGER", nullable: false),
+                    IsDeleted = table.Column<bool>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {

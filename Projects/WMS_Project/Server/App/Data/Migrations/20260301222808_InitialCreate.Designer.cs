@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace App.Data.Migrations
 {
     [DbContext(typeof(WarehouseDbContext))]
-    [Migration("20260301161309_InitialCreate")]
+    [Migration("20260301222808_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -161,6 +161,9 @@ namespace App.Data.Migrations
                     b.Property<long>("ComponentId")
                         .HasColumnType("INTEGER");
 
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("INTEGER");
+
                     b.Property<int>("Quantity")
                         .HasColumnType("INTEGER");
 
@@ -186,7 +189,7 @@ namespace App.Data.Migrations
                         .IsRequired();
 
                     b.HasOne("App.Entities.Manufacturer", "Manufacturer")
-                        .WithMany("Components")
+                        .WithMany()
                         .HasForeignKey("ManufacturerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -215,11 +218,6 @@ namespace App.Data.Migrations
                     b.Navigation("Component");
 
                     b.Navigation("Project");
-                });
-
-            modelBuilder.Entity("App.Entities.Manufacturer", b =>
-                {
-                    b.Navigation("Components");
                 });
 
             modelBuilder.Entity("App.Entities.Project", b =>
