@@ -7,7 +7,7 @@ public class Project : IBaseEntity, ISoftDeletable {
     public long Id { get; init; }
     [MaxLength(30)] public required string Name { get; init; }
     [MaxLength(50)] public string? Description { get; init; }
-    public bool IsDeleted { get; init; }
+    public bool IsDeleted { get; set; }
     public required DateOnly CreationDate { get; init; }
-    public ICollection<ProjectComponent> ProjectComponents { get; init; } = new List<ProjectComponent>();
+    public ICollection<ProjectComponent> Components { get; init; } = new List<ProjectComponent>();
 }

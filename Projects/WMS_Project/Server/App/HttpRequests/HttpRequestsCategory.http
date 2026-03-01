@@ -14,23 +14,23 @@ POST {{AppHostAddress}}/categories
 Content-Type: application/json
 
 {
-  "name": "Category 5",
-  "description": "Description 5"
+  "name": "Category 1",
+  "description": "Description 1"
 }
 
 ###
 
-PUT {{AppHostAddress}}/categories/4
+PUT {{AppHostAddress}}/categories/1
 Content-Type: application/json
 
 {
-  "name": "Category 45",
-  "description": "Description 45"
+  "name": "Category 1",
+  "description": "New Description"
 }
 
 ###
 
-DELETE {{AppHostAddress}}/categories/4
+DELETE {{AppHostAddress}}/categories/1
 Accept: application/json
 
 ###

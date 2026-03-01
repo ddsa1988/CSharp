@@ -204,7 +204,7 @@ namespace App.Data.Migrations
                         .IsRequired();
 
                     b.HasOne("App.Entities.Project", "Project")
-                        .WithMany("ProjectComponents")
+                        .WithMany("Components")
                         .HasForeignKey("ProjectId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -221,7 +221,7 @@ namespace App.Data.Migrations
 
             modelBuilder.Entity("App.Entities.Project", b =>
                 {
-                    b.Navigation("ProjectComponents");
+                    b.Navigation("Components");
                 });
 #pragma warning restore 612, 618
         }

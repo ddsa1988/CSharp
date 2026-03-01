@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace App.Data.Migrations
 {
     [DbContext(typeof(WarehouseDbContext))]
-    [Migration("20260227010856_InitialCreate")]
+    [Migration("20260301161309_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -207,7 +207,7 @@ namespace App.Data.Migrations
                         .IsRequired();
 
                     b.HasOne("App.Entities.Project", "Project")
-                        .WithMany("ProjectComponents")
+                        .WithMany("Components")
                         .HasForeignKey("ProjectId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -224,7 +224,7 @@ namespace App.Data.Migrations
 
             modelBuilder.Entity("App.Entities.Project", b =>
                 {
-                    b.Navigation("ProjectComponents");
+                    b.Navigation("Components");
                 });
 #pragma warning restore 612, 618
         }

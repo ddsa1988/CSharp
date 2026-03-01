@@ -1,3 +1,7 @@
+using App.Dto.Category;
+using App.Dto.Location;
+using App.Dto.Manufacturer;
+
 namespace App.Dto.Component;
 
 public record ComponentDto(
@@ -5,6 +9,9 @@ public record ComponentDto(
     string Name,
     string? Description,
     long CategoryId,
+    CategoryDto? Category,
     long ManufacturerId,
-    long LocationId
+    ManufacturerDto? Manufacturer,
+    long LocationId,
+    LocationDto? Location
 );

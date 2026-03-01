@@ -53,7 +53,11 @@ public static class CategoryEndpoints {
 
             if (existingCategory == null) return Results.NotFound();
 
-            await dbContext.Categories.Where(category => category.Id == id).ExecuteDeleteAsync();
+            if (existingCategory.IsDeleted) return Results.NoContent();
+
+            existingCategory.IsDeleted = true;
+
+            dbContext.Entry(existingCategory).CurrentValues.SetValues(existingCategory);
             await dbContext.SaveChangesAsync();
 
             return Results.NoContent();
