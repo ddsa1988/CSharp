@@ -4,6 +4,16 @@ using App.Entities;
 namespace App.Mapping;
 
 public static class ManufacturerMapping {
+    public static Manufacturer ToEntity(this CreateManufacturerDto manufacturerDto) {
+        Manufacturer manufacturer = new() {
+            Name = manufacturerDto.Name,
+            Description = manufacturerDto.Description,
+            IsDeleted = false
+        };
+
+        return manufacturer;
+    }
+
     public static Manufacturer ToEntity(this UpdateManufacturerDto manufacturerDto, long id) {
         Manufacturer manufacturer = new() {
             Id = id,

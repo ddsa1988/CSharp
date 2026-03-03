@@ -29,7 +29,7 @@ public static class CategoryEndpoints {
         group.MapPost("/", async (CreateCategoryDto createCategory, WarehouseDbContext dbContext) => {
             Category category = createCategory.ToEntity();
 
-            dbContext.Categories.Add(category);
+            await dbContext.Categories.AddAsync(category);
             await dbContext.SaveChangesAsync();
 
             return Results.CreatedAtRoute(getCategoryEndpointName, new { id = category.Id }, category.ToDto());

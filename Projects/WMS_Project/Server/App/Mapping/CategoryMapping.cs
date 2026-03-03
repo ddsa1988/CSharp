@@ -14,12 +14,6 @@ public static class CategoryMapping {
         return category;
     }
 
-    public static CategoryDto ToDto(this Category category) {
-        CategoryDto categoryDto = new(category.Id, category.Name, category.Description);
-
-        return categoryDto;
-    }
-
     public static Category ToEntity(this UpdateCategoryDto categoryDto, long id) {
         Category category = new() {
             Id = id,
@@ -29,5 +23,11 @@ public static class CategoryMapping {
         };
 
         return category;
+    }
+
+    public static CategoryDto ToDto(this Category category) {
+        CategoryDto categoryDto = new(category.Id, category.Name, category.Description);
+
+        return categoryDto;
     }
 }

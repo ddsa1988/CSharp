@@ -1,4 +1,5 @@
 using App.Data;
+using App.Dto.Manufacturer;
 using App.Entities;
 using App.Mapping;
 using Microsoft.EntityFrameworkCore;
@@ -23,9 +24,18 @@ public static class ManufacturerEndpoints {
 
             return manufacturer == null ? Results.NotFound() : Results.Ok(manufacturer.ToDto());
         }).WithName(getManufacturerEndpointName);
-        
-        // POST
 
+        // POST
+        group.MapPost("/",
+            async (CreateManufacturerDto createManufacturer, WarehouseDbContext dbContext) => {
+                Manufacturer manufacturer = createManufacturer.ToEntity();
+
+                await dbContext.AddAsync(manufacturer);
+                await dbContext.SaveChangesAsync();
+
+                return Results.CreatedAtRoute(getManufacturerEndpointName,
+                    new { id = manufacturer.Id }, manufacturer.ToDto());
+            });
 
         // PUT
 
