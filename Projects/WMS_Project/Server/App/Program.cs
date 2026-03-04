@@ -15,7 +15,11 @@ builder.Services.AddDbContext<WarehouseDbContext>(options => { options.UseSqlite
 
 WebApplication app = builder.Build();
 
-app.MapCategoriesEndpoints();
+app.MapCategoryEndpoints();
+app.MapManufacturerEndpoints();
+app.MapLocationEndpoints();
+app.MapComponentEndpoints();
+app.MapProjectEndpoints();
 
 await app.MigrateDbAsync();
 

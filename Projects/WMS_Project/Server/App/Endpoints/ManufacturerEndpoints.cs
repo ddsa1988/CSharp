@@ -28,19 +28,43 @@ public static class ManufacturerEndpoints {
         // POST
         group.MapPost("/",
             async (CreateManufacturerDto createManufacturer, WarehouseDbContext dbContext) => {
-                Manufacturer manufacturer = createManufacturer.ToEntity();
+                Manufacturer newManufacturer = createManufacturer.ToEntity();
 
-                await dbContext.AddAsync(manufacturer);
+                await dbContext.AddAsync(newManufacturer);
                 await dbContext.SaveChangesAsync();
 
                 return Results.CreatedAtRoute(getManufacturerEndpointName,
-                    new { id = manufacturer.Id }, manufacturer.ToDto());
+                    new { id = newManufacturer.Id }, newManufacturer.ToDto());
             });
 
         // PUT
+        group.MapPut("/{id:long}",
+            async (long id, UpdateManufacturerDto updateManufacturer, WarehouseDbContext dbContext) => {
+                Manufacturer? existingManufacturer = await dbContext.Manufacturers.FindAsync(id);
 
+                if (existingManufacturer == null) return Results.NotFound();
+
+                dbContext.Entry(existingManufacturer).CurrentValues.SetValues(updateManufacturer.ToEntity(id));
+                await dbContext.SaveChangesAsync();
+
+                return Results.NoContent();
+            });
 
         // DELETE
+        group.MapDelete("/{id:long}", async (long id, WarehouseDbContext dbContext) => {
+            Manufacturer? existingManufacturer = await dbContext.Manufacturers.FindAsync(id);
+
+            if (existingManufacturer == null) return Results.NotFound();
+
+            if (existingManufacturer.IsDeleted) return Results.NoContent();
+
+            existingManufacturer.IsDeleted = true;
+
+            dbContext.Entry(existingManufacturer).CurrentValues.SetValues(existingManufacturer);
+            await dbContext.SaveChangesAsync();
+
+            return Results.NoContent();
+        });
 
         return group;
     }

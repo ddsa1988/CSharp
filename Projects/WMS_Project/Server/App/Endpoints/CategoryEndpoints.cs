@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 namespace App.Endpoints;
 
 public static class CategoryEndpoints {
-    public static RouteGroupBuilder MapCategoriesEndpoints(this WebApplication app) {
+    public static RouteGroupBuilder MapCategoryEndpoints(this WebApplication app) {
         const string getCategoryEndpointName = "GetCategory";
 
         RouteGroupBuilder group = app.MapGroup("categories").WithParameterValidation();
@@ -27,12 +27,12 @@ public static class CategoryEndpoints {
 
         // POST
         group.MapPost("/", async (CreateCategoryDto createCategory, WarehouseDbContext dbContext) => {
-            Category category = createCategory.ToEntity();
+            Category newCategory = createCategory.ToEntity();
 
-            await dbContext.Categories.AddAsync(category);
+            await dbContext.Categories.AddAsync(newCategory);
             await dbContext.SaveChangesAsync();
 
-            return Results.CreatedAtRoute(getCategoryEndpointName, new { id = category.Id }, category.ToDto());
+            return Results.CreatedAtRoute(getCategoryEndpointName, new { id = newCategory.Id }, newCategory.ToDto());
         });
 
         // PUT
