@@ -8,7 +8,6 @@ public static class ManufacturerMapping {
         Manufacturer manufacturer = new() {
             Name = manufacturerDto.Name,
             Description = manufacturerDto.Description,
-            IsDeleted = false
         };
 
         return manufacturer;
@@ -19,7 +18,6 @@ public static class ManufacturerMapping {
             Id = id,
             Name = manufacturerDto.Name,
             Description = manufacturerDto.Description,
-            IsDeleted = false
         };
 
         return manufacturer;

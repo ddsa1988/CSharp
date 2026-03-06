@@ -8,7 +8,6 @@ public static class CategoryMapping {
         Category category = new() {
             Name = categoryDto.Name,
             Description = categoryDto.Description,
-            IsDeleted = false
         };
 
         return category;
@@ -19,7 +18,6 @@ public static class CategoryMapping {
             Id = id,
             Name = categoryDto.Name,
             Description = categoryDto.Description,
-            IsDeleted = false
         };
 
         return category;

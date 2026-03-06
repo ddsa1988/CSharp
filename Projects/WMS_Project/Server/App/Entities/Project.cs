@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using App.Dto.ProjectComponent;
 using App.Entities.Interfaces;
 
 namespace App.Entities;
@@ -9,5 +10,5 @@ public class Project : IBaseEntity {
     [MaxLength(50)] public string? Description { get; init; }
     public bool IsDeleted { get; set; }
     public required DateOnly CreationDate { get; init; }
-    public ICollection<ProjectComponent> Components { get; init; } = new List<ProjectComponent>();
+    public ICollection<ProjectComponentDto> Components { get; } = new List<ProjectComponentDto>();
 }
