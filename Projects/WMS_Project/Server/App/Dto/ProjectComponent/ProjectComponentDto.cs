@@ -3,7 +3,7 @@ using App.Dto.Project;
 
 namespace App.Dto.ProjectComponent;
 
-public class ProjectComponentDto(
+public record ProjectComponentDto(
     long ProjectId,
     ProjectDto? Project,
     long ComponentId,
