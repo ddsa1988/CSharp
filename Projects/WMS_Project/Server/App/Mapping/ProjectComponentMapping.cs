@@ -25,8 +25,13 @@ public static class ProjectComponentMapping {
     }
 
     public static ProjectComponentDto ToDto(this ProjectComponent projectComponent) {
-        ProjectComponentDto projectComponentDto = new(projectComponent.ProjectId, projectComponent.Project?.ToDto(),
-            projectComponent.ComponentId, projectComponent.Component?.ToDto(), projectComponent.Quantity);
+        ProjectComponentDto projectComponentDto = new(
+            projectComponent.ProjectId,
+            projectComponent.Project?.ToDto(),
+            projectComponent.ComponentId,
+            projectComponent.Component?.ToDto(),
+            projectComponent.Quantity
+        );
 
         return projectComponentDto;
     }

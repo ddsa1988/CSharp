@@ -27,8 +27,12 @@ public static class ProjectMapping {
     }
 
     public static ProjectDto ToDto(this Project project) {
-        ProjectDto projectDto = new(project.Id, project.Name, project.Description, project.CreationDate,
-            project.Components);
+        ProjectDto projectDto = new(
+            project.Id, project.Name,
+            project.Description,
+            project.CreationDate,
+            project.Components
+        );
 
         return projectDto;
     }
