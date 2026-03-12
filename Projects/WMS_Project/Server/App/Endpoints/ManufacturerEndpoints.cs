@@ -13,11 +13,12 @@ public static class ManufacturerEndpoints {
         RouteGroupBuilder group = app.MapGroup("manufacturers").WithParameterValidation();
 
         // GET
-        group.MapGet("/", async (WarehouseDbContext dbContext) =>
+        group.MapGet("/", async (WarehouseDbContext dbContext) => {
             await dbContext.Manufacturers
                 .Select(manufacturer => manufacturer.ToDto())
                 .AsNoTracking()
-                .ToListAsync());
+                .ToListAsync();
+        });
 
         group.MapGet("/{id:long}", async (long id, WarehouseDbContext dbContext) => {
             Manufacturer? manufacturer = await dbContext.Manufacturers.FindAsync(id);

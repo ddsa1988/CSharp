@@ -13,11 +13,12 @@ public static class CategoryEndpoints {
         RouteGroupBuilder group = app.MapGroup("categories").WithParameterValidation();
 
         // GET
-        group.MapGet("/", async (WarehouseDbContext dbContext) =>
+        group.MapGet("/", async (WarehouseDbContext dbContext) => {
             await dbContext.Categories
                 .Select(category => category.ToDto())
                 .AsNoTracking()
-                .ToListAsync());
+                .ToListAsync();
+        });
 
         group.MapGet("/{id:long}", async (long id, WarehouseDbContext dbContext) => {
             Category? category = await dbContext.Categories.FindAsync(id);
