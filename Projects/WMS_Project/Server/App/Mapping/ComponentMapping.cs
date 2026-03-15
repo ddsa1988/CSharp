@@ -4,7 +4,7 @@ using App.Entities;
 namespace App.Mapping;
 
 public static class ComponentMapping {
-    public static Component ToEntity(this ComponentDto componentDto) {
+    public static Component ToEntity(this CreateComponentDto componentDto) {
         Component component = new() {
             Name = componentDto.Name,
             Description = componentDto.Description,
@@ -16,7 +16,7 @@ public static class ComponentMapping {
         return component;
     }
 
-    public static Component ToEntity(this ComponentDto componentDto, long id) {
+    public static Component ToEntity(this UpdateComponentDto componentDto, long id) {
         Component component = new() {
             Id = id,
             Name = componentDto.Name,
