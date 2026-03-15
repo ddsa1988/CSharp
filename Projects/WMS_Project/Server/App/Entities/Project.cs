@@ -10,5 +10,5 @@ public class Project : IBaseEntity {
     [MaxLength(50)] public string? Description { get; init; }
     public bool IsDeleted { get; set; }
     public required DateOnly CreationDate { get; init; }
-    public ICollection<ProjectComponentDto> Components { get; } = new List<ProjectComponentDto>();
+    public ICollection<ProjectComponentDto> Components { get; set; } = new List<ProjectComponentDto>();
 }

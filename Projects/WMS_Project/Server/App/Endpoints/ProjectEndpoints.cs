@@ -20,10 +20,24 @@ public static class ProjectEndpoints {
                 .ToListAsync();
         });
 
+        // group.MapGet("/{id:long}", async (long id, WarehouseDbContext dbContext) => {
+        //     Project? project = await dbContext.Projects.FindAsync(id);
+        //
+        //     return project == null ? Results.NotFound() : Results.Ok(project.ToDto());
+        // }).WithName(getProjectEndpointName);
+
         group.MapGet("/{id:long}", async (long id, WarehouseDbContext dbContext) => {
             Project? project = await dbContext.Projects.FindAsync(id);
 
-            return project == null ? Results.NotFound() : Results.Ok(project.ToDto());
+            if (project == null) return Results.NotFound();
+
+            project.Components = await dbContext.ProjectComponents
+                .Where(projectComponent => projectComponent.ProjectId == project.Id)
+                .Select(projectComponent => projectComponent.ToDto())
+                .AsNoTracking()
+                .ToListAsync();
+
+            return Results.Ok(project.ToDto());
         }).WithName(getProjectEndpointName);
 
         // POST
