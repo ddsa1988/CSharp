@@ -20,6 +20,7 @@ app.MapManufacturerEndpoints();
 app.MapLocationEndpoints();
 app.MapComponentEndpoints();
 app.MapProjectEndpoints();
+app.MapProjectComponentEndpoints();
 
 await app.MigrateDbAsync();
 
