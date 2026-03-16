@@ -8,46 +8,46 @@ namespace App.Endpoints;
 
 public static class ProjectComponentEndpoints {
     public static RouteGroupBuilder MapProjectComponentEndpoints(this WebApplication app) {
-        const string getProjectComponentEndpointName = "GetProjectComponent";
+        const string getPcEndpointName = "GetProjectComponent";
 
         RouteGroupBuilder group = app.MapGroup("projectComponents").WithParameterValidation();
 
         // GET
         group.MapGet("/", async (WarehouseDbContext dbContext) => {
             await dbContext.ProjectComponents
-                .Include(projectComponent => projectComponent.Project)
-                .Include(projectComponent => projectComponent.Component)
-                .Select(projectComponent => projectComponent.ToDto())
+                .Include(pc => pc.Project)
+                .Include(pc => pc.Component)
+                .Select(pc => pc.ToDto())
                 .AsNoTracking()
                 .ToListAsync();
         });
 
         group.MapGet("/{projectId:long}/{componentId:long}",
             async (long projectId, long componentId, WarehouseDbContext dbContext) => {
-                ProjectComponent? existingProjectComponent =
-                    await dbContext.ProjectComponents.FindAsync(projectId, componentId);
+                ProjectComponent? existingPc = await dbContext.ProjectComponents
+                    .Include(pc => pc.Project)
+                    .Include(pc => pc.Component)
+                    .FirstOrDefaultAsync(pc => pc.ProjectId == projectId && pc.ComponentId == componentId);
 
-                return existingProjectComponent == null
-                    ? Results.NotFound()
-                    : Results.Ok(existingProjectComponent.ToDto());
-            }).WithName(getProjectComponentEndpointName);
+                return existingPc == null ? Results.NotFound() : Results.Ok(existingPc.ToDto());
+            }).WithName(getPcEndpointName);
 
         group.MapGet("/projects/{id:long}", async (long id, WarehouseDbContext dbContext) => {
             await dbContext.ProjectComponents
-                .Include(projectComponent => projectComponent.Project)
-                .Include(projectComponent => projectComponent.Component)
-                .Where(projectComponent => projectComponent.ProjectId == id)
-                .Select(projectComponent => projectComponent.ToDto())
+                .Include(pc => pc.Project)
+                .Include(pc => pc.Component)
+                .Where(pc => pc.ProjectId == id)
+                .Select(pc => pc.ToDto())
                 .AsNoTracking()
                 .ToListAsync();
         });
 
         group.MapGet("/components/{id:long}", async (long id, WarehouseDbContext dbContext) => {
             await dbContext.ProjectComponents
-                .Include(projectComponent => projectComponent.Project)
-                .Include(projectComponent => projectComponent.Component)
-                .Where(projectComponent => projectComponent.ComponentId == id)
-                .Select(projectComponent => projectComponent.ToDto())
+                .Include(pc => pc.Project)
+                .Include(pc => pc.Component)
+                .Where(pc => pc.ComponentId == id)
+                .Select(pc => pc.ToDto())
                 .AsNoTracking()
                 .ToListAsync();
         });
@@ -61,12 +61,13 @@ public static class ProjectComponentEndpoints {
                 if (existingProject == null) return Results.NotFound("Project not found");
                 if (existingComponent == null) return Results.NotFound("Component not found");
 
-                ProjectComponent newProjectComponent = createProjectComponent.ToEntity();
+                ProjectComponent newPc = createProjectComponent.ToEntity();
 
-                await dbContext.ProjectComponents.AddAsync(newProjectComponent);
+                await dbContext.ProjectComponents.AddAsync(newPc);
                 await dbContext.SaveChangesAsync();
 
-                return Results.CreatedAtRoute(getProjectComponentEndpointName, newProjectComponent.ToDto());
+                return Results.CreatedAtRoute(getPcEndpointName, new { id = newPc.ProjectId, newPc.ComponentId },
+                    newPc.ToDto());
             });
 
         // PUT

@@ -24,7 +24,11 @@ public static class ComponentEndpoints {
         });
 
         group.MapGet("/{id:long}", async (long id, WarehouseDbContext dbContext) => {
-            Component? component = await dbContext.Components.FindAsync(id);
+            Component? component = await dbContext.Components
+                .Include(component => component.Category)
+                .Include(component => component.Manufacturer)
+                .Include(component => component.Location)
+                .FirstOrDefaultAsync(component => component.Id == id);
 
             return component == null ? Results.NotFound() : Results.Ok(component.ToDto());
         }).WithName(getComponentEndpointName);

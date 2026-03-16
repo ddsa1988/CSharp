@@ -60,6 +60,7 @@ public static class LocationEndpoints {
             existingLocation.IsDeleted = true;
 
             dbContext.Entry(existingLocation).CurrentValues.SetValues(existingLocation);
+            await dbContext.SaveChangesAsync();
 
             return Results.NoContent();
         });
