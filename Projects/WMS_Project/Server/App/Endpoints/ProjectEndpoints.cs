@@ -16,6 +16,9 @@ public static class ProjectEndpoints {
         group.MapGet("/", async (WarehouseDbContext dbContext) => {
             return await dbContext.Projects
                 .Include(project => project.Components)
+                .ThenInclude(pc => pc.Project)
+                .Include(project => project.Components)
+                .ThenInclude(component => component.Component)
                 .Select(project => project.ToDto())
                 .AsNoTracking()
                 .ToListAsync();
@@ -33,6 +36,8 @@ public static class ProjectEndpoints {
             if (project == null) return Results.NotFound();
 
             project.Components = await dbContext.ProjectComponents
+                .Include(projectComponent => projectComponent.Project)
+                .Include(projectComponent => projectComponent.Component)
                 .Where(projectComponent => projectComponent.ProjectId == project.Id)
                 .Select(projectComponent => projectComponent)
                 .AsNoTracking()
