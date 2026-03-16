@@ -14,7 +14,7 @@ public static class ManufacturerEndpoints {
 
         // GET
         group.MapGet("/", async (WarehouseDbContext dbContext) => {
-            await dbContext.Manufacturers
+            return await dbContext.Manufacturers
                 .Select(manufacturer => manufacturer.ToDto())
                 .AsNoTracking()
                 .ToListAsync();

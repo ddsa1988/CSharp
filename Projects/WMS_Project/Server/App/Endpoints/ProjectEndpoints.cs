@@ -14,7 +14,7 @@ public static class ProjectEndpoints {
 
         // GET
         group.MapGet("/", async (WarehouseDbContext dbContext) => {
-            await dbContext.Projects
+            return await dbContext.Projects
                 .Include(project => project.Components)
                 .Select(project => project.ToDto())
                 .AsNoTracking()

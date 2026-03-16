@@ -14,7 +14,7 @@ public static class ComponentEndpoints {
 
         // GET
         group.MapGet("/", async (WarehouseDbContext dbContext) => {
-            await dbContext.Components
+            return await dbContext.Components
                 .Include(component => component.Category)
                 .Include(component => component.Manufacturer)
                 .Include(component => component.Location)

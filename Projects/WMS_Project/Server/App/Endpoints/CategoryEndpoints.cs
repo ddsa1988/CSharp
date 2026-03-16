@@ -14,7 +14,7 @@ public static class CategoryEndpoints {
 
         // GET
         group.MapGet("/", async (WarehouseDbContext dbContext) => {
-            await dbContext.Categories
+            return await dbContext.Categories
                 .Select(category => category.ToDto())
                 .AsNoTracking()
                 .ToListAsync();

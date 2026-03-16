@@ -14,7 +14,7 @@ public static class ProjectComponentEndpoints {
 
         // GET
         group.MapGet("/", async (WarehouseDbContext dbContext) => {
-            await dbContext.ProjectComponents
+            return await dbContext.ProjectComponents
                 .Include(pc => pc.Project)
                 .Include(pc => pc.Component)
                 .Select(pc => pc.ToDto())
@@ -33,7 +33,7 @@ public static class ProjectComponentEndpoints {
             }).WithName(getPcEndpointName);
 
         group.MapGet("/projects/{id:long}", async (long id, WarehouseDbContext dbContext) => {
-            await dbContext.ProjectComponents
+            return await dbContext.ProjectComponents
                 .Include(pc => pc.Project)
                 .Include(pc => pc.Component)
                 .Where(pc => pc.ProjectId == id)
@@ -43,7 +43,7 @@ public static class ProjectComponentEndpoints {
         });
 
         group.MapGet("/components/{id:long}", async (long id, WarehouseDbContext dbContext) => {
-            await dbContext.ProjectComponents
+            return await dbContext.ProjectComponents
                 .Include(pc => pc.Project)
                 .Include(pc => pc.Component)
                 .Where(pc => pc.ComponentId == id)
@@ -66,7 +66,8 @@ public static class ProjectComponentEndpoints {
                 await dbContext.ProjectComponents.AddAsync(newPc);
                 await dbContext.SaveChangesAsync();
 
-                return Results.CreatedAtRoute(getPcEndpointName, new { id = newPc.ProjectId, newPc.ComponentId },
+                return Results.CreatedAtRoute(getPcEndpointName,
+                    new { projectId = newPc.ProjectId, componentId = newPc.ComponentId },
                     newPc.ToDto());
             });
 

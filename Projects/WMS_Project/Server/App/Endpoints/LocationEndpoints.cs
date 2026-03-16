@@ -13,13 +13,12 @@ public static class LocationEndpoints {
         RouteGroupBuilder group = app.MapGroup("locations").WithParameterValidation();
 
         // GET
-        group.MapGet("/",
-            async (WarehouseDbContext dbContext) => {
-                await dbContext.Locations
-                    .Select(location => location.ToDto())
-                    .AsNoTracking()
-                    .ToListAsync();
-            });
+        group.MapGet("/", async (WarehouseDbContext dbContext) => {
+            return await dbContext.Locations
+                .Select(location => location.ToDto())
+                .AsNoTracking()
+                .ToListAsync();
+        });
 
         group.MapGet("/{id:long}", async (long id, WarehouseDbContext dbContext) => {
             Location? location = await dbContext.Locations.FindAsync(id);
