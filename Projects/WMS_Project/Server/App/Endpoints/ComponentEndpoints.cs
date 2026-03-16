@@ -15,6 +15,9 @@ public static class ComponentEndpoints {
         // GET
         group.MapGet("/", async (WarehouseDbContext dbContext) => {
             await dbContext.Components
+                .Include(component => component.Category)
+                .Include(component => component.Manufacturer)
+                .Include(component => component.Location)
                 .Select(component => component.ToDto())
                 .AsNoTracking()
                 .ToListAsync();
@@ -32,6 +35,8 @@ public static class ComponentEndpoints {
 
             await dbContext.Components.AddAsync(newComponent);
             await dbContext.SaveChangesAsync();
+
+            return Results.CreatedAtRoute(getComponentEndpointName, new { id = newComponent.Id }, newComponent.ToDto());
         });
 
         // PUT

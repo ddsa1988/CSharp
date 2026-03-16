@@ -15,13 +15,27 @@ public static class ProjectComponentEndpoints {
         // GET
         group.MapGet("/", async (WarehouseDbContext dbContext) => {
             await dbContext.ProjectComponents
+                .Include(projectComponent => projectComponent.Project)
+                .Include(projectComponent => projectComponent.Component)
                 .Select(projectComponent => projectComponent.ToDto())
                 .AsNoTracking()
                 .ToListAsync();
         });
 
+        group.MapGet("/{projectId:long}/{componentId:long}",
+            async (long projectId, long componentId, WarehouseDbContext dbContext) => {
+                ProjectComponent? existingProjectComponent =
+                    await dbContext.ProjectComponents.FindAsync(projectId, componentId);
+
+                return existingProjectComponent == null
+                    ? Results.NotFound()
+                    : Results.Ok(existingProjectComponent.ToDto());
+            }).WithName(getProjectComponentEndpointName);
+
         group.MapGet("/projects/{id:long}", async (long id, WarehouseDbContext dbContext) => {
             await dbContext.ProjectComponents
+                .Include(projectComponent => projectComponent.Project)
+                .Include(projectComponent => projectComponent.Component)
                 .Where(projectComponent => projectComponent.ProjectId == id)
                 .Select(projectComponent => projectComponent.ToDto())
                 .AsNoTracking()
@@ -30,6 +44,8 @@ public static class ProjectComponentEndpoints {
 
         group.MapGet("/components/{id:long}", async (long id, WarehouseDbContext dbContext) => {
             await dbContext.ProjectComponents
+                .Include(projectComponent => projectComponent.Project)
+                .Include(projectComponent => projectComponent.Component)
                 .Where(projectComponent => projectComponent.ComponentId == id)
                 .Select(projectComponent => projectComponent.ToDto())
                 .AsNoTracking()
@@ -57,7 +73,8 @@ public static class ProjectComponentEndpoints {
         group.MapPut("/",
             async (UpdateProjectComponentDto updateProjectComponent, WarehouseDbContext dbContext) => {
                 ProjectComponent? existingProjectComponent =
-                    await dbContext.ProjectComponents.FindAsync(updateProjectComponent.ProjectId);
+                    await dbContext.ProjectComponents.FindAsync(updateProjectComponent.ProjectId,
+                        updateProjectComponent.ComponentId);
 
                 if (existingProjectComponent == null) return Results.NotFound();
 
@@ -67,20 +84,22 @@ public static class ProjectComponentEndpoints {
             });
 
         // DELETE
-        group.MapDelete("/{id:long}", async (long id, WarehouseDbContext dbContext) => {
-            ProjectComponent? existingProjectComponent = await dbContext.ProjectComponents.FindAsync(id);
+        group.MapDelete("/{projectId:long}/{componentId:long}",
+            async (long projectId, long componentId, WarehouseDbContext dbContext) => {
+                ProjectComponent? existingProjectComponent =
+                    await dbContext.ProjectComponents.FindAsync(projectId, componentId);
 
-            if (existingProjectComponent == null) return Results.NotFound();
+                if (existingProjectComponent == null) return Results.NotFound();
 
-            if (existingProjectComponent.IsDeleted) return Results.NoContent();
+                if (existingProjectComponent.IsDeleted) return Results.NoContent();
 
-            existingProjectComponent.IsDeleted = true;
+                existingProjectComponent.IsDeleted = true;
 
-            dbContext.Entry(existingProjectComponent).CurrentValues.SetValues(existingProjectComponent);
-            await dbContext.SaveChangesAsync();
+                dbContext.Entry(existingProjectComponent).CurrentValues.SetValues(existingProjectComponent);
+                await dbContext.SaveChangesAsync();
 
-            return Results.NoContent();
-        });
+                return Results.NoContent();
+            });
 
         return group;
     }

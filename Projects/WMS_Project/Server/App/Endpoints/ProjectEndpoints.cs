@@ -15,6 +15,7 @@ public static class ProjectEndpoints {
         // GET
         group.MapGet("/", async (WarehouseDbContext dbContext) => {
             await dbContext.Projects
+                .Include(project => project.Components)
                 .Select(project => project.ToDto())
                 .AsNoTracking()
                 .ToListAsync();
@@ -33,7 +34,7 @@ public static class ProjectEndpoints {
 
             project.Components = await dbContext.ProjectComponents
                 .Where(projectComponent => projectComponent.ProjectId == project.Id)
-                .Select(projectComponent => projectComponent.ToDto())
+                .Select(projectComponent => projectComponent)
                 .AsNoTracking()
                 .ToListAsync();
 
