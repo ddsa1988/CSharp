@@ -81,6 +81,7 @@ public static class ProjectComponentEndpoints {
                 if (existingProjectComponent == null) return Results.NotFound();
 
                 dbContext.Entry(existingProjectComponent).CurrentValues.SetValues(updateProjectComponent.ToEntity());
+                await dbContext.SaveChangesAsync();
 
                 return Results.NoContent();
             });

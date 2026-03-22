@@ -8,5 +8,6 @@ public record ProjectComponentDto(
     ProjectDto? Project,
     long ComponentId,
     ComponentDto? Component,
-    int Quantity
+    int Quantity,
+    bool IsDeleted
 );

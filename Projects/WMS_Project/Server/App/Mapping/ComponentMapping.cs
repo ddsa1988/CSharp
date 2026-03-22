@@ -41,7 +41,8 @@ public static class ComponentMapping {
             component.ManufacturerId,
             component.Manufacturer?.ToDto(),
             component.LocationId,
-            component.Location?.ToDto()
+            component.Location?.ToDto(),
+            component.IsDeleted
         );
 
         return componentDto;

@@ -31,7 +31,8 @@ public static class ProjectMapping {
             project.Id, project.Name,
             project.Description,
             project.CreationDate,
-            project.Components.Select(component => component.ToDto()).ToList()
+            project.Components.Select(component => component.ToDto()).ToList(),
+            project.IsDeleted
         );
 
         return projectDto;

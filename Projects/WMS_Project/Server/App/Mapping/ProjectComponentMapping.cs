@@ -27,10 +27,11 @@ public static class ProjectComponentMapping {
     public static ProjectComponentDto ToDto(this ProjectComponent projectComponent) {
         ProjectComponentDto projectComponentDto = new(
             projectComponent.ProjectId,
-            projectComponent.Project?.ToDto(),
+            null,  // Set to null to prevent circular reference with ProjectDto
             projectComponent.ComponentId,
             projectComponent.Component?.ToDto(),
-            projectComponent.Quantity
+            projectComponent.Quantity,
+            projectComponent.IsDeleted
         );
 
         return projectComponentDto;

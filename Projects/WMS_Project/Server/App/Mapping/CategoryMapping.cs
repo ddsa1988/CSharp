@@ -24,7 +24,7 @@ public static class CategoryMapping {
     }
 
     public static CategoryDto ToDto(this Category category) {
-        CategoryDto categoryDto = new(category.Id, category.Name, category.Description);
+        CategoryDto categoryDto = new(category.Id, category.Name, category.Description, category.IsDeleted);
 
         return categoryDto;
     }

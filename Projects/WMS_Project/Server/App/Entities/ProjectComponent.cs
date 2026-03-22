@@ -9,6 +9,6 @@ public class ProjectComponent : ISoftDeletable {
     public Project? Project { get; init; }
     public long ComponentId { get; init; }
     public Component? Component { get; init; }
-    public int Quantity { get; init; }
+    public int Quantity { get; set; }
     public bool IsDeleted { get; set; }
 }

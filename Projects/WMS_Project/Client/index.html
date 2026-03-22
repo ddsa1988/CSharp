@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Warehouse Management System</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="container">
+            <!-- Header -->
+            <header class="header">
+                <div class="header-content">
+                    <h1>Warehouse Management System</h1>
+                    <p class="subtitle">
+                        Automation Company Inventory Management
+                    </p>
+                </div>
+            </header>
+
+            <!-- Navigation -->
+            <nav class="navbar">
+                <button class="nav-btn active" data-view="projects">
+                    Projects
+                </button>
+                <button class="nav-btn" data-view="components">
+                    Components
+                </button>
+                <button class="nav-btn" data-view="categories">
+                    Categories
+                </button>
+                <button class="nav-btn" data-view="manufacturers">
+                    Manufacturers
+                </button>
+                <button class="nav-btn" data-view="locations">Locations</button>
+            </nav>
+
+            <!-- Filter Section -->
+            <div class="filter-section">
+                <div class="filter-toggle">
+                    <label>
+                        <input
+                            type="checkbox"
+                            id="showDeletedToggle"
+                            unchecked
+                        />
+                        <span>Show Deleted Items</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Main Content Area -->
+            <main class="main-content">
+                <!-- Projects View -->
+                <section id="projects-view" class="view active">
+                    <div class="view-header">
+                        <h2>Projects</h2>
+                        <button class="btn btn-primary" id="createProjectBtn">
+                            + Create Project
+                        </button>
+                    </div>
+                    <div id="projectsList" class="items-list"></div>
+                </section>
+
+                <!-- Components View -->
+                <section id="components-view" class="view">
+                    <div class="view-header">
+                        <h2>Components</h2>
+                        <button class="btn btn-primary" id="createComponentBtn">
+                            + Create Component
+                        </button>
+                    </div>
+                    <div id="componentsList" class="items-list"></div>
+                </section>
+
+                <!-- Categories View -->
+                <section id="categories-view" class="view">
+                    <div class="view-header">
+                        <h2>Categories</h2>
+                        <button class="btn btn-primary" id="createCategoryBtn">
+                            + Create Category
+                        </button>
+                    </div>
+                    <div id="categoriesList" class="items-list"></div>
+                </section>
+
+                <!-- Manufacturers View -->
+                <section id="manufacturers-view" class="view">
+                    <div class="view-header">
+                        <h2>Manufacturers</h2>
+                        <button
+                            class="btn btn-primary"
+                            id="createManufacturerBtn"
+                        >
+                            + Create Manufacturer
+                        </button>
+                    </div>
+                    <div id="manufacturersList" class="items-list"></div>
+                </section>
+
+                <!-- Locations View -->
+                <section id="locations-view" class="view">
+                    <div class="view-header">
+                        <h2>Locations</h2>
+                        <button class="btn btn-primary" id="createLocationBtn">
+                            + Create Location
+                        </button>
+                    </div>
+                    <div id="locationsList" class="items-list"></div>
+                </section>
+            </main>
+        </div>
+
+        <!-- Create/Edit Project Modal -->
+        <div id="projectModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 id="projectModalTitle">Create Project</h2>
+                    <button class="modal-close">&times;</button>
+                </div>
+                <form id="projectForm">
+                    <div class="form-group">
+                        <label for="projectName">Project Name</label>
+                        <input
+                            type="text"
+                            id="projectName"
+                            required
+                            maxlength="30"
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label for="projectDescription">Description</label>
+                        <textarea
+                            id="projectDescription"
+                            maxlength="50"
+                        ></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Components</label>
+                        <div class="components-selector">
+                            <div class="component-select-container">
+                                <select id="componentSelect">
+                                    <option value="">
+                                        Select a component to add
+                                    </option>
+                                </select>
+                                <input
+                                    type="number"
+                                    id="quantityInput"
+                                    min="1"
+                                    value="1"
+                                    placeholder="Qty"
+                                    style="
+                                        width: 70px;
+                                        padding: 10px;
+                                        border: 1px solid var(--border-color);
+                                        border-radius: 5px;
+                                        font-size: 0.95rem;
+                                    "
+                                />
+                                <button
+                                    type="button"
+                                    class="btn btn-secondary"
+                                    id="addComponentBtn"
+                                >
+                                    Add Component
+                                </button>
+                            </div>
+                            <div
+                                id="selectedComponents"
+                                class="selected-components"
+                            >
+                                <h4>Selected Components:</h4>
+                                <div id="selectedComponentsList"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button
+                            type="button"
+                            class="btn btn-secondary"
+                            id="cancelProjectBtn"
+                        >
+                            Cancel
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                            Save Project
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Create/Edit Component Modal -->
+        <div id="componentModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 id="componentModalTitle">Create Component</h2>
+                    <button class="modal-close">&times;</button>
+                </div>
+                <form id="componentForm">
+                    <div class="form-group">
+                        <label for="componentName">Component Name</label>
+                        <input
+                            type="text"
+                            id="componentName"
+                            required
+                            maxlength="30"
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label for="componentDescription">Description</label>
+                        <textarea
+                            id="componentDescription"
+                            maxlength="50"
+                        ></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="componentPrice">Price</label>
+                        <input
+                            type="number"
+                            id="componentPrice"
+                            step="0.01"
+                            min="0"
+                            required
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label for="componentCategory">Category</label>
+                        <select id="componentCategory" required>
+                            <option value="">Select a category</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="componentManufacturer">Manufacturer</label>
+                        <select id="componentManufacturer" required>
+                            <option value="">Select a manufacturer</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="componentLocation">Location</label>
+                        <select id="componentLocation" required>
+                            <option value="">Select a location</option>
+                        </select>
+                    </div>
+                    <div class="modal-footer">
+                        <button
+                            type="button"
+                            class="btn btn-secondary"
+                            id="cancelComponentBtn"
+                        >
+                            Cancel
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                            Save Component
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Create/Edit Category Modal -->
+        <div id="categoryModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 id="categoryModalTitle">Create Category</h2>
+                    <button class="modal-close">&times;</button>
+                </div>
+                <form id="categoryForm">
+                    <div class="form-group">
+                        <label for="categoryName">Category Name</label>
+                        <input
+                            type="text"
+                            id="categoryName"
+                            required
+                            maxlength="30"
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label for="categoryDescription">Description</label>
+                        <textarea
+                            id="categoryDescription"
+                            maxlength="50"
+                        ></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button
+                            type="button"
+                            class="btn btn-secondary"
+                            id="cancelCategoryBtn"
+                        >
+                            Cancel
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                            Save Category
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Create/Edit Manufacturer Modal -->
+        <div id="manufacturerModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 id="manufacturerModalTitle">Create Manufacturer</h2>
+                    <button class="modal-close">&times;</button>
+                </div>
+                <form id="manufacturerForm">
+                    <div class="form-group">
+                        <label for="manufacturerName">Manufacturer Name</label>
+                        <input
+                            type="text"
+                            id="manufacturerName"
+                            required
+                            maxlength="30"
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label for="manufacturerDescription">Description</label>
+                        <textarea
+                            id="manufacturerDescription"
+                            maxlength="50"
+                        ></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button
+                            type="button"
+                            class="btn btn-secondary"
+                            id="cancelManufacturerBtn"
+                        >
+                            Cancel
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                            Save Manufacturer
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Create/Edit Location Modal -->
+        <div id="locationModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 id="locationModalTitle">Create Location</h2>
+                    <button class="modal-close">&times;</button>
+                </div>
+                <form id="locationForm">
+                    <div class="form-group">
+                        <label for="locationName">Location Name</label>
+                        <input
+                            type="text"
+                            id="locationName"
+                            required
+                            maxlength="30"
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label for="locationDescription">Description</label>
+                        <textarea
+                            id="locationDescription"
+                            maxlength="50"
+                        ></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button
+                            type="button"
+                            class="btn btn-secondary"
+                            id="cancelLocationBtn"
+                        >
+                            Cancel
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                            Save Location
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Scripts -->
+        <script src="api.js"></script>
+        <script src="app.js"></script>
+    </body>
+</html>

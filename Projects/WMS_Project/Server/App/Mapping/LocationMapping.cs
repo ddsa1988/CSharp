@@ -24,7 +24,7 @@ public static class LocationMapping {
     }
 
     public static LocationDto ToDto(this Location location) {
-        LocationDto locationDto = new(location.Id, location.Name, location.Description);
+        LocationDto locationDto = new(location.Id, location.Name, location.Description, location.IsDeleted);
 
         return locationDto;
     }

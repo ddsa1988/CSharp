@@ -7,5 +7,6 @@ public record ProjectDto(
     string Name,
     string? Description,
     DateOnly CreationDate,
-    ICollection<ProjectComponentDto> Components
+    ICollection<ProjectComponentDto> Components,
+    bool IsDeleted
 );

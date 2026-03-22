@@ -24,7 +24,7 @@ public static class ManufacturerMapping {
     }
 
     public static ManufacturerDto ToDto(this Manufacturer manufacturer) {
-        ManufacturerDto manufacturerDto = new(manufacturer.Id, manufacturer.Name, manufacturer.Description);
+        ManufacturerDto manufacturerDto = new(manufacturer.Id, manufacturer.Name, manufacturer.Description, manufacturer.IsDeleted);
 
         return manufacturerDto;
     }

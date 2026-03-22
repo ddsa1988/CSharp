@@ -14,5 +14,6 @@ public record ComponentDto(
     long ManufacturerId,
     ManufacturerDto? Manufacturer,
     long LocationId,
-    LocationDto? Location
+    LocationDto? Location,
+    bool IsDeleted
 );
