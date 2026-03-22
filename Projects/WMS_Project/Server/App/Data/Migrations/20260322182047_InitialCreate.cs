@@ -80,6 +80,7 @@ namespace App.Data.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "TEXT", maxLength: 30, nullable: false),
                     Description = table.Column<string>(type: "TEXT", maxLength: 50, nullable: true),
+                    Price = table.Column<float>(type: "REAL", nullable: false),
                     IsDeleted = table.Column<bool>(type: "INTEGER", nullable: false),
                     CategoryId = table.Column<long>(type: "INTEGER", nullable: false),
                     ManufacturerId = table.Column<long>(type: "INTEGER", nullable: false),

@@ -8,6 +8,7 @@ public record ComponentDto(
     long Id,
     string Name,
     string? Description,
+    float Price,
     long CategoryId,
     CategoryDto? Category,
     long ManufacturerId,

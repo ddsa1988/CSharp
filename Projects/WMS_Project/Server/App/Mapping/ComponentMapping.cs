@@ -8,6 +8,7 @@ public static class ComponentMapping {
         Component component = new() {
             Name = componentDto.Name,
             Description = componentDto.Description,
+            Price = componentDto.Price,
             CategoryId = componentDto.CategoryId,
             ManufacturerId = componentDto.ManufacturerId,
             LocationId = componentDto.LocationId
@@ -20,6 +21,7 @@ public static class ComponentMapping {
         Component component = new() {
             Id = id,
             Name = componentDto.Name,
+            Price = componentDto.Price,
             Description = componentDto.Description,
             CategoryId = componentDto.CategoryId,
             ManufacturerId = componentDto.ManufacturerId,
@@ -33,6 +35,7 @@ public static class ComponentMapping {
         ComponentDto componentDto = new(
             component.Id, component.Name,
             component.Description,
+            component.Price,
             component.CategoryId,
             component.Category?.ToDto(),
             component.ManufacturerId,

@@ -7,6 +7,7 @@ public class Component : IBaseEntity {
     public long Id { get; init; }
     [MaxLength(30)] public required string Name { get; init; }
     [MaxLength(50)] public string? Description { get; init; }
+    [Range(0, float.MaxValue)] public required float Price { get; set; }
     public bool IsDeleted { get; set; }
     public long CategoryId { get; init; }
     public Category? Category { get; init; }

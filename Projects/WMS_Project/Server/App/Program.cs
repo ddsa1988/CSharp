@@ -13,7 +13,17 @@ string warehouseConnection =
 
 builder.Services.AddDbContext<WarehouseDbContext>(options => { options.UseSqlite(warehouseConnection); });
 
+builder.Services.AddCors(options => {
+    options.AddPolicy("AllowAll", policy => {
+        policy.AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader();
+    });
+});
+
 WebApplication app = builder.Build();
+
+app.UseCors("AllowAll");
 
 app.MapCategoryEndpoints();
 app.MapManufacturerEndpoints();
