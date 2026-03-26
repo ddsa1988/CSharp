@@ -6,26 +6,37 @@
         x:Class="GuessNumberGame.MainWindow"
         Title="GuessNumberGame"
         Width="600" Height="400">
+
+    <Window.Styles>
+        <Style Selector="Grid">
+            <Setter Property="ShowGridLines" Value="True" />
+        </Style>
+        <Style Selector="StackPanel.align-center">
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+    </Window.Styles>
+
     <StackPanel>
         <Grid ShowGridLines="True" RowDefinitions="100, 50,250">
 
-            <Grid ShowGridLines="True" Grid.Row="0" ColumnDefinitions="150,300,150">
-                <Button Grid.Column="0" VerticalAlignment="Top" Margin="10,10,0,0">Again?</Button>
+            <Grid Grid.Row="0" ColumnDefinitions="150,300,150">
+                <Button Grid.Column="0" VerticalAlignment="Top" Margin="10,10,0,0" Click="ButtonAgain">Again?</Button>
                 <TextBlock Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom">Guess My Number</TextBlock>
-                <TextBlock Grid.Column="2" HorizontalAlignment="Center" Margin="0,10,0,0">(Between 1 and 20)</TextBlock>
+                <TextBlock Grid.Column="2" HorizontalAlignment="Center" Margin="0,10,0,0" Name="RandomRange">(Between 1 and 20)</TextBlock>
             </Grid>
 
             <TextBlock Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">?</TextBlock>
 
-            <Grid ShowGridLines="True" Grid.Row="2" ColumnDefinitions="300,300">
-                <StackPanel Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <TextBox Width="100" Margin="0,0,0,10" HorizontalContentAlignment="Center"></TextBox>
-                    <Button Width="100" HorizontalContentAlignment="Center">Check!</Button>
+            <Grid Grid.Row="2" ColumnDefinitions="300,300">
+                <StackPanel Classes="align-center" Grid.Column="0">
+                    <TextBox Width="100" HorizontalContentAlignment="Center" Margin="0,0,0,10" Name="Guess"></TextBox>
+                    <Button Width="100" HorizontalContentAlignment="Center" Click="ButtonCheck">Check!</Button>
                 </StackPanel>
-                <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <TextBlock Margin="0,0,0,30">Start guessing...</TextBlock>
-                    <TextBlock Margin="0,0,0,10">💯 Score: 20</TextBlock>
-                    <TextBlock>🥇 High score: 0</TextBlock>
+                <StackPanel Classes="align-center" Grid.Column="1">
+                    <TextBlock Margin="0,0,0,30" Name="Message">Start guessing...</TextBlock>
+                    <TextBlock Margin="0,0,0,10" Name="Score">💯 Score: 20</TextBlock>
+                    <TextBlock Name="BestScore">🥇 Best score: 0</TextBlock>
                 </StackPanel>
                 <StackPanel Grid.Column="1"></StackPanel>
             </Grid>
