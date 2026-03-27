@@ -1,4 +1,5 @@
 <Solution>
+  <Project Path="../../../../../../Downloads/Test/WarehouseTest/WarehouseTest.csproj" />
   <Project Path="App/App.csproj" />
   <Project Path="AppTests/AppTests.csproj" />
 </Solution>
