@@ -1,6 +1,7 @@
 using System;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
+using Avalonia.Media;
 
 namespace GuessNumberGame;
 
@@ -14,12 +15,19 @@ public partial class MainWindow : Window {
 
     public MainWindow() {
         InitializeComponent();
+        InitGame();
     }
 
-    private void SetupGame() {
-        RandomRange.Text = $"Between {RandomMinValue} and {RandomMaxValue}";
+    private void InitGame() {
         _randomNumber = GetRandomNumber(RandomMinValue, RandomMaxValue);
         _actualScore = StartScore;
+        Guess.IsEnabled = true;
+        BtnCheck.IsEnabled = true;
+        Score.Text = $"💯 Score: {StartScore}";
+        RandomRange.Text = $"Between {RandomMinValue} and {RandomMaxValue}";
+        RandomNumber.Text = "?";
+        Guess.Text = "";
+        Message.Text = "Start guessing...";
     }
 
     private static int GetRandomNumber(int minValue, int maxValue) {
@@ -28,7 +36,14 @@ public partial class MainWindow : Window {
         return randomNumber;
     }
 
-    private void ButtonCheck(object? sender, RoutedEventArgs e) {
+    private void GameOver() {
+        Guess.IsEnabled = false;
+        BtnCheck.IsEnabled = false;
+        BestScore.Text = "🥇 Best score: " + _bestScore;
+        RandomNumber.Text = _randomNumber.ToString();
+    }
+
+    private void ClickBtnCheck(object? sender, RoutedEventArgs e) {
         bool isGuessValid = int.TryParse(Guess.Text, out int guessNumber) && guessNumber >= RandomMinValue &&
                             guessNumber <= RandomMaxValue;
 
@@ -37,12 +52,28 @@ public partial class MainWindow : Window {
             Message.Text = "⛔️ No number!";
             return;
         }
+
+        if (guessNumber == _randomNumber) {
+            if (_actualScore > _bestScore) {
+                _bestScore = _actualScore;
+            }
+
+            Message.Text = "🎉 Correct Number!";
+            MainPanel.Background = new SolidColorBrush(Color.FromRgb(96, 179, 71));
+            GameOver();
+            return;
+        }
+
+        Score.Text = $"💯 Score: {--_actualScore}";
+        Message.Text = guessNumber < _randomNumber ? "📉 Too low" : "📈 Too high!";
+
+        if (_actualScore != 0) return;
+
+        Message.Text = "💥 You lost the game!";
+        GameOver();
     }
 
-    private void ButtonAgain(object? sender, RoutedEventArgs e) {
-        throw new System.NotImplementedException();
+    private void ClickBtnAgain(object? sender, RoutedEventArgs e) {
+        InitGame();
     }
-
-    // "📉 Too low" : "📈 Too high!"
-    // "💥 You lost the game!"
 }
