@@ -28,12 +28,7 @@ public partial class MainWindow : Window {
         RandomNumber.Text = "?";
         Guess.Text = "";
         Message.Text = "Start guessing...";
-    }
-
-    private static int GetRandomNumber(int minValue, int maxValue) {
-        Random random = new();
-        int randomNumber = random.Next(minValue, maxValue + 1);
-        return randomNumber;
+        MainPanel.Background = new SolidColorBrush(Color.FromRgb(34, 34, 34));
     }
 
     private void GameOver() {
@@ -41,6 +36,12 @@ public partial class MainWindow : Window {
         BtnCheck.IsEnabled = false;
         BestScore.Text = "🥇 Best score: " + _bestScore;
         RandomNumber.Text = _randomNumber.ToString();
+    }
+
+    private static int GetRandomNumber(int minValue, int maxValue) {
+        Random random = new();
+        int randomNumber = random.Next(minValue, maxValue + 1);
+        return randomNumber;
     }
 
     private void ClickBtnCheck(object? sender, RoutedEventArgs e) {

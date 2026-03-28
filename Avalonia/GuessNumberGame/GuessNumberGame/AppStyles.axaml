@@ -23,12 +23,17 @@
     <Style Selector="Button">
         <Setter Property="Background" Value="#eee" />
         <Setter Property="CornerRadius" Value="0" />
+        <Setter Property="FontWeight" Value="Bold" />
     </Style>
 
-    <Style Selector="Button:pointerover ContentPresenter">
-        <Setter Property="Foreground" Value="#eee" />
+    <Style Selector="Button:pointerover /template/ ContentPresenter">
+        <Setter Property="Background" Value="#ccc" />
+    </Style>
+
+    <Style Selector="Button:disabled /template/ ContentPresenter">
+        <Setter Property="Background" Value="#eee" />
         <Setter Property="CornerRadius" Value="0" />
-        <Setter Property="BorderBrush" Value="#eee" />
+        <Setter Property="Opacity" Value="0.5" />
     </Style>
 
     <Style Selector="Button.btn-again">
@@ -47,13 +52,36 @@
         <Setter Property="Margin" Value="0 0 0 10" />
         <Setter Property="BorderThickness" Value="2" />
         <Setter Property="BorderBrush" Value="#eee" />
-        <!-- <Setter Property="Background" Value="#222" /> -->
-        <!-- <Setter Property="Foreground" Value="#eee" /> -->
+        <Setter Property="Background" Value="#222" />
+        <Setter Property="Foreground" Value="#eee" />
         <Setter Property="CornerRadius" Value="0" />
+        <Setter Property="CaretBrush" Value="#eee" />
+        <Setter Property="FontWeight" Value="Bold" />
+    </Style>
+
+    <Style Selector="TextBox.guess-box:pointerover /template/ Border#PART_BorderElement">
+        <Setter Property="BorderBrush" Value="#eee" />
+        <Setter Property="Background" Value="#222" />
+    </Style>
+
+    <Style Selector="TextBox.guess-box:focus /template/ Border#PART_BorderElement">
+        <Setter Property="BorderBrush" Value="#eee" />
+        <Setter Property="Background" Value="#222" />
+    </Style>
+
+    <Style Selector="TextBox.guess-box:disabled /template/ Border#PART_BorderElement">
+        <Setter Property="Background" Value="#eee" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Opacity" Value="0.5" />
+    </Style>
+
+    <Style Selector="TextBox:disabled">
+        <Setter Property="Foreground" Value="#a9a9a9" />
     </Style>
 
     <Style Selector="TextBlock">
         <Setter Property="Foreground" Value="#eee" />
+        <Setter Property="FontWeight" Value="Bold" />
     </Style>
 
     <Style Selector="TextBlock.guess-number-txt">
