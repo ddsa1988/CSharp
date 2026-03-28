@@ -11,29 +11,23 @@
         <Grid RowDefinitions="100, 50,250">
 
             <Grid Grid.Row="0" ColumnDefinitions="150,300,150">
-                <Button Grid.Column="0" VerticalAlignment="Top" Margin="10,10,0,0" Click="ClickBtnAgain">Again?</Button>
-                <TextBlock Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0 0 0 10">Guess My Number</TextBlock>
-                <TextBlock Grid.Column="2" HorizontalAlignment="Center" Margin="0,10,0,0" Name="RandomRange">(Between 1 and 20)</TextBlock>
+                <Button Grid.Column="0" Classes="btn-again" Click="ClickBtnAgain" Content="Again?" />
+                <TextBlock Grid.Column="1" Classes="guess-number-txt" Text="Guess My Number" />
+                <TextBlock Grid.Column="2" Classes="range-number-txt" Name="RangeNumber" Text="(Between 1 and 20)" />
             </Grid>
 
-            <TextBlock Name="RandomNumber" Classes="random-number" Grid.Row="1" HorizontalAlignment="Center"
-                       VerticalAlignment="Center">
-                ?
-            </TextBlock>
+            <TextBlock Grid.Row="1" Name="RandomNumber" Classes="random-number" Text="?" />
 
             <Grid Grid.Row="2" ColumnDefinitions="300,300">
-                <StackPanel Classes="align-center" Grid.Column="0">
-                    <TextBox Classes="guess-box" Width="100" HorizontalContentAlignment="Center" Margin="0,0,0,10"
-                             Name="Guess">
-                    </TextBox>
-                    <Button Width="100" HorizontalContentAlignment="Center" Click="ClickBtnCheck" Name="BtnCheck">Check!</Button>
+                <StackPanel Grid.Column="0" Classes="align-center">
+                    <TextBox Name="Guess" Classes="guess-box" />
+                    <Button Name="BtnCheck" Classes="btn-check" Click="ClickBtnCheck" Content="Check!" />
                 </StackPanel>
-                <StackPanel Classes="align-center" Grid.Column="1">
-                    <TextBlock Margin="0,0,0,30" Name="Message">Start guessing...</TextBlock>
-                    <TextBlock Margin="0,0,0,10" Name="Score">💯 Score: 20</TextBlock>
-                    <TextBlock Name="BestScore">🥇 Best score: 0</TextBlock>
+                <StackPanel Grid.Column="1" Classes="align-center">
+                    <TextBlock Name="Message" Classes="message" Text="Start guessing..." />
+                    <TextBlock Name="Score" Classes="score" Text="💯 Score: 20" />
+                    <TextBlock Name="BestScore" Text="🥇 Best score: 0" />
                 </StackPanel>
-                <StackPanel Grid.Column="1"></StackPanel>
             </Grid>
 
         </Grid>

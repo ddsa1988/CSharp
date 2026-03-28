@@ -10,33 +10,66 @@
     <Style Selector="Grid">
         <Setter Property="ShowGridLines" Value="False" />
     </Style>
+
     <Style Selector="StackPanel.main-panel">
         <Setter Property="Background" Value="#222" />
     </Style>
+
     <Style Selector="StackPanel.align-center">
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="VerticalAlignment" Value="Center" />
     </Style>
-    <Style Selector="TextBlock">
-        <Setter Property="Foreground" Value="#eee" />
-    </Style>
+
     <Style Selector="Button">
         <Setter Property="Background" Value="#eee" />
         <Setter Property="CornerRadius" Value="0" />
     </Style>
+
     <Style Selector="Button:pointerover ContentPresenter">
         <Setter Property="Foreground" Value="#eee" />
         <Setter Property="CornerRadius" Value="0" />
         <Setter Property="BorderBrush" Value="#eee" />
     </Style>
+
+    <Style Selector="Button.btn-again">
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="Margin" Value="10,10,0,0" />
+    </Style>
+
+    <Style Selector="Button.btn-check">
+        <Setter Property="Width" Value="100" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+    </Style>
+
     <Style Selector="TextBox.guess-box">
+        <Setter Property="Width" Value="100" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="Margin" Value="0 0 0 10" />
         <Setter Property="BorderThickness" Value="2" />
         <Setter Property="BorderBrush" Value="#eee" />
         <!-- <Setter Property="Background" Value="#222" /> -->
         <!-- <Setter Property="Foreground" Value="#eee" /> -->
         <Setter Property="CornerRadius" Value="0" />
     </Style>
+
+    <Style Selector="TextBlock">
+        <Setter Property="Foreground" Value="#eee" />
+    </Style>
+
+    <Style Selector="TextBlock.guess-number-txt">
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Bottom" />
+        <Setter Property="Margin" Value="0 0 0 10" />
+    </Style>
+
+    <Style Selector="TextBlock.range-number-txt">
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="Margin" Value="0 10 0 0" />
+    </Style>
+
     <Style Selector="TextBlock.random-number">
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="Background" Value="#eee" />
         <Setter Property="Foreground" Value="#222" />
         <Setter Property="Width" Value="80" />
@@ -44,4 +77,13 @@
         <Setter Property="FontSize" Value="40" />
         <Setter Property="TextAlignment" Value="Center" />
     </Style>
+
+    <Style Selector="TextBlock.message">
+        <Setter Property="Margin" Value="0 0 0 30" />
+    </Style>
+
+    <Style Selector="TextBlock.score">
+        <Setter Property="Margin" Value="0 0 0 10" />
+    </Style>
+
 </Styles>

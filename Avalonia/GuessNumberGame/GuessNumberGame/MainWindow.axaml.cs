@@ -24,7 +24,7 @@ public partial class MainWindow : Window {
         Guess.IsEnabled = true;
         BtnCheck.IsEnabled = true;
         Score.Text = $"💯 Score: {StartScore}";
-        RandomRange.Text = $"Between {RandomMinValue} and {RandomMaxValue}";
+        RangeNumber.Text = $"(Between {RandomMinValue} and {RandomMaxValue})";
         RandomNumber.Text = "?";
         Guess.Text = "";
         Message.Text = "Start guessing...";
