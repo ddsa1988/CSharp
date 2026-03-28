@@ -18,4 +18,9 @@
             <PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
         </PackageReference>
     </ItemGroup>
+
+    <ItemGroup>
+        <None Remove="Assets\Fonts\Montserrat-Bold.ttf"/>
+        <AvaloniaResource Include="Assets\Fonts\Montserrat-Bold.ttf"/>
+    </ItemGroup>
 </Project>

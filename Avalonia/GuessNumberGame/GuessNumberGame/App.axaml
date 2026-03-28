@@ -8,4 +8,7 @@
         <FluentTheme />
         <StyleInclude Source="/AppStyles.axaml" />
     </Application.Styles>
+    <Application.Resources>
+        <FontFamily x:Key="MontserratBold">/Assets/Fonts/Montserrat-Bold.ttf#Montserrat Bold</FontFamily>
+    </Application.Resources>
 </Application>

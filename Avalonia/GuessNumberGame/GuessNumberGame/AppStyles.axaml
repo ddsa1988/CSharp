@@ -24,6 +24,7 @@
         <Setter Property="Background" Value="#eee" />
         <Setter Property="CornerRadius" Value="0" />
         <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="FontFamily" Value="{DynamicResource MontserratBold}" />
     </Style>
 
     <Style Selector="Button:pointerover /template/ ContentPresenter">
@@ -44,6 +45,10 @@
     <Style Selector="Button.btn-check">
         <Setter Property="Width" Value="100" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
+    </Style>
+
+    <Style Selector="TextBox">
+        <Setter Property="FontFamily" Value="{DynamicResource MontserratBold}" />
     </Style>
 
     <Style Selector="TextBox.guess-box">
@@ -82,6 +87,7 @@
     <Style Selector="TextBlock">
         <Setter Property="Foreground" Value="#eee" />
         <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="FontFamily" Value="{DynamicResource MontserratBold}" />
     </Style>
 
     <Style Selector="TextBlock.guess-number-txt">
