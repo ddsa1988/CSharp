@@ -10,5 +10,13 @@
     </Application.Styles>
     <Application.Resources>
         <FontFamily x:Key="MontserratBold">/Assets/Fonts/Montserrat-Bold.ttf#Montserrat Bold</FontFamily>
+        <Color x:Key="MainDarkColor">#222</Color>
+        <Color x:Key="MainLightColor">#eee</Color>
+        <Color x:Key="ButtonHoverColor">#ccc</Color>
+        <Color x:Key="TexBoxDisableColor">#a9a9a9</Color>
+        <SolidColorBrush x:Key="MainDarkColorBrush" Color="{StaticResource MainDarkColor}" />
+        <SolidColorBrush x:Key="MainLightColorBrush" Color="{StaticResource MainLightColor}" />
+        <SolidColorBrush x:Key="ButtonHoverBrush" Color="{StaticResource ButtonHoverColor}" />
+        <SolidColorBrush x:Key="TextBoxDisableBrush" Color="{StaticResource TexBoxDisableColor}" />
     </Application.Resources>
 </Application>

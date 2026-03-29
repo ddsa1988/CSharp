@@ -12,7 +12,7 @@
     </Style>
 
     <Style Selector="StackPanel.main-panel">
-        <Setter Property="Background" Value="#222" />
+        <Setter Property="Background" Value="{DynamicResource MainDarkColorBrush}" />
     </Style>
 
     <Style Selector="StackPanel.align-center">
@@ -21,18 +21,18 @@
     </Style>
 
     <Style Selector="Button">
-        <Setter Property="Background" Value="#eee" />
+        <Setter Property="Background" Value="{DynamicResource MainLightColorBrush}" />
         <Setter Property="CornerRadius" Value="0" />
         <Setter Property="FontWeight" Value="Bold" />
         <Setter Property="FontFamily" Value="{DynamicResource MontserratBold}" />
     </Style>
 
     <Style Selector="Button:pointerover /template/ ContentPresenter">
-        <Setter Property="Background" Value="#ccc" />
+        <Setter Property="Background" Value="{DynamicResource ButtonHoverBrush}" />
     </Style>
 
     <Style Selector="Button:disabled /template/ ContentPresenter">
-        <Setter Property="Background" Value="#eee" />
+        <Setter Property="Background" Value="{DynamicResource MainLightColorBrush}" />
         <Setter Property="CornerRadius" Value="0" />
         <Setter Property="Opacity" Value="0.5" />
     </Style>
@@ -56,36 +56,36 @@
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="Margin" Value="0 0 0 10" />
         <Setter Property="BorderThickness" Value="2" />
-        <Setter Property="BorderBrush" Value="#eee" />
-        <Setter Property="Background" Value="#222" />
-        <Setter Property="Foreground" Value="#eee" />
+        <Setter Property="Background" Value="{DynamicResource MainDarkColorBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MainLightColorBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MainLightColorBrush}" />
+        <Setter Property="CaretBrush" Value="{DynamicResource MainLightColorBrush}" />
         <Setter Property="CornerRadius" Value="0" />
-        <Setter Property="CaretBrush" Value="#eee" />
         <Setter Property="FontWeight" Value="Bold" />
     </Style>
 
     <Style Selector="TextBox.guess-box:pointerover /template/ Border#PART_BorderElement">
-        <Setter Property="BorderBrush" Value="#eee" />
-        <Setter Property="Background" Value="#222" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MainLightColorBrush}" />
+        <Setter Property="Background" Value="{DynamicResource MainDarkColorBrush}" />
     </Style>
 
     <Style Selector="TextBox.guess-box:focus /template/ Border#PART_BorderElement">
-        <Setter Property="BorderBrush" Value="#eee" />
-        <Setter Property="Background" Value="#222" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MainLightColorBrush}" />
+        <Setter Property="Background" Value="{DynamicResource MainDarkColorBrush}" />
     </Style>
 
     <Style Selector="TextBox.guess-box:disabled /template/ Border#PART_BorderElement">
-        <Setter Property="Background" Value="#eee" />
+        <Setter Property="Background" Value="{DynamicResource MainLightColorBrush}" />
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Opacity" Value="0.5" />
     </Style>
 
     <Style Selector="TextBox:disabled">
-        <Setter Property="Foreground" Value="#a9a9a9" />
+        <Setter Property="Foreground" Value="{DynamicResource TextBoxDisableBrush}" />
     </Style>
 
     <Style Selector="TextBlock">
-        <Setter Property="Foreground" Value="#eee" />
+        <Setter Property="Foreground" Value="{DynamicResource MainLightColorBrush}" />
         <Setter Property="FontWeight" Value="Bold" />
         <Setter Property="FontFamily" Value="{DynamicResource MontserratBold}" />
     </Style>
@@ -104,8 +104,8 @@
     <Style Selector="TextBlock.random-number">
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="VerticalAlignment" Value="Center" />
-        <Setter Property="Background" Value="#eee" />
-        <Setter Property="Foreground" Value="#222" />
+        <Setter Property="Background" Value="{DynamicResource MainLightColorBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MainDarkColorBrush}" />
         <Setter Property="Width" Value="80" />
         <Setter Property="Height" Value="50" />
         <Setter Property="FontSize" Value="40" />

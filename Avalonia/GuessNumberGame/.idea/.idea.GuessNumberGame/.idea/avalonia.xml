@@ -4,6 +4,7 @@
     <option name="projectPerEditor">
       <map>
         <entry key="GuessNumberGame/App.axaml" value="GuessNumberGame/GuessNumberGame.csproj" />
+        <entry key="GuessNumberGame/AppStyles.axaml" value="GuessNumberGame/GuessNumberGame.csproj" />
         <entry key="GuessNumberGame/MainWindow.axaml" value="GuessNumberGame/GuessNumberGame.csproj" />
         <entry key="GuessNumberGame/Styles.axaml" value="GuessNumberGame/GuessNumberGame.csproj" />
       </map>
