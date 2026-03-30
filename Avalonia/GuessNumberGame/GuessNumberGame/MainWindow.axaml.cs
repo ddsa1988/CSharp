@@ -29,6 +29,7 @@ public partial class MainWindow : Window {
         Guess.Text = "";
         Message.Text = "Start guessing...";
         MainPanel.Background = new SolidColorBrush(Color.FromRgb(34, 34, 34));
+        RandomNumber.Width = 80;
     }
 
     private void GameOver() {
@@ -61,6 +62,7 @@ public partial class MainWindow : Window {
 
             Message.Text = "🎉 Correct Number!";
             MainPanel.Background = new SolidColorBrush(Color.FromRgb(96, 179, 71));
+            RandomNumber.Width = 140;
             GameOver();
             return;
         }
