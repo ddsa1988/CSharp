@@ -9,7 +9,7 @@ public partial class MainWindowViewModel : ViewModelBase {
     [ObservableProperty] [NotifyCanExecuteChangedFor(nameof(AddItemCommand))]
     private string? _newItemContent;
 
-    private ObservableCollection<ToDoItemViewModel> ToDoItems { get; } = [];
+    public ObservableCollection<ToDoItemViewModel> ToDoItems { get; } = [];
 
     // Returns if a new Item can be added. We require to have the NewItem some Text
     private bool CanAddItem() => !string.IsNullOrWhiteSpace(NewItemContent);
