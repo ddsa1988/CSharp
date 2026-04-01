@@ -4,6 +4,7 @@
     <option name="projectPerEditor">
       <map>
         <entry key="SimpleToDoList/App.axaml" value="SimpleToDoList/SimpleToDoList.csproj" />
+        <entry key="SimpleToDoList/AppStyles.axaml" value="SimpleToDoList/SimpleToDoList.csproj" />
         <entry key="SimpleToDoList/Views/MainWindow.axaml" value="SimpleToDoList/SimpleToDoList.csproj" />
       </map>
     </option>

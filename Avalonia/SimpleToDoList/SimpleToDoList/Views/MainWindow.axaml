@@ -11,7 +11,7 @@
         Width="300" Height="500">
 
     <Grid x:Name="Root" RowDefinitions="Auto, *, Auto">
-        <TextBlock Grid.Row="0" Text="My To Do List" />
+        <TextBlock Grid.Row="0" Classes="h1" Text="My To Do List" />
 
         <ScrollViewer Grid.Row="1">
             <ItemsControl ItemsSource="{Binding ToDoItems}">
@@ -21,7 +21,9 @@
                             <CheckBox Grid.Column="0" Content="{Binding Content}" />
                             <Button Grid.Column="1"
                                     Command="{Binding #Root.((vm:MainWindowViewModel)DataContext).RemoveItemCommand}"
-                                    CommandParameter="{Binding .}" Content="Delete" />
+                                    CommandParameter="{Binding .}" Classes="btn-delete">
+                                <Svg Classes="icon" Path="/Assets/Svg/Delete-Icon.svg" />
+                            </Button>
                         </Grid>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
@@ -30,7 +32,9 @@
 
         <TextBox Grid.Row="2" Text="{Binding NewItemContent}" Watermark="Add a new item">
             <TextBox.InnerRightContent>
-                <Button Command="{Binding AddItemCommand}" Content="Add" />
+                <Button Command="{Binding AddItemCommand}" Classes="btn-accept">
+                    <Svg Classes="icon" Path="/Assets/Svg/Accept-Icon.svg" />
+                </Button>
             </TextBox.InnerRightContent>
             <TextBox.KeyBindings>
                 <KeyBinding Command="{Binding AddItemCommand}" Gesture="Enter" />
