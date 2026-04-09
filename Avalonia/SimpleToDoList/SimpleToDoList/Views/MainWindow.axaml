@@ -18,7 +18,7 @@
                 <ItemsControl.ItemTemplate>
                     <DataTemplate DataType="vm:ToDoItemViewModel">
                         <Grid ColumnDefinitions="*,Auto">
-                            <CheckBox Grid.Column="0" Content="{Binding Content}" />
+                            <CheckBox Grid.Column="0" IsChecked="{Binding IsChecked}" Content="{Binding Content}" />
                             <Button Grid.Column="1"
                                     Command="{Binding #Root.((vm:MainWindowViewModel)DataContext).RemoveItemCommand}"
                                     CommandParameter="{Binding .}" Classes="btn-delete">
