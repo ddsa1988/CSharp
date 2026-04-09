@@ -4,6 +4,7 @@ using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Data.Core.Plugins;
 using System.Linq;
+using System.Threading.Tasks;
 using Avalonia.Markup.Xaml;
 using SimpleToDoList.Models;
 using SimpleToDoList.Services;
@@ -15,25 +16,32 @@ namespace SimpleToDoList;
 public partial class App : Application {
     private readonly MainWindowViewModel _mainWindowViewModel = new();
     private bool _canClose;
-    
+
     public override void Initialize() {
         AvaloniaXamlLoader.Load(this);
     }
 
-    public override void OnFrameworkInitializationCompleted() {
-        if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop) {
-            // Avoid duplicate validations from both Avalonia and the CommunityToolkit. 
-            // More info: https://docs.avaloniaui.net/docs/guides/development-guides/data-validation#manage-validationplugins
-            DisableAvaloniaDataAnnotationValidation();
-            desktop.MainWindow = new MainWindow {
-                DataContext = _mainWindowViewModel
-            };
+    public override async void OnFrameworkInitializationCompleted() {
+        try {
+            if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop) {
+                // Avoid duplicate validations from both Avalonia and the CommunityToolkit. 
+                // More info: https://docs.avaloniaui.net/docs/guides/development-guides/data-validation#manage-validationplugins
+                DisableAvaloniaDataAnnotationValidation();
+                desktop.MainWindow = new MainWindow {
+                    DataContext = _mainWindowViewModel
+                };
 
-            // Listen to the ShutdownRequested-event
-            desktop.ShutdownRequested += DesktopOnShutdownRequested;
+                // Listen to the ShutdownRequested-event
+                desktop.ShutdownRequested += DesktopOnShutdownRequested;
+            }
+
+            base.OnFrameworkInitializationCompleted();
+
+            await InitMainViewModelAsync();
         }
-
-        base.OnFrameworkInitializationCompleted();
+        catch (Exception ex) {
+            Console.WriteLine(ex.Message);
+        }
     }
 
     private static void DisableAvaloniaDataAnnotationValidation() {
@@ -56,7 +64,7 @@ public partial class App : Application {
             IEnumerable<ToDoItem> itemsToSave = _mainWindowViewModel.ToDoItems.Select(item => item.GetToDoItem());
 
             await ToDoListFileService.SaveToFileAsync(itemsToSave);
-        
+
             _canClose = true;
 
             if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop) {
@@ -65,6 +73,18 @@ public partial class App : Application {
         }
         catch (Exception ex) {
             Console.WriteLine(ex.Message);
+        }
+    }
+
+    private async Task InitMainViewModelAsync() {
+        IEnumerable<ToDoItem> itemsLoaded = await ToDoListFileService.LoadFromFileAsync();
+
+        IEnumerable<ToDoItem> toDoItems = itemsLoaded.ToArray();
+
+        if (!toDoItems.Any()) return;
+
+        foreach (ToDoItem item in toDoItems) {
+            _mainWindowViewModel.ToDoItems.Add(new ToDoItemViewModel(item));
         }
     }
 }

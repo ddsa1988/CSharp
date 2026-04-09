@@ -23,9 +23,9 @@ public static class ToDoListFileService {
     };
 
     public static async Task SaveToFileAsync(IEnumerable<ToDoItem> itemsToSave) {
-        IEnumerable<ToDoItem> items = itemsToSave.ToArray();
+        IEnumerable<ToDoItem> toDoItems = itemsToSave.ToArray();
 
-        if (!items.Any()) return;
+        if (!toDoItems.Any()) return;
 
         if (!Directory.Exists(DirectoryPath)) {
             Directory.CreateDirectory(DirectoryPath);
@@ -36,11 +36,27 @@ public static class ToDoListFileService {
         }
 
         try {
-            string data = JsonSerializer.Serialize(items, JsonWriteOptions);
-            await File.WriteAllTextAsync(FilePath, data);
+            string content = JsonSerializer.Serialize(toDoItems, JsonWriteOptions);
+            await File.WriteAllTextAsync(FilePath, content);
         }
         catch (Exception ex) {
             Console.WriteLine(ex.Message);
         }
+    }
+
+    public static async Task<IEnumerable<ToDoItem>> LoadFromFileAsync() {
+        if (!File.Exists(FilePath)) return Enumerable.Empty<ToDoItem>();
+
+        IEnumerable<ToDoItem>? toDoItems = new List<ToDoItem>();
+
+        try {
+            string content = await File.ReadAllTextAsync(FilePath);
+            toDoItems = JsonSerializer.Deserialize<IEnumerable<ToDoItem>>(content, JsonReadOptions);
+        }
+        catch (Exception ex) {
+            Console.WriteLine(ex.Message);
+        }
+
+        return toDoItems ?? Enumerable.Empty<ToDoItem>();
     }
 }
