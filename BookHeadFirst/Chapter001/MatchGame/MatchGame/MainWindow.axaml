@@ -2,13 +2,33 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="4500"
+        mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="500"
         x:Class="MatchGame.MainWindow"
         Title="Find all of the matching animals"
-        Width="400" Height="450">
+        Width="400" Height="500">
 
-    <StackPanel Name="MainPanel" Classes="main-panel">
+    <Grid Name="MainGrid" Classes="main-grid" RowDefinitions="*,*,*,*,*" ColumnDefinitions="*,*,*,*">
 
-    </StackPanel>
+        <TextBlock Grid.Row="0" Grid.Column="0" Classes="text-block" PointerPressed="TextBlockClicked">?</TextBlock>
+        <TextBlock Grid.Row="0" Grid.Column="1" Classes="text-block" PointerPressed="TextBlockClicked">?</TextBlock>
+        <TextBlock Grid.Row="0" Grid.Column="2" Classes="text-block" PointerPressed="TextBlockClicked">?</TextBlock>
+        <TextBlock Grid.Row="0" Grid.Column="3" Classes="text-block" PointerPressed="TextBlockClicked">?</TextBlock>
+
+        <TextBlock Grid.Row="1" Grid.Column="0" Classes="text-block" PointerPressed="TextBlockClicked">?</TextBlock>
+        <TextBlock Grid.Row="1" Grid.Column="1" Classes="text-block" PointerPressed="TextBlockClicked">?</TextBlock>
+        <TextBlock Grid.Row="1" Grid.Column="2" Classes="text-block" PointerPressed="TextBlockClicked">?</TextBlock>
+        <TextBlock Grid.Row="1" Grid.Column="3" Classes="text-block" PointerPressed="TextBlockClicked">?</TextBlock>
+
+        <TextBlock Grid.Row="2" Grid.Column="0" Classes="text-block" PointerPressed="TextBlockClicked">?</TextBlock>
+        <TextBlock Grid.Row="2" Grid.Column="1" Classes="text-block" PointerPressed="TextBlockClicked">?</TextBlock>
+        <TextBlock Grid.Row="2" Grid.Column="2" Classes="text-block" PointerPressed="TextBlockClicked">?</TextBlock>
+        <TextBlock Grid.Row="2" Grid.Column="3" Classes="text-block" PointerPressed="TextBlockClicked">?</TextBlock>
+
+        <TextBlock Grid.Row="3" Grid.Column="0" Classes="text-block" PointerPressed="TextBlockClicked">?</TextBlock>
+        <TextBlock Grid.Row="3" Grid.Column="1" Classes="text-block" PointerPressed="TextBlockClicked">?</TextBlock>
+        <TextBlock Grid.Row="3" Grid.Column="2" Classes="text-block" PointerPressed="TextBlockClicked">?</TextBlock>
+        <TextBlock Grid.Row="3" Grid.Column="3" Classes="text-block" PointerPressed="TextBlockClicked">?</TextBlock>
+
+    </Grid>
 
 </Window>
