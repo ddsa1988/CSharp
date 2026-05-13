@@ -1,4 +1,3 @@
-using System;
 using Avalonia.Controls;
 using Avalonia.Input;
 using MatchGame.Models;
@@ -6,18 +5,18 @@ using MatchGame.Models;
 namespace MatchGame;
 
 public partial class MainWindow : Window {
+    private readonly Game Game;
+
     public MainWindow() {
         InitializeComponent();
 
-        Game.SetUpGame(MainGrid);
+        Game = new Game(MainGrid);
+        Game.SetUpGame();
     }
 
     private void TextBlockClicked(object? sender, PointerPressedEventArgs e) {
         var textBlock = sender as TextBlock;
 
         if (textBlock == null) return;
-
-        Console.WriteLine("Clicked");
-        // textBlock.Opacity = 1;
     }
 }

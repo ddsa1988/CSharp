@@ -14,6 +14,8 @@
     <Application.Resources>
 
         <SolidColorBrush x:Key="PrimaryBackground" Color="#141720"></SolidColorBrush>
+        <SolidColorBrush x:Key="PrimaryLightColor" Color="WhiteSmoke"></SolidColorBrush>
+
         <LinearGradientBrush x:Key="PrimaryBackgroundBrush" StartPoint="0,0" EndPoint="100,0">
             <GradientStop Offset="0" Color="#111214"></GradientStop>
             <GradientStop Offset="1" Color="#151e3e"></GradientStop>

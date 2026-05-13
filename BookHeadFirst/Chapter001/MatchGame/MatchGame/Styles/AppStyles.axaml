@@ -8,14 +8,21 @@
 
     <Style Selector="Grid.main-grid">
         <Setter Property="Background" Value="{DynamicResource PrimaryBackground}"></Setter>
-        <Setter Property="ShowGridLines" Value="True"></Setter>
+        <!-- <Setter Property="ShowGridLines" Value="True"></Setter> -->
     </Style>
 
     <Style Selector="TextBlock.text-block">
         <Setter Property="HorizontalAlignment" Value="Center"></Setter>
         <Setter Property="VerticalAlignment" Value="Center"></Setter>
         <Setter Property="FontSize" Value="36"></Setter>
-        <Setter Property="Foreground" Value="WhiteSmoke"></Setter>
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryLightColor}"></Setter>
+    </Style>
+
+    <Style Selector="Border.text-block-border">
+        <Setter Property="BorderThickness" Value="2"></Setter>
+        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryLightColor}"></Setter>
+        <Setter Property="Width" Value="90"></Setter>
+        <Setter Property="Height" Value="90"></Setter>
     </Style>
 
 </Styles>
