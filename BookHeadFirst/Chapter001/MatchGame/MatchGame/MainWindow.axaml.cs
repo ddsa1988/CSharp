@@ -1,3 +1,4 @@
+using System;
 using Avalonia.Controls;
 using Avalonia.Input;
 using MatchGame.Models;
@@ -14,11 +15,11 @@ public partial class MainWindow : Window {
         _game.SetUpGame();
     }
 
-    private void TextBlockClicked(object? sender, PointerPressedEventArgs e) {
+    private void TextBlockPressed(object? sender, PointerPressedEventArgs e) {
         var textBlock = sender as TextBlock;
 
         if (textBlock == null) return;
 
-        _game.Test(textBlock);
+        _game.CheckGuess(textBlock);
     }
 }

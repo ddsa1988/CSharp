@@ -14,7 +14,7 @@
     <Style Selector="TextBlock.text-block">
         <Setter Property="HorizontalAlignment" Value="Center"></Setter>
         <Setter Property="VerticalAlignment" Value="Center"></Setter>
-        <Setter Property="FontSize" Value="36"></Setter>
+        <Setter Property="FontSize" Value="60"></Setter>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryLightColor}"></Setter>
     </Style>
 

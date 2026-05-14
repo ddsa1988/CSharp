@@ -1,15 +1,18 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 using System.Text.RegularExpressions;
+using System.Threading;
 using Avalonia.Controls;
+using Avalonia.Threading;
 
 namespace MatchGame.Models;
 
 public partial class Game {
     private readonly Random _random = new();
     private readonly Grid _gridLayout;
+    private TextBlock? _lastTextBlockClicked;
+    private bool _findMatch;
     private readonly int _gridRows;
     private readonly int _gridColumns;
     private readonly string[,] _gridEmojis;
@@ -59,6 +62,7 @@ public partial class Game {
     private void GenerateGridTextBlocksText() {
         foreach (TextBlock textBlock in _gridLayout.Children.OfType<TextBlock>()) {
             textBlock.Text = "?";
+            textBlock.IsEnabled = true;
         }
     }
 
@@ -68,7 +72,7 @@ public partial class Game {
         GenerateGridEmojis();
     }
 
-    public void Test(TextBlock textBlock) {
+    public void CheckGuess(TextBlock textBlock) {
         Match match = FindLastTwoDigitsRegex().Match(textBlock.Name ?? "");
 
         if (!match.Success) return;
@@ -80,5 +84,29 @@ public partial class Game {
         if (!(isColumnValid && column < _gridColumns)) return;
 
         textBlock.Text = _gridEmojis[row, column];
+
+        if (!_findMatch) {
+            _lastTextBlockClicked = textBlock;
+            _findMatch = true;
+            return;
+        }
+
+        if (_lastTextBlockClicked == null) return;
+
+        if (_lastTextBlockClicked.Name == textBlock.Name) return;
+
+        if (_lastTextBlockClicked.Text == textBlock.Text) {
+            _findMatch = false;
+            _lastTextBlockClicked.IsEnabled = false;
+            textBlock.IsEnabled = false;
+            return;
+        }
+
+        Dispatcher.UIThread.Post(() => {
+            Thread.Sleep(1000);
+            textBlock.Text = "?";
+            _lastTextBlockClicked.Text = "?";
+            _findMatch = false;
+        });
     }
 }
