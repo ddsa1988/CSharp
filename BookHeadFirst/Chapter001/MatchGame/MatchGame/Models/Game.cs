@@ -59,7 +59,7 @@ public partial class Game {
     private void GenerateRandomEmojis() {
         int maxNumberEmojis = _uiTextBlockGridRows * _uiTextBlockGridColumns;
 
-        while (_randomEmojis.Count < maxNumberEmojis) {
+        while (_randomEmojis.Count < maxNumberEmojis && _randomEmojis.Count / 2 < _sourceEmojis.Length) {
             int randomIndex = _random.Next(0, _sourceEmojis.Length);
             string emoji = _sourceEmojis[randomIndex];
 
