@@ -18,8 +18,16 @@ public partial class Game {
     private readonly int _uiTextBlockGridColumns;
     private readonly string[,] _textBlocksEmojis;
 
-    private readonly string[] _sourceEmojis =
-        ["🐦", "🐥", "🐌", "🦂", "🦊", "🐯", "🐻", "🐠", "🐼", "🐞", "🦖", "🦋", "🦈", "🐉", "🦜", "🐫"];
+    private readonly string[] _sourceEmojis = [
+        "🐶", "🐱", "🐭", "🐹",
+        "🐰", "🦊", "🐻", "🐼",
+        "🐨", "🐯", "🦁", "🐮",
+        "🐷", "🐸", "🐵", "🐔",
+        "🐧", "🐦", "🐤", "🦆",
+        "🦅", "🦉", "🐺", "🐗",
+        "🐴", "🦄", "🐝", "🐛",
+        "🦋", "🐌", "🐢", "🐙"
+    ];
 
     private readonly List<string> _randomEmojis = [];
 
