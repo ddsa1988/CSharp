@@ -17,6 +17,7 @@ public partial class Game {
     private readonly int _uiTextBlockGridRows;
     private readonly int _uiTextBlockGridColumns;
     private readonly string[,] _textBlocksEmojis;
+    private int _matchesFound;
 
     private readonly string[] _sourceEmojis = [
         "🐶", "🐱", "🐭", "🐹",
@@ -38,6 +39,7 @@ public partial class Game {
         _textBlocksEmojis = new string[_uiTextBlockGridRows, _uiTextBlockGridColumns];
 
         CreateGridTextBlocks();
+        SetUpGame();
     }
 
     [GeneratedRegex(@"\d{2}$")]
@@ -106,6 +108,11 @@ public partial class Game {
         SetTextBlocksStartValues();
         GenerateRandomEmojis();
         GenerateTextBlocksEmojis();
+        _matchesFound = 0;
+    }
+
+    public bool IsGameOver() {
+        return _matchesFound >= (_uiTextBlockGridRows * _uiTextBlockGridColumns) / 2;
     }
 
     private void CheckGuess(object? sender, PointerPressedEventArgs e) {
@@ -136,6 +143,7 @@ public partial class Game {
         if (_uiLastTextBlockClicked.Name == textBlock.Name) return;
 
         if (_uiLastTextBlockClicked.Text == textBlock.Text) {
+            _matchesFound++;
             _findMatch = false;
             _uiLastTextBlockClicked.IsEnabled = false;
             textBlock.IsEnabled = false;

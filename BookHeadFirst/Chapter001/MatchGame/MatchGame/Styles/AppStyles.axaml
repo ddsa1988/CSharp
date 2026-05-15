@@ -25,4 +25,11 @@
         <Setter Property="Height" Value="90"></Setter>
     </Style>
 
+    <Style Selector="TextBlock.timer">
+        <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+        <Setter Property="VerticalAlignment" Value="Center"></Setter>
+        <Setter Property="FontSize" Value="32"></Setter>
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryLightColor}"></Setter>
+    </Style>
+
 </Styles>
