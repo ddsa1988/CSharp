@@ -13,10 +13,13 @@ public partial class Game {
     private readonly Random _random = new();
     private readonly Grid _uiGrid;
     private TextBlock? _uiLastTextBlockClicked;
+    private readonly TextBlock _uiTextBlockElapsedTime;
     private bool _findMatch;
     private readonly int _uiTextBlockGridRows;
     private readonly int _uiTextBlockGridColumns;
     private readonly string[,] _textBlocksEmojis;
+    private readonly DispatcherTimer _timer = new();
+    private int _tenthsOfSecondsElapsed;
     private int _matchesFound;
 
     private readonly string[] _sourceEmojis = [
@@ -32,18 +35,40 @@ public partial class Game {
 
     private readonly List<string> _randomEmojis = [];
 
-    public Game(Grid uiGrid) {
+    public Game(Grid uiGrid, TextBlock textBlockElapsedTime) {
         _uiGrid = uiGrid;
         _uiTextBlockGridRows = _uiGrid.RowDefinitions.Count - 1;
         _uiTextBlockGridColumns = _uiGrid.ColumnDefinitions.Count;
         _textBlocksEmojis = new string[_uiTextBlockGridRows, _uiTextBlockGridColumns];
+        _uiTextBlockElapsedTime = textBlockElapsedTime;
 
         CreateGridTextBlocks();
         SetUpGame();
     }
 
-    [GeneratedRegex(@"\d{2}$")]
-    private static partial Regex FindLastTwoDigitsRegex();
+    public void SetUpGame() {
+        SetTextBlocksStartValues();
+        GenerateRandomEmojis();
+        GenerateTextBlocksEmojis();
+
+        _matchesFound = 0;
+        _tenthsOfSecondsElapsed = 0;
+
+        _timer.Interval = TimeSpan.FromSeconds(0.1);
+        _timer.Tick += TimerTick;
+        _timer.Start();
+    }
+
+    private void TimerTick(object? sender, EventArgs e) {
+        _tenthsOfSecondsElapsed++;
+        _uiTextBlockElapsedTime.Text = (_tenthsOfSecondsElapsed / 10F).ToString("0.0s");
+
+        if (!IsGameOver()) return;
+
+        _timer.Stop();
+
+        _uiTextBlockElapsedTime.Text += " - Play again?";
+    }
 
     private void CreateGridTextBlocks() {
         for (int row = 0; row < _uiTextBlockGridRows; row++) {
@@ -104,16 +129,12 @@ public partial class Game {
         }
     }
 
-    public void SetUpGame() {
-        SetTextBlocksStartValues();
-        GenerateRandomEmojis();
-        GenerateTextBlocksEmojis();
-        _matchesFound = 0;
-    }
-
     public bool IsGameOver() {
         return _matchesFound >= (_uiTextBlockGridRows * _uiTextBlockGridColumns) / 2;
     }
+
+    [GeneratedRegex(@"\d{2}$")]
+    private static partial Regex FindLastTwoDigitsRegex();
 
     private void CheckGuess(object? sender, PointerPressedEventArgs e) {
         var textBlock = sender as TextBlock;
