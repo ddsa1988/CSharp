@@ -9,6 +9,8 @@ public static class CardPicker {
     private static readonly Random Random = new();
 
     public static string[] PickSomeCards(int numberOfCards) {
+        if (numberOfCards < 1) return Enumerable.Empty<string>().ToArray();
+
         string[] pickedCards = new string[numberOfCards];
 
         for (int i = 0; i < numberOfCards; i++) {
