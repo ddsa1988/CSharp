@@ -7,18 +7,21 @@ public static class Program {
         int numberOfCards;
 
         while (true) {
+            Console.Clear();
             Console.Write("Enter the number of cards to pick: ");
             string? userInput = Console.ReadLine();
 
             bool isNumberValid = int.TryParse(userInput, out numberOfCards);
 
             if (!isNumberValid) {
-                Console.WriteLine("Invalid number.\n");
+                Console.WriteLine("Invalid number.");
+                Thread.Sleep(2000);
                 continue;
             }
 
             if (numberOfCards < 1) {
-                Console.WriteLine("You must enter a positive number!\n");
+                Console.WriteLine("You must enter a positive number!");
+                Thread.Sleep(2000);
                 continue;
             }
 

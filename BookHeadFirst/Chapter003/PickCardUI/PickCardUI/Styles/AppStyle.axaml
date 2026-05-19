@@ -1,0 +1,56 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <!-- Add Controls for Previewer Here -->
+        </Border>
+    </Design.PreviewWith>
+
+    <Style Selector="Grid.main-grid">
+        <Setter Property="ShowGridLines" Value="True" />
+    </Style>
+
+    <Style Selector="StackPanel.left-panel">
+        <Setter Property="Width" Value="350" />
+        <Setter Property="Margin" Value="20" />
+    </Style>
+
+    <Style Selector="Label.pick-cards-label">
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="20" />
+    </Style>
+
+    <Style Selector="Slider.pick-cards-slider">
+        <Setter Property="Minimum" Value="1" />
+        <Setter Property="Maximum" Value="20" />
+        <Setter Property="IsSnapToTickEnabled" Value="True" />
+        <Setter Property="TickPlacement" Value="BottomRight" />
+        <Setter Property="TickFrequency" Value="1" />
+    </Style>
+
+    <Style Selector="StackPanel.number-cards-panel">
+        <Setter Property="Orientation" Value="Horizontal" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="Margin" Value="0 20 0 0" />
+    </Style>
+
+    <Style Selector="Label.number-cards-label">
+        <Setter Property="FontSize" Value="16" />
+    </Style>
+
+    <Style Selector="TextBlock.number-cards-text">
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+
+    <Style Selector="Button.pick-cards-button">
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="20" />
+    </Style>
+
+    <Style Selector="ListBox.cards-picked-listbox">
+        <Setter Property="Margin" Value="20" />
+        <Setter Property="FontSize" Value="20" />
+    </Style>
+
+</Styles>
