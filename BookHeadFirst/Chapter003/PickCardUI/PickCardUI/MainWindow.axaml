@@ -9,10 +9,10 @@
 
     <Grid RowDefinitions="*,*" ColumnDefinitions="*,*" ShowGridLines="True">
         <StackPanel Grid.Row="0" Grid.Column="0" Width="350" Margin="0 10 0 0">
-            <Label Content="How many cards should I pick?" HorizontalAlignment="Center" />
+            <Label FontSize="16" Content="How many cards should I pick?" HorizontalAlignment="Center" />
             <Slider Name="NumberOfCards" Minimum="1" Maximum="20" IsSnapToTickEnabled="True"
-                    TickPlacement="BottomRight"
-                    TickFrequency="1" />
+                    TickPlacement="BottomRight" TickFrequency="1" ValueChanged="NumberOfCards_OnValueChanged" />
+            <TextBlock Name="Number" Margin="0 10 0 0" HorizontalAlignment="Center" FontSize="16" />
         </StackPanel>
 
         <Button Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" Content="Pick some cards"

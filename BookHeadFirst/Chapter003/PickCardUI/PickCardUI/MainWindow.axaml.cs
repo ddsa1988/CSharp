@@ -9,7 +9,7 @@ public partial class MainWindow : Window {
         InitializeComponent();
     }
 
-    private void Button_OnPointerPressed(object? sender, PointerPressedEventArgs e) {
-        throw new System.NotImplementedException();
-    }
+    private void Button_OnPointerPressed(object? sender, PointerPressedEventArgs e) { }
+
+    private void NumberOfCards_OnValueChanged(object? sender, RangeBaseValueChangedEventArgs e) { }
 }
