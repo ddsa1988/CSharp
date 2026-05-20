@@ -16,18 +16,20 @@ public class Guy {
     /// </summary>
     /// <param name="amount">Amount of cash to give.</param>
     /// <returns>The amount of cash removed from my wallet or 0 if I don't have enough cash or if the amount is invalid.</returns>
-    public void GiveCash(int amount) {
+    public int GiveCash(int amount) {
         if (amount <= 0) {
             Console.WriteLine($"{Name} says: ${amount} isn't a valid amount.");
-            return;
+            return 0;
         }
 
         if (amount > Cash) {
             Console.WriteLine($"{Name} says: I don't have enough cash to give you ${amount}.");
-            return;
+            return 0;
         }
 
         Cash -= amount;
+
+        return amount;
     }
 
     /// <summary>
