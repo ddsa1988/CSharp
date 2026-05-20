@@ -7,7 +7,7 @@
     </Design.PreviewWith>
 
     <Style Selector="Grid.main-grid">
-        <Setter Property="ShowGridLines" Value="True" />
+        <Setter Property="ShowGridLines" Value="False" />
     </Style>
 
     <Style Selector="StackPanel.left-panel">

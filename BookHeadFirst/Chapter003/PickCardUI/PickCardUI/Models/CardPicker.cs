@@ -11,6 +11,11 @@ public static class CardPicker {
 
     private static readonly Random Random = new();
 
+    /// <summary>
+    /// Picks a number of cards and returns them.
+    /// </summary>
+    /// <param name="numberOfCards">The number of cards to pick</param>
+    /// <returns>An array of strings that contain the card names</returns>
     public static string[] PickSomeCards(int numberOfCards) {
         if (numberOfCards < 1) return Enumerable.Empty<string>().ToArray();
 
