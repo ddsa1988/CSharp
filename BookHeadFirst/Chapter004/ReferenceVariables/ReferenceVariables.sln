@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReferenceVariables", "ReferenceVariables\ReferenceVariables.csproj", "{C7F082D2-606B-4AA4-9B7D-D973E3187DCF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C7F082D2-606B-4AA4-9B7D-D973E3187DCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7F082D2-606B-4AA4-9B7D-D973E3187DCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7F082D2-606B-4AA4-9B7D-D973E3187DCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7F082D2-606B-4AA4-9B7D-D973E3187DCF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
