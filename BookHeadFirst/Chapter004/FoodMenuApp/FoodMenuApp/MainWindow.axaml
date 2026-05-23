@@ -7,8 +7,6 @@
         Title="Food Menu App"
         Width="800" Height="450">
 
-    <Grid Classes="main-grid" RowDefinitions="*,*,*,*,*,*,*" ColumnDefinitions="5*,*">
-
-    </Grid>
+    <Grid Name="MainGrid" Classes="main-grid" RowDefinitions="*,*,*,*,*,*,*" ColumnDefinitions="5*,*"></Grid>
 
 </Window>

@@ -2,23 +2,23 @@ using System;
 
 namespace FoodMenuApp.Models;
 
-public class MenuItems {
+public class MenuItem {
     private readonly Random _random = new();
 
-    private readonly string[] _proteins = ["Roast beef", "Salami", "Turkey", "Ham", "Pastrami", "Tofu"];
+    public string[] Proteins = ["Roast beef", "Salami", "Turkey", "Ham", "Pastrami", "Tofu"];
 
-    private readonly string[] _condiments =
+    public string[] Condiments =
         ["yellow mustard", "brown mustard", "honey mustard", "mayo", "relish", "french dressing"];
 
-    private readonly string[] _breads = ["rye", "white", "wheat", "pumpernickel", "a roll"];
+    public string[] Breads = ["rye", "white", "wheat", "pumpernickel", "a roll"];
 
-    public string Description { get; set; } = string.Empty;
-    public string Price { get; set; } = string.Empty;
+    public string Description { get; private set; } = string.Empty;
+    public string Price { get; private set; } = string.Empty;
 
     public void Generate() {
-        string randomProtein = _proteins[_random.Next(_proteins.Length)];
-        string randomCondiment = _condiments[_random.Next(_condiments.Length)];
-        string randomBread = _breads[_random.Next(_breads.Length)];
+        string randomProtein = Proteins[_random.Next(Proteins.Length)];
+        string randomCondiment = Condiments[_random.Next(Condiments.Length)];
+        string randomBread = Breads[_random.Next(Breads.Length)];
 
         Description = $"{randomProtein} with {randomCondiment} on {randomBread}";
 
