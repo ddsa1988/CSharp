@@ -3,7 +3,9 @@
   <component name="AvaloniaProject">
     <option name="projectPerEditor">
       <map>
+        <entry key="FoodMenuApp/App.axaml" value="FoodMenuApp/FoodMenuApp.csproj" />
         <entry key="FoodMenuApp/MainWindow.axaml" value="FoodMenuApp/FoodMenuApp.csproj" />
+        <entry key="FoodMenuApp/Styles/AppStyles.axaml" value="FoodMenuApp/FoodMenuApp.csproj" />
       </map>
     </option>
   </component>
