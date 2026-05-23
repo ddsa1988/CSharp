@@ -4,6 +4,6 @@ namespace ReferenceVariables;
 
 public static class Program {
     public static void Main(string[] args) {
-        UsingElephantClass.Run();
+        UsingObjectReferences.Run();
     }
 }
