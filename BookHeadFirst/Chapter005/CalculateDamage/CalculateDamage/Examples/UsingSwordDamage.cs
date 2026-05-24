@@ -1,4 +1,3 @@
-using System.Globalization;
 using CalculateDamage.Models;
 
 namespace CalculateDamage.Examples;
@@ -14,9 +13,12 @@ public static class UsingSwordDamage {
 
             if (!answers.Contains(userInput)) return;
 
+            bool isMagic = userInput == '1' || userInput == '3';
+            bool isFlaming = userInput == '2' || userInput == '3';
+
             swordDamage.RollDices();
-            swordDamage.SetMagic(userInput == '1' || userInput == '3');
-            swordDamage.SetFlaming(userInput == '2' || userInput == '3');
+            swordDamage.SetMagic(isMagic);
+            swordDamage.SetFlaming(isFlaming);
 
             swordDamage.CalculateDamage();
             Console.WriteLine($"\nRolled {swordDamage.Roll} for {swordDamage.Damage} HP\n");

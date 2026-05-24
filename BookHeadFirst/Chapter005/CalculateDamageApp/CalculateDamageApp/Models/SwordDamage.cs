@@ -1,4 +1,6 @@
-namespace CalculateDamage.Models;
+using System;
+
+namespace CalculateDamageApp.Models;
 
 public class SwordDamage {
     private const int BaseDamage = 3;
