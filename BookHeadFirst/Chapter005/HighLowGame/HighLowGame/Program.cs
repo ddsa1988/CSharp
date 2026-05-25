@@ -1,6 +1,6 @@
-﻿using HiLoGameConsole.Models;
+﻿using HighLowGame.Models;
 
-namespace HiLoGameConsole;
+namespace HighLowGame;
 
 public static class Program {
     public static void Main(string[] args) {

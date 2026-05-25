@@ -1,4 +1,4 @@
-﻿namespace HiLoGameConsole.Models;
+﻿namespace HighLowGame.Models;
 
 public static class HiLoGame {
     private static readonly Random Random = new();
