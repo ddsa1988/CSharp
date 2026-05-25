@@ -9,7 +9,7 @@ public class SwordDamage {
     private int _flamingDamage;
     private decimal _magicMultiplier = 1M;
     public int Roll { get; private set; }
-    public int Damage;
+    public int Damage { get; private set; }
 
     public void CalculateDamage() {
         RollDices();
