@@ -3,7 +3,9 @@
   <component name="AvaloniaProject">
     <option name="projectPerEditor">
       <map>
+        <entry key="CalculateDamageApp/App.axaml" value="CalculateDamageApp/CalculateDamageApp.csproj" />
         <entry key="CalculateDamageApp/MainWindow.axaml" value="CalculateDamageApp/CalculateDamageApp.csproj" />
+        <entry key="CalculateDamageApp/Styles/AppStyles.axaml" value="CalculateDamageApp/CalculateDamageApp.csproj" />
       </map>
     </option>
   </component>

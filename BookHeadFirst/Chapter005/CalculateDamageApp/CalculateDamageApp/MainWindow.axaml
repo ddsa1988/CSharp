@@ -4,7 +4,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="CalculateDamageApp.MainWindow"
-        Title="CalculateDamageApp"
+        Title="Sword Damage"
         Width="800" Height="450">
-    Welcome to Avalonia!
+
+    <Grid Classes="main-grid" RowDefinitions="*,*,*" ColumnDefinitions="*,*">
+        <CheckBox Name="Flaming" Classes="select-sword-type" Grid.Row="0" Grid.Column="0" Content="Flaming" />
+        <CheckBox Name="Magic" Classes="select-sword-type" Grid.Row="0" Grid.Column="1" Content="Magic" />
+        <Button Classes="roll-damage" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Content="Roll for damage"
+                Click="Button_OnClick" />
+        <TextBlock Name="Damage" Classes="damage-value" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Text="Damage" />
+    </Grid>
 </Window>
