@@ -12,7 +12,6 @@ public partial class MainWindow : Window {
     }
 
     private void Button_OnClick(object? sender, RoutedEventArgs e) {
-        _swordDamage.RollDices();
         _swordDamage.SetFlaming(Flaming?.IsChecked ?? false);
         _swordDamage.SetMagic(Magic?.IsChecked ?? false);
         _swordDamage.CalculateDamage();

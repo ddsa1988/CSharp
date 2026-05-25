@@ -16,11 +16,10 @@ public static class UsingSwordDamage {
             bool isMagic = userInput == '1' || userInput == '3';
             bool isFlaming = userInput == '2' || userInput == '3';
 
-            swordDamage.RollDices();
             swordDamage.SetMagic(isMagic);
             swordDamage.SetFlaming(isFlaming);
-
             swordDamage.CalculateDamage();
+
             Console.WriteLine($"\nRolled {swordDamage.Roll} for {swordDamage.Damage} HP\n");
         }
     }

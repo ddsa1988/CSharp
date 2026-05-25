@@ -12,10 +12,12 @@ public class SwordDamage {
     public int Damage;
 
     public void CalculateDamage() {
+        RollDices();
+
         Damage = (int)(Roll * _magicMultiplier) + BaseDamage + _flamingDamage;
     }
 
-    public void RollDices() {
+    private void RollDices() {
         Roll = _random.Next(1, 7) + _random.Next(1, 7) + _random.Next(1, 7);
     }
 
