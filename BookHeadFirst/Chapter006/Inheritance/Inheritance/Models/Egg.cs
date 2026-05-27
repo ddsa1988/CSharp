@@ -1,8 +1,8 @@
 namespace Inheritance.Models;
 
 public class Egg {
-    public double Size { get; private set; }
-    public string Color { get; private set; }
+    private double Size { get; }
+    private string Color { get; }
 
     public Egg(double size, string color) {
         Size = size;

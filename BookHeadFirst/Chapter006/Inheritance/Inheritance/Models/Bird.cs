@@ -5,6 +5,7 @@ public class Bird {
 
     public virtual Egg[] LayEggs(int numberOfEggs) {
         Console.Error.WriteLine("Bird.LayEggs: should never be called");
+
         return Enumerable.Empty<Egg>().ToArray();
     }
 }
