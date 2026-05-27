@@ -5,19 +5,23 @@ public class Animal {
     public string Food { get; set; } = string.Empty;
     public string Location { get; set; } = string.Empty;
 
-    public void MakeSound() {
+    public virtual void MakeSound() {
         Console.WriteLine($"Animal: {Name} is making sound");
     }
 
-    public void Eat() {
+    public virtual void Eat() {
         Console.WriteLine($"Animal: {Name} is eating");
     }
 
-    public void Sleep() {
+    public virtual void Sleep() {
         Console.WriteLine($"Animal: {Name} is sleeping");
     }
 
-    public void Roam() {
+    public virtual void Roam() {
         Console.WriteLine($"Animal: {Name} is roaming");
+    }
+
+    public override string ToString() {
+        return "{ Animal: " + Name + ", Food: " + Food + ", Location: " + Location + " }";
     }
 }

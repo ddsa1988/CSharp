@@ -1,5 +1,9 @@
-﻿namespace Inheritance;
+﻿using Inheritance.Examples;
+
+namespace Inheritance;
 
 public static class Program {
-    public static void Main(string[] args) { }
+    public static void Main(string[] args) {
+        UsingAnimalClass.Run();
+    }
 }
