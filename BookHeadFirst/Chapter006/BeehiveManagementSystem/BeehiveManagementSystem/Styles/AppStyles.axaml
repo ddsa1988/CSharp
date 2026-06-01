@@ -1,0 +1,50 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <!-- Add Controls for Previewer Here -->
+        </Border>
+    </Design.PreviewWith>
+
+    <!-- Add Styles Here -->
+    <Style Selector="Grid.grid-main">
+        <!-- <Setter Property="ShowGridLines" Value="True" /> -->
+    </Style>
+
+    <Style Selector="Label.label-title">
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="18" />
+    </Style>
+
+    <Style Selector="StackPanel.panel-assign-job">
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="Spacing" Value="20"></Setter>
+    </Style>
+
+    <Style Selector="Button.button-action">
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="Width" Value="300" />
+    </Style>
+
+    <Style Selector="ComboBox.combo-box-select-job">
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="Width" Value="300" />
+    </Style>
+
+    <Style Selector="TextBox.text-box-report">
+        <Setter Property="Margin" Value="20" />
+        <Setter Property="Padding" Value="10" />
+        <Setter Property="IsReadOnly" Value="True" />
+    </Style>
+
+</Styles>

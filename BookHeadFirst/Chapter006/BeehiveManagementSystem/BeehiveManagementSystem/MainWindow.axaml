@@ -1,0 +1,35 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="620" d:DesignHeight="320"
+        x:Class="BeehiveManagementSystem.MainWindow"
+        Title="Beehive Management System"
+        Width="620" Height="320">
+
+    <Grid Classes="grid-main" RowDefinitions="1*,4*,3*" ColumnDefinitions="*,*">
+
+        <Label Classes="label-title" Grid.Row="0" Grid.Column="0" Content="Job Assignments" />
+
+        <StackPanel Classes="panel-assign-job" Grid.Row="1" Grid.Column="0">
+
+            <ComboBox Name="JobSelector" Classes="combo-box-select-job" SelectedIndex="0">
+                <ListBoxItem Content="Nectar Collector" />
+                <ListBoxItem Content="Honey Manufacturer" />
+                <ListBoxItem Content="egg Care" />
+            </ComboBox>
+
+            <Button Classes="button-action" Content="Assign this job to a bee" Click="AssignJobClick" />
+
+        </StackPanel>
+
+        <Button Classes="button-action" Grid.Row="2" Grid.Column="0" Content="Work the next shift"
+                Click="WorkShiftClick" />
+
+        <Label Classes="label-title" Grid.Row="0" Grid.Column="1" Content="Queen's Report" />
+
+        <TextBox Name="StatusReport" Classes="text-box-report" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" />
+
+    </Grid>
+
+</Window>
