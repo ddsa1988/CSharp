@@ -16,7 +16,7 @@
             <ComboBox Name="JobSelector" Classes="combo-box-select-job" SelectedIndex="0">
                 <ListBoxItem Content="Nectar Collector" />
                 <ListBoxItem Content="Honey Manufacturer" />
-                <ListBoxItem Content="egg Care" />
+                <ListBoxItem Content="Egg Care" />
             </ComboBox>
 
             <Button Classes="button-action" Content="Assign this job to a bee" Click="AssignJobClick" />
