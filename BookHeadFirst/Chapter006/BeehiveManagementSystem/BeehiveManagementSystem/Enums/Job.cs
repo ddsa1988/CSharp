@@ -1,6 +1,7 @@
 namespace BeehiveManagementSystem.Enums;
 
-public enum Workers {
+public enum Job {
+    Queen,
     NectarCollector,
     HoneyManufacturer,
     EggCare
