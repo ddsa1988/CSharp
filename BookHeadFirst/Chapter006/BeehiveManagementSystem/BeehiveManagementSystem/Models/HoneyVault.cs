@@ -33,10 +33,10 @@ public static class HoneyVault {
         if (amount <= 0) return;
         if (Nectar <= 0) return;
 
-        float nectarAmount = amount < Nectar ? amount : Nectar;
+        float nectarToConvert = amount < Nectar ? amount : Nectar;
 
-        Honey += nectarAmount * HoneyConversionRate;
-        Nectar -= nectarAmount;
+        Honey += nectarToConvert * HoneyConversionRate;
+        Nectar -= nectarToConvert;
     }
 
     public static bool ConsumeHoney(float amount) {

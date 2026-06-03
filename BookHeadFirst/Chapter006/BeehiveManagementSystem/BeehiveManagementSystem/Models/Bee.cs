@@ -4,8 +4,8 @@ using BeehiveManagementSystem.Enums;
 namespace BeehiveManagementSystem.Models;
 
 public class Bee {
-    public Job Job { get; init; }
-    public virtual float CostPerShift { get; init; }
+    public Job Job { get; }
+    protected virtual float CostPerShift => 0.0f;
 
     protected Bee(Job job) {
         Job = job;

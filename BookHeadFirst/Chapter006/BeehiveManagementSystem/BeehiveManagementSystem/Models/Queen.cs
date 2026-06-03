@@ -1,18 +1,19 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using BeehiveManagementSystem.Enums;
 
 namespace BeehiveManagementSystem.Models;
 
-public class Queen : Bee {
+public partial class Queen : Bee {
     private const float EggsPerShit = 0.45f;
     private const float HoneyPerUnassignedWorker = 0.5f;
     private readonly List<Bee> _workers = [];
     private float _eggs;
     private float _unassignedWorkers;
+    protected override float CostPerShift => 2.15f;
     public string StatusReport { get; private set; } = string.Empty;
-    public override float CostPerShift { get; init; } = 2.15f;
 
     public Queen() : base(Job.Queen) {
         _unassignedWorkers = 3;
@@ -32,9 +33,14 @@ public class Queen : Bee {
         StatusReport += $"\nTOTAL WORKERS: {_workers.Count}";
     }
 
+    [GeneratedRegex("([a-z0-9])([A-Z])")]
+    private static partial Regex CamelCaseSpacing();
+
     private string WorkerStatus(Job job) {
         int count = _workers.Count(bee => bee.Job == job);
-        string status = $"{count} {nameof(job)} bee{(count > 2 ? "s" : "")}";
+        string jobName = CamelCaseSpacing().Replace(job.ToString(), "$1 $2");
+
+        string status = $"{count} {jobName} bee{(count > 2 ? "s" : "")}";
 
         return status;
     }
@@ -55,12 +61,14 @@ public class Queen : Bee {
                 AddWorker(new HoneyManufacturer());
                 break;
             case Job.EggCare:
-                AddWorker(new EggCare());
+                AddWorker(new EggCare(this));
                 break;
             case Job.Queen:
             default:
-                throw new ArgumentException($"Invalid job provided: {nameof(job)}");
+                throw new ArgumentException($"Invalid job provided: {job.ToString()}");
         }
+
+        UpdateStatusReport();
     }
 
     public void CareForEggs(float eggsToConvert) {
@@ -79,5 +87,7 @@ public class Queen : Bee {
         }
 
         HoneyVault.ConsumeHoney(_unassignedWorkers * HoneyPerUnassignedWorker);
+
+        UpdateStatusReport();
     }
 }
