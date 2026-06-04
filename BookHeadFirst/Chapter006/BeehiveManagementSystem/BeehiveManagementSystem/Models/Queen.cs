@@ -9,7 +9,7 @@ namespace BeehiveManagementSystem.Models;
 public partial class Queen : Bee {
     private const float EggsPerShit = 0.45f;
     private const float HoneyPerUnassignedWorker = 0.5f;
-    private readonly List<Bee> _workers = [];
+    private readonly List<IWorker> _workers = [];
     private float _eggs;
     private float _unassignedWorkers;
     protected override float CostPerShift => 2.15f;
@@ -45,7 +45,7 @@ public partial class Queen : Bee {
         return status;
     }
 
-    private void AddWorker(Bee worker) {
+    private void AddWorker(IWorker worker) {
         if (_unassignedWorkers < 1) return;
 
         _workers.Add(worker);
@@ -82,7 +82,7 @@ public partial class Queen : Bee {
     protected override void DoJob() {
         _eggs += EggsPerShit;
 
-        foreach (Bee worker in _workers) {
+        foreach (IWorker worker in _workers) {
             worker.WorkNextShift();
         }
 

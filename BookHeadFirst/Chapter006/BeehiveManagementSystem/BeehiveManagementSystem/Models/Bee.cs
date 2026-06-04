@@ -2,7 +2,7 @@ using BeehiveManagementSystem.Enums;
 
 namespace BeehiveManagementSystem.Models;
 
-public abstract class Bee {
+public abstract class Bee : IWorker {
     public Job Job { get; }
     protected abstract float CostPerShift { get; }
 
