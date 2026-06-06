@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="MVVM_DesignPattern/App.axaml" value="MVVM_DesignPattern/MVVM_DesignPattern.csproj" />
+        <entry key="MVVM_DesignPattern/MainWindow.axaml" value="MVVM_DesignPattern/MVVM_DesignPattern.csproj" />
+        <entry key="MVVM_DesignPattern/Styles/AppStyle.axaml" value="MVVM_DesignPattern/MVVM_DesignPattern.csproj" />
+      </map>
+    </option>
+  </component>
+</project>
