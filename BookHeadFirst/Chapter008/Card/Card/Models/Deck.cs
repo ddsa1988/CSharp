@@ -18,7 +18,7 @@ public class Deck {
 
     public void PrintCards() {
         foreach (Card card in _cards) {
-            Console.WriteLine(card);
+            Console.WriteLine(card.Name);
         }
     }
 }

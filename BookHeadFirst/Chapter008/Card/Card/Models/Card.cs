@@ -9,6 +9,8 @@ public class Card {
         Suit = suit;
     }
 
+    public string Name => $"{Value} of {Suit}";
+
     public override string ToString() {
         return $"{Value} of {Suit}";
     }
