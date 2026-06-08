@@ -14,7 +14,7 @@ public static class Program {
 
             switch (char.ToLower(userInput)) {
                 case 'a':
-                    Console.WriteLine("\nAdd a shoe");
+                    Console.WriteLine("\nAdd a shoe\n");
 
                     foreach (Style style in Enum.GetValues<Style>()) {
                         Console.WriteLine($"Press {(int)style} to add a {style}");
@@ -23,9 +23,25 @@ public static class Program {
                     Console.Write("Enter a style: ");
                     string? styleString = Console.ReadLine();
 
-                    bool isStyleIndexValid = int.TryParse(styleString, out int styleIndex);
+                    bool isStyleValid = Enum.TryParse(styleString, out Style shoeStyle) && Enum.IsDefined(shoeStyle);
 
-                    if (!isStyleIndexValid) break;
+                    if (!isStyleValid) break;
+
+                    Console.WriteLine();
+
+                    foreach (Color color in Enum.GetValues<Color>()) {
+                        Console.WriteLine($"Press {(int)color} to add a {color}");
+                    }
+
+                    Console.Write("Enter a color: ");
+                    string? colorString = Console.ReadLine();
+
+                    bool isColorValid = Enum.TryParse(colorString, out Color shoeColor) && Enum.IsDefined(shoeColor);
+
+                    if (!isColorValid) break;
+
+                    var shoe = new Shoe(shoeStyle, shoeColor);
+                    shoeCloset.AddShoe(shoe);
 
                     break;
                 case 'r':
@@ -41,12 +57,13 @@ public static class Program {
                     if (removedShoe == null) break;
 
                     Console.WriteLine($"Removing {removedShoe.Description()}");
+
                     break;
                 default:
                     return;
             }
 
-            Console.Clear();
+            Console.WriteLine();
         }
     }
 }

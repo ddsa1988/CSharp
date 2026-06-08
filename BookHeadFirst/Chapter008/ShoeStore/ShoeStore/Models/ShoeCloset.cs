@@ -8,10 +8,10 @@ public class ShoeCloset {
     }
 
     public Shoe? RemoveShoeAt(int index) {
-        if (index < 0 || index >= _shoes.Count) return null;
+        if (index < 1 || index > _shoes.Count) return null;
 
-        Shoe shoe = _shoes[index];
-        _shoes.RemoveAt(index);
+        Shoe shoe = _shoes[index - 1];
+        _shoes.RemoveAt(index - 1);
 
         return shoe;
     }
@@ -25,7 +25,7 @@ public class ShoeCloset {
         Console.WriteLine("The shoe closet contains:");
 
         for (int i = 0; i < _shoes.Count; i++) {
-            Console.Write($"Shoe #{i}: {_shoes[i]}");
+            Console.WriteLine($"Shoe #{i + 1}: {_shoes[i]}");
         }
     }
 }
