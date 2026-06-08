@@ -1,8 +1,8 @@
 namespace ShoeStore.Models;
 
 public class Shoe {
-    public Style Style { get; private set; }
-    public Color Color { get; private set; }
+    private Style Style { get; }
+    private Color Color { get; }
 
     public Shoe(Style style, Color color) {
         Style = style;
