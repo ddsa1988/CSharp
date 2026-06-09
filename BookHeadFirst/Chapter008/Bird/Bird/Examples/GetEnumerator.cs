@@ -13,7 +13,7 @@ public static class GetEnumerator {
             new() { Kind = KindOfDuck.Loon, Size = 13 },
         };
 
-        IEnumerator<Duck> enumerator = ducks.GetEnumerator();
+        List<Duck>.Enumerator enumerator = ducks.GetEnumerator();
 
         while (enumerator.MoveNext()) {
             Duck duck = enumerator.Current;
