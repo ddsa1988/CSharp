@@ -15,6 +15,14 @@ public static class Program {
 
         ducks.Sort();
         PrintDucks(ducks);
+        Console.WriteLine();
+
+        ducks.Sort(new DuckComparerBySizeDescending());
+        PrintDucks(ducks);
+        Console.WriteLine();
+
+        ducks.Sort(new DuckComparerBySizeAscending());
+        PrintDucks(ducks);
     }
 
     private static void PrintDucks(List<Duck> ducks) {
