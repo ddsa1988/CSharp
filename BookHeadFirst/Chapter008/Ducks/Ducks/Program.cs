@@ -13,6 +13,7 @@ public static class Program {
             new() { Kind = KindOfDuck.Loon, Size = 13 },
         };
 
+        ducks.Sort();
         PrintDucks(ducks);
     }
 

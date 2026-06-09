@@ -1,19 +1,19 @@
 namespace ShoeStore.Models;
 
 public class Shoe {
-    private Style Style { get; }
-    private Color Color { get; }
+    private readonly Style _style;
+    private readonly Color _color;
 
     public Shoe(Style style, Color color) {
-        Style = style;
-        Color = color;
+        _style = style;
+        _color = color;
     }
 
     public string Description() {
-        return $"A {Color} {Style}";
+        return $"A {_color} {_style}";
     }
 
     public override string ToString() {
-        return $"A {Color} {Style}";
+        return $"A {_color} {_style}";
     }
 }
