@@ -4,6 +4,6 @@ namespace Dictionaries;
 
 public static class Program {
     public static void Main(string[] args) {
-        CountLetters.Run();
+        RetiredPlayers.Run();
     }
 }
