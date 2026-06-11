@@ -2,7 +2,7 @@
 
 public static class UsingStackClass {
     public static void Run() {
-        // First in, last out
+        // Last in, first out
         var stack = new Stack<string>();
 
         stack.Push("Diego");
