@@ -2,23 +2,41 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:models="clr-namespace:TwoDecks.Models"
         mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="450"
         x:Class="TwoDecks.MainWindow"
         Title="Two Decks"
         Width="400" Height="450">
 
+    <Window.Resources>
+        <models:Deck x:Key="LeftDeck" />
+        <models:Deck x:Key="RightDeck" />
+    </Window.Resources>
+
     <Grid Classes="grid-main" ColumnDefinitions="*,*" RowDefinitions="Auto,*,Auto,Auto">
 
-        <Label Grid.Column="0" Grid.Row="0" Name="LabelDeck1" Classes="title" Content="Deck 1" />
-        <ListBox Grid.Column="0" Grid.Row="1" Name="ListBoxDeck1" Classes="deck" />
-        <Button Grid.Column="0" Grid.Row="2" Name="ShuffleLeftDeck" Classes="btn" Content="Shuffle"
-                Click="Button_Shuffle" />
-        <Button Grid.Column="0" Grid.Row="3" Name="ResetLeftDeck" Classes="btn" Content="Reset" Click="Button_Reset" />
+        <!-- Left deck -->
+        <Label Grid.Column="0" Grid.Row="0" Name="LabelLeftDeck" Classes="title" Content="Deck _1"
+               Target="{Binding ElementName=ListBoxLeftDeck, Mode=OneWay}" />
 
-        <Label Grid.Column="1" Grid.Row="0" Name="LabelDeck2" Classes="title" Content="Deck 1" />
-        <ListBox Grid.Column="1" Grid.Row="1" Name="ListBoxDeck2" Classes="deck" />
-        <Button Grid.Column="1" Grid.Row="2" Name="ClearRightDeck" Classes="btn" Content="Clear" Click="Button_Clear" />
-        <Button Grid.Column="1" Grid.Row="3" Name="SortRightDeck" Classes="btn" Content="Sort" Click="Button_Sort" />
+        <ListBox Grid.Column="0" Grid.Row="1" Name="ListBoxLeftDeck" Classes="deck"
+                 ItemsSource="{DynamicResource LeftDeck}" />
+
+        <Button Grid.Column="0" Grid.Row="2" Name="ShuffleLeftDeck" Classes="btn" Content="_Shuffle"
+                Click="Button_Shuffle" />
+
+        <Button Grid.Column="0" Grid.Row="3" Name="ResetLeftDeck" Classes="btn" Content="_Reset" Click="Button_Reset" />
+
+        <!-- Right deck -->
+        <Label Grid.Column="1" Grid.Row="0" Name="LabelRightDeck" Classes="title" Content="Deck _2"
+               Target="{Binding ElementName=ListBoxRightDeck, Mode=OneWay}" />
+
+        <ListBox Grid.Column="1" Grid.Row="1" Name="ListBoxRightDeck" Classes="deck"
+                 ItemsSource="{DynamicResource RightDeck}" />
+
+        <Button Grid.Column="1" Grid.Row="2" Name="ClearRightDeck" Classes="btn" Content="_Clear" Click="Button_Clear" />
+
+        <Button Grid.Column="1" Grid.Row="3" Name="SortRightDeck" Classes="btn" Content="Sor_t" Click="Button_Sort" />
 
     </Grid>
 
