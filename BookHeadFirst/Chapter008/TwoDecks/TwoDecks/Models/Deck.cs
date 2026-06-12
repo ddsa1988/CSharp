@@ -6,47 +6,53 @@ namespace TwoDecks.Models;
 
 public class Deck : ObservableCollection<Card> {
     private static readonly Random Random = new();
-    private readonly List<Card> _cards = [];
 
     public Deck() {
         Reset();
     }
 
     public void Reset() {
-        _cards.Clear();
+        Clear();
 
         for (int value = 1; value < 14; value++) {
             for (int suit = 0; suit < 4; suit++) {
                 var card = new Card((Values)value, (Suits)suit);
-                _cards.Add(card);
+                Add(card);
             }
         }
     }
 
     public Card? Deal(int index) {
-        if (index < 0 || index >= _cards.Count) return null;
+        if (index < 0 || index >= Count) return null;
 
-        Card card = _cards[index];
+        Card card = base[index];
 
-        _cards.RemoveAt(index);
+        RemoveAt(index);
 
         return card;
     }
 
     public void Shuffle() {
-        var randomCards = new List<Card>();
+        var cards = new List<Card>(this);
+        Clear();
 
-        while (_cards.Count != 0) {
-            int randomIndex = Random.Next(_cards.Count);
+        while (cards.Count != 0) {
+            int randomIndex = Random.Next(cards.Count);
 
-            randomCards.Add(_cards[randomIndex]);
-            _cards.RemoveAt(randomIndex);
+            Add(cards[randomIndex]);
+            cards.RemoveAt(randomIndex);
         }
-
-        _cards.AddRange(randomCards);
     }
 
     public void Sort() {
-        _cards.Sort(new CardComparer());
+        var cardsSorted = new List<Card>(this);
+
+        cardsSorted.Sort(new CardComparer());
+
+        Clear();
+
+        foreach (Card card in cardsSorted) {
+            Add(card);
+        }
     }
 }

@@ -20,7 +20,8 @@
                Target="{Binding ElementName=ListBoxLeftDeck, Mode=OneWay}" />
 
         <ListBox Grid.Column="0" Grid.Row="1" Name="ListBoxLeftDeck" Classes="deck"
-                 ItemsSource="{DynamicResource LeftDeck}" />
+                 ItemsSource="{DynamicResource LeftDeck}" DoubleTapped="ListBoxLeftDeck_DoubleTapped"
+                 KeyUp="ListBoxLeftDeck_KeyDown" />
 
         <Button Grid.Column="0" Grid.Row="2" Name="ShuffleLeftDeck" Classes="btn" Content="_Shuffle"
                 Click="Button_Shuffle" />
@@ -32,7 +33,8 @@
                Target="{Binding ElementName=ListBoxRightDeck, Mode=OneWay}" />
 
         <ListBox Grid.Column="1" Grid.Row="1" Name="ListBoxRightDeck" Classes="deck"
-                 ItemsSource="{DynamicResource RightDeck}" />
+                 ItemsSource="{DynamicResource RightDeck}" DoubleTapped="ListBoxRightDeck_DoubleTapped"
+                 KeyUp="ListBoxRightDeck_KeyDown" />
 
         <Button Grid.Column="1" Grid.Row="2" Name="ClearRightDeck" Classes="btn" Content="_Clear" Click="Button_Clear" />
 
