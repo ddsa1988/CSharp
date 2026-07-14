@@ -1,7 +1,7 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
-using MVVM_BasketballRoster.Views;
+using MVVM_BasketballRoster.View;
 
 namespace MVVM_BasketballRoster;
 

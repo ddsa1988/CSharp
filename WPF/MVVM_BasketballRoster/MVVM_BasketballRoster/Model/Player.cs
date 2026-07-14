@@ -1,4 +1,4 @@
-namespace MVVM_BasketballRoster.Models;
+namespace MVVM_BasketballRoster.Model;
 
 public class Player {
     public string Name { get; private set; }

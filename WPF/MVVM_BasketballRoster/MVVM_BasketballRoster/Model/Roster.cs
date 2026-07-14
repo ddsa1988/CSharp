@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace MVVM_BasketballRoster.Models;
+namespace MVVM_BasketballRoster.Model;
 
 public class Roster {
     private readonly List<Player> _players = [];

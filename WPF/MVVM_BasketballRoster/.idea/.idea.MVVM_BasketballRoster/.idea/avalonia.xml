@@ -5,7 +5,10 @@
       <map>
         <entry key="MVVM_BasketballRoster/App.axaml" value="MVVM_BasketballRoster/MVVM_BasketballRoster.csproj" />
         <entry key="MVVM_BasketballRoster/MainWindow.axaml" value="MVVM_BasketballRoster/MVVM_BasketballRoster.csproj" />
+        <entry key="MVVM_BasketballRoster/Style/AppStyles.axaml" value="MVVM_BasketballRoster/MVVM_BasketballRoster.csproj" />
         <entry key="MVVM_BasketballRoster/Styles/AppStyles.axaml" value="MVVM_BasketballRoster/MVVM_BasketballRoster.csproj" />
+        <entry key="MVVM_BasketballRoster/View/LeagueWindow.axaml" value="MVVM_BasketballRoster/MVVM_BasketballRoster.csproj" />
+        <entry key="MVVM_BasketballRoster/View/RosterControl.axaml" value="MVVM_BasketballRoster/MVVM_BasketballRoster.csproj" />
         <entry key="MVVM_BasketballRoster/Views/LeagueWindow.axaml" value="MVVM_BasketballRoster/MVVM_BasketballRoster.csproj" />
         <entry key="MVVM_BasketballRoster/Views/RosterControl.axaml" value="MVVM_BasketballRoster/MVVM_BasketballRoster.csproj" />
       </map>

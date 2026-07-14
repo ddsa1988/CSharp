@@ -1,6 +1,6 @@
 using Avalonia.Controls;
 
-namespace MVVM_BasketballRoster.Views;
+namespace MVVM_BasketballRoster.View;
 
 public partial class RosterControl : UserControl {
     public RosterControl() {
