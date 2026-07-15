@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using MVVM_BasketballRoster.Model;
 
@@ -16,27 +15,27 @@ public class LeagueViewModel {
         TomsTeam = new RosterViewModel(tomsRoster);
     }
 
-    private IEnumerable<Player> GetBomberPlayers() {
-        return new List<Player> {
-            new("Ana", 31, true),
-            new("Lloyd", 23, true),
-            new("Kathleen", 6, true),
-            new("Mike", 0, true),
-            new("Joe", 42, true),
-            new("Herb", 32, false),
-            new("Fingers", 8, false),
-        };
+    private static List<Player> GetBomberPlayers() {
+        return [
+            new Player("Ana", 31, true),
+            new Player("Lloyd", 23, true),
+            new Player("Kathleen", 6, true),
+            new Player("Mike", 0, true),
+            new Player("Joe", 42, true),
+            new Player("Herb", 32, false),
+            new Player("Fingers", 8, false)
+        ];
     }
 
-    private IEnumerable<Player> GetAmazingPlayers() {
-        return new List<Player> {
-            new("Jimmy", 42, true),
-            new("Henry", 11, true),
-            new("Bob", 4, true),
-            new("Lucinda", 18, true),
-            new("Kim", 16, true),
-            new("Bertha", 23, false),
-            new("Ed", 21, false),
-        };
+    private static List<Player> GetAmazingPlayers() {
+        return [
+            new Player("Jimmy", 42, true),
+            new Player("Henry", 11, true),
+            new Player("Bob", 4, true),
+            new Player("Lucinda", 18, true),
+            new Player("Kim", 16, true),
+            new Player("Bertha", 23, false),
+            new Player("Ed", 21, false)
+        ];
     }
 }
