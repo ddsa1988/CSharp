@@ -4,18 +4,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:view="clr-namespace:MVVM_BasketballRoster.View"
         xmlns:viewModel="clr-namespace:MVVM_BasketballRoster.ViewModel"
-        mc:Ignorable="d" d:DesignWidth="350" d:DesignHeight="450"
+        mc:Ignorable="d" d:DesignWidth="450" d:DesignHeight="450"
         x:Class="MVVM_BasketballRoster.View.LeagueWindow"
         Title="First Basketball League"
-        Width="350" Height="450">
+        Width="450" Height="450">
 
     <Window.Resources>
         <viewModel:LeagueViewModel x:Key="LeagueViewModel" />
     </Window.Resources>
 
-    <StackPanel Orientation="Horizontal" DataContext="{StaticResource LeagueViewModel}"
+    <StackPanel Orientation="Horizontal" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center"
+                DataContext="{StaticResource LeagueViewModel}"
                 x:DataType="viewModel:LeagueViewModel">
-        <view:RosterControl Width="200" DataContext="{Binding TomsTeam}" />
+        <view:RosterControl Width="200" Margin="0 0 20 0" DataContext="{Binding TomsTeam}" />
         <view:RosterControl Width="200" DataContext="{Binding AnasTeam}" />
     </StackPanel>
 </Window>
