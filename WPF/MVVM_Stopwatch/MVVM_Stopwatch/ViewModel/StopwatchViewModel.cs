@@ -1,10 +1,16 @@
-﻿namespace MVVM_Stopwatch.ViewModel;
+﻿using System.Globalization;
+using MVVM_Stopwatch.Model;
+
+namespace MVVM_Stopwatch.ViewModel;
 
 public class StopwatchViewModel {
-    public void StartStop() => throw new NotImplementedException();
-    public void Reset() => throw new NotImplementedException();
-    public string Hours => throw new NotImplementedException();
-    public string Minutes => throw new NotImplementedException();
-    public string Seconds => throw new NotImplementedException();
-    public object Tenths => throw new NotImplementedException();
+    private readonly StopwatchModel _model = new();
+    private const string TimeFormat = "D2";
+
+    public void StartStop() => _model.Running = true;
+    public void Reset() => _model.Reset();
+    public string Hours => _model.ElapsedTime.Hours.ToString(TimeFormat);
+    public string Minutes => _model.ElapsedTime.Minutes.ToString(TimeFormat);
+    public string Seconds => _model.ElapsedTime.Seconds.ToString(TimeFormat);
+    public string Tenths => ((int)(_model.ElapsedTime.Milliseconds / 100M)).ToString();
 }
