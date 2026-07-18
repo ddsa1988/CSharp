@@ -3,7 +3,7 @@
 namespace MVVM_Stopwatch.View;
 
 public class StopwatchView {
-    private StopwatchViewModel _viewModel = new();
+    private readonly StopwatchViewModel _viewModel = new();
     private bool _quit = false;
 
     /// <summary>
@@ -33,8 +33,39 @@ public class StopwatchView {
     }
 
     /// <summary>
+    /// Writes the current time to the second rwo and 23rd column of the screen
+    /// </summary>
+    private void WriteCurrentTime() {
+        Console.CursorTop = 1; // This moves the cursor to the second row (rows start at 0)
+        Console.CursorLeft = 23; // This moves the cursor to the 23rd column (starting at 0)
+        string time = $"{_viewModel.Hours}:{_viewModel.Minutes}:{_viewModel.Seconds}.{_viewModel.Tenths}";
+        Console.Write(time);
+    }
+
+    /// <summary>
     /// Callback to update the time display that the timer calls each time it ticks
     /// </summary>
     /// <param name="state"></param>
-    public void UpdateTimeCallback(object? state) => throw new NotImplementedException();
+    private void UpdateTimeCallback(object? state) {
+        WriteCurrentTime();
+
+        if (!Console.KeyAvailable) return;
+
+        char userInput = char.ToLower(Console.ReadKey(true).KeyChar);
+
+        switch (userInput) {
+            case ' ':
+                _viewModel.StartStop();
+                break;
+            case 'r':
+                _viewModel.Reset();
+                break;
+            default:
+                Console.CursorVisible = true;
+                Console.CursorLeft = 0;
+                Console.CursorTop = 5;
+                _quit = true;
+                break;
+        }
+    }
 }

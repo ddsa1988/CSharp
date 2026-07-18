@@ -1,5 +1,4 @@
-﻿using System.Globalization;
-using MVVM_Stopwatch.Model;
+﻿using MVVM_Stopwatch.Model;
 
 namespace MVVM_Stopwatch.ViewModel;
 
