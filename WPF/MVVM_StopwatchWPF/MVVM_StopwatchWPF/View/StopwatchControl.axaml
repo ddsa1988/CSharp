@@ -1,0 +1,49 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModel="clr-namespace:MVVM_StopwatchWPF.ViewModel"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="200"
+             x:Class="MVVM_StopwatchWPF.View.StopwatchControl">
+
+    <UserControl.Resources>
+        <viewModel:StopwatchViewModel x:Key="ViewModel" />
+    </UserControl.Resources>
+
+    <Grid RowDefinitions="*,*" DataContext="{StaticResource ViewModel}" x:DataType="viewModel:StopwatchViewModel">
+        <StackPanel Grid.Row="0" Margin="20">
+            <TextBlock HorizontalAlignment="Center" FontFamily="Consolas" FontSize="36">
+                <Run>Elapsed time: </Run>
+                <Run Text="{Binding Hours, Mode=OneWay}" />
+                <Run>:</Run>
+                <Run Text="{Binding Minutes, Mode=OneWay}" />
+                <Run>:</Run>
+                <Run Text="{Binding Seconds, Mode=OneWay}" />
+                <Run>:</Run>
+                <Run Text="{Binding Tenths, Mode=OneWay}" />
+            </TextBlock>
+            <TextBlock HorizontalAlignment="Center" FontFamily="Consolas" FontSize="36">
+                <Run>Lap time: </Run>
+                <Run Text="{Binding LapHours, Mode=OneWay}" />
+                <Run>:</Run>
+                <Run Text="{Binding LapMinutes, Mode=OneWay}" />
+                <Run>:</Run>
+                <Run Text="{Binding LapSeconds, Mode=OneWay}" />
+                <Run>:</Run>
+                <Run Text="{Binding LapTenths, Mode=OneWay}" />
+            </TextBlock>
+        </StackPanel>
+        <Grid Grid.Row="1" ColumnDefinitions="*,*,*" HorizontalAlignment="Center">
+            <Button Grid.Column="0" Width="150" FontSize="24" HorizontalContentAlignment="Center"
+                    Margin="20" Content="Start/Stop"
+                    Click="StartStopButtonClick" />
+            <Button Grid.Column="1" Width="150" FontSize="24" HorizontalContentAlignment="Center" Margin="20"
+                    Content="Lap"
+                    Click="LapButtonClick" />
+            <Button Grid.Column="2" Width="150" FontSize="24" HorizontalContentAlignment="Center" Margin="20"
+                    Content="Reset"
+                    Click="ResetButtonClick" />
+        </Grid>
+    </Grid>
+
+</UserControl>

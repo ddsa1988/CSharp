@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVVM_StopwatchWPF", "MVVM_StopwatchWPF\MVVM_StopwatchWPF.csproj", "{DA110CD3-F92A-4D42-8847-CA76CDCE480C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DA110CD3-F92A-4D42-8847-CA76CDCE480C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA110CD3-F92A-4D42-8847-CA76CDCE480C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA110CD3-F92A-4D42-8847-CA76CDCE480C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA110CD3-F92A-4D42-8847-CA76CDCE480C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
