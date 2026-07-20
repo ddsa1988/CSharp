@@ -12,4 +12,9 @@ public class StopwatchViewModel {
     public string Minutes => _model.ElapsedTime.Minutes.ToString(TimeFormat);
     public string Seconds => _model.ElapsedTime.Seconds.ToString(TimeFormat);
     public string Tenths => ((int)(_model.ElapsedTime.Milliseconds / 100M)).ToString();
+    public void LapTime() => _model.SetLapTime();
+    public string LapHours => _model.LapTime.Hours.ToString(TimeFormat);
+    public string LapMinutes => _model.LapTime.Minutes.ToString(TimeFormat);
+    public string LapSeconds => _model.LapTime.Seconds.ToString(TimeFormat);
+    public string LapTenths => ((int)(_model.LapTime.Milliseconds / 100M)).ToString();
 }

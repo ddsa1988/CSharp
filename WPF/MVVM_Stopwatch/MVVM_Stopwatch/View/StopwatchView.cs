@@ -28,7 +28,7 @@ public class StopwatchView {
     private static void ClearScreenAndAddHelpMessage() {
         Console.Clear();
         Console.CursorTop = 3; // This moves the cursor to the fourth row (rows start at 0)
-        Console.WriteLine("Space to start or stop, R to reset, any other key to quit");
+        Console.WriteLine("Space to start or stop, L for lap time, R to reset, any other key to quit");
         Console.CursorVisible = false;
     }
 
@@ -39,7 +39,9 @@ public class StopwatchView {
         Console.CursorTop = 1; // This moves the cursor to the second row (rows start at 0)
         Console.CursorLeft = 23; // This moves the cursor to the 23rd column (starting at 0)
         string time = $"{_viewModel.Hours}:{_viewModel.Minutes}:{_viewModel.Seconds}.{_viewModel.Tenths}";
-        Console.Write(time);
+        string lapTime =
+            $"{_viewModel.LapHours}:{_viewModel.LapMinutes}:{_viewModel.LapSeconds}.{_viewModel.LapTenths}";
+        Console.Write($"{time} - Lap Time: {lapTime}");
     }
 
     /// <summary>
@@ -59,6 +61,9 @@ public class StopwatchView {
                 break;
             case 'r':
                 _viewModel.Reset();
+                break;
+            case 'l':
+                _viewModel.LapTime();
                 break;
             default:
                 Console.CursorVisible = true;

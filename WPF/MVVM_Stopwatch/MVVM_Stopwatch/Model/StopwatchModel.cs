@@ -5,6 +5,7 @@ public class StopwatchModel {
     private bool _paused;
     private DateTime _pausedAt;
     private TimeSpan _totalPausedTime;
+    public TimeSpan LapTime { get; private set; }
 
     /// <summary>
     /// The constructor reset the stopwatch
@@ -48,13 +49,16 @@ public class StopwatchModel {
         }
     }
 
+    public void SetLapTime() => LapTime = ElapsedTime;
+
     /// <summary>
-    /// Resets the stopwatch by setting its started time to DateTime.MinValue
+    /// Resets the stopwatch by setting its started time and unpausing it
     /// </summary>
     public void Reset() {
         _startedTime = DateTime.MinValue;
         _paused = false;
         _pausedAt = DateTime.MinValue;
         _totalPausedTime = TimeSpan.Zero;
+        LapTime = TimeSpan.Zero;
     }
 }
