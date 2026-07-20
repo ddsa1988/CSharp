@@ -28,7 +28,7 @@ public class StopwatchView {
     private static void ClearScreenAndAddHelpMessage() {
         Console.Clear();
         Console.CursorTop = 3; // This moves the cursor to the fourth row (rows start at 0)
-        Console.WriteLine("Space to start, R to reset, any other key to quit");
+        Console.WriteLine("Space to start or stop, R to reset, any other key to quit");
         Console.CursorVisible = false;
     }
 

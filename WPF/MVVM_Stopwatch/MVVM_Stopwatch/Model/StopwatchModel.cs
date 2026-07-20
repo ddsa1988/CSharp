@@ -2,6 +2,9 @@
 
 public class StopwatchModel {
     private DateTime _startedTime;
+    private bool _paused;
+    private DateTime _pausedAt;
+    private TimeSpan _totalPausedTime;
 
     /// <summary>
     /// The constructor reset the stopwatch
@@ -14,20 +17,39 @@ public class StopwatchModel {
     /// Returns true if the stopwatch is running
     /// </summary>
     public bool Running {
-        get => _startedTime != DateTime.MinValue;
+        get => _startedTime != DateTime.MinValue && !_paused;
         set {
-            if (!value || Running) return;
-            _startedTime = DateTime.Now;
+            if (value) {
+                _paused = false;
+
+                if (_pausedAt != DateTime.MinValue) {
+                    _totalPausedTime += DateTime.Now - _pausedAt;
+                }
+
+                if (_startedTime != DateTime.MinValue) return;
+
+                _startedTime = DateTime.Now;
+            }
+            else {
+                _paused = true;
+                _pausedAt = DateTime.Now;
+            }
         }
     }
 
     /// <summary>
     /// Returns the elapsed time, or zero if the stop watch is not running
     /// </summary>
-    public TimeSpan ElapsedTime => Running ? DateTime.Now - _startedTime : TimeSpan.Zero;
+    public TimeSpan ElapsedTime => _paused ? _pausedAt - _startedTime - _totalPausedTime :
+        _startedTime != DateTime.MinValue ? DateTime.Now - _startedTime - _totalPausedTime : TimeSpan.Zero;
 
     /// <summary>
     /// Resets the stopwatch by setting its started time to DateTime.MinValue
     /// </summary>
-    public void Reset() => _startedTime = DateTime.MinValue;
+    public void Reset() {
+        _startedTime = DateTime.MinValue;
+        _paused = false;
+        _pausedAt = DateTime.MinValue;
+        _totalPausedTime = TimeSpan.Zero;
+    }
 }

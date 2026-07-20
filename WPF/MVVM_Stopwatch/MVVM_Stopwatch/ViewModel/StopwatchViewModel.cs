@@ -6,7 +6,7 @@ public class StopwatchViewModel {
     private readonly StopwatchModel _model = new();
     private const string TimeFormat = "D2";
 
-    public void StartStop() => _model.Running = true;
+    public void StartStop() => _model.Running = !_model.Running;
     public void Reset() => _model.Reset();
     public string Hours => _model.ElapsedTime.Hours.ToString(TimeFormat);
     public string Minutes => _model.ElapsedTime.Minutes.ToString(TimeFormat);
