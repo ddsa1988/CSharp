@@ -40,8 +40,13 @@ public class StopwatchModel {
     /// <summary>
     /// Returns the elapsed time, or zero if the stop watch is not running
     /// </summary>
-    public TimeSpan ElapsedTime => _paused ? _pausedAt - _startedTime - _totalPausedTime :
-        _startedTime != DateTime.MinValue ? DateTime.Now - _startedTime - _totalPausedTime : TimeSpan.Zero;
+    public TimeSpan ElapsedTime {
+        get {
+            if (_paused) return _pausedAt - _startedTime - _totalPausedTime;
+            if (_startedTime != DateTime.MinValue) return DateTime.Now - _startedTime - _totalPausedTime;
+            return TimeSpan.Zero;
+        }
+    }
 
     /// <summary>
     /// Resets the stopwatch by setting its started time to DateTime.MinValue
