@@ -6,6 +6,7 @@
         <entry key="MVVM_StopwatchWPF/App.axaml" value="MVVM_StopwatchWPF/MVVM_StopwatchWPF.csproj" />
         <entry key="MVVM_StopwatchWPF/MainWindow.axaml" value="MVVM_StopwatchWPF/MVVM_StopwatchWPF.csproj" />
         <entry key="MVVM_StopwatchWPF/Style/AppStyles.axaml" value="MVVM_StopwatchWPF/MVVM_StopwatchWPF.csproj" />
+        <entry key="MVVM_StopwatchWPF/View/MainWindow.axaml" value="MVVM_StopwatchWPF/MVVM_StopwatchWPF.csproj" />
         <entry key="MVVM_StopwatchWPF/View/StopwatchControl.axaml" value="MVVM_StopwatchWPF/MVVM_StopwatchWPF.csproj" />
       </map>
     </option>
