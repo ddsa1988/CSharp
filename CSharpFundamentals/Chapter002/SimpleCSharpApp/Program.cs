@@ -1,4 +1,4 @@
-﻿namespace FirstApp;
+﻿namespace SimpleCSharpApp;
 
 public static class Program {
     private static void Main() {
