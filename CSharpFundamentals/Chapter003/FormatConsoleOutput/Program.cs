@@ -1,7 +1,7 @@
 ﻿namespace FormatConsoleOutput;
 
 public static class Program {
-    public static void Main() {
+    public static void Main(string[] args) {
         const string myName = "Diego";
         const int myAge = 38;
         const string myEmail = "diego@outlook.com";

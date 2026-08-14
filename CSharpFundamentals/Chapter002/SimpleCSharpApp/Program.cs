@@ -1,7 +1,7 @@
 ﻿namespace SimpleCSharpApp;
 
 public static class Program {
-    private static void Main() {
+    private static void Main(string[] args) {
         // Setup console UI (CUI)
         const string greeting = "***** Welcome to My First App *****";
         string stars = new string('*', greeting.Length);

@@ -1,7 +1,7 @@
 ﻿namespace BasicConsoleIO;
 
 public static class Program {
-    private static void Main() {
+    private static void Main(string[] args) {
         Console.WriteLine("***** Basic Console I/O *****");
 
         GetUserData();
