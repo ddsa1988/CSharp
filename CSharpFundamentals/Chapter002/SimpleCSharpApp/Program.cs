@@ -2,7 +2,7 @@
 
 public static class Program {
     private static void Main() {
-        // Setup console UI
+        // Setup console UI (CUI)
         const string greeting = "***** Welcome to My First App *****";
         string stars = new string('*', greeting.Length);
 

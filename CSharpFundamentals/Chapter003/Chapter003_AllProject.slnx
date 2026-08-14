@@ -1,3 +1,6 @@
 <Solution>
+  <Project Path="BasicConsoleIO/BasicConsoleIO.csproj" />
+  <Project Path="FormatConsoleOutput/FormatConsoleOutput.csproj" />
+  <Project Path="FormatNumericalData/FormatNumericalData.csproj" />
   <Project Path="SimpleCSharpApp/SimpleCSharpApp.csproj" />
 </Solution>
