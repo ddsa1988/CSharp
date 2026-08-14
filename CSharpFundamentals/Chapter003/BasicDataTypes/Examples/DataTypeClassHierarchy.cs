@@ -6,7 +6,7 @@ internal static class DataTypeClassHierarchy {
         const int myInt1 = 123;
         const int myInt2 = 456;
 
-        Console.WriteLine("System.Object Functionality =>\n");
+        Console.WriteLine("=> System.Object Functionality:\n");
         Console.WriteLine($"{myInt1}.ToString(): {myInt1.ToString()}");
         Console.WriteLine($"{myInt1}.GetType(): {myInt1.GetType()}");
         Console.WriteLine($"{myInt1}.GetHashCode(): {myInt1.GetHashCode()}");
