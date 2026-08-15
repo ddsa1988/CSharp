@@ -2,6 +2,6 @@
 
 public static class Program {
     private static void Main(string[] args) {
-        Examples.CharTypeFunctionality.Run();
+        Examples.DateTimeAndTimeSpan.Run();
     }
 }

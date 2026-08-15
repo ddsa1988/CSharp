@@ -3,6 +3,7 @@
 internal class DataTypeFunctionality {
     internal static void Run() {
         Console.WriteLine("=> Data type functionality:\n");
+
         Console.WriteLine($"Min of integers: {int.MinValue}");
         Console.WriteLine($"Max of integers: {int.MaxValue}");
 
