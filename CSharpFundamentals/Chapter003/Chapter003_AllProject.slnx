@@ -4,4 +4,5 @@
   <Project Path="FormatConsoleOutput/FormatConsoleOutput.csproj" />
   <Project Path="FormatNumericalData/FormatNumericalData.csproj" />
   <Project Path="SimpleCSharpApp/SimpleCSharpApp.csproj" />
+  <Project Path="WorkingWithStrings/WorkingWithStrings.csproj" />
 </Solution>
