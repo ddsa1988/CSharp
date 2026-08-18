@@ -5,6 +5,7 @@
   <Project Path="FormatNumericalData/FormatNumericalData.csproj" />
   <Project Path="SimpleCSharpApp/SimpleCSharpApp.csproj" />
   <Project Path="TypeConversions/TypeConversions.csproj" />
+  <Project Path="WorkingWithDecisions/WorkingWithDecisions.csproj" />
   <Project Path="WorkingWithLoops/WorkingWithLoops.csproj" />
   <Project Path="WorkingWithStrings/WorkingWithStrings.csproj" />
 </Solution>
