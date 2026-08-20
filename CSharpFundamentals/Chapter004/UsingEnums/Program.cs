@@ -2,6 +2,6 @@
 
 public static class Program {
     public static void Main(string[] args) {
-        Examples.DeclaringEnumVariables.Run();
+        Examples.SystemEnumType.Run();
     }
 }
