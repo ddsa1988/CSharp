@@ -2,4 +2,5 @@
   <Project Path="UsingArrays/UsingArrays.csproj" />
   <Project Path="UsingEnums/UsingEnums.csproj" />
   <Project Path="UsingMethods/UsingMethods.csproj" />
+  <Project Path="UsingStructs/UsingStructs.csproj" />
 </Solution>
