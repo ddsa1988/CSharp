@@ -3,4 +3,5 @@
   <Project Path="UsingEnums/UsingEnums.csproj" />
   <Project Path="UsingMethods/UsingMethods.csproj" />
   <Project Path="UsingStructs/UsingStructs.csproj" />
+  <Project Path="UsingTuples/UsingTuples.csproj" />
 </Solution>
