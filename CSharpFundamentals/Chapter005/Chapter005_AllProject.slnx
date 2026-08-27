@@ -1,4 +1,5 @@
 <Solution>
+  <Project Path="Encapsulation/Encapsulation.csproj" />
   <Project Path="SimpleClassExample/SimpleClassExample.csproj" />
   <Project Path="StaticDataAndMembers/StaticDataAndMembers.csproj" />
 </Solution>
