@@ -1,5 +1,4 @@
-\# Book Pro CSharp 10 With Net.6 - Page 203
-
+\# Book Pro CSharp 10 With Net.6 - Page 222
 
 
 dotnet --version => Display the .NET SDK version in use

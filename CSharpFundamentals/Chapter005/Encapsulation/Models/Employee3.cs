@@ -1,16 +1,22 @@
-﻿namespace Encapsulation.Models;
+﻿using Encapsulation.Enums;
+
+namespace Encapsulation.Models;
 
 // Encapsulation using properties
-internal class Employee2 {
+internal class Employee3 {
     // Field data
     private string _name = string.Empty;
     private readonly Guid _id;
     private float _salary;
+    public EmployeePayTypeEnum PayType { get; set; }
+    public DateOnly HireDate { get; set; }
 
     // Constructor
-    public Employee2(string name, float salary) {
+    public Employee3(string name, float salary, EmployeePayTypeEnum payType, DateOnly hireDate) {
         Name = name;
         Salary = salary;
+        PayType = payType;
+        HireDate = hireDate;
 
         _id = Guid.CreateVersion7();
     }
@@ -46,10 +52,15 @@ internal class Employee2 {
     public string GetId() => _id.ToString();
 
     public void GiveBonus(float amount) {
-        Salary += amount;
+        Salary = this switch {
+            { PayType: EmployeePayTypeEnum.Commissioned, HireDate: { Year: > 2020 } } => Salary += 0.10f * amount,
+            { PayType: EmployeePayTypeEnum.Hourly, HireDate.Year: > 2020 } => Salary += 40f * amount / 2080f,
+            { PayType: EmployeePayTypeEnum.Salaried } => Salary += amount,
+            _ => Salary += 0
+        };
     }
 
     public override string ToString() {
-        return $"Name: {Name}, Id: {GetId()}, Salary: {Salary}";
+        return $"Name: {Name}, Id: {GetId()}, Salary: {Salary},  PayType: {PayType}, HireDate: {HireDate}";
     }
 }

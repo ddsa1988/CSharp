@@ -18,8 +18,6 @@ internal class Employee1 {
     // Getters
     public string GetName() => _name;
 
-    public string GetId() => _id.ToString();
-
     public float GetSalary() => _salary;
 
 
@@ -45,11 +43,15 @@ internal class Employee1 {
     }
 
     // Methods
+    public string GetId() => _id.ToString();
+
     public void GiveBonus(float amount) {
-        _salary += amount;
+        float currentSalary = GetSalary();
+
+        SetSalary(currentSalary + amount);
     }
 
     public override string ToString() {
-        return $"Name: {_name}, Id: {_id}, Salary: {_salary}";
+        return $"Name: {GetName()}, Id: {GetId()}, Salary: {GetSalary()}";
     }
 }
