@@ -1,5 +1,7 @@
 <Solution>
   <Project Path="Encapsulation/Encapsulation.csproj" />
+  <Project Path="PartialClasses/PartialClasses.csproj" />
+  <Project Path="RecordType/RecordType.csproj" />
   <Project Path="SimpleClassExample/SimpleClassExample.csproj" />
   <Project Path="StaticDataAndMembers/StaticDataAndMembers.csproj" />
 </Solution>
