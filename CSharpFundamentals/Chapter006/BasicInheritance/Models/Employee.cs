@@ -50,6 +50,6 @@ internal class Employee {
     }
 
     public override string ToString() {
-        return $"Name: {Name}, Id: {GetId()}, Salary: {Salary}";
+        return $"Employee {{ Name: {Name}, Id: {GetId()}, Salary: {Salary} }}";
     }
 }
