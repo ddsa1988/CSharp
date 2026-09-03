@@ -1,0 +1,34 @@
+﻿using CastingOperations.Models;
+
+namespace CastingOperations.Examples;
+
+internal static class ExplicitCast {
+    internal static void Run() {
+        object[] objects = [
+            new SalesPerson("John", 2100),
+            "Diego",
+            new SalesPerson("Jane", 2250),
+            new Manager("Julia", 3050),
+            100.5f,
+            new Manager("Betty", 3100)
+        ];
+
+        foreach (object obj in objects) {
+            Employee employee;
+
+            try {
+                employee = (Employee)obj;
+            }
+            catch (InvalidCastException ex) {
+                Console.WriteLine(ex.Message);
+                continue;
+            }
+
+            GivePromotion(employee);
+        }
+    }
+
+    private static void GivePromotion(Employee employee) {
+        Console.WriteLine($"{employee.Name} was promoted!");
+    }
+}
