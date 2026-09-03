@@ -3,4 +3,5 @@
   <Project Path="CastingOperations/CastingOperations.csproj" />
   <Project Path="Polymorphism/Polymorphism.csproj" />
   <Project Path="RecordsInheritance/RecordsInheritance.csproj" />
+  <Project Path="SuperParentClassObject/SuperParentClassObject.csproj" />
 </Solution>
