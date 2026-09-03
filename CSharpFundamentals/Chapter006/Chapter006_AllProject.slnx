@@ -1,5 +1,6 @@
 <Solution>
   <Project Path="BasicInheritance/BasicInheritance.csproj" />
+  <Project Path="CastingOperations/CastingOperations.csproj" />
   <Project Path="Polymorphism/Polymorphism.csproj" />
   <Project Path="RecordsInheritance/RecordsInheritance.csproj" />
 </Solution>

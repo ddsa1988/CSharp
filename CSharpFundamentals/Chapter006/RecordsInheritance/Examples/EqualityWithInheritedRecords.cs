@@ -3,7 +3,7 @@
 namespace RecordsInheritance.Examples;
 
 internal static class EqualityWithInheritedRecords {
-    public static void Run() {
+    internal static void Run() {
         var myMotorCycle = new MotorCycleRecord("Honda", "Pilot");
         var myScooter = new ScooterRecord("Honda", "Pilot");
         MotorCycleRecord motorcycleRef = new ScooterRecord("Honda", "Pilot");
