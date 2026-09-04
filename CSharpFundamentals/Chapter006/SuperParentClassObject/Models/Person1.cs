@@ -1,3 +1,3 @@
 ﻿namespace SuperParentClassObject.Models;
 
-internal class Person { }
+internal class Person1 { }
