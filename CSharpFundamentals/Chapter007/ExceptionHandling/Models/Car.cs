@@ -29,8 +29,12 @@ internal class Car {
 
     // See if Car has overheated
     public void Accelerate(int delta) {
-        if (!_carIsDead) {
+        if (_carIsDead) {
             Console.WriteLine($"{PetName} is out of order...");
+            return;
+        }
+
+        if (delta < 0) {
             return;
         }
 
@@ -40,6 +44,7 @@ internal class Car {
             Console.WriteLine($"{PetName} has overheated!");
             CurrentSpeed = 0;
             _carIsDead = true;
+            return;
         }
 
         Console.WriteLine($"=> Current speed: {CurrentSpeed}");
