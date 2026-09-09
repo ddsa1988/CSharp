@@ -1,4 +1,4 @@
-﻿namespace CustomException;
+﻿namespace ProcessMultipleExceptions;
 
 public static class Program {
     public static void Main(string[] args) {

@@ -1,6 +1,6 @@
-﻿using CustomException.Exceptions;
+﻿using ProcessMultipleExceptions.Exceptions;
 
-namespace CustomException.Models;
+namespace ProcessMultipleExceptions.Models;
 
 internal class Car {
     // Constants
@@ -37,7 +37,7 @@ internal class Car {
         }
 
         if (delta < 0) {
-            return;
+            throw new ArgumentOutOfRangeException(nameof(delta), "Speed must be greater than or equal to 0.");
         }
 
         CurrentSpeed += delta;
@@ -46,7 +46,7 @@ internal class Car {
             CurrentSpeed = 0;
             _carIsDead = true;
 
-            throw new CarIsDeadException3("You have a lead foot.", DateTime.Now, $"{PetName} has overheated!") {
+            throw new CarIsDeadException("You have a lead foot.", DateTime.Now, $"{PetName} has overheated!") {
                 HelpLink = "https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/exceptions/",
             };
         }

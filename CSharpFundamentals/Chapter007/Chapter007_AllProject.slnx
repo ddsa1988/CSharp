@@ -1,4 +1,5 @@
 <Solution>
   <Project Path="CustomException/CustomException.csproj" />
   <Project Path="ExceptionHandling/ExceptionHandling.csproj" />
+  <Project Path="ProcessMultipleExceptions/ProcessMultipleExceptions.csproj" />
 </Solution>
