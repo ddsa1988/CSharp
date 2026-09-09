@@ -1,4 +1,4 @@
-﻿namespace ExceptionHandling.Models;
+﻿namespace CustomException.Models;
 
 internal class Car {
     // Constants
