@@ -28,6 +28,9 @@ internal static class SimpleException {
                 Console.WriteLine($"=> {entry.Key}: {entry.Value}");
             }
         }
+        finally {
+            Console.WriteLine("The 'finally' block is always executed!");
+        }
 
         Console.WriteLine("\nOut of the exception logic.");
     }
