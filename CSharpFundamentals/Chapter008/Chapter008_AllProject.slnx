@@ -1,4 +1,6 @@
 <Solution>
   <Project Path="CustomInterfaces/CustomInterfaces.csproj" />
+  <Project Path="InterfaceHierarchy/InterfaceHierarchy.csproj" />
   <Project Path="InterfaceNameClash/InterfaceNameClash.csproj" />
+  <Project Path="MultipleInterfaceHierarchy/MultipleInterfaceHierarchy.csproj" />
 </Solution>
