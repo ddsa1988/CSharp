@@ -1,3 +1,4 @@
 <Solution>
   <Project Path="CustomInterfaces/CustomInterfaces.csproj" />
+  <Project Path="InterfaceNameClash/InterfaceNameClash.csproj" />
 </Solution>

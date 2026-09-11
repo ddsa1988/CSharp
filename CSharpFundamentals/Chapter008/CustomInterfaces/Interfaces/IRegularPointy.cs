@@ -1,7 +1,12 @@
 ﻿namespace CustomInterfaces.Interfaces;
 
 internal interface IRegularPointy : IPointy {
-    public int SideLenght { get; set; }
+    public int SideLength { get; set; }
     public int NumberOfSides { get; set; }
-    public int Perimeter => SideLenght * NumberOfSides;
+    public int Perimeter => SideLength * NumberOfSides;
+    public static string ExampleProperty { get; set; }
+
+    static IRegularPointy() {
+        ExampleProperty = "Foo";
+    }
 }
