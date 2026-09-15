@@ -1,5 +1,6 @@
 <Solution>
   <Project Path="CloneablePoint/CloneablePoint.csproj" />
+  <Project Path="ComparableCar/ComparableCar.csproj" />
   <Project Path="CustomEnumerator/CustomEnumerator.csproj" />
   <Project Path="CustomInterfaces/CustomInterfaces.csproj" />
   <Project Path="InterfaceHierarchy/InterfaceHierarchy.csproj" />
