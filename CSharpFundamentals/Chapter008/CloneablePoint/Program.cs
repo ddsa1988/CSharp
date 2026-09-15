@@ -1,7 +1,7 @@
-﻿namespace CustomEnumerator;
+﻿namespace CloneablePoint;
 
 public static class Program {
     public static void Main(string[] args) {
-        Examples.UsingNamedIterator.Run();
+        Examples.CloningObjects2.Run();
     }
 }
