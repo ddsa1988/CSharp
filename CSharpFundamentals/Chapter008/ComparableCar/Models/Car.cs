@@ -1,4 +1,6 @@
-﻿namespace ComparableCar.Models;
+﻿using ComparableCar.Utilities;
+
+namespace ComparableCar.Models;
 
 internal class Car : IComparable<Car> {
     // Constants
@@ -6,7 +8,7 @@ internal class Car : IComparable<Car> {
 
     // Properties
     public int CurrentSpeed { get; set; }
-    public string PetName { get; set; }
+    public string Name { get; set; }
     public int CarId { get; set; }
 
     // Is the car still operational?
@@ -18,8 +20,8 @@ internal class Car : IComparable<Car> {
     // Constructors
     public Car() : this("Unknown", 0, 0) { }
 
-    public Car(string petName, int speed, int id) {
-        PetName = petName;
+    public Car(string name, int speed, int id) {
+        Name = name;
         CurrentSpeed = speed;
         CarId = id;
     }
@@ -32,7 +34,7 @@ internal class Car : IComparable<Car> {
     // See if Car has overheated
     public void Accelerate(int delta) {
         if (_carIsDead) {
-            Console.WriteLine($"{PetName} is out of order...");
+            Console.WriteLine($"{Name} is out of order...");
             return;
         }
 
@@ -54,7 +56,7 @@ internal class Car : IComparable<Car> {
 
     public override string ToString() {
         return
-            $"Car {{ {nameof(CarId)} = {CarId}, {nameof(PetName)} =  {PetName}, {nameof(CurrentSpeed)} = {CurrentSpeed} }}";
+            $"Car {{ {nameof(CarId)} = {CarId}, {nameof(Name)} =  {Name}, {nameof(CurrentSpeed)} = {CurrentSpeed} }}";
     }
 
     // IComparable implementation
@@ -68,4 +70,7 @@ internal class Car : IComparable<Car> {
 
         return other == null ? 1 : CarId.CompareTo(other.CarId);
     }
+
+    // Property to return the CarNameComparer
+    public static IComparer<Car> SortByName => new CarNameComparer();
 }
