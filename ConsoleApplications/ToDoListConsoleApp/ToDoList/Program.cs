@@ -1,11 +1,12 @@
-﻿using ToDoList.Models;
+﻿using ToDoList.Dto;
+using ToDoList.Models;
+using ToDoList.ExtensionMethods;
+using ToDoList.Views;
 
 namespace ToDoList;
 
 public static class Program {
     public static void Main(string[] args) {
-        var item = new ToDoItem("Shopping", "Description");
-
-        Console.WriteLine(item);
+        IndexView.ShowMainMenu();
     }
 }

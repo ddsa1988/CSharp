@@ -1,23 +1,17 @@
 ﻿namespace ToDoList.Models;
 
 internal class ToDoItem {
-    private readonly Guid _id;
-    private readonly DateTime _createdOn;
-    private DateTime _modifiedOn;
+    public Guid Id { get; private set; }
+    public DateTime CreatedOn { get; private set; }
+    public DateTime ModifiedOn { get; private set; }
 
     public ToDoItem(string title, string description, bool isDone = false) {
-        _id = Guid.NewGuid();
-        _createdOn = DateTime.UtcNow;
-        _modifiedOn = DateTime.UtcNow;
-
+        Id = Guid.NewGuid();
+        CreatedOn = DateTime.Now;
         Title = title;
         Description = description;
         IsDone = isDone;
     }
-
-    public string Id => _id.ToString();
-    public string CreatedOn => _createdOn.ToString("yyyy-MM-dd HH:mm:ss");
-    public string ModifiedOn => _modifiedOn.ToString("yyyy-MM-dd HH:mm:ss");
 
     public string Title {
         get;
@@ -27,7 +21,7 @@ internal class ToDoItem {
             }
 
             field = value;
-            _modifiedOn = DateTime.UtcNow;
+            ModifiedOn = DateTime.Now;
         }
     }
 
@@ -39,7 +33,7 @@ internal class ToDoItem {
             }
 
             field = value;
-            _modifiedOn = DateTime.UtcNow;
+            ModifiedOn = DateTime.Now;
         }
     }
 
@@ -47,7 +41,7 @@ internal class ToDoItem {
         get;
         set {
             field = value;
-            _modifiedOn = DateTime.UtcNow;
+            ModifiedOn = DateTime.Now;
         }
     }
 
