@@ -1,12 +1,5 @@
-﻿using ToDoList.Dto;
-using ToDoList.Models;
-using ToDoList.ExtensionMethods;
-using ToDoList.Views;
-
-namespace ToDoList;
+﻿namespace ToDoList;
 
 public static class Program {
-    public static void Main(string[] args) {
-        IndexView.ShowMainMenu();
-    }
+    public static void Main(string[] args) { }
 }

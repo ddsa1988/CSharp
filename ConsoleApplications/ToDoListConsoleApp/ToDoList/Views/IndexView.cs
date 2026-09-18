@@ -1,7 +1,7 @@
 ﻿namespace ToDoList.Views;
 
 internal static class IndexView {
-    internal static void ShowMainMenu() {
+    internal static void ShowMenu() {
         Console.Clear();
         Console.WriteLine("***** To Do List App *****\n");
         Console.WriteLine("1. Add a task");
