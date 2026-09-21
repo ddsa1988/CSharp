@@ -1,0 +1,29 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="325" d:DesignHeight="285"
+        x:Class="LayoutUsingPanels.Panels.SimpleCanvas"
+        Title="Using Canvas Panel" Width="325" Height="285">
+
+    <!-- Canvas panel allows for absolute positioning of UI content. -->
+
+    <Canvas Background="LightSteelBlue">
+        <Label Name="LblInstructions" Canvas.Left="17" Canvas.Top="14" Width="328" Height="27" FontSize="15"
+               FontWeight="Bold" Content="Enter Car Information" />
+
+        <Label Name="LblMake" Canvas.Left="17" Canvas.Top="60" FontWeight="Bold" Content="Make" />
+        <TextBox Name="TxtMake" Canvas.Left="94" Canvas.Top="58" Width="193" Height="25" />
+
+        <Label Name="LblColor" Canvas.Left="17" Canvas.Top="109" FontWeight="Bold" Content="Color" />
+        <TextBox Name="TxtColor" Canvas.Left="94" Canvas.Top="107" Width="193" Height="25" />
+
+        <Label Name="LblPetName" Canvas.Left="17" Canvas.Top="155" FontWeight="Bold" Content="PetName" />
+        <TextBox Name="TxtPetName" Canvas.Left="94" Canvas.Top="153" Width="193" Height="25" />
+
+        <Button Name="BtnOk" Canvas.Left="212" Canvas.Top="203" Width="80" HorizontalContentAlignment="Center"
+                FontWeight="Bold" Content="OK" />
+
+    </Canvas>
+
+</Window>

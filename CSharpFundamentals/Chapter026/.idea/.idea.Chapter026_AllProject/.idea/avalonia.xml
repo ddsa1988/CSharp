@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="LayoutUsingPanels/MainWindow.axaml" value="LayoutUsingPanels/LayoutUsingPanels.csproj" />
+        <entry key="LayoutUsingPanels/Panels/SimpleWrapPanel.axaml" value="LayoutUsingPanels/LayoutUsingPanels.csproj" />
+        <entry key="LayoutUsingPanels/UsingCanvasPanel.axaml" value="LayoutUsingPanels/LayoutUsingPanels.csproj" />
+      </map>
+    </option>
+  </component>
+</project>
