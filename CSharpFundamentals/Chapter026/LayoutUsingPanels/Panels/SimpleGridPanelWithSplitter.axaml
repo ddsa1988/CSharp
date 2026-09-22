@@ -1,0 +1,22 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="325" d:DesignHeight="285"
+        x:Class="LayoutUsingPanels.Panels.SimpleGridPanelWithSplitter"
+        Title="Simple Grid Panel With Splitter" Width="325" Height="285">
+
+    <!-- Splitters allow the end user to resize rows or columns of a grid type. As this is done,  -->
+    <!-- the content within each resizable cell will reshape itself based on how the items have been contained -->
+
+    <Grid ShowGridLines="True" ColumnDefinitions="*,4,*" Background="LightSteelBlue">
+
+        <Label Name="LblLeft" Grid.Column="0" Background="GreenYellow" FontWeight="Bold" Content="Left" />
+
+        <GridSplitter Grid.Column="1" Background="Black" ResizeDirection="Columns" />
+
+        <Label Name="LblRight" Grid.Column="2" FontWeight="Bold" Content="Right" />
+
+    </Grid>
+
+</Window>

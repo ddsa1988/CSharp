@@ -1,0 +1,28 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="325" d:DesignHeight="285"
+        x:Class="LayoutUsingPanels.Panels.SimpleStackPanel"
+        Title="Simple Stack Panel" Width="325" Height="285">
+
+    <!-- StackPanel control arranges content into a single line that can be oriented horizontally or vertically (the default). -->
+
+    <StackPanel Background="LightSteelBlue" Orientation="Vertical">
+
+        <Label Name="LblInstruction" FontSize="15" FontWeight="Bold" Content="Enter Car Information" />
+
+        <Label Name="LblMake" FontWeight="Bold" Content="Make" />
+        <TextBox Name="TxtMake" />
+
+        <Label Name="LblColor" FontWeight="Bold" Content="Color" />
+        <TextBox Name="TxtColor" />
+
+        <Label Name="LblPetName" FontWeight="Bold" Content="Pet Name" />
+        <TextBox Name="TxtPetName" />
+
+        <Button Name="BtnOk" Width="80" HorizontalContentAlignment="Center" Content="OK" />
+
+    </StackPanel>
+
+</Window>

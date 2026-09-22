@@ -1,0 +1,29 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="285"
+        x:Class="LayoutUsingPanels.Panels.SimpleGridPanel"
+        Title="Simple Grid Panel" Width="400" Height="285">
+
+    <!-- The Grid can be carved up into a set of cells, each one of which provides content.  -->
+
+    <Grid ShowGridLines="True" Background="LightSteelBlue" ColumnDefinitions="*,*" RowDefinitions="*,*">
+        <Label Name="LblInstruction" Grid.Row="0" Grid.Column="0" FontSize="15" FontWeight="Bold"
+               Content="Enter Car Information" />
+        <Button Name="BtnOk" Grid.Row="0" Grid.Column="0" Height="30" Width="80" FontWeight="Bold"
+                HorizontalContentAlignment="Center" Content="OK" />
+
+        <Label Name="LblMake" Grid.Row="0" Grid.Column="1" FontWeight="Bold" Content="Make" />
+        <TextBox Name="TxtMake" Grid.Row="0" Grid.Column="1" Width="193" Height="25" />
+
+        <Label Name="LblColor" Grid.Row="1" Grid.Column="0" FontWeight="Bold" Content="Color" />
+        <TextBox Grid.Row="1" Grid.Column="0" Name="TxtColor" Width="193" Height="25" />
+
+        <Rectangle Grid.Row="1" Grid.Column="1" Fill="LightGreen" />
+        <Label Grid.Row="1" Grid.Column="1" Name="LblPetName" FontWeight="Bold" Content="Pet Name" />
+        <TextBox Grid.Row="1" Grid.Column="1" Width="193" Height="25" />
+
+    </Grid>
+
+</Window>

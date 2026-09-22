@@ -9,7 +9,8 @@
     <!-- Canvas panel allows for absolute positioning of UI content. -->
 
     <Canvas Background="LightSteelBlue">
-        <Label Name="LblInstructions" Canvas.Left="17" Canvas.Top="14" Width="328" Height="27" FontSize="15"
+
+        <Label Name="LblInstruction" Canvas.Left="17" Canvas.Top="14" Width="328" Height="27" FontSize="15"
                FontWeight="Bold" Content="Enter Car Information" />
 
         <Label Name="LblMake" Canvas.Left="17" Canvas.Top="60" FontWeight="Bold" Content="Make" />

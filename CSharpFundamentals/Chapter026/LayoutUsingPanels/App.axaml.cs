@@ -12,8 +12,17 @@ public partial class App : Application {
 
     public override void OnFrameworkInitializationCompleted() {
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop) {
-            // desktop.MainWindow = new MainWindow();
-            desktop.MainWindow = new SimpleCanvas();
+            const int choice = 4;
+
+            desktop.MainWindow = choice switch {
+                0 => new SimpleCanvas(),
+                1 => new SimpleWrapPanel(),
+                2 => new SimpleStackPanel(),
+                3 => new SimpleGridPanel(),
+                4 => new SimpleGridPanelWithSplitter(),
+                5 => new SimpleDockPanel(),
+                _ => new MainWindow()
+            };
         }
 
         base.OnFrameworkInitializationCompleted();
