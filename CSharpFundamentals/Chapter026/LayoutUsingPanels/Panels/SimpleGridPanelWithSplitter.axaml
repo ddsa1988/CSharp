@@ -11,11 +11,11 @@
 
     <Grid ShowGridLines="True" ColumnDefinitions="*,4,*" Background="LightSteelBlue">
 
-        <Label Name="LblLeft" Grid.Column="0" Background="GreenYellow" FontWeight="Bold" Content="Left" />
+        <Label Grid.Column="0" Name="LblLeft" Background="GreenYellow" FontWeight="Bold" Content="Left" />
 
         <GridSplitter Grid.Column="1" Background="Black" ResizeDirection="Columns" />
 
-        <Label Name="LblRight" Grid.Column="2" FontWeight="Bold" Content="Right" />
+        <Label Grid.Column="2" Name="LblRight" FontWeight="Bold" Content="Right" />
 
     </Grid>
 

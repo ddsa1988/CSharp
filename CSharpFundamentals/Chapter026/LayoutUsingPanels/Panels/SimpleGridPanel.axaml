@@ -9,15 +9,15 @@
     <!-- The Grid can be carved up into a set of cells, each one of which provides content.  -->
 
     <Grid ShowGridLines="True" Background="LightSteelBlue" ColumnDefinitions="*,*" RowDefinitions="*,*">
-        <Label Name="LblInstruction" Grid.Row="0" Grid.Column="0" FontSize="15" FontWeight="Bold"
+        <Label Grid.Row="0" Grid.Column="0" Name="LblInstruction" FontSize="15" FontWeight="Bold"
                Content="Enter Car Information" />
-        <Button Name="BtnOk" Grid.Row="0" Grid.Column="0" Height="30" Width="80" FontWeight="Bold"
+        <Button Grid.Row="0" Grid.Column="0" Name="BtnOk" Height="30" Width="80" FontWeight="Bold"
                 HorizontalContentAlignment="Center" Content="OK" />
 
-        <Label Name="LblMake" Grid.Row="0" Grid.Column="1" FontWeight="Bold" Content="Make" />
-        <TextBox Name="TxtMake" Grid.Row="0" Grid.Column="1" Width="193" Height="25" />
+        <Label Grid.Row="0" Grid.Column="1" Name="LblMake" FontWeight="Bold" Content="Make" />
+        <TextBox Grid.Row="0" Grid.Column="1" Name="TxtMake" Width="193" Height="25" />
 
-        <Label Name="LblColor" Grid.Row="1" Grid.Column="0" FontWeight="Bold" Content="Color" />
+        <Label Grid.Row="1" Grid.Column="0" Name="LblColor" FontWeight="Bold" Content="Color" />
         <TextBox Grid.Row="1" Grid.Column="0" Name="TxtColor" Width="193" Height="25" />
 
         <Rectangle Grid.Row="1" Grid.Column="1" Fill="LightGreen" />

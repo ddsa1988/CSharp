@@ -5,6 +5,7 @@
       <map>
         <entry key="LayoutUsingPanels/App.axaml" value="LayoutUsingPanels/LayoutUsingPanels.csproj" />
         <entry key="LayoutUsingPanels/MainWindow.axaml" value="LayoutUsingPanels/LayoutUsingPanels.csproj" />
+        <entry key="LayoutUsingPanels/Panels/ScrollingForPanelTypes.axaml" value="LayoutUsingPanels/LayoutUsingPanels.csproj" />
         <entry key="LayoutUsingPanels/Panels/SimpleCanvas.axaml" value="LayoutUsingPanels/LayoutUsingPanels.csproj" />
         <entry key="LayoutUsingPanels/Panels/SimpleDockPanel.axaml" value="LayoutUsingPanels/LayoutUsingPanels.csproj" />
         <entry key="LayoutUsingPanels/Panels/SimpleGridPanel.axaml" value="LayoutUsingPanels/LayoutUsingPanels.csproj" />
@@ -12,6 +13,9 @@
         <entry key="LayoutUsingPanels/Panels/SimpleStackPanel.axaml" value="LayoutUsingPanels/LayoutUsingPanels.csproj" />
         <entry key="LayoutUsingPanels/Panels/SimpleWrapPanel.axaml" value="LayoutUsingPanels/LayoutUsingPanels.csproj" />
         <entry key="LayoutUsingPanels/UsingCanvasPanel.axaml" value="LayoutUsingPanels/LayoutUsingPanels.csproj" />
+        <entry key="MyWordPad/App.axaml" value="MyWordPad/MyWordPad.csproj" />
+        <entry key="MyWordPad/MainWindow.axaml" value="MyWordPad/MyWordPad.csproj" />
+        <entry key="MyWordPad/Styles/AppStyles.axaml" value="MyWordPad/MyWordPad.csproj" />
       </map>
     </option>
   </component>

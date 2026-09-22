@@ -8,6 +8,19 @@
 
     <!-- DockPanel is typically used as a container that holds any number of additional panels for grouping related content. -->
 
-    Dock Panel!
+    <DockPanel LastChildFill="True" Background="AliceBlue">
+
+        <Label DockPanel.Dock="Top" Name="LblInstruction" FontSize="15" FontWeight="Bold"
+               Content="Enter Car Information" />
+
+        <Label DockPanel.Dock="Left" Name="LblMake" FontWeight="Bold" Content="Make" />
+
+        <Label DockPanel.Dock="Right" Name="LblColor" FontWeight="Bold" Content="Color" />
+
+        <Label DockPanel.Dock="Bottom" Name="LblPetName" FontWeight="Bold" Content="Pet Name" />
+
+        <Button Name="BtnOk" FontWeight="Bold" HorizontalContentAlignment="Center" Content="OK" />
+
+    </DockPanel>
 
 </Window>

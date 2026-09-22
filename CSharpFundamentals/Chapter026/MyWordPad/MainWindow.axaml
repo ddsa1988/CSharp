@@ -1,0 +1,46 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="MyWordPad.MainWindow"
+        Title="My Spell Checker" Width="800" Height="450">
+
+    <!-- This panel establishes the content for the window -->
+    <DockPanel>
+
+        <!-- Dock menu system on the top -->
+        <Menu DockPanel.Dock="Top" Classes="menu-main">
+            <MenuItem Header="_File">
+                <Separator />
+                <MenuItem Header="_Exit" PointerEntered="ExitArea_OnPointerEntered"
+                          PointerExited="ExitArea_OnPointerExited"
+                          Click="FileExit_OnClick" />
+                <MenuItem Header="_Tools">
+                    <MenuItem Header="_Spelling Hints" PointerEntered="ToolsHintsArea_OnPointerEntered"
+                              PointerExited="ToolsHintsArea_OnPointerExited" Click="ToolsSpellingHints_OnClick" />
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+
+        <!-- Put Toolbar under the Menu -->
+        <Border DockPanel.Dock="Top" Classes="tool-bar">
+            <StackPanel Orientation="Horizontal">
+                <Button Content="Exit" PointerEntered="ExitArea_OnPointerEntered"
+                        PointerExited="ExitArea_OnPointerExited"
+                        Click="FileExit_OnClick" />
+                <Separator Classes="vertical-sep" />
+                <Button Content="Check" Cursor="Help" PointerEntered="ToolsHintsArea_OnPointerEntered"
+                        PointerExited="ToolsHintsArea_OnPointerExited" Click="ToolsSpellingHints_OnClick" />
+            </StackPanel>
+        </Border>
+
+        <!-- Put a Status Bar at the bottom-->
+        <Border DockPanel.Dock="Bottom" Classes="status-bar">
+            <TextBlock Name="StatBarText" Text="Ready" />
+        </Border>
+
+
+    </DockPanel>
+
+</Window>
