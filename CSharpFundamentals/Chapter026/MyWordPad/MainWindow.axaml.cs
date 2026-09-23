@@ -6,17 +6,15 @@ using Avalonia.SpellChecker;
 namespace MyWordPad;
 
 public partial class MainWindow : Window {
-    private readonly TextBoxSpellChecker _spellChecker;
-
     public MainWindow() {
         InitializeComponent();
 
-        _spellChecker = new TextBoxSpellChecker(SpellCheckerConfig.Create("pt_BR", "en_GB"));
+        var spellChecker = new TextBoxSpellChecker(SpellCheckerConfig.Create("pt_BR", "en_GB"));
         var textBox = this.FindControl<TextBox>("TxtData");
 
         if (textBox == null) return;
 
-        _spellChecker.Initialize(textBox);
+        spellChecker.Initialize(textBox);
     }
 
     private void ExitArea_OnPointerEntered(object? sender, PointerEventArgs e) {
@@ -37,9 +35,5 @@ public partial class MainWindow : Window {
 
     private void ToolsHintsArea_OnPointerExited(object? sender, PointerEventArgs e) { }
 
-    private void ToolsSpellingHints_OnClick(object? sender, RoutedEventArgs e) {
-        string spellingHints = string.Empty;
-
-        Console.WriteLine(TxtData.CaretIndex);
-    }
+    private void ToolsSpellingHints_OnClick(object? sender, RoutedEventArgs e) { }
 }

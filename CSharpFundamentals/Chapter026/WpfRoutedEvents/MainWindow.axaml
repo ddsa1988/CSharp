@@ -1,0 +1,22 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="WpfRoutedEvents.MainWindow"
+        Title="WpfRoutedEvents" Width="800" Height="450">
+
+    <Grid>
+        <Button Name="BtnClickMe" Height="100" Width="250" Click="BtnClickMe_OnClick">
+            <StackPanel Orientation="Horizontal">
+                <Label Height="50" FontSize="20" Content="Fancy Button" />
+                <Canvas Height="50" Width="100">
+                    <Ellipse Name="OuterCircle" Fill="Green" Height="60" Width="60" Cursor="Hand" Canvas.Left="20"
+                             PointerPressed="OuterCircle_OnPointerPressed" />
+                    <Ellipse Name="InnerCircle" Fill="Yellow" Height="30" Width="30" Canvas.Left="35" Canvas.Top="15" />
+                </Canvas>
+            </StackPanel>
+        </Button>
+    </Grid>
+
+</Window>
