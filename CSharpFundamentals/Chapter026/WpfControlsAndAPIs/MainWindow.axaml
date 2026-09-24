@@ -11,33 +11,34 @@
 
         <TabItem Header="Ink API">
             <StackPanel Background="#FFE5E5E5">
-                <StackPanel Name="InkToolBar" Height="60" Orientation="Horizontal">
-                    <Border Width="400" VerticalAlignment="Center">
-                        <WrapPanel Orientation="Horizontal">
-                            <RadioButton Name="InkRadio" Margin="5,0" Content="Ink Mode!" IsChecked="True" />
-                            <RadioButton Name="EraseRadio" Margin="5,0" Content="Erase Mode!" />
-                            <RadioButton Name="SelectRadio" Margin="5,0" Content="Select Mode!" />
+                <Border BorderBrush="DarkGray" BorderThickness="2">
+                    <StackPanel Name="InkToolBar" Height="60" Orientation="Horizontal">
+                        <WrapPanel Orientation="Horizontal" Margin="10,15" ItemSpacing="10">
+                            <RadioButton Name="InkRadio" Content="Ink Mode!" IsChecked="True"
+                                         Click="RadioButton_OnClick" />
+                            <RadioButton Name="EraseRadio" Content="Erase Mode!" Click="RadioButton_OnClick" />
+                            <RadioButton Name="SelectRadio" Content="None Mode!" Click="RadioButton_OnClick" />
                         </WrapPanel>
-                    </Border>
-                    <ComboBox Name="ComboColors" Width="175" Margin="10,15,0,0">
-                        <ComboBoxItem Content="Red" />
-                        <ComboBoxItem Content="Green" />
-                        <ComboBoxItem Content="Blue" />
-                    </ComboBox>
-                    <Grid ColumnDefinitions="Auto,Auto,Auto">
-                        <Button Grid.Column="0" Name="BtnSave" Margin="10,0,0,0" Width="100"
-                                HorizontalContentAlignment="Center" Content="Save Data" />
-                        <Button Grid.Column="1" Name="BtnLoad" Margin="10,0,0,0" Width="100"
-                                HorizontalContentAlignment="Center" Content="Load Data" />
-                        <Button Grid.Column="2" Name="BtnClear" Margin="10,0,0,0" Width="100"
-                                HorizontalContentAlignment="Center" Content="Clear" />
-                    </Grid>
-                </StackPanel>
-                <Grid Background="AntiqueWhite">
+                        <ComboBox Name="ComboColors" Width="175" Margin="10,15"
+                                  SelectionChanged="ComboColors_OnSelectionChanged">
+                            <ComboBoxItem Content="Red" />
+                            <ComboBoxItem Content="Green" />
+                            <ComboBoxItem Content="Blue" />
+                        </ComboBox>
+                        <Grid ColumnDefinitions="Auto,Auto,Auto" ColumnSpacing="10">
+                            <Button Grid.Column="0" Name="BtnSave" Width="100"
+                                    HorizontalContentAlignment="Center" Content="Save Data" />
+                            <Button Grid.Column="1" Name="BtnLoad" Width="100"
+                                    HorizontalContentAlignment="Center" Content="Load Data" />
+                            <Button Grid.Column="2" Name="BtnClear" Width="100"
+                                    HorizontalContentAlignment="Center" Content="Clear" />
+                        </Grid>
+                    </StackPanel>
+                </Border>
+                <Grid Name="InkArea" Height="250">
                     <inking:InkCanvas Name="InkCanvas" />
                 </Grid>
             </StackPanel>
-
         </TabItem>
 
         <TabItem Header="Data Binding">
