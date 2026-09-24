@@ -2,24 +2,42 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="350"
+        xmlns:inking="using:DotNetCampus.Inking"
+        mc:Ignorable="d" d:DesignWidth="950" d:DesignHeight="350"
         x:Class="WpfControlsAndAPIs.MainWindow"
-        Title="Wpf Controls And APIs" Width="800" Height="350">
+        Title="Wpf Controls And APIs" Width="950" Height="350">
 
     <TabControl Name="MyTabControl" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 
         <TabItem Header="Ink API">
             <StackPanel Background="#FFE5E5E5">
                 <StackPanel Name="InkToolBar" Height="60" Orientation="Horizontal">
-                    <Border Margin="0,2,0,2.4" Width="400" VerticalAlignment="Center">
+                    <Border Width="400" VerticalAlignment="Center">
                         <WrapPanel Orientation="Horizontal">
-                            <RadioButton Name="InkRadio" Margin="5,1" Content="Ink Mode!" IsChecked="True" />
-                            <RadioButton Name="EraseRadio" Margin="5,10" Content="Erase Mode!" />
-                            <RadioButton Name="SelectRadio" Margin="5,10" Content="Select Mode!" />
+                            <RadioButton Name="InkRadio" Margin="5,0" Content="Ink Mode!" IsChecked="True" />
+                            <RadioButton Name="EraseRadio" Margin="5,0" Content="Erase Mode!" />
+                            <RadioButton Name="SelectRadio" Margin="5,0" Content="Select Mode!" />
                         </WrapPanel>
                     </Border>
+                    <ComboBox Name="ComboColors" Width="175" Margin="10,15,0,0">
+                        <ComboBoxItem Content="Red" />
+                        <ComboBoxItem Content="Green" />
+                        <ComboBoxItem Content="Blue" />
+                    </ComboBox>
+                    <Grid ColumnDefinitions="Auto,Auto,Auto">
+                        <Button Grid.Column="0" Name="BtnSave" Margin="10,0,0,0" Width="100"
+                                HorizontalContentAlignment="Center" Content="Save Data" />
+                        <Button Grid.Column="1" Name="BtnLoad" Margin="10,0,0,0" Width="100"
+                                HorizontalContentAlignment="Center" Content="Load Data" />
+                        <Button Grid.Column="2" Name="BtnClear" Margin="10,0,0,0" Width="100"
+                                HorizontalContentAlignment="Center" Content="Clear" />
+                    </Grid>
                 </StackPanel>
+                <Grid Background="AntiqueWhite">
+                    <inking:InkCanvas Name="InkCanvas" />
+                </Grid>
             </StackPanel>
+
         </TabItem>
 
         <TabItem Header="Data Binding">
