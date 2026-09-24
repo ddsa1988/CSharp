@@ -12,7 +12,7 @@
             <StackPanel Background="#FFE5E5E5">
                 <StackPanel Name="InkToolBar" Height="60" Orientation="Horizontal">
                     <Border Margin="0,2,0,2.4" Width="400" VerticalAlignment="Center">
-                        <WrapPanel>
+                        <WrapPanel Orientation="Horizontal">
                             <RadioButton Name="InkRadio" Margin="5,1" Content="Ink Mode!" IsChecked="True" />
                             <RadioButton Name="EraseRadio" Margin="5,10" Content="Erase Mode!" />
                             <RadioButton Name="SelectRadio" Margin="5,10" Content="Select Mode!" />
