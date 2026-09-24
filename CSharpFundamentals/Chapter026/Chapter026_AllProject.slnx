@@ -1,5 +1,6 @@
 <Solution>
   <Project Path="LayoutUsingPanels/LayoutUsingPanels.csproj" />
   <Project Path="MyWordPad/MyWordPad.csproj" />
+  <Project Path="WpfControlsAndAPIs/WpfControlsAndAPIs.csproj" />
   <Project Path="WpfRoutedEvents/WpfRoutedEvents.csproj" />
 </Solution>

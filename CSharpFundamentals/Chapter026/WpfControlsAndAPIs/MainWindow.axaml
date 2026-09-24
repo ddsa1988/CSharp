@@ -1,0 +1,35 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="350"
+        x:Class="WpfControlsAndAPIs.MainWindow"
+        Title="Wpf Controls And APIs" Width="800" Height="350">
+
+    <TabControl Name="MyTabControl" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
+        <TabItem Header="Ink API">
+            <StackPanel Background="#FFE5E5E5">
+                <StackPanel Name="InkToolBar" Height="60" Orientation="Horizontal">
+                    <Border Margin="0,2,0,2.4" Width="400" VerticalAlignment="Center">
+                        <WrapPanel>
+                            <RadioButton Name="InkRadio" Margin="5,1" Content="Ink Mode!" IsChecked="True" />
+                            <RadioButton Name="EraseRadio" Margin="5,10" Content="Erase Mode!" />
+                            <RadioButton Name="SelectRadio" Margin="5,10" Content="Select Mode!" />
+                        </WrapPanel>
+                    </Border>
+                </StackPanel>
+            </StackPanel>
+        </TabItem>
+
+        <TabItem Header="Data Binding">
+            <Grid Background="#FFE5E5E5" />
+        </TabItem>
+
+        <TabItem Header="Data Grid">
+            <Grid Background="#FFE5E5E5" />
+        </TabItem>
+
+    </TabControl>
+
+</Window>

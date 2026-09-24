@@ -16,6 +16,7 @@
         <entry key="MyWordPad/App.axaml" value="MyWordPad/MyWordPad.csproj" />
         <entry key="MyWordPad/MainWindow.axaml" value="MyWordPad/MyWordPad.csproj" />
         <entry key="MyWordPad/Styles/AppStyles.axaml" value="MyWordPad/MyWordPad.csproj" />
+        <entry key="WpfControlsAndAPIs/MainWindow.axaml" value="WpfControlsAndAPIs/WpfControlsAndAPIs.csproj" />
         <entry key="WpfRoutedEvents/MainWindow.axaml" value="WpfRoutedEvents/WpfRoutedEvents.csproj" />
       </map>
     </option>
