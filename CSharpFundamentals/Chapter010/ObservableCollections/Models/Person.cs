@@ -1,4 +1,4 @@
-namespace Collections.Models;
+namespace ObservableCollections.Models;
 
 internal class Person {
     public string FirstName { get; set; }
