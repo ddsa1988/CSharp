@@ -1,3 +1,4 @@
+using System.Drawing;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using DotNetCampus.Inking;
@@ -9,9 +10,8 @@ public partial class MainWindow : Window {
     public MainWindow() {
         InitializeComponent();
 
-        InkCanvas.AvaloniaSkiaInkCanvas.Settings.InkColor = new SKColor(0, 0, 255);
-
         InkCanvas.EditingMode = InkCanvasEditingMode.Ink;
+        InkCanvas.AvaloniaSkiaInkCanvas.Settings.InkColor = new SKColor(0, 0, 0);
         InkRadio.IsChecked = true;
         ComboColors.SelectedIndex = 0;
     }
@@ -26,5 +26,18 @@ public partial class MainWindow : Window {
         };
     }
 
-    private void ComboColors_OnSelectionChanged(object? sender, SelectionChangedEventArgs e) { }
+    private void ComboColors_OnSelectionChanged(object? sender, SelectionChangedEventArgs e) {
+        if (ComboColors.SelectedItem is not StackPanel stackPanel) return;
+
+        string colorToUse = stackPanel.Tag?.ToString() ?? "Black";
+        Color color = Color.FromName(colorToUse);
+
+        InkCanvas.AvaloniaSkiaInkCanvas.Settings.InkColor = new SKColor(color.R, color.G, color.B, 255);
+    }
+
+    private void BtnSave_OnClick(object? sender, RoutedEventArgs e) { }
+
+    private void BtnLoad_OnClick(object? sender, RoutedEventArgs e) { }
+
+    private void BtnClear_OnClick(object? sender, RoutedEventArgs e) { }
 }

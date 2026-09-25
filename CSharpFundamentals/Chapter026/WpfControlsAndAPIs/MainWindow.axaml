@@ -21,17 +21,37 @@
                         </WrapPanel>
                         <ComboBox Name="ComboColors" Width="175" Margin="10,15"
                                   SelectionChanged="ComboColors_OnSelectionChanged">
-                            <ComboBoxItem Content="Red" />
-                            <ComboBoxItem Content="Green" />
-                            <ComboBoxItem Content="Blue" />
+                            <StackPanel Orientation="Horizontal" Tag="Black">
+                                <Rectangle Fill="Black" Width="20" Height="20" />
+                                <Label FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                       Content="Black" />
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" Tag="Red">
+                                <Rectangle Fill="Red" Width="20" Height="20" />
+                                <Label FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                       Content="Red" />
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" Tag="Green">
+                                <Rectangle Fill="Green" Width="20" Height="20" />
+                                <Label FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                       Content="Green" />
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" Tag="Blue">
+                                <Rectangle Fill="Blue" Width="20" Height="20" />
+                                <Label FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                       Content="Blue" />
+                            </StackPanel>
                         </ComboBox>
                         <Grid ColumnDefinitions="Auto,Auto,Auto" ColumnSpacing="10">
                             <Button Grid.Column="0" Name="BtnSave" Width="100"
-                                    HorizontalContentAlignment="Center" Content="Save Data" />
+                                    HorizontalContentAlignment="Center" Content="Save Data" Click="BtnSave_OnClick" />
                             <Button Grid.Column="1" Name="BtnLoad" Width="100"
-                                    HorizontalContentAlignment="Center" Content="Load Data" />
+                                    HorizontalContentAlignment="Center" Content="Load Data" Click="BtnLoad_OnClick" />
                             <Button Grid.Column="2" Name="BtnClear" Width="100"
-                                    HorizontalContentAlignment="Center" Content="Clear" />
+                                    HorizontalContentAlignment="Center" Content="Clear" Click="BtnClear_OnClick" />
                         </Grid>
                     </StackPanel>
                 </Border>
