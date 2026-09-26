@@ -1,5 +1,6 @@
 <Solution>
   <Project Path="Collections/Collections.csproj" />
+  <Project Path="GenericClassesAndStructs/GenericClassesAndStructs.csproj" />
   <Project Path="GenericMethods/GenericMethods.csproj" />
   <Project Path="ObservableCollections/ObservableCollections.csproj" />
 </Solution>
