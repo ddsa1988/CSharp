@@ -3,9 +3,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:inking="using:DotNetCampus.Inking"
+        xmlns:local="using:WpfControlsAndAPIs.Utils"
         mc:Ignorable="d" d:DesignWidth="950" d:DesignHeight="350"
         x:Class="WpfControlsAndAPIs.MainWindow"
         Title="Wpf Controls And APIs" Width="950" Height="350">
+
+    <Window.Resources>
+        <local:MyDoubleConverter x:Key="DoubleConverter" />
+    </Window.Resources>
 
     <TabControl Name="MyTabControl" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 
@@ -63,7 +68,7 @@
         </TabItem>
 
         <TabItem Name="TabDataBinding" Header="Data Binding">
-            <StackPanel Width="350">
+            <StackPanel Width="350" DataContext="{Binding ElementName=MyScrollbar}">
                 <Label Content="Move the scroll bar to see the current value" HorizontalAlignment="Center" />
 
                 <!-- The scrollbar's value is the source of this data bind -->
@@ -71,8 +76,12 @@
                            LargeChange="1" SmallChange="1" />
 
                 <!-- The label's content will be bound to the scroll bar -->
-                <Label Name="LabelScrollbarThumb" Height="30" BorderBrush="blue" BorderThickness="2" Content="0"
-                       HorizontalContentAlignment="Center" />
+                <Label Name="LabelScrollbarThumb" Height="30" BorderBrush="blue" BorderThickness="2"
+                       HorizontalContentAlignment="Center"
+                       Content="{Binding Path=Value, Converter={StaticResource DoubleConverter}}" />
+
+                <Button Content="Click" Width="350" Height="120" HorizontalContentAlignment="Center" Margin="0,10,0,0"
+                        VerticalContentAlignment="Center" FontSize="{Binding Value }" />
             </StackPanel>
         </TabItem>
 
