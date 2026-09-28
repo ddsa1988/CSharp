@@ -13,7 +13,7 @@ internal static class UsingGenericMethods {
     }
 
     private static void Swap<T>(ref T a, ref T b) {
-        Console.WriteLine("You sent the " + nameof(Swap) + "() method a " + typeof(T) + " .");
+        Console.WriteLine("You sent the " + nameof(Swap) + "() method a " + typeof(T) + ".");
         (a, b) = (b, a);
     }
 }
