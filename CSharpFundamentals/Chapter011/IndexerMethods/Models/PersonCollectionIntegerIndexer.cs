@@ -2,7 +2,7 @@
 
 namespace IndexerMethods.Models;
 
-internal class PersonCollectionIntegerIndexer {
+internal class PersonCollectionIntegerIndexer : IEnumerable<Person> {
     private readonly List<Person> _people = [];
 
     public Person this[int index] {
@@ -28,4 +28,12 @@ internal class PersonCollectionIntegerIndexer {
     }
 
     public int Count => _people.Count;
+
+    public IEnumerator<Person> GetEnumerator() {
+        return _people.GetEnumerator();
+    }
+
+    IEnumerator IEnumerable.GetEnumerator() {
+        return GetEnumerator();
+    }
 }

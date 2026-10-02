@@ -2,7 +2,7 @@
 
 namespace IndexerMethods.Models;
 
-internal class PersonCollectionIndexerOverload {
+internal class PersonCollectionIndexerOverload : IEnumerable<Person> {
     private readonly List<Person> _people = [];
 
     public Person this[int index] {
@@ -43,4 +43,12 @@ internal class PersonCollectionIndexerOverload {
     }
 
     public int Count => _people.Count;
+
+    public IEnumerator<Person> GetEnumerator() {
+        return _people.GetEnumerator();
+    }
+
+    IEnumerator IEnumerable.GetEnumerator() {
+        return GetEnumerator();
+    }
 }

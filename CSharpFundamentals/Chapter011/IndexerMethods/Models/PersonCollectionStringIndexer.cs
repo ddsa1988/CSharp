@@ -1,6 +1,8 @@
-﻿namespace IndexerMethods.Models;
+﻿using System.Collections;
 
-internal class PersonCollectionStringIndexer {
+namespace IndexerMethods.Models;
+
+internal class PersonCollectionStringIndexer : IEnumerable<Person> {
     private readonly Dictionary<string, Person> _listPeople = new();
 
     public Person? this[string name] {
@@ -25,4 +27,12 @@ internal class PersonCollectionStringIndexer {
     public int Count => _listPeople.Count;
 
     public void Clear() => _listPeople.Clear();
+
+    public IEnumerator<Person> GetEnumerator() {
+        return _listPeople.Values.GetEnumerator();
+    }
+
+    IEnumerator IEnumerable.GetEnumerator() {
+        return GetEnumerator();
+    }
 }
