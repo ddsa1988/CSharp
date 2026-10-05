@@ -1,4 +1,5 @@
 <Solution>
+  <Project Path="AnonymousTypes/AnonymousTypes.csproj" />
   <Project Path="CustomConversions/CustomConversions.csproj" />
   <Project Path="ExtensionMethods/ExtensionMethods.csproj" />
   <Project Path="IndexerMethods/IndexerMethods.csproj" />
