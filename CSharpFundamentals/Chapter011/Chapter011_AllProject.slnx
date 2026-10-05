@@ -1,4 +1,6 @@
 <Solution>
+  <Project Path="CustomConversions/CustomConversions.csproj" />
+  <Project Path="ExtensionMethods/ExtensionMethods.csproj" />
   <Project Path="IndexerMethods/IndexerMethods.csproj" />
   <Project Path="OperatorOverloading/OperatorOverloading.csproj" />
 </Solution>
