@@ -5,6 +5,10 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="FirstApp.MainWindow"
         Title="FirstApp">
-    Welcome to Avalonia!
+
+    <StackPanel Orientation="Vertical" Margin="10">
+        <TextBlock Name="MainText" Text="Welcome to Avalonia UI" />
+        <Button Name="Button" Content="Click Me!" Margin="0, 10, 0, 0" Click="Button_OnClick" />
+    </StackPanel>
 
 </Window>

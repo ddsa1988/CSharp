@@ -5,6 +5,7 @@
       <map>
         <entry key="FirstApp/App.axaml" value="FirstApp/FirstApp.csproj" />
         <entry key="FirstApp/MainWindow.axaml" value="FirstApp/FirstApp.csproj" />
+        <entry key="Panels/MainWindow.axaml" value="Panels/Panels.csproj" />
       </map>
     </option>
   </component>

@@ -1,3 +1,4 @@
 <Solution>
   <Project Path="FirstApp/FirstApp.csproj" />
+  <Project Path="Panels/Panels.csproj" />
 </Solution>
