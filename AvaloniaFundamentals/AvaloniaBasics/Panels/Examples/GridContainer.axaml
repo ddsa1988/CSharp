@@ -1,0 +1,20 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Panels.Examples.GridContainer"
+        Title="GridContainer" Width="800" Height="450">
+
+    <!-- Auto: Automatically sizes to fit content in the row or column. -->
+    <!-- Star (*): Sizes columns and rows as a proportion of the remaining space. -->
+    <!-- Absolute: Sizes columns and rows with specific, fixed height and width values. -->
+
+    <Grid ShowGridLines="True" RowDefinitions="Auto,*" ColumnDefinitions="200,*">
+        <Button Grid.Row="0" Grid.Column="0" Content="First Button" />
+        <Button Grid.Row="0" Grid.Column="1" Content="Second Button" />
+        <Button Grid.Row="1" Grid.Column="0" Content="Third Button" />
+        <Button Grid.Row="1" Grid.Column="1" Content="Fourth Button" />
+    </Grid>
+
+</Window>

@@ -4,7 +4,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="FirstApp.MainWindow"
-        Title="FirstApp">
+        Title="FirstApp" Width="800" Height="450">
 
     <StackPanel Orientation="Vertical" Margin="10">
         <TextBlock Name="MainText" Text="Welcome to Avalonia UI" />
