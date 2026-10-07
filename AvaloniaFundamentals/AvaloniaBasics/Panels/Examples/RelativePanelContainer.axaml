@@ -1,0 +1,19 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Panels.Examples.RelativePanelContainer"
+        Title="RelativePanelContainer" Width="800" Height="450">
+
+    <RelativePanel Background="Gray" Margin="10">
+        <Rectangle Name="OrangeRectangle" Fill="Orange" Width="45" Height="45" />
+        <Rectangle Name="GreenRectangle" Fill="Green" Width="90" Height="45" RelativePanel.RightOf="OrangeRectangle" />
+        <Rectangle Name="RedRectangle" Fill="Red" Width="135" Height="45" RelativePanel.Below="OrangeRectangle"
+                   RelativePanel.AlignLeftWith="OrangeRectangle" />
+        <Rectangle Name="BlueRectangle" Fill="Blue" RelativePanel.Below="RedRectangle"
+                   RelativePanel.AlignLeftWith="GreenRectangle" RelativePanel.AlignRightWithPanel="True"
+                   RelativePanel.AlignBottomWithPanel="True" />
+    </RelativePanel>
+
+</Window>
