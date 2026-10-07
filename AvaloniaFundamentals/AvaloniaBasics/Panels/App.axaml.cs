@@ -12,7 +12,7 @@ public partial class App : Application {
 
     public override void OnFrameworkInitializationCompleted() {
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop) {
-            const int windowChoice = 3;
+            const int windowChoice = 5;
 
             desktop.MainWindow = windowChoice switch {
                 0 => new Examples.StackPanelContainer(),
@@ -20,6 +20,7 @@ public partial class App : Application {
                 2 => new Examples.GridContainer(),
                 3 => new Examples.CanvasContainer(),
                 4 => new Examples.RelativePanelContainer(),
+                5 => new Examples.DockPanelContainer(),
                 _ => new Window(),
             };
         }

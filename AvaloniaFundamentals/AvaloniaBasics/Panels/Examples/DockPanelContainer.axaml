@@ -1,0 +1,28 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Panels.Examples.DockPanelContainer"
+        Title="DockPanelContainer" Width="800" Height="450">
+
+    <Border BorderBrush="LightBlue" BorderThickness="10" Margin="10" Padding="10">
+        <DockPanel LastChildFill="True">
+            <Menu DockPanel.Dock="Top" Name="MainMenu" Background="LightGray">
+                <MenuItem Header="_File">
+                    <MenuItem Header="Open" />
+                    <Separator />
+                    <MenuItem Header="_Exit" />
+                </MenuItem>
+                <MenuItem Header="Edit">
+                    <MenuItem Header="Copy" />
+                    <MenuItem Header="Paste" />
+                </MenuItem>
+            </Menu>
+            <StackPanel>
+                <TextBlock Text="Command bar" />
+            </StackPanel>
+        </DockPanel>
+    </Border>
+
+</Window>

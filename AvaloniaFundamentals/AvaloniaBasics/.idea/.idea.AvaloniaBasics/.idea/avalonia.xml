@@ -6,8 +6,10 @@
         <entry key="FirstApp/App.axaml" value="FirstApp/FirstApp.csproj" />
         <entry key="FirstApp/MainWindow.axaml" value="FirstApp/FirstApp.csproj" />
         <entry key="Panels/Examples/CanvasContainer.axaml" value="Panels/Panels.csproj" />
+        <entry key="Panels/Examples/DockPanelContainer.axaml" value="Panels/Panels.csproj" />
         <entry key="Panels/Examples/GridContainer.axaml" value="Panels/Panels.csproj" />
         <entry key="Panels/Examples/RelativePanelContainer.axaml" value="Panels/Panels.csproj" />
+        <entry key="Panels/Examples/ResponsiveLayout.axaml" value="Panels/Panels.csproj" />
         <entry key="Panels/Examples/StackPanelContainer.axaml" value="Panels/Panels.csproj" />
         <entry key="Panels/Examples/WrapPanelContainer.axaml" value="Panels/Panels.csproj" />
         <entry key="Panels/MainWindow.axaml" value="Panels/Panels.csproj" />
