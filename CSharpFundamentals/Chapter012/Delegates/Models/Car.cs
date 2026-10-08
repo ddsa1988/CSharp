@@ -1,8 +1,8 @@
 namespace Delegates.Models;
 
 internal class Car {
-    private bool _IsCarDead;
-    private CarEngineHandler _listOfHandlers;
+    private bool _isCarDead;
+    private CarEngineHandler? _listOfHandlers;
     public int CurrentSpeed { get; set; }
     public int MaxSpeed { get; set; }
     public string Name { get; set; }
@@ -16,11 +16,12 @@ internal class Car {
     }
 
     public void RegisterWithCarEngine(CarEngineHandler methodToCall) {
-        _listOfHandlers = methodToCall;
+        // '+=' => multiple methods; '=' => single method
+        _listOfHandlers += methodToCall;
     }
 
     public void Accelerate(int delta) {
-        if (_IsCarDead) {
+        if (_isCarDead) {
             _listOfHandlers?.Invoke("Sorry, Car is dead...");
             return;
         }
@@ -32,7 +33,7 @@ internal class Car {
         }
 
         if (CurrentSpeed > MaxSpeed) {
-            _IsCarDead = true;
+            _isCarDead = true;
             return;
         }
 
