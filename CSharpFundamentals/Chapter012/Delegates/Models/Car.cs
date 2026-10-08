@@ -20,6 +20,10 @@ internal class Car {
         _listOfHandlers += methodToCall;
     }
 
+    public void UnregisterWithCarEngine(CarEngineHandler methodToCall) {
+        _listOfHandlers -= methodToCall;
+    }
+
     public void Accelerate(int delta) {
         if (_isCarDead) {
             _listOfHandlers?.Invoke("Sorry, Car is dead...");

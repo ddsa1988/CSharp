@@ -10,6 +10,17 @@ internal static class UsingCarDelegate {
         car1.RegisterWithCarEngine(OnCarEngineEvent2);
 
         Console.WriteLine("***** Speeding up *****");
+
+        for (int i = 0; i < 6; i++) {
+            car1.Accelerate(20);
+        }
+
+        Console.WriteLine();
+
+        car1.UnregisterWithCarEngine(OnCarEngineEvent2);
+
+        Console.WriteLine("***** Speeding up *****");
+
         for (int i = 0; i < 6; i++) {
             car1.Accelerate(20);
         }
