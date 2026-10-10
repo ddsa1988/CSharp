@@ -2,17 +2,17 @@
 
 namespace EventKeyword.Examples;
 
-internal static class UsingCarEvent {
+internal static class UsingCarEvent1 {
     public static void Run() {
-        var car1 = new CarClass1("SlugBug", 100, 10);
+        var car = new CarClass1("SlugBug", 100, 10);
 
-        car1.AboutToBlow += CarAboutToBlow;
-        car1.AboutToBlow += CarIsAlmostDoomed;
+        car.AboutToBlow += CarAboutToBlow;
+        car.AboutToBlow += CarIsAlmostDoomed;
 
-        car1.Exploded += CarExploded;
+        car.Exploded += CarExploded;
 
         for (int i = 0; i < 6; i++) {
-            car1.Accelerate(20);
+            car.Accelerate(20);
         }
     }
 
