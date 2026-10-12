@@ -5,5 +5,12 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="Panels.Examples.ResponsiveLayout"
         Title="ResponsiveLayout" Width="">
-    Welcome to Avalonia!
+
+    <Border Container.Name="Main" Container.Sizing="Width">
+        <Grid ColumnDefinitions="200, *">
+            <StackPanel Name="Sidebar" Classes="sidebar" Grid.Column="0" />
+            <ContentControl Grid.Column="1" />
+        </Grid>
+    </Border>
+
 </Window>

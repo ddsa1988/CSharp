@@ -1,0 +1,21 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <!-- Add Controls for Previewer Here -->
+        </Border>
+    </Design.PreviewWith>
+
+    <!-- Add Styles Here -->
+    <Style Selector="StackPanel.sidebar">
+        <Setter Property="Background" Value="CadetBlue" />
+    </Style>
+
+    <ContainerQuery Name="Main" Query="max-width:600">
+        <Style Selector="StackPanel#Sidebar">
+            <Setter Property="Background" Value="BurlyWood" />
+            <Setter Property="Height" Value="300" />
+            <Setter Property="VerticalAlignment" Value="Bottom" />
+        </Style>
+    </ContainerQuery>
+</Styles>
