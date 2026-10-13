@@ -1,0 +1,41 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="450"
+        x:Class="Controls.Views.ButtonsWindow"
+        Title="Buttons" Width="600" Height="450">
+
+    <StackPanel Orientation="Vertical" Spacing="10">
+        <Button Name="Button1" Content="Simple Button" Background="DarkOliveGreen" Foreground="Orange"
+                BorderBrush="Red"
+                BorderThickness="2"
+                CornerRadius="10"
+                Click="Button1_OnClick" />
+
+        <Button>
+            <Button.Content>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="" />
+                    <TextBlock Text="Custom button" />
+                </StackPanel>
+            </Button.Content>
+        </Button>
+
+        <RepeatButton Name="RepeatButton1" Content="Repeat Button" Click="RepeatButton1_OnClick" />
+
+        <ToggleButton Name="ToggleButton1" Content="Toggle Button" IsChecked="False" Click="ToggleButton1_OnClick" />
+
+        <RadioButton Name="Option1" GroupName="First Group" IsChecked="True" Content="First choice"
+                     IsCheckedChanged="RadioButton_OnIsCheckedChanged" />
+        <RadioButton Name="Option2" GroupName="First Group" IsChecked="False" Content="Second choice"
+                     IsCheckedChanged="RadioButton_OnIsCheckedChanged" />
+        <RadioButton Name="Option3" GroupName="First Group" IsChecked="False" Content="Third choice"
+                     IsCheckedChanged="RadioButton_OnIsCheckedChanged" />
+
+        <ButtonSpinner Name="ButtonSpinner1" AllowSpin="True" ButtonSpinnerLocation="Right" Content="1"
+                       Spin="ButtonSpinner1_OnSpin" />
+
+    </StackPanel>
+
+</Window>

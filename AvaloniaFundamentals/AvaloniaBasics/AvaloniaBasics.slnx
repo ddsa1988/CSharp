@@ -1,4 +1,5 @@
 <Solution>
+  <Project Path="Controls/Controls.csproj" />
   <Project Path="FirstApp/FirstApp.csproj" />
   <Project Path="Panels/Panels.csproj" />
 </Solution>
