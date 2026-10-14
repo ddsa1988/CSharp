@@ -11,11 +11,13 @@ public partial class App : Application {
     }
 
     public override void OnFrameworkInitializationCompleted() {
-        const int userChoice = 0;
+        const int userChoice = 1;
 
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop) {
             desktop.MainWindow = userChoice switch {
                 0 => new ButtonsWindow(),
+                1 => new TextsWindow(),
+                2 => new DateAndTimeWindow(),
                 _ => new MainWindow()
             };
         }

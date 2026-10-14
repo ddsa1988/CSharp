@@ -1,0 +1,22 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="450"
+        x:Class="Controls.Views.TextsWindow"
+        Title="TextsWindow" Width="600" Height="450">
+
+    <StackPanel Orientation="Vertical">
+        <TextBlock Text="Displaying some text" HorizontalAlignment="Center" VerticalAlignment="Center"
+                   TextWrapping="Wrap" Foreground="Blue" />
+
+        <TextBox Name="TextBox1" PlaceholderText="Enter some text..." Foreground="Green"
+                 TextChanged="TextBox1_OnTextChanged" />
+
+        <TextBox Name="TextBox2" RevealPassword="False" PasswordChar="*" />
+
+        <MaskedTextBox Mask="(+09) 00 00000 0000" />
+
+        <AutoCompleteBox Name="FoodBox" FilterMode="StartsWith" />
+    </StackPanel>
+</Window>

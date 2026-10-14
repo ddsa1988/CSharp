@@ -6,6 +6,9 @@
         <entry key="Controls/App.axaml" value="Controls/Controls.csproj" />
         <entry key="Controls/MainWindow.axaml" value="Controls/Controls.csproj" />
         <entry key="Controls/Views/Buttons.axaml" value="Controls/Controls.csproj" />
+        <entry key="Controls/Views/ButtonsWindow.axaml" value="Controls/Controls.csproj" />
+        <entry key="Controls/Views/DateAndTimeWindow.axaml" value="Controls/Controls.csproj" />
+        <entry key="Controls/Views/TextsWindow.axaml" value="Controls/Controls.csproj" />
         <entry key="FirstApp/App.axaml" value="FirstApp/FirstApp.csproj" />
         <entry key="FirstApp/MainWindow.axaml" value="FirstApp/FirstApp.csproj" />
         <entry key="Panels/App.axaml" value="Panels/Panels.csproj" />
