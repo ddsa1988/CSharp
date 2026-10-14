@@ -8,6 +8,9 @@
 
     <StackPanel Orientation="Vertical">
 
+        <DatePicker Name="DatePicker1" MinYear="01/01/1970" MaxYear="12/31/2030"
+                    SelectedDateChanged="DatePicker1_OnSelectedDateChanged" />
+
     </StackPanel>
 
 </Window>
