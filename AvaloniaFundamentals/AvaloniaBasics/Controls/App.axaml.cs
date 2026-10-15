@@ -11,7 +11,7 @@ public partial class App : Application {
     }
 
     public override void OnFrameworkInitializationCompleted() {
-        const int userChoice = 3;
+        const int userChoice = 5;
 
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop) {
             desktop.MainWindow = userChoice switch {
@@ -19,6 +19,8 @@ public partial class App : Application {
                 1 => new TextsWindow(),
                 2 => new DateAndTimeWindow(),
                 3 => new ValueSelectionWindow(),
+                4 => new ImagesWindow(),
+                5 => new MenuWindow(),
                 _ => new MainWindow()
             };
         }
