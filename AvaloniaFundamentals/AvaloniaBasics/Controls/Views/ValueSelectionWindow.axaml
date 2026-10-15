@@ -9,6 +9,17 @@
     <StackPanel Orientation="Vertical" Margin="10" Spacing="10">
         <CheckBox Name="CheckBox1" IsChecked="True" IsThreeState="False" Content="Do you agree?"
                   IsCheckedChanged="CheckBox1_OnIsCheckedChanged" />
+
+        <Label Target="Slider1" Content="Select your age:" />
+        <Slider Name="Slider1" Minimum="13" Maximum="85" Value="30" TickFrequency="1" TickPlacement="TopLeft" Ticks="1"
+                ValueChanged="Slider1_OnValueChanged" />
+
+        <ComboBox SelectedIndex="0" IsDropDownOpen="False" SelectionChanged="SelectingItemsControl_OnSelectionChanged">
+            <ComboBoxItem Content="Item 1" />
+            <ComboBoxItem Content="Item 2" />
+            <ComboBoxItem Content="Item 3" />
+            <ComboBoxItem Content="Item 4" />
+        </ComboBox>
     </StackPanel>
 
 </Window>
