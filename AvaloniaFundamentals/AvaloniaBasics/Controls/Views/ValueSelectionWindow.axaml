@@ -1,0 +1,14 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="450"
+        x:Class="Controls.Views.ValueSelectionWindow"
+        Title="ValueSelectionWindow" Width="600" Height="450">
+
+    <StackPanel Orientation="Vertical" Margin="10" Spacing="10">
+        <CheckBox Name="CheckBox1" IsChecked="True" IsThreeState="False" Content="Do you agree?"
+                  IsCheckedChanged="CheckBox1_OnIsCheckedChanged" />
+    </StackPanel>
+
+</Window>

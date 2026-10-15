@@ -2,14 +2,24 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="450"
+        mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="500"
         x:Class="Controls.Views.DateAndTimeWindow"
-        Title="DateAndTimeWindow" Width="600" Height="450">
+        Title="DateAndTimeWindow" Width="600" Height="500">
 
-    <StackPanel Orientation="Vertical">
+    <StackPanel Orientation="Vertical" Margin="10" Spacing="10">
 
         <DatePicker Name="DatePicker1" MinYear="01/01/1970" MaxYear="12/31/2030"
                     SelectedDateChanged="DatePicker1_OnSelectedDateChanged" />
+
+        <Calendar Name="Calendar1" DisplayDate="07/03/2023" DisplayDateStart="01/01/2023" DisplayDateEnd="12/31/2023"
+                  DisplayMode="Month" FirstDayOfWeek="Monday" DisplayDateChanged="Calendar1_OnDisplayDateChanged" />
+
+        <CalendarDatePicker Name="CalendarDatePicker1" DisplayDate="07/03/2023" DisplayDateStart="01/01/2023"
+                            DisplayDateEnd="12/31/2023" FirstDayOfWeek="Monday"
+                            SelectedDateChanged="CalendarDatePicker1_OnSelectedDateChanged" />
+
+        <TimePicker Name="TimePicker1" MinuteIncrement="15" SelectedTime="02:30:00" ClockIdentifier="24HourClock"
+                    SelectedTimeChanged="TimePicker1_OnSelectedTimeChanged" />
 
     </StackPanel>
 
