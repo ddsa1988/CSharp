@@ -1,10 +1,12 @@
-﻿namespace ObjectOrientedProgramming.Models.Employee;
+﻿using ObjectOrientedProgramming.Utils;
+
+namespace ObjectOrientedProgramming.Models.People;
 
 internal class Person {
-    private string _name;
-    private DateOnly _birthdate;
+    private readonly string _name;
+    private readonly DateOnly _birthdate;
 
-    public Person(string name, DateOnly birthdate) {
+    protected Person(string name, DateOnly birthdate) {
         Name = name;
         Birthdate = birthdate;
     }
@@ -16,7 +18,7 @@ internal class Person {
                 throw new ArgumentException("Argument can't be null or empty", nameof(value));
             }
 
-            _name = value;
+            _name = value.ToCapitalizeCase();
         }
     }
 

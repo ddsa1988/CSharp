@@ -2,6 +2,6 @@
 
 public static class Program {
     public static void Main(string[] args) {
-        Console.WriteLine("Object Oriented Programming");
+        Examples.Example001.Run();
     }
 }

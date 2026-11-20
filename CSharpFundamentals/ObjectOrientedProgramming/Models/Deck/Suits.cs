@@ -1,8 +1,8 @@
 ﻿namespace ObjectOrientedProgramming.Models.Deck;
 
 internal enum Suits {
-    Clubs,
-    Diamonds,
-    Hearts,
-    Spades
+    Clubs = 1,
+    Diamonds = 2,
+    Hearts = 3,
+    Spades = 4,
 }
