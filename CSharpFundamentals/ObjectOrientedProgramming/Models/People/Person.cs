@@ -3,10 +3,10 @@
 namespace ObjectOrientedProgramming.Models.People;
 
 internal class Person {
-    private readonly string _name;
+    private readonly string _name = string.Empty;
     private readonly DateOnly _birthdate;
 
-    protected Person(string name, DateOnly birthdate) {
+    public Person(string name, DateOnly birthdate) {
         Name = name;
         Birthdate = birthdate;
     }
@@ -18,7 +18,7 @@ internal class Person {
                 throw new ArgumentException("Argument can't be null or empty", nameof(value));
             }
 
-            _name = value.ToCapitalizeCase();
+            _name = value.ToTitleCase();
         }
     }
 
