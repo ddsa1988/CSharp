@@ -1,4 +1,4 @@
 <Solution>
-  <Project Path="EntityFramework/EntityFramework.csproj" />
+  <Project Path="EntityFrameworkCore/EntityFrameworkCore.csproj" />
   <Project Path="ObjectOrientedProgramming/ObjectOrientedProgramming.csproj" />
 </Solution>
