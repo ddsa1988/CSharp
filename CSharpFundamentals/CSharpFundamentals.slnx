@@ -1,4 +1,5 @@
 <Solution>
   <Project Path="EntityFrameworkCore/EntityFrameworkCore.csproj" />
+  <Project Path="LanguageIntegratedQuery/LanguageIntegratedQuery.csproj" />
   <Project Path="ObjectOrientedProgramming/ObjectOrientedProgramming.csproj" />
 </Solution>
