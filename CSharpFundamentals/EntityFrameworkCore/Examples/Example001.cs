@@ -1,4 +1,5 @@
 ﻿using EntityFrameworkCore.Models.Blogging;
+using Microsoft.EntityFrameworkCore;
 
 namespace EntityFrameworkCore.Examples;
 
@@ -18,7 +19,7 @@ internal static class Example001 {
 
         // Read
         Console.WriteLine("Reading blogs.");
-        IEnumerable<Blog> blogs = db.Blogs.OrderBy(blog => blog.BlogId);
+        IEnumerable<Blog> blogs = db.Blogs.Include(blog => blog.Posts).OrderBy(blog => blog.BlogId);
 
         foreach (Blog blog in blogs) {
             Console.WriteLine(blog);
