@@ -8,6 +8,8 @@ internal static class Example001 {
         // Note: This sample requires the database to be created before running.
         var db = new BloggingDbContext();
 
+        db.Database.EnsureCreated();
+
         Console.WriteLine("Database created: " + db.DatabasePath);
         Console.WriteLine();
 
@@ -18,14 +20,16 @@ internal static class Example001 {
         Console.WriteLine();
 
         // Read
-        Console.WriteLine("Reading blogs.");
-        IEnumerable<Blog> blogs = db.Blogs.Include(blog => blog.Posts).OrderBy(blog => blog.BlogId);
+        {
+            Console.WriteLine("Reading blogs.");
+            IEnumerable<Blog> blogs = db.Blogs.Include(blog => blog.Posts).OrderBy(blog => blog.BlogId);
 
-        foreach (Blog blog in blogs) {
-            Console.WriteLine(blog);
+            foreach (Blog blog in blogs) {
+                Console.WriteLine(blog);
+            }
+
+            Console.WriteLine();
         }
-
-        Console.WriteLine();
 
         // Update
         {
@@ -44,9 +48,24 @@ internal static class Example001 {
             Console.WriteLine("Deleting a blog.");
             Blog? blog = db.Blogs.FirstOrDefault(blog => blog.BlogId == 2);
 
-            if (blog == null) return;
-            db.Remove(blog);
-            db.SaveChangesAsync();
+            if (blog != null) {
+                db.Remove(blog);
+                db.SaveChangesAsync();
+            }
+
+            Console.WriteLine();
+        }
+
+        // Read
+        {
+            Console.WriteLine("Reading blogs.");
+            IEnumerable<Blog> blogs = db.Blogs.Include(blog => blog.Posts).OrderBy(blog => blog.BlogId);
+
+            foreach (Blog blog in blogs) {
+                Console.WriteLine(blog);
+            }
+
+            Console.WriteLine();
         }
     }
 }
