@@ -5,10 +5,12 @@ internal static class LinqDeferredExecution {
     public static void Run() {
         int[] numbers = [10, 20, 30, 40, 1, 2, 3, 8];
 
-        IEnumerable<int> subset =
-            from number in numbers
-            where number < 10
-            select number;
+        // IEnumerable<int> subset =
+        //     from number in numbers
+        //     where number < 10
+        //     select number;
+
+        IEnumerable<int> subset = numbers.Where(number => number < 10);
 
         // LINQ statement evaluated here!
         foreach (int number in subset) {
