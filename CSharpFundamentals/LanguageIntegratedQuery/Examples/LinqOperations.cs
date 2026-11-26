@@ -13,7 +13,7 @@ internal static class LinqOperations {
     ];
 
     public static void Run() {
-        const int choice = 3;
+        const int choice = 4;
 
         switch (choice) {
             case 0:
@@ -27,6 +27,9 @@ internal static class LinqOperations {
                 break;
             case 3:
                 _ = GetNamesAndDescriptions(ItemsInStock);
+                break;
+            case 4:
+                _ = GetNamesAndDescriptionsTyped(ItemsInStock);
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(choice), "Invalid choice");
@@ -83,6 +86,23 @@ internal static class LinqOperations {
         Console.WriteLine("Names and Descriptions: ");
 
         foreach (var obj in nameDesc) {
+            Console.WriteLine(obj);
+        }
+
+        return nameDesc;
+    }
+
+    private static ProductInfoSmall[] GetNamesAndDescriptionsTyped(ProductInfo[] products) {
+        // ProductInfoSmall[] nameDesc =
+        //     (from product in products
+        //         select new ProductInfoSmall() { Name = product.Name, Description = product.Description }).ToArray();
+
+        ProductInfoSmall[] nameDesc = products.Select(product => new ProductInfoSmall()
+            { Name = product.Name, Description = product.Description }).ToArray();
+
+        Console.WriteLine("Names and Descriptions: ");
+
+        foreach (ProductInfoSmall obj in nameDesc) {
             Console.WriteLine(obj);
         }
 
