@@ -13,7 +13,7 @@ internal static class LinqOperations {
     ];
 
     public static void Run() {
-        const int choice = 4;
+        const int choice = 6;
 
         switch (choice) {
             case 0:
@@ -30,6 +30,12 @@ internal static class LinqOperations {
                 break;
             case 4:
                 _ = GetNamesAndDescriptionsTyped(ItemsInStock);
+                break;
+            case 5:
+                AlphabetizeProductNames(ItemsInStock);
+                break;
+            case 6:
+                DisplayDiff();
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(choice), "Invalid choice");
@@ -107,5 +113,42 @@ internal static class LinqOperations {
         }
 
         return nameDesc;
+    }
+
+    private static void AlphabetizeProductNames(ProductInfo[] products) {
+        // IEnumerable<ProductInfo> subset =
+        //     from product in products
+        //     orderby product.Name ascending
+        //     select product;
+
+        IEnumerable<ProductInfo> subset =
+            products.OrderBy(product => product.Name, StringComparer.InvariantCultureIgnoreCase);
+
+        Console.WriteLine("Ordered by name: ");
+
+        foreach (ProductInfo product in subset) {
+            Console.WriteLine(product);
+        }
+    }
+
+    private static void DisplayDiff() {
+        List<string> myCars = ["Yugo", "Aztec", "BMW"];
+        List<string> yourCars = ["BMW", "Saab", "Aztec"];
+
+        // The Except() method returns those elements in first that don't appear in second.
+        // It doesn't return those elements in second that don't appear in first.
+        // Only unique elements are returned.
+
+        // IEnumerable<string> carDiff =
+        //     (from myCar in myCars
+        //         select myCar).Except(from yourCar in yourCars select yourCar);
+
+        IEnumerable<string> carDiff = myCars.Except(yourCars);
+
+        Console.WriteLine("Here is what you don't have, but I do: ");
+
+        foreach (string car in carDiff) {
+            Console.WriteLine(car);
+        }
     }
 }
