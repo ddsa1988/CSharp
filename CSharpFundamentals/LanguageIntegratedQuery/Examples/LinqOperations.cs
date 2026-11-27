@@ -12,8 +12,11 @@ internal static class LinqOperations {
         new() { Name = "Classic Valpo Pizza", Description = "Everyone loves pizza!", NumberInStock = 73 }
     ];
 
+    private static readonly List<string> MyCars = ["Yugo", "Aztec", "BMW"];
+    private static readonly List<string> YourCars = ["BMW", "Saab", "Aztec"];
+
     public static void Run() {
-        const int choice = 6;
+        int choice = int.Parse("8");
 
         switch (choice) {
             case 0:
@@ -36,6 +39,12 @@ internal static class LinqOperations {
                 break;
             case 6:
                 DisplayDiff();
+                break;
+            case 7:
+                DisplayIntersect();
+                break;
+            case 8:
+                DisplayUnion();
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(choice), "Invalid choice");
@@ -132,9 +141,6 @@ internal static class LinqOperations {
     }
 
     private static void DisplayDiff() {
-        List<string> myCars = ["Yugo", "Aztec", "BMW"];
-        List<string> yourCars = ["BMW", "Saab", "Aztec"];
-
         // The Except() method returns those elements in first that don't appear in second.
         // It doesn't return those elements in second that don't appear in first.
         // Only unique elements are returned.
@@ -143,11 +149,43 @@ internal static class LinqOperations {
         //     (from myCar in myCars
         //         select myCar).Except(from yourCar in yourCars select yourCar);
 
-        IEnumerable<string> carDiff = myCars.Except(yourCars);
+        IEnumerable<string> carDiff = MyCars.Except(YourCars);
 
         Console.WriteLine("Here is what you don't have, but I do: ");
 
         foreach (string car in carDiff) {
+            Console.WriteLine(car);
+        }
+    }
+
+    private static void DisplayIntersect() {
+        // The Intersect() method will return a result set that contains the common data items in a set of containers.
+
+        // IEnumerable<string> carIntersect =
+        //     (from myCar in myCars
+        //         select myCar).Intersect(from yourCar in yourCars select yourCar);
+
+        IEnumerable<string> carIntersect = MyCars.Intersect(YourCars);
+
+        Console.WriteLine("Here is what we have in common: ");
+
+        foreach (string car in carIntersect) {
+            Console.WriteLine(car);
+        }
+    }
+
+    private static void DisplayUnion() {
+        // The Union() method, returns a result set that includes all members of a batch of LINQ queries.
+
+        // IEnumerable<string> carUnion =
+        //     (from myCar in MyCars
+        //         select myCar).Union(from yourCar in YourCars select yourCar);
+
+        IEnumerable<string> carUnion = MyCars.Union(YourCars);
+
+        Console.WriteLine("Here is everything: ");
+
+        foreach (string car in carUnion) {
             Console.WriteLine(car);
         }
     }
